@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mock-theta-census</title>
+<meta name="description" content="A computational census of Ramanujan-style mock theta functions, and the sign-twisted fifth-order companions ψ₁*, ψ₀*.">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#1a2123;--panel:#222b2e;--ink:#eef0ea;--muted:#a7b1ae;--line:#38454a;--teal:#5fd3c0;--chalk:#f3e9a6}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink)}
+body{font:16px/1.55 "IBM Plex Sans",system-ui,sans-serif;padding:clamp(28px,6vw,72px) max(5vw,18px)}
+.wrap{max-width:900px;margin:0 auto}
+h1{font:600 clamp(32px,5vw,52px)/1.05 Newsreader,Georgia,serif;letter-spacing:-.02em;margin:0}
+.lede{color:var(--muted);max-width:66ch;margin:14px 0 30px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}@media(max-width:620px){.cards{grid-template-columns:1fr}}
+.cards a{display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 20px;color:var(--ink);text-decoration:none}
+.cards a:hover{border-color:var(--teal)}
+.cards b{display:block;font:600 22px Newsreader,Georgia,serif;margin-bottom:4px}
+.cards span{font-size:14px;color:var(--muted)}
+.law{font:21px Newsreader,Georgia,serif;color:var(--chalk);margin:34px 0 6px}
+p.small{font-size:14px;color:var(--muted)}
+a{color:var(--teal)}
+</style>
+</head>
+<body><div class="wrap">
+<h1>mock-theta-census</h1>
+<p class="lede">A computational search for Ramanujan-style mock theta functions. A growth test at 19 roots of unity classifies q-series; a census of 8,869 functions finds 25 mock theta functions, all identified; and two of them lead to the sign-twisted fifth-order companions ψ₁*, ψ₀*.</p>
+<div class="cards">
+<a href="explorer-v1.html"><b>Explorer</b><span>Ramanujan's f(q) on the unit disk: watch it blow up at the roots of unity and see what "mock" means.</span></a>
+<a href="fingerprints-v1.html"><b>Fingerprints</b><span>The classifier's results for 51 known functions, the census, and what ψ₁*, ψ₀* turned out to be.</span></a>
+<a href="https://github.com/Quasimondo/mock-theta-census/blob/main/docs/formulas.md"><b>Formula sheet</b><span>Every formula in LaTeX, Unicode, plain text and Mathematica, with coefficient lists.</span></a>
+<a href="https://github.com/Quasimondo/mock-theta-census"><b>Code and data</b><span>The census scripts, results, and the write-ups on GitHub.</span></a>
+</div>
+<p class="law">ψ₁*(q) = Σ (−1)ⁿ q<sup>n(n+1)/2</sup> (−q;q)<sub>n</sub>, &nbsp; 2ψ₁* = f₁* + θ₄·R₁</p>
+<p class="small">Mario Klingemann, 2026. Made with Claude. Code MIT, data and documents CC BY 4.0.</p>
+</div></body>
+</html>
