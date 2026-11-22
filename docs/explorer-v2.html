@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mock Theta Explorer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE everyday-learning, a mathematician's working tool
+   IDEA Ramanujan's slate: chalk on dark stone, a live picture of the function
+   PICTURE the unit disk coloured by |f(q)|, spikes at the rim, a probe ray to a root of unity
+   COLOUR slate ground, chalk ink, pink and teal for the two theta corrections
+   TYPE Newsreader for titles and formulas, IBM Plex Sans for text
+   LAYOUT laptop: disk left, controls right; radial test below; phone: title, disk, controls, test */
+:root{color-scheme:dark;--bg:#1a2123;--panel:#222b2e;--ink:#eef0ea;--muted:#a7b1ae;--line:#38454a;--pink:#ff6f91;--teal:#5fd3c0;--chalk:#f3e9a6}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0;background:var(--bg);color:var(--ink)}
+body{font:16px/1.55 "IBM Plex Sans",system-ui,sans-serif;overflow-x:clip}
+.band{padding-block:clamp(22px,3.5vw,48px);padding-left:max(4vw,16px);padding-right:max(4vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+h1,h2{font-family:Newsreader,Georgia,serif;font-weight:600;line-height:1.05;letter-spacing:-.02em;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,4.4vw,48px)}
+h2{font-size:clamp(22px,2.6vw,30px)}
+.lede{color:var(--muted);max-width:68ch;margin:10px 0 0}
+.main{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(18px,3vw,40px);margin-top:22px;align-items:start}
+.disk{position:relative;aspect-ratio:1;width:100%;max-width:720px}
+.disk canvas,.disk svg{position:absolute;inset:0;width:100%;height:100%}
+.disk canvas{image-rendering:auto}
+.disk svg{cursor:crosshair}
+.status{position:absolute;left:0;bottom:0;font-size:13px;color:var(--muted)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px}
+.panel+.panel{margin-top:14px}
+.lab{font-size:14px;color:var(--muted);margin:0 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{font:500 15px/1 "IBM Plex Sans",sans-serif;min-height:40px;padding:0 13px;border-radius:20px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.chips button:hover{border-color:var(--muted)}
+.chips button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chips button:focus-visible,input:focus-visible{outline:2px solid var(--chalk);outline-offset:2px}
+.chips button:disabled{opacity:.35;cursor:default}
+.formula{font-family:Newsreader,Georgia,serif;font-size:19px;line-height:1.4;margin:12px 0 0}
+.note{font-size:14px;color:var(--muted);margin:8px 0 0}
+.row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+input[type=range]{width:100%;accent-color:var(--chalk);height:32px}
+.read{font-variant-numeric:tabular-nums;font-size:14px;color:var(--muted);min-height:44px}
+.read b{color:var(--ink);font-weight:500}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;color:var(--muted);margin-top:10px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.radial{border-top:1px solid var(--line)}
+.rgrid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(18px,3vw,40px);margin-top:18px;align-items:start}
+.fig{position:relative;height:340px}
+.fig>svg{position:absolute;inset:0;width:100%;height:100%}
+svg text{font:13px "IBM Plex Sans",sans-serif;fill:var(--muted);paint-order:stroke;stroke:var(--bg);stroke-width:4px}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{text-align:right;padding:7px 6px;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-weight:500;color:var(--muted)}
+th:first-child,td:first-child{text-align:left}
+.lim{font-family:Newsreader,Georgia,serif;font-size:22px;margin:4px 0 14px}
+.inp{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:15px;flex-wrap:wrap}
+.inp input{width:4.5em;font:16px "IBM Plex Sans",sans-serif;padding:8px;border-radius:6px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+.notes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,3vw,36px);border-top:1px solid var(--line)}
+.notes h3{font:600 17px "IBM Plex Sans",sans-serif;margin:0 0 6px}
+.notes p{margin:0;color:var(--muted);font-size:15px}
+@media(max-width:820px){.main,.rgrid{grid-template-columns:minmax(0,1fr)}.notes{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.fig{height:280px}table{font-size:13px}th,td{padding:6px 4px}}
+.back{display:inline-block;font:14px "IBM Plex Sans",system-ui,sans-serif;color:var(--muted);text-decoration:none;margin-bottom:14px}.back:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<section class="band"><div class="wrap">
+<a class="back" href="./">← mock-theta-census</a>
+<h1>Mock theta functions on the unit disk, and the new ψ*</h1>
+<p class="lede">Brightness shows how large the function gets. Mock theta functions blow up at the rim, at roots of unity, the way theta functions do. But no single theta function cancels every spike. Try subtracting Ramanujan's own partner b(q). Then compare ψ₁ with ψ₁*, the sign-twisted companion found in this census: walk straight toward any root of unity and it stays bounded.</p>
+<div class="main">
+  <div>
+    <div class="disk" id="disk">
+      <canvas id="cv" width="200" height="200"></canvas>
+      <svg id="ov" aria-label="Unit disk overlay"></svg>
+      <div class="status" id="status">Rendering…</div>
+    </div>
+  </div>
+  <div>
+    <div class="panel">
+      <p class="lab">Function</p>
+      <div class="chips" id="fn"></div>
+      <p class="formula" id="formula"></p>
+      <p class="note" id="fnote"></p>
+    </div>
+    <div class="panel">
+      <p class="lab">Subtract the theta partner (for f)</p>
+      <div class="chips" id="sub"></div>
+      <p class="note" id="subnote"></p>
+      <div class="legend"><span><i style="background:var(--pink)"></i>orders 2, 6, 10: cancelled by f + b</span><span><i style="border:2px solid var(--teal)"></i>orders 4, 8, 12: cancelled by f − b</span><span><i style="background:#7d8a87;width:7px;height:7px"></i>odd orders: f stays bounded</span></div>
+    </div>
+    <div class="panel">
+      <div class="row">
+        <div><p class="lab">Colour</p><div class="chips" id="col"></div></div>
+        <div><p class="lab">Reach toward rim: <b id="rv"></b></p><input type="range" id="rmax" min="0.95" max="0.995" step="0.001" value="0.993" aria-label="Maximum radius"></div>
+      </div>
+      <p class="read" id="read">Hover the disk to read values. Click near the rim to aim the radial probe.</p>
+    </div>
+  </div>
+</div>
+</div></section>
+
+<section class="band radial"><div class="wrap">
+<h2 id="rhead">Radial test</h2>
+<p class="lede">Walk along the ray q = r·ζ toward a root of unity ζ. For f: Ramanujan claimed in his last letter that near an even-order root (order 2k), f(q) − (−1)<sup>k</sup> b(q) stays bounded. Folsom, Ono and Rhoades proved it in 2013 and found the exact limit.</p>
+<div class="rgrid">
+  <div>
+    <div class="fig" id="chart"><svg id="csvg" aria-label="Radial growth chart"></svg></div>
+    <p class="note">Horizontal axis: distance ε = 1 − r to the rim, shrinking to the right. Beyond |f| ≈ 10<sup>13</sup>, ordinary 64-bit arithmetic can't subtract two huge numbers accurately; that stretch is drawn dashed.</p>
+  </div>
+  <div>
+    <div class="panel">
+      <p class="lab">Root of unity ζ</p>
+      <div class="chips" id="roots"></div>
+      <div class="inp"><label for="hh">ζ = e<sup>2πi·h/m</sup>, h</label><input id="hh" type="number" min="0" value="1"><label for="mm">m</label><input id="mm" type="number" min="1" max="60" value="4"></div>
+      <p class="note" id="status2"></p>
+      <p class="lab" style="margin-top:16px" id="limlab">Predicted limit</p>
+      <p class="lim" id="lim"></p>
+      <div class="scroll"><table id="tab"></table></div>
+    </div>
+  </div>
+</div>
+</div></section>
+
+<section class="band notes"><div class="wrap" style="display:contents">
+<div><h3>What "mock" means</h3><p>A theta function blows up at the rim in a pattern fixed by one symmetry law, so a single correction explains every spike. Here f needs b at some roots and −b at others. Zwegers (2002) found the missing piece: f is half of a harmonic Maass form, completed by a non-holomorphic "shadow".</p></div>
+<div><h3>The limit formula</h3><p>For ζ of order 2k: lim [f(rζ) − (−1)<sup>k</sup>b(rζ)] = −4 Σ<sub>n=0</sub><sup>k−1</sup> (1+ζ)²(1+ζ²)²⋯(1+ζ<sup>n</sup>)² ζ<sup>n+1</sup>. The sum is finite: those limiting values form a "quantum modular form", an object type Zagier named in 2010.</p></div>
+<div><h3>Odd orders</h3><p>At roots of odd order f stays finite: try ζ = 1, where the series formally becomes Σ 1/4ⁿ = 4/3. Only the even-order roots carry the theta-like spikes.</p></div>
+<div><h3>ψ₁* and ψ₀*</h3><p>Inserting (−1)ⁿ into the fifth-order ψ₁, ψ₀ removes the spikes at the roots of unity: along a ray into any root, ψ* stays bounded. Between roots it can still grow large, as the bright patches near q = 1 show. At even-order roots the series stops after m/2 terms, and the radial limit equals that finite sum, e.g. ψ₁*(i) = 2 − i. At odd orders the limits come from cancellation: ψ₁* and ψ₀* both tend to 1/3 as q → 1, which is what the formal sum Σ(−2)ⁿ gives, and ψ₁* → 1, ψ₀* → 0 at the cube roots. Those limits come from huge terms cancelling, so the radial probe for ψ* uses exact big-number arithmetic instead of ordinary floating point.</p></div>
+</div></section>
+
+<script type="text/js-worker" id="wsrc">
+function lnr(qr,qi){return -0.5*Math.log(qr*qr+qi*qi)}
+const PSI={psi1:[1,0],psi1s:[-1,0],psi0s:[-1,1]};
+function psiSeries(id,qr,qi){
+  const [sg,off]=PSI[id],lr=lnr(qr,qi),N=Math.min(5000,Math.ceil(Math.sqrt(2*(lr>0?Math.min(800,0.83/Math.max(lr,1e-9))+42:42)/Math.max(lr,1e-12)))+3);
+  let tr=off?qr:1,ti=off?qi:0,sr=tr,si=ti,pr=1,pi=0,mx=Math.hypot(tr,ti);
+  for(let n=1;n<=N;n++){
+    let t=pr*qr-pi*qi;pi=pr*qi+pi*qr;pr=t;
+    let ar=sg*(1+pr),ai=sg*pi;
+    t=ar*pr-ai*pi;ai=ar*pi+ai*pr;ar=t;
+    if(off){t=ar*qr-ai*qi;ai=ar*qi+ai*qr;ar=t}
+    t=tr*ar-ti*ai;ti=tr*ai+ti*ar;tr=t;
+    sr+=tr;si+=ti;const a=Math.hypot(tr,ti);if(a>mx)mx=a;
+    if(!isFinite(a))break;
+  }
+  return [sr,si,(mx>1e11*Math.max(1,Math.hypot(sr,si))||!isFinite(mx))?1:0];
+}
+function psiBig(id,r,ang,m){
+  const [sg,off]=PSI[id],eps=1-r,bits=Math.ceil(Math.PI*Math.PI/(12*eps*m*m)/Math.LN2)+140,B=BigInt(bits);
+  const N=Math.ceil(Math.sqrt(2*bits*Math.LN2/eps))+8,ONE=1n<<B;
+  const fx=x=>BigInt(Math.round(x*2**52))<<(B-52n);
+  const qr=fx(r*Math.cos(ang)),qi=fx(r*Math.sin(ang));
+  const mul=(a,b,c,d)=>[(a*c-b*d)>>B,(a*d+b*c)>>B];
+  let [tr,ti]=off?[qr,qi]:[ONE,0n],sr=tr,si=ti,pr=ONE,pi=0n;
+  for(let n=1;n<=N;n++){
+    [pr,pi]=mul(pr,pi,qr,qi);
+    let ar=ONE+pr,ai=pi;if(sg<0){ar=-ar;ai=-ai}
+    [ar,ai]=mul(ar,ai,pr,pi);
+    if(off)[ar,ai]=mul(ar,ai,qr,qi);
+    [tr,ti]=mul(tr,ti,ar,ai);sr+=tr;si+=ti;
+  }
+  const S=B-60n,tn=x=>Number(x>>S)/2**60;
+  return [tn(sr),tn(si)];
+}
+function series(id,qr,qi){
+  const lr=lnr(qr,qi),N=Math.min(5000,Math.ceil(Math.sqrt(42/Math.max(lr,1e-12)))+3);
+  let tr=1,ti=0,pr=1,pi=0,or=qr,oi=qi;
+  const q2r=qr*qr-qi*qi,q2i=2*qr*qi;
+  if(id==='omega'){const ar=1-qr,ai=-qi,dr=ar*ar-ai*ai,di=2*ar*ai,d=dr*dr+di*di;tr=dr/d;ti=-di/d}
+  let sr=id==='psi'?0:tr,si=id==='psi'?0:ti;
+  for(let n=1;n<=N;n++){
+    let t=pr*qr-pi*qi;pi=pr*qi+pi*qr;pr=t;
+    const q2nr=pr*pr-pi*pi,q2ni=2*pr*pi;
+    let nr=or,ni=oi,dr=1,di=0;
+    if(id==='omega'){nr=q2nr*q2nr-q2ni*q2ni;ni=2*q2nr*q2ni;const ar=1-(q2nr*qr-q2ni*qi),ai=-(q2nr*qi+q2ni*qr);dr=ar*ar-ai*ai;di=2*ar*ai}
+    else if(id==='f'){const ar=1+pr,ai=pi;dr=ar*ar-ai*ai;di=2*ar*ai}
+    else if(id==='f0'){dr=1+pr;di=pi}
+    else if(id==='phi'){dr=1+q2nr;di=q2ni}
+    else if(id==='chi'){dr=1-pr+q2nr;di=q2ni-pi}
+    else if(id==='psi'){dr=1-or;di=-oi}
+    const ur=tr*nr-ti*ni,ui=tr*ni+ti*nr,dd=dr*dr+di*di;
+    tr=(ur*dr+ui*di)/dd;ti=(ui*dr-ur*di)/dd;
+    sr+=tr;si+=ti;
+    t=or*q2r-oi*q2i;oi=or*q2i+oi*q2r;or=t;
+  }
+  return [sr,si];
+}
+function theta(qr,qi,alt){
+  const lr=lnr(qr,qi),N=Math.min(5000,Math.ceil(Math.sqrt(42/Math.max(lr,1e-12)))+3);
+  const q2r=qr*qr-qi*qi,q2i=2*qr*qi;
+  let sr=1,si=0,ar=1,ai=0,or=qr,oi=qi;
+  for(let n=1;n<=N;n++){
+    let t=ar*or-ai*oi;ai=ar*oi+ai*or;ar=t;
+    const c=(alt&&n%2)?-2:2;sr+=c*ar;si+=c*ai;
+    t=or*q2r-oi*q2i;oi=or*q2i+oi*q2r;or=t;
+  }
+  return [sr,si];
+}
+function bfun(qr,qi){
+  const [tr,ti]=theta(qr,qi,true),lr=lnr(qr,qi),K=Math.min(400000,Math.ceil(21/Math.max(lr,1e-12))+2);
+  const q2r=qr*qr-qi*qi,q2i=2*qr*qi;
+  let pr=1,pi=0,or=qr,oi=qi;
+  for(let k=0;k<K;k++){
+    const ar=1-or,ai=-oi;let t=pr*ar-pi*ai;pi=pr*ai+pi*ar;pr=t;
+    t=or*q2r-oi*q2i;oi=or*q2i+oi*q2r;or=t;
+  }
+  return [pr*tr-pi*ti,pr*ti+pi*tr];
+}
+function evalAt(id,sub,qr,qi){
+  if(id==='b'){const v=bfun(qr,qi);return [v[0],v[1],0]}
+  if(id==='theta'){const v=theta(qr,qi,false);return [v[0],v[1],0]}
+  if(PSI[id])return psiSeries(id,qr,qi);
+  const F=series(id,qr,qi);
+  if(id!=='f'||!sub)return [F[0],F[1],0];
+  const B=bfun(qr,qi),big=Math.max(Math.hypot(F[0],F[1]),Math.hypot(B[0],B[1]));
+  return [F[0]+sub*B[0],F[1]+sub*B[1],big>1e13?1:0];
+}
+function map(S,R0,rmax,id,sub){
+  const n=S*S,re=new Float64Array(n),im=new Float64Array(n),fl=new Uint8Array(n);
+  for(let y=0;y<S;y++)for(let x=0;x<S;x++){
+    const i=y*S+x,qr=((x+.5)/S*2-1)*R0,qi=(1-(y+.5)/S*2)*R0;
+    if(Math.hypot(qr,qi)>rmax){fl[i]=2;continue}
+    const v=evalAt(id,sub,qr,qi);re[i]=v[0];im[i]=v[1];fl[i]=v[2];
+  }
+  return {re,im,fl};
+}
+self.onmessage=e=>{
+  const m=e.data;
+  if(m.type==='map'){
+    const t0=Date.now(),lo=Math.max(60,Math.round(m.S/4));
+    let r=map(lo,m.R0,m.rmax,m.id,m.sub);
+    self.postMessage({type:'map',S:lo,final:false,re:r.re,im:r.im,fl:r.fl},[r.re.buffer,r.im.buffer,r.fl.buffer]);
+    r=map(m.S,m.R0,m.rmax,m.id,m.sub);
+    self.postMessage({type:'map',S:m.S,final:true,ms:Date.now()-t0,re:r.re,im:r.im,fl:r.fl},[r.re.buffer,r.im.buffer,r.fl.buffer]);
+  } else if(m.type==='ray'){
+    const a=2*Math.PI*m.h/m.m,ca=Math.cos(a),sa=Math.sin(a),out=[];
+    for(const eps of m.eps){const r=1-eps,qr=r*ca,qi=r*sa;out.push(PSI[m.id]?{eps,F:psiBig(m.id,r,a,m.m),B:[0,0]}:{eps,F:series('f',qr,qi),B:bfun(qr,qi)})}
+    self.postMessage({type:'ray',key:m.key,out});
+  }
+};
+</script>
+
+<script>
+{
+const $=id=>document.getElementById(id);
+const R0=1.08;
+const FNS=[
+ {id:'f',lab:'f',f:'f(q) = Σ q<sup>n²</sup> / (1+q)²(1+q²)²⋯(1+q<sup>n</sup>)²',n:'Third order. The function from Ramanujan\'s last letter to Hardy, January 1920.'},
+ {id:'phi',lab:'φ',f:'φ(q) = Σ q<sup>n²</sup> / (1+q²)(1+q⁴)⋯(1+q<sup>2n</sup>)',n:'Third order.'},
+ {id:'psi',lab:'ψ',f:'ψ(q) = Σ<sub>n≥1</sub> q<sup>n²</sup> / (1−q)(1−q³)⋯(1−q<sup>2n−1</sup>)',n:'Third order.'},
+ {id:'chi',lab:'χ',f:'χ(q) = Σ q<sup>n²</sup> / ∏<sub>k≤n</sub>(1 − q<sup>k</sup> + q<sup>2k</sup>)',n:'Third order.'},
+ {id:'omega',lab:'ω',f:'ω(q) = Σ q<sup>2n(n+1)</sup> / (1−q)²(1−q³)²⋯(1−q<sup>2n+1</sup>)²',n:'Third order, found by Watson in 1936 and also in the Lost Notebook.'},
+ {id:'f0',lab:'f₀',f:'f₀(q) = Σ q<sup>n²</sup> / (1+q)(1+q²)⋯(1+q<sup>n</sup>)',n:'Fifth order. Its identities are among the "mock theta conjectures", proved by Hickerson in 1988.'},
+ {id:'psi1',lab:'ψ₁',f:'ψ₁(q) = Σ q<sup>n(n+1)/2</sup> (1+q)(1+q²)⋯(1+q<sup>n</sup>)',n:'Fifth order. Compare it with ψ₁*, which differs only by the sign (−1)ⁿ.'},
+ {id:'psi1s',lab:'ψ₁*',f:'ψ₁*(q) = Σ (−1)ⁿ q<sup>n(n+1)/2</sup> (1+q)(1+q²)⋯(1+q<sup>n</sup>)',n:'Found in this census: ψ₁ with the sign (−1)ⁿ inserted. Bounded along every ray into a root of unity; the bright patches lie between the roots. 2ψ₁* = f₁* + θ₄·R₁, a sign-twisted fifth-order function plus a theta function times an entire Rogers–Ramanujan function.'},
+ {id:'psi0s',lab:'ψ₀*',f:'ψ₀*(q) = Σ (−1)ⁿ q<sup>(n+1)(n+2)/2</sup> (1+q)(1+q²)⋯(1+q<sup>n</sup>)',n:'Found in this census, the partner of ψ₁*. 2ψ₀* = f₀* − θ₄·R₀.'},
+ {id:'b',lab:'b',f:'b(q) = (1−q)(1−q³)(1−q⁵)⋯ · (1 − 2q + 2q⁴ − 2q⁹ + ⋯)',n:'Ramanujan\'s theta partner for f: a true modular form.'},
+ {id:'theta',lab:'θ₃',f:'θ₃(q) = 1 + 2q + 2q⁴ + 2q⁹ + ⋯',n:'An honest theta function, for comparison. One symmetry law governs its behaviour at every root of unity.'}];
+const SUBS=[{v:0,lab:'f alone'},{v:-1,lab:'f − b'},{v:1,lab:'f + b'}];
+const ROOTS=[[0,1],[1,2],[1,3],[1,4],[1,5],[1,6],[1,8],[3,8],[1,10],[1,12]];
+const st={id:'f',sub:0,col:'mag',rmax:0.993,h:1,m:4};
+const wurl=URL.createObjectURL(new Blob([$('wsrc').textContent],{type:'text/javascript'}));
+const cv=$('cv'),ctx=cv.getContext('2d'),ov=$('ov');
+let mapW=null,job=0,last=null,rayData=null,rayKey=0;
+const gcd=(a,b)=>b?gcd(b,a%b):a;
+const sup=n=>String(n).replace(/-/g,'⁻').replace(/\d/g,d=>'⁰¹²³⁴⁵⁶⁷⁸⁹'[d]);
+const sci=x=>{if(!isFinite(x))return '∞';if(x===0)return '0';const e=Math.floor(Math.log10(x));return e>=-2&&e<4?x.toPrecision(4):(x/10**e).toFixed(2)+'×10'+sup(e)};
+const fc=(a,b)=>{const z=v=>Math.abs(v)<5e-5?0:v;a=z(a);b=z(b);return a.toFixed(4).replace('-','−')+(b<0?' − ':' + ')+Math.abs(b).toFixed(4)+'i'};
+const fs=(a,b)=>{const t=v=>{v=Math.abs(v)<5e-5?0:v;return String(+v.toFixed(4)).replace('-','−')};const A=t(a),B=t(Math.abs(b));if(B==='0')return A;const im=(B==='1'?'':B)+'i';return A==='0'?(b<0?'−':'')+im:A+(b<0?' − ':' + ')+im};
+const rootName=(h,m)=>m===1?'1':m===2?'−1':m===4?(h===1?'i':'−i'):`e<sup>2πi·${h}/${m}</sup>`;
+
+/* colour */
+const STOPS=[[-1,[16,24,32]],[0,[30,58,80]],[0.6,[38,128,136]],[1.3,[120,196,128]],[2.2,[243,218,112]],[3.5,[255,111,145]],[6,[255,196,214]],[9,[255,255,255]],[15,[255,255,255]]];
+const LUT=[];for(let i=0;i<=320;i++){const v=-1+i*16/320;let j=0;while(j<STOPS.length-2&&v>STOPS[j+1][0])j++;const[a,ca]=STOPS[j],[b,cb]=STOPS[j+1],t=Math.max(0,Math.min(1,(v-a)/(b-a)));LUT.push(ca.map((c,k)=>Math.round(c+(cb[k]-c)*t)))}
+function hsl(h,s,l){const a=s*Math.min(l,1-l),f=n=>{const k=(n+h*12)%12;return 255*(l-a*Math.max(-1,Math.min(k-3,9-k,1)))};return [f(0),f(8),f(4)]}
+function paint(d){
+  cv.width=d.S;cv.height=d.S;const img=ctx.createImageData(d.S,d.S),p=img.data;
+  for(let i=0;i<d.S*d.S;i++){
+    const o=i*4,f=d.fl[i];
+    if(f===2){p[o+3]=0;continue}
+    if(f===1){const x=i%d.S,y=(i/d.S)|0,h=((x+y)>>2)&1;p[o]=p[o+1]=p[o+2]=h?92:62;p[o+3]=255;continue}
+    const re=d.re[i],im=d.im[i],m=Math.hypot(re,im);let c;
+    if(st.col==='mag'){const v=Math.log10(m||1e-300);c=LUT[Math.max(0,Math.min(320,Math.round((v+1)*20)))]}
+    else{const fr=Math.log2(m||1e-300);c=hsl((Math.atan2(im,re)/(2*Math.PI)+1)%1,.78,.34+.26*(fr-Math.floor(fr)))}
+    if(!isFinite(m)){c=[255,255,255]}
+    p[o]=c[0];p[o+1]=c[1];p[o+2]=c[2];p[o+3]=255;
+  }
+  ctx.putImageData(img,0,0);
+}
+function render(){
+  if(mapW)mapW.terminate();
+  mapW=new Worker(wurl);const my=++job;
+  const w=$('disk').clientWidth||600,S=Math.max(160,Math.min(820,Math.round(w*Math.min(window.devicePixelRatio||1,2))));
+  $('status').textContent='Rendering…';
+  mapW.onmessage=e=>{if(my!==job)return;last=e.data;paint(last);if(last.final)$('status').textContent=`${last.S}×${last.S} px in ${(last.ms/1000).toFixed(1)} s`};
+  mapW.postMessage({type:'map',S,R0,rmax:st.rmax,id:st.id,sub:st.id==='f'?st.sub:0});
+}
+
+/* overlay */
+function overlay(hover){
+  const a=2*Math.PI*st.h/st.m,zx=Math.cos(a),zy=Math.sin(a);let marks='';
+  for(let m=1;m<=12;m++)for(let h=0;h<m;h++){if(gcd(h,m)!==1)continue;const t=2*Math.PI*h/m,x=Math.cos(t)*1.035,y=Math.sin(t)*1.035,r=.028/Math.sqrt(m)+.008;
+    if(st.id!=='f'){marks+=`<circle cx="${x}" cy="${y}" r="${r*.6}" fill="#7d8a87"/>`;continue}
+    if(m%2)marks+=`<circle cx="${x}" cy="${y}" r="${r*.6}" fill="#7d8a87"/>`;
+    else if((m/2)%2)marks+=`<circle cx="${x}" cy="${y}" r="${r}" fill="var(--pink)"/>`;
+    else marks+=`<circle cx="${x}" cy="${y}" r="${r}" fill="none" stroke="var(--teal)" stroke-width="2" vector-effect="non-scaling-stroke"/>`}
+  ov.setAttribute('viewBox',`${-R0} ${-R0} ${2*R0} ${2*R0}`);
+  ov.innerHTML=`<g transform="scale(1,-1)"><circle r="1" fill="none" stroke="#5b6a6e" stroke-width="1" vector-effect="non-scaling-stroke"/>${marks}
+  <line x1="0" y1="0" x2="${zx}" y2="${zy}" stroke="var(--chalk)" stroke-width="1.5" stroke-dasharray="4 4" vector-effect="non-scaling-stroke"/>
+  <circle cx="${zx}" cy="${zy}" r=".022" fill="none" stroke="var(--chalk)" stroke-width="2" vector-effect="non-scaling-stroke"/>
+  ${hover?`<circle cx="${hover[0]}" cy="${hover[1]}" r=".012" fill="var(--chalk)"/>`:''}</g>`;
+}
+function toQ(ev){const b=ov.getBoundingClientRect();return [((ev.clientX-b.left)/b.width*2-1)*R0,(1-(ev.clientY-b.top)/b.height*2)*R0]}
+ov.addEventListener('pointermove',ev=>{
+  const [x,y]=toQ(ev),r=Math.hypot(x,y),name=FNS.find(f=>f.id===st.id).lab+(st.id==='f'&&st.sub?(st.sub<0?' − b':' + b'):'');
+  overlay([x,y]);
+  if(!last||r>st.rmax){$('read').innerHTML=`q = ${r.toFixed(3)}·e<sup>i·${(Math.atan2(y,x)/Math.PI).toFixed(3)}π</sup>: outside the computed region`;return}
+  const S=last.S,px=Math.min(S-1,Math.max(0,Math.floor((x/R0+1)/2*S))),py=Math.min(S-1,Math.max(0,Math.floor((1-y/R0)/2*S))),i=py*S+px;
+  $('read').innerHTML=last.fl[i]===1?`q = ${r.toFixed(3)}·e<sup>i·${(Math.atan2(y,x)/Math.PI).toFixed(3)}π</sup>: precision lost (terms above 10¹³)`
+   :`q = ${r.toFixed(3)}·e<sup>i·${(Math.atan2(y,x)/Math.PI).toFixed(3)}π</sup><br><b>${name}(q) = ${fc(last.re[i],last.im[i])}</b>, |·| = ${sci(Math.hypot(last.re[i],last.im[i]))}`;
+});
+ov.addEventListener('pointerleave',()=>overlay());
+ov.addEventListener('click',ev=>{
+  const [x,y]=toQ(ev);let t=Math.atan2(y,x);if(t<0)t+=2*Math.PI;let best=null;
+  for(let m=1;m<=16;m++)for(let h=0;h<m;h++){if(gcd(h,m)!==1)continue;let d=Math.abs(t-2*Math.PI*h/m);d=Math.min(d,2*Math.PI-d);const s=d+.004*m;if(!best||s<best[0])best=[s,h,m]}
+  setRoot(best[1],best[2]);
+});
+
+/* radial */
+function limitL(h,m){const k=m/2,a=2*Math.PI*h/m,zr=Math.cos(a),zi=Math.sin(a);let sr=0,si=0,pr=1,pi=0,nr=1,ni=0;
+  for(let n=0;n<k;n++){if(n>0){let t=nr*zr-ni*zi;ni=nr*zi+ni*zr;nr=t;const ar=1+nr,ai=ni,dr=ar*ar-ai*ai,di=2*ar*ai;t=pr*dr-pi*di;pi=pr*di+pi*dr;pr=t}
+    const wr=nr*zr-ni*zi,wi=nr*zi+ni*zr;sr+=pr*wr-pi*wi;si+=pr*wi+pi*wr}
+  return [-4*sr,-4*si]}
+const rayW=new Worker(wurl);
+const EPS=[];for(let i=0;i<=72;i++)EPS.push(10**-(0.7+i*2.3/72));
+const TEPS=[0.1,0.03,0.01,0.003,0.001];
+const PSI_IDS=['psi1','psi1s','psi0s'];
+rayW.onmessage=e=>{if(e.data.key!==rayKey)return;rayData=e.data.out;$('status2').textContent='';drawRay()};
+function setRoot(h,m){m=Math.max(1,Math.min(60,m|0));h=((h|0)%m+m)%m;if(m>1){const g=gcd(h,m);h/=g;m/=g}else h=0;
+  st.h=h;st.m=m;$('hh').value=h;$('mm').value=m;chips();overlay();
+  rayKey++;rayData=null;$('status2').textContent=PSI_IDS.includes(st.id)?'computing with exact big-number arithmetic…':'';rayW.postMessage({type:'ray',key:rayKey,h,m,id:PSI_IDS.includes(st.id)?st.id:'f',eps:EPS.concat(TEPS)});}
+function psiFinite(id,h,m){const off=id==='psi0s'?1:0,sg=id==='psi1'?1:-1,a=2*Math.PI*h/m,zr=Math.cos(a),zi=Math.sin(a);
+  let tr=off?zr:1,ti=off?zi:0,sr=tr,si=ti,pr=1,pi=0;
+  for(let n=1;n<m/2;n++){let t=pr*zr-pi*zi;pi=pr*zi+pi*zr;pr=t;let ar=sg*(1+pr),ai=sg*pi;t=ar*pr-ai*pi;ai=ar*pi+ai*pr;ar=t;if(off){t=ar*zr-ai*zi;ai=ar*zi+ai*zr;ar=t}t=tr*ar-ti*ai;ti=tr*ai+ti*ar;tr=t;sr+=tr;si+=ti}
+  return [sr,si]}
+function drawRay(){
+  const svg=$('csvg'),W=svg.clientWidth,H=svg.clientHeight;if(!rayData||!W)return;
+  if(rayData.psi!==undefined&&rayData.psi!==(PSI_IDS.includes(st.id)?st.id:'f'))return;
+  if(PSI_IDS.includes(st.id))return drawPsiRay(svg,W,H);
+  const even=st.m%2===0,k=st.m/2,sg=even&&k%2?1:-1,L=even?limitL(st.h,st.m):null;
+  const pts=rayData.slice(0,EPS.length).map(d=>{const fm=Math.hypot(...d.F),gr=d.F[0]+sg*d.B[0],gi=d.F[1]+sg*d.B[1],big=Math.max(fm,Math.hypot(...d.B))>1e13;
+    return {x:-Math.log10(d.eps),f:Math.log10(fm),e:even?Math.log10(Math.max(1e-6,Math.hypot(gr-L[0],gi-L[1]))):null,big}});
+  const ml=46,mr=W<520?14:118,mt=14,mb=34,x0=0.7,x1=3,y0=-5,y1=Math.max(8,Math.min(150,Math.ceil(Math.max(...pts.map(p=>p.f))/3)*3)),step=Math.max(3,Math.ceil((y1-y0)/7/3)*3);
+  const X=x=>ml+(x-x0)/(x1-x0)*(W-ml-mr),Y=y=>mt+(1-(Math.max(y0,Math.min(y1,y))-y0)/(y1-y0))*(H-mt-mb);
+  let g='';for(let y=0;y<=y1;y+=step)g+=`<line x1="${ml}" x2="${W-mr}" y1="${Y(y)}" y2="${Y(y)}" stroke="#2f3a3d"/><text x="${ml-8}" y="${Y(y)+4}" text-anchor="end">10${sup(y)}</text>`;
+  for(const x of [1,2,3])g+=`<text x="${X(x)}" y="${H-10}" text-anchor="${x===3&&W<520?'end':'middle'}">ε = ${['0.1','0.01','0.001'][x-1]}</text>`;
+  g+=`<line x1="${ml}" x2="${W-mr}" y1="${Y(13)}" y2="${Y(13)}" stroke="#6b5a2a" stroke-dasharray="3 4"/>`;
+  const path=(arr,key)=>arr.map((p,i)=>`${i?'L':'M'}${X(p.x).toFixed(1)},${Y(p[key]).toFixed(1)}`).join('');
+  g+=`<path d="${path(pts,'f')}" fill="none" stroke="var(--pink)" stroke-width="3"/>`;
+  const lp=pts[pts.length-1];
+  if(W>=520)g+=`<text x="${X(lp.x)+8}" y="${Y(lp.f)+4}" style="fill:var(--pink)">|f(rζ)|</text>`;
+  if(even){const ok=pts.filter(p=>!p.big),bad=pts.filter((p,i)=>p.big||(pts[i+1]&&pts[i+1].big));
+    g+=`<path d="${path(ok,'e')}" fill="none" stroke="var(--teal)" stroke-width="3"/>`;
+    if(bad.length>1)g+=`<path d="${path(bad,'e')}" fill="none" stroke="#7d8a87" stroke-width="2" stroke-dasharray="5 5"/>`;
+    const lo=ok[ok.length-1];if(lo&&W>=520)g+=`<text x="${X(lo.x)+8}" y="${Y(lo.e)+16}" style="fill:var(--teal)">distance to limit</text>`}
+  svg.innerHTML=g;
+  const rows=rayData.slice(EPS.length),z=rootName(st.h,st.m),sgn=sg>0?'+':'−';
+  if(even){
+    $('limlab').textContent='Predicted limit of f − (−1)ᵏ b';$('lim').innerHTML=`f ${sgn} b → ${fs(L[0],L[1])}`;
+    $('tab').innerHTML=`<tr><th>ε</th><th>|f(rζ)|</th><th>f ${sgn} b</th></tr>`+rows.map(d=>{const big=Math.max(Math.hypot(...d.F),Math.hypot(...d.B))>1e13;
+      return `<tr><td>${d.eps}</td><td>${sci(Math.hypot(...d.F))}</td><td>${big?'precision lost':fc(d.F[0]+sg*d.B[0],d.F[1]+sg*d.B[1])}</td></tr>`}).join('');
+    const top=Math.max(...pts.map(p=>p.f));
+    $('rhead').innerHTML=`At ζ = ${z}, f grows past 10${sup(Math.floor(top))}, but f ${sgn} b settles on ${fs(L[0],L[1])}`;
+  } else {
+    const lastF=rows[rows.length-1].F;
+    $('limlab').textContent='Odd order: f itself stays bounded';$('lim').innerHTML=`f(rζ) → ≈ ${fc(lastF[0],lastF[1])}`;
+    $('tab').innerHTML=`<tr><th>ε</th><th>f(rζ)</th></tr>`+rows.map(d=>`<tr><td>${d.eps}</td><td>${fc(d.F[0],d.F[1])}</td></tr>`).join('');
+    $('rhead').innerHTML=`At ζ = ${z}, which has odd order, f needs no correction: it tends to a finite value`;
+  }
+}
+function drawPsiRay(svg,W,H){
+  const id=st.id,nm=FNS.find(f=>f.id===id).lab,even=st.m%2===0,term=id!=='psi1'&&even,L=term?psiFinite(id,st.h,st.m):null;
+  const pts=rayData.slice(0,EPS.length).map(d=>({x:-Math.log10(d.eps),f:Math.log10(Math.hypot(...d.F)),e:term?Math.log10(Math.max(1e-6,Math.hypot(d.F[0]-L[0],d.F[1]-L[1]))):null}));
+  const ml=46,mr=W<520?14:118,mt=14,mb=34,x0=0.7,x1=3,top=Math.max(...pts.map(p=>p.f)),y0=-5,y1=Math.max(3,Math.min(150,Math.ceil(top/3)*3)),step=Math.max(1,Math.ceil((y1-y0)/7));
+  const X=x=>ml+(x-x0)/(x1-x0)*(W-ml-mr),Y=y=>mt+(1-(Math.max(y0,Math.min(y1,y))-y0)/(y1-y0))*(H-mt-mb);
+  let g='';for(let y=y0;y<=y1;y+=step)g+=`<line x1="${ml}" x2="${W-mr}" y1="${Y(y)}" y2="${Y(y)}" stroke="#2f3a3d"/><text x="${ml-8}" y="${Y(y)+4}" text-anchor="end">10${sup(y)}</text>`;
+  for(const x of [1,2,3])g+=`<text x="${X(x)}" y="${H-10}" text-anchor="${x===3&&W<520?'end':'middle'}">ε = ${['0.1','0.01','0.001'][x-1]}</text>`;
+  const path=(arr,key)=>arr.map((p,i)=>`${i?'L':'M'}${X(p.x).toFixed(1)},${Y(p[key]).toFixed(1)}`).join('');
+  g+=`<path d="${path(pts,'f')}" fill="none" stroke="var(--pink)" stroke-width="3"/>`;
+  const lp=pts[pts.length-1];if(W>=520)g+=`<text x="${X(lp.x)+8}" y="${Y(lp.f)+4}" style="fill:var(--pink)">|${nm}(rζ)|</text>`;
+  if(term){g+=`<path d="${path(pts,'e')}" fill="none" stroke="var(--teal)" stroke-width="3"/>`;if(W>=520)g+=`<text x="${X(lp.x)+8}" y="${Y(lp.e)+16}" style="fill:var(--teal)">distance to limit</text>`}
+  svg.innerHTML=g;
+  const rows=rayData.slice(EPS.length),z=rootName(st.h,st.m),lastF=rows[rows.length-1].F,grows=top>3;
+  $('tab').innerHTML=`<tr><th>ε</th><th>${nm}(rζ)</th></tr>`+rows.map(d=>`<tr><td>${d.eps}</td><td>${Math.hypot(...d.F)>1e4?sci(Math.hypot(...d.F)):fc(d.F[0],d.F[1])}</td></tr>`).join('');
+  if(term){
+    $('limlab').textContent=`Even order: the series for ${nm}(ζ) stops after ${st.m/2} terms`;$('lim').innerHTML=`${nm}(ζ) = ${fs(L[0],L[1])}`;
+    $('rhead').innerHTML=`At ζ = ${z}, ${nm} has no spike: it settles on the finite sum ${fs(L[0],L[1])}`;
+  } else if(grows){
+    $('limlab').textContent=`${nm} blows up here`;$('lim').innerHTML=`|${nm}| > ${sci(Math.hypot(...lastF))} at ε = 0.001`;
+    $('rhead').innerHTML=`At ζ = ${z}, ${nm} grows past 10${sup(Math.floor(top))}`;
+  } else {
+    $('limlab').textContent=`Odd order: ${nm} stays bounded`;$('lim').innerHTML=`${nm}(rζ) → ≈ ${fc(lastF[0],lastF[1])}`;
+    $('rhead').innerHTML=`At ζ = ${z}, ${nm} stays bounded and tends to a finite value`;
+  }
+}
+const ro=new ResizeObserver(()=>drawRay());ro.observe($('csvg'));
+
+/* controls */
+function chips(){
+  $('fn').innerHTML=FNS.map(f=>`<button type="button" data-v="${f.id}" aria-pressed="${st.id===f.id}">${f.lab}</button>`).join('');
+  $('sub').innerHTML=SUBS.map(s=>`<button type="button" data-v="${s.v}" aria-pressed="${st.sub===s.v}" ${st.id!=='f'?'disabled':''}>${s.lab}</button>`).join('');
+  $('col').innerHTML=[['mag','Magnitude'],['phase','Phase']].map(c=>`<button type="button" data-v="${c[0]}" aria-pressed="${st.col===c[0]}">${c[1]}</button>`).join('');
+  $('roots').innerHTML=ROOTS.map(([h,m])=>`<button type="button" data-h="${h}" data-m="${m}" aria-pressed="${st.h===h&&st.m===m}">${rootName(h,m)}</button>`).join('');
+  const F=FNS.find(f=>f.id===st.id);$('formula').innerHTML=F.f;$('fnote').textContent=F.n;
+  $('subnote').textContent=st.id!=='f'?'Pick f to try the correction.':st.sub===0?'Every even-order root carries a spike.':st.sub<0?'Spikes at orders 4, 8, 12 vanish; the others get worse. Hatched areas: double precision exhausted.':'Spikes at orders 2, 6, 10 vanish; the others get worse. Hatched areas: double precision exhausted.';
+  $('rv').textContent='r ≤ '+st.rmax.toFixed(3);
+}
+$('fn').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const was=PSI_IDS.includes(st.id)?st.id:'f';st.id=b.dataset.v;chips();render();overlay();if((PSI_IDS.includes(st.id)?st.id:'f')!==was)setRoot(st.h,st.m)});
+$('sub').addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;st.sub=+b.dataset.v;chips();render()});
+$('col').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;st.col=b.dataset.v;chips();if(last)paint(last)});
+$('roots').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;setRoot(+b.dataset.h,+b.dataset.m)});
+$('rmax').addEventListener('input',e=>{st.rmax=+e.target.value;$('rv').textContent='r ≤ '+st.rmax.toFixed(3)});
+$('rmax').addEventListener('change',()=>render());
+for(const id of ['hh','mm'])$(id).addEventListener('change',()=>setRoot(+$('hh').value,+$('mm').value));
+chips();overlay();render();setRoot(1,4);
+let rt;const ro2=new ResizeObserver(()=>{clearTimeout(rt);rt=setTimeout(()=>{if(last&&Math.abs(last.S-Math.min(820,$('disk').clientWidth*Math.min(window.devicePixelRatio||1,2)))>120)render()},400)});ro2.observe($('disk'));
+}
+</script>
+</body>
+</html>
