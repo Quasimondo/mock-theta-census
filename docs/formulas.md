@@ -10,7 +10,7 @@ Keywords: sign-twisted, alternating, (−1)ⁿ inserted, z = −1 specialization
 
 ## 1. ψ₁\*: sign-twisted ψ₁
 
-$$\psi_1^{*}(q)=\sum_{n\ge 0}(-1)^n q^{n(n+1)/2}(-q;q)_n$$
+$$\psi_1^{\ast}(q)=\sum_{n\ge 0}(-1)^n q^{n(n+1)/2}(-q;q)_n$$
 
 ```latex
 \psi_1^{*}(q)=\sum_{n\ge 0}(-1)^n q^{n(n+1)/2}(-q;q)_n
@@ -22,7 +22,7 @@ $$\psi_1^{*}(q)=\sum_{n\ge 0}(-1)^n q^{n(n+1)/2}(-q;q)_n$$
 
 Equivalent forms:
 
-$$\psi_1^{*}(q)=\sum_{n\ge0}(-1)^n q^{\binom{n+1}{2}}\prod_{k=1}^{n}(1+q^k)=\sum_{n\ge0}(-1)^n q^{\binom{n+1}{2}}\frac{(q^2;q^2)_n}{(q;q)_n}={}_2\phi_2\!\left(\begin{matrix}q,\,-q\\ 0,\,0\end{matrix};q,q\right)=F(-1)$$
+$$\psi_1^{\ast}(q)=\sum_{n\ge0}(-1)^n q^{\binom{n+1}{2}}\prod_{k=1}^{n}(1+q^k)=\sum_{n\ge0}(-1)^n q^{\binom{n+1}{2}}\frac{(q^2;q^2)_n}{(q;q)_n}={}_2\phi_2\!\left(\begin{matrix}q,\,-q\\ 0,\,0\end{matrix};q,q\right)=F(-1)$$
 
 ```latex
 \sum_{n\ge0}(-1)^n q^{\binom{n+1}{2}}\prod_{k=1}^{n}(1+q^k)
@@ -37,7 +37,7 @@ Coefficients (q⁰ … q⁴⁰):
 
 ## 2. ψ₀\*: sign-twisted ψ₀
 
-$$\psi_0^{*}(q)=\sum_{n\ge 0}(-1)^n q^{(n+1)(n+2)/2}(-q;q)_n$$
+$$\psi_0^{\ast}(q)=\sum_{n\ge 0}(-1)^n q^{(n+1)(n+2)/2}(-q;q)_n$$
 
 ```latex
 \psi_0^{*}(q)=\sum_{n\ge 0}(-1)^n q^{(n+1)(n+2)/2}(-q;q)_n
@@ -49,7 +49,7 @@ $$\psi_0^{*}(q)=\sum_{n\ge 0}(-1)^n q^{(n+1)(n+2)/2}(-q;q)_n$$
 
 Equivalent forms:
 
-$$\psi_0^{*}(q)=q\sum_{n\ge0}(-1)^n q^{n(n+3)/2}(-q;q)_n=-\sum_{n\ge1}(-1)^n q^{\binom{n+1}{2}}(-q;q)_{n-1}=q\,F(-q)$$
+$$\psi_0^{\ast}(q)=q\sum_{n\ge0}(-1)^n q^{n(n+3)/2}(-q;q)_n=-\sum_{n\ge1}(-1)^n q^{\binom{n+1}{2}}(-q;q)_{n-1}=q\,F(-q)$$
 
 ```latex
 q\sum_{n\ge0}(-1)^n q^{n(n+3)/2}(-q;q)_n
@@ -61,11 +61,11 @@ Coefficients (q⁰ … q⁴⁰):
 
 Elementary relation:
 
-$$1-\psi_1^{*}(q)-\psi_0^{*}(q)=\sum_{n\ge0}(-1)^n q^{n(n-1)/2}(-q;q)_n$$
+$$1-\psi_1^{\ast}(q)-\psi_0^{\ast}(q)=\sum_{n\ge0}(-1)^n q^{n(n-1)/2}(-q;q)_n$$
 
 ## 3. The two census hits containing ψ\*
 
-$$\sum_{n\ge0}q^{2n^2+n}(-q;q)_{2n}=\tfrac12\big(\psi_1(q)+\psi_1^{*}(q)\big),\qquad \sum_{n\ge0}q^{2n^2+3n}(-q;q)_{2n}=\frac{\psi_0(q)+\psi_0^{*}(q)}{2q}$$
+$$\sum_{n\ge0}q^{2n^2+n}(-q;q)_{2n}=\tfrac12\big(\psi_1(q)+\psi_1^{\ast}(q)\big),\qquad \sum_{n\ge0}q^{2n^2+3n}(-q;q)_{2n}=\frac{\psi_0(q)+\psi_0^{\ast}(q)}{2q}$$
 
 ```latex
 \sum_{n\ge0}q^{2n^2+n}(-q;q)_{2n}=\tfrac12\big(\psi_1(q)+\psi_1^{*}(q)\big)
@@ -76,7 +76,7 @@ Here ψ₁(q) = Σ q^{n(n+1)/2}(−q;q)ₙ and ψ₀(q) = Σ q^{(n+1)(n+2)/2}(�
 
 ## 4. Identities (I), (II)
 
-$$2\,\psi_0^{*}(q)=f_0^{*}(q)-\vartheta_4(q)\,R_0(q),\qquad 2\,\psi_1^{*}(q)=f_1^{*}(q)+\vartheta_4(q)\,R_1(q)$$
+$$2\,\psi_0^{\ast}(q)=f_0^{\ast}(q)-\vartheta_4(q)\,R_0(q),\qquad 2\,\psi_1^{\ast}(q)=f_1^{\ast}(q)+\vartheta_4(q)\,R_1(q)$$
 
 ```latex
 2\,\psi_0^{*}(q)=f_0^{*}(q)-\vartheta_4(q)\,R_0(q),\qquad
@@ -85,7 +85,7 @@ $$2\,\psi_0^{*}(q)=f_0^{*}(q)-\vartheta_4(q)\,R_0(q),\qquad 2\,\psi_1^{*}(q)=f_1
 
 with
 
-$$f_0^{*}(q)=\sum_{n\ge0}\frac{(-1)^n q^{n^2}}{(-q;q)_n},\quad f_1^{*}(q)=\sum_{n\ge0}\frac{(-1)^n q^{n^2+n}}{(-q;q)_n},\quad R_0(q)=\sum_{n\ge0}\frac{(-1)^n q^{n^2}}{(q;q)_n},\quad R_1(q)=\sum_{n\ge0}\frac{(-1)^n q^{n^2+n}}{(q;q)_n},$$
+$$f_0^{\ast}(q)=\sum_{n\ge0}\frac{(-1)^n q^{n^2}}{(-q;q)_n},\quad f_1^{\ast}(q)=\sum_{n\ge0}\frac{(-1)^n q^{n^2+n}}{(-q;q)_n},\quad R_0(q)=\sum_{n\ge0}\frac{(-1)^n q^{n^2}}{(q;q)_n},\quad R_1(q)=\sum_{n\ge0}\frac{(-1)^n q^{n^2+n}}{(q;q)_n},$$
 
 $$\vartheta_4(q)=\sum_{n\in\mathbb Z}(-1)^n q^{n^2}=\frac{(q;q)_\infty}{(-q;q)_\infty}.$$
 
@@ -109,7 +109,7 @@ Coefficients (q⁰ … q⁴⁰):
 
 Double-sum forms:
 
-$$(-q;q)_\infty\,\psi_1^{*}(q)=\sum_{\substack{k\ge0\\ k\ \text{even}}}\ \sum_{n\ge0}\frac{(-1)^n q^{k(k+1)/2+n^2+n+kn}}{(q;q)_k},\qquad (-q;q)_\infty\,\psi_0^{*}(q)=\sum_{\substack{k\ge1\\ k\ \text{odd}}}\ \sum_{n\ge0}\frac{(-1)^n q^{k(k+1)/2+n^2+kn}}{(q;q)_k}$$
+$$(-q;q)_\infty\,\psi_1^{\ast}(q)=\sum_{\substack{k\ge0\\ k\ \text{even}}}\ \sum_{n\ge0}\frac{(-1)^n q^{k(k+1)/2+n^2+n+kn}}{(q;q)_k},\qquad (-q;q)_\infty\,\psi_0^{\ast}(q)=\sum_{\substack{k\ge1\\ k\ \text{odd}}}\ \sum_{n\ge0}\frac{(-1)^n q^{k(k+1)/2+n^2+kn}}{(q;q)_k}$$
 
 ```latex
 (-q;q)_\infty\,\psi_1^{*}(q)=\sum_{k\ge0,\ k\ \mathrm{even}}\ \sum_{n\ge0}\frac{(-1)^n q^{k(k+1)/2+n^2+n+kn}}{(q;q)_k}
