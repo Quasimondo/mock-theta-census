@@ -130,6 +130,16 @@ F(z;q)=\sum_{n\ge0}z^n q^{n(n+1)/2}(-q;q)_n,\qquad F(z)=1+zq\,F(zq)+zq^2\,F(zq^2
 ## 6. Behavior at roots of unity and at q = −1 (numerical)
 
 - **Terminating at even-order roots:** (−ζ;ζ)ₙ = 0 for n ≥ m/2, so the series is a finite sum there. Values: ψ₁\*(−1) = 1, ψ₁\*(i) = 2 − i, ψ₁\*(e^{iπ/3}) = 1 − 2√3 i, ψ₁\*(e^{iπ/4}) ≈ −3.5355339 − 4.1213203i.
+- **Radial limits at odd-order roots (observation, verified numerically):** for ζ a primitive m-th root of unity with m odd, write the series as Σ aₙ(q). Then the terms repeat with a factor −2 every m steps, a_{n+m}(ζ) = −2·aₙ(ζ), because (−1)^m = −1, ∏_{k=1}^{m}(1+ζᵏ) = 2 and the ζ-power gains a multiple of m. The radial limit is the value of that divergent geometric series, 1/(1+2) times the first period:
+
+$$\lim_{t\to0^+}\psi_1^{\ast}(\zeta e^{-t})=\frac13\sum_{n=0}^{m-1}(-1)^n\zeta^{n(n+1)/2}(-\zeta;\zeta)_n,\qquad \lim_{t\to0^+}\psi_0^{\ast}(\zeta e^{-t})=\frac13\sum_{n=0}^{m-1}(-1)^n\zeta^{(n+1)(n+2)/2}(-\zeta;\zeta)_n\qquad(m\ \text{odd})$$
+
+```latex
+\lim_{t\to0^+}\psi_1^{*}(\zeta e^{-t})=\frac13\sum_{n=0}^{m-1}(-1)^n\zeta^{n(n+1)/2}(-\zeta;\zeta)_n,\qquad
+\lim_{t\to0^+}\psi_0^{*}(\zeta e^{-t})=\frac13\sum_{n=0}^{m-1}(-1)^n\zeta^{(n+1)(n+2)/2}(-\zeta;\zeta)_n\qquad(m\ \text{odd})
+```
+
+  Checked at all 50 cases (both functions at every primitive root of odd order m ≤ 15, up to complex conjugation) by extrapolating high-precision values along the ray to t = 0. Agreement to 10⁻¹⁴ in every case, the accuracy of the extrapolation; script `psi_star/s12_odd_limits.py`. Examples: ψ₁\*, ψ₀\* → 1/3 as q → 1 (formally Σ(−2)ⁿ = 1/3), and ψ₁\* → 1, ψ₀\* → 0 at the primitive cube roots. Together with the even-order case (where the factor is 0 and the series stops), the limit at every root is (sum of the first m terms)/(1 − ρ), with ρ = −2 for odd m and ρ = 0 for even m. This is the same mechanism as f(1) = Σ 1/4ⁿ = 4/3 for Ramanujan's third-order f. It is not proved here: the step from the formal geometric sum to the radial limit is the part that needs an argument.
 - **Expansion at q = −e^{−t}**, ψ(−e^{−t}) = Σ cₖ tᵏ/k!, with all cₖ integers:
   - ψ₁\*: `1, -1, 27, -1237, 106587, -14667181, 2954135907, -819380500597`
   - ψ₀\*: `-1, 4, -74, 3370, -286886, 39242914, -7873061654, 2177801727490`

@@ -7,7 +7,7 @@ A complete numerical census of short Ramanujan-style q-series, classified as **m
 These are Ramanujan's fifth-order mock theta functions ψ₁, ψ₀ with a sign twist (−1)ⁿ. They are bounded at every root of unity tested and terminate at even-order roots. At q = −1 they have a divergent asymptotic series with integer coefficients, whose large-order behavior is controlled by Ramanujan's entire Rogers–Ramanujan function at a = 1. As far as we could find, neither the functions nor the identities below appear in the literature. **We'd be glad to hear if they do.**
 
 **Interactive pages:** [quasimondo.github.io/mock-theta-census](https://quasimondo.github.io/mock-theta-census/)
-- [Explorer](https://quasimondo.github.io/mock-theta-census/explorer-v2.html): mock theta functions on the unit disk, with a radial probe toward any root of unity, including ψ₁\* and ψ₀\*
+- [Explorer](https://quasimondo.github.io/mock-theta-census/explorer-v3.html): mock theta functions on the unit disk, with a radial probe toward any root of unity, including ψ₁\* and ψ₀\*
 - [Fingerprints](https://quasimondo.github.io/mock-theta-census/fingerprints-v1.html): the classifier's results for 51 known functions, the census, and what ψ₁\*, ψ₀\* turned out to be
 - [Formula sheet](docs/formulas.md): every formula in LaTeX, Unicode, plain text and Mathematica
 
@@ -44,8 +44,9 @@ All results here are **numerical evidence and conjectures** unless marked as pro
 |---|---|
 | `census/` | Evaluator and labeled catalog (`catalog.py`), per-root probe (`probe.py`), generator and dedupe (`search.py`), staged search (`stage.py`, `filt.py`, `dclass.py`), q→1 dilogarithm pre-filter (`dilog.py`), identification tools (`ident.py`, `shadow.py`, `companions.py`, …), plus all result data (`cands.json`, `labels.json`, `stageC_summary.json`, `*.jsonl`) |
 | `psi_star/` | Quantum-modularity tests with Kontsevich–Zagier control (`qmf*.py`); exact identities, expansion at q = −1 and large-order analysis (`s1`–`s11`) |
-| `docs/` | GitHub Pages site (`index.html`, `explorer-v2.html`, `fingerprints-v1.html`); `formulas.md` (every formula in LaTeX, Unicode, plain text and Mathematica, with equivalent forms and coefficients), `handoff-v1.md` (full account of method and results), `addendum-v2.md` (identities, proofs, resurgence analysis), `psi-star-brief.md` (focused statement of the open problem) |
+| `docs/` | GitHub Pages site (`index.html`, `explorer-v3.html`, `fingerprints-v1.html`); `formulas.md` (every formula in LaTeX, Unicode, plain text and Mathematica, with equivalent forms and coefficients), `handoff-v1.md` (full account of method and results), `addendum-v2.md` (identities, proofs, resurgence analysis), `psi-star-brief.md` (focused statement of the open problem) |
 | `psi_star/formulas_check.py` | Checks every equivalent form in `docs/formulas.md` to 50 digits |
+| `psi_star/s12_odd_limits.py` | Radial limits of ψ₁\*, ψ₀\* at odd-order roots vs. the closed form (first period)/3 |
 
 ## Reproducing
 
