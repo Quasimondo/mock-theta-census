@@ -1,8 +1,8 @@
 # mock-theta-census
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24443195.svg)](https://doi.org/10.5281/zenodo.24443195)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24443194.svg)](https://doi.org/10.5281/zenodo.24443194)
 
-A complete numerical census of short Ramanujan-style q-series, classified as **modular**, **mock theta**, **false/quantum type** or **neither** by their radial asymptotics at roots of unity. Along the way it found one unexplained pair:
+A complete numerical census of short Ramanujan-style q-series, classified as **modular**, **mock theta**, **false/quantum type** or **neither** by their radial asymptotics at roots of unity. Along the way it found one pair that does not appear in the literature we checked:
 
   **ψ₁\*(q) = Σₙ≥0 (−1)ⁿ q^{n(n+1)/2} (−q;q)ₙ**, **ψ₀\*(q) = Σₙ≥0 (−1)ⁿ q^{(n+1)(n+2)/2} (−q;q)ₙ**
 
@@ -71,7 +71,7 @@ This was an exploratory project by Mario Klingemann, an artist and creative tech
 
 ## How to cite
 
-Mario Klingemann, *mock-theta-census: a numerical census of Ramanujan-style q-series and the sign-twisted fifth-order functions ψ₀\*, ψ₁\**, version 1.1.0, Zenodo, 2026. https://doi.org/10.5281/zenodo.24443195
+Mario Klingemann, *mock-theta-census: a numerical census of Ramanujan-style q-series and the sign-twisted fifth-order functions ψ₀\*, ψ₁\**, Zenodo, 2026. https://doi.org/10.5281/zenodo.24443194 (all versions; version 1.1.0 is https://doi.org/10.5281/zenodo.24443195)
 
 GitHub's "Cite this repository" button (from `CITATION.cff`) gives the same reference in BibTeX and APA.
 
