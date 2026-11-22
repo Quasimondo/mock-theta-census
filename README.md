@@ -1,5 +1,7 @@
 # mock-theta-census
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24443195.svg)](https://doi.org/10.5281/zenodo.24443195)
+
 A complete numerical census of short Ramanujan-style q-series, classified as **modular**, **mock theta**, **false/quantum type** or **neither** by their radial asymptotics at roots of unity. Along the way it found one unexplained pair:
 
   **ψ₁\*(q) = Σₙ≥0 (−1)ⁿ q^{n(n+1)/2} (−q;q)ₙ**, **ψ₀\*(q) = Σₙ≥0 (−1)ⁿ q^{(n+1)(n+2)/2} (−q;q)ₙ**
@@ -66,6 +68,12 @@ The full census takes a few hours on 2 cores. `stage.py` is resumable, and `cens
 ## How this was made
 
 This was an exploratory project by Mario Klingemann, an artist and creative technologist, not a professional mathematician. The computations and much of the code were developed in conversation with AI assistants (Anthropic's Claude Opus 5.5 and Claude Fable 5.2). Every claim in the documents is backed by a script in this repository. Corrections are very welcome.
+
+## How to cite
+
+Mario Klingemann, *mock-theta-census: a numerical census of Ramanujan-style q-series and the sign-twisted fifth-order functions ψ₀\*, ψ₁\**, version 1.1.0, Zenodo, 2026. https://doi.org/10.5281/zenodo.24443195
+
+GitHub's "Cite this repository" button (from `CITATION.cff`) gives the same reference in BibTeX and APA.
 
 ## License
 
