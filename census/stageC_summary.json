@@ -1,0 +1,940 @@
+[
+ {
+  "id": 76,
+  "label": "q^{(1n\u00b2\u22121n)/2} \u00b7 \u220f(1+q^k) \u220f(1-q^k+q^2k)^-1",
+  "cls": "mock",
+  "types": "EQQQEEQEEEQQQQQQQQQ",
+  "kappas": [
+   "1/144"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "0"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 85,
+  "label": "q^{(1n\u00b2\u22121n)/2} \u00b7 \u220f(1+q^k) \u220f(1+q^k+q^2k)^-1",
+  "cls": "mock",
+  "types": "QQEQQQQQQQQQQQQQQQQ",
+  "kappas": [
+   "1/16"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "0"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 1106,
+  "label": "q^{(1n\u00b2+3n)/2} \u00b7 \u220f(1+q^k)",
+  "cls": "mock",
+  "types": "EQEQQEQEEEQQQQQQQQQ",
+  "kappas": [
+   "1/240"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "59/60"
+  ],
+  "same_fp": [
+   "psi0"
+  ]
+ },
+ {
+  "id": 1656,
+  "label": "q^{(2n\u00b2\u22122n)/2} \u00b7 \u220f(1+q^k)^-2",
+  "cls": "mock",
+  "types": "QEQEQQEQQQEEEEEEEEE",
+  "kappas": [
+   "1/24"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "-1/24"
+  ],
+  "same_fp": [
+   "f"
+  ]
+ },
+ {
+  "id": 2230,
+  "label": "q^{2n\u00b2/2} \u00b7 \u220f(1+q^k+q^2k)^-1",
+  "cls": "mock",
+  "types": "QQEQQQEQQQQQQQEEQQQ",
+  "kappas": [
+   "1/24"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "-1/24"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 1882,
+  "label": "q^{(2n\u00b2\u22122n)/2} \u00b7 \u220f(1+q^(2k-1))^-1 \u220f(1-q^(2k-1))^-1",
+  "cls": "mock",
+  "types": "EEEQEQEEEEQQQEQQEEE",
+  "kappas": [
+   "1/160",
+   "1/40"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "2/5"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 2360,
+  "label": "q^{2n\u00b2/2} \u00b7 \u220f(1+q^2k)^-2 \u220f(1+q^(2k-1))",
+  "cls": "mock",
+  "types": "QQQEQQQQQQEEQQEEQQQ",
+  "kappas": [
+   "1/8"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "-1/8"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 2371,
+  "label": "q^{2n\u00b2/2} \u00b7 \u220f(1+q^2k)^-1 \u220f(1-q^(2k-1))^-1",
+  "cls": "mock",
+  "types": "EQEEQEQEEEEEQQEEQQQ",
+  "kappas": [
+   "1/160",
+   "1/40"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "-1/40"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 2437,
+  "label": "q^{2n\u00b2/2} \u00b7 \u220f(1+q^(2k-1)) \u220f(1-q^(2k-1))^-1",
+  "cls": "mock",
+  "types": "EQEQEEQEEEQQQQQQQQQ",
+  "kappas": [
+   "1/64"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "0"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 2768,
+  "label": "q^{(2n\u00b2+2n)/2} \u00b7 \u220f(1+q^2k)",
+  "cls": "mock",
+  "types": "EEEQQEEEEEQQEQQQEEE",
+  "kappas": [
+   "1/120",
+   "1/480"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "11/30"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 2986,
+  "label": "q^{(2n\u00b2+2n)/2} \u00b7 \u220f(1+q^(2k-1))^-1 \u220f(1-q^(2k-1))^-1",
+  "cls": "mock",
+  "types": "EEEQQEEEEEQQEQQQEEE",
+  "kappas": [
+   "1/160",
+   "1/40"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "-2/5"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 3326,
+  "label": "q^{(2n\u00b2+4n)/2} \u00b7 \u220f(1+q^(2k-1))",
+  "cls": "mock",
+  "types": "EQEEEQQEEEEEQQEEQQQ",
+  "kappas": [
+   "1/120",
+   "1/480"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "71/120"
+  ],
+  "same_fp": [
+   "phi1"
+  ]
+ },
+ {
+  "id": 3467,
+  "label": "q^{(2n\u00b2+4n)/2} \u00b7 \u220f(1+q^2k)^-1 \u220f(1+q^(2k-1))",
+  "cls": "mock",
+  "types": "QQQEQQQQQQEQQQEEQQQ",
+  "kappas": [
+   "1/16"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "7/16"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 5597,
+  "label": "q^{(3n\u00b2+3n)/2} \u00b7 \u220f(1+q^k) \u220f(1-q^k+q^2k)",
+  "cls": "mock",
+  "types": "EQEQQEQEEEQQQQQQQQQ",
+  "kappas": [
+   "1/720",
+   "1/80"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "11/20"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 6630,
+  "label": "q^{(4n\u00b2\u22124n)/2} \u00b7 \u220f(1+q^2k)^-2",
+  "cls": "mock",
+  "types": "QQQEQQQQQQEEQQEEQQQ",
+  "kappas": [
+   "1/12"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "-1/12"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 6850,
+  "label": "q^{(4n\u00b2\u22124n)/2} \u00b7 \u220f(1+q^(2k-1))^-1 \u220f(1-q^(2k-1))^-1",
+  "cls": "mock",
+  "types": "EEEQEEEEEEQQEEQQEEE",
+  "kappas": [
+   "1/192",
+   "1/48"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "2/3"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 7999,
+  "label": "q^{4n\u00b2/2} \u00b7 \u220f(1-q^k+q^2k)^-1 \u220f(1+q^k+q^2k)^-1",
+  "cls": "mock",
+  "types": "QQEQQQEQQQQQQQEEQQQ",
+  "kappas": [
+   "1/12",
+   "1/48"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "-1/12"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 7734,
+  "label": "q^{4n\u00b2/2} \u00b7 \u220f(1+q^2k)^-2",
+  "cls": "mock",
+  "types": "QQQEQQQQQQEEQQEEQQQ",
+  "kappas": [
+   "1/12"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "-1/12"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 7735,
+  "label": "q^{4n\u00b2/2} \u00b7 \u220f(1+q^2k)^-1",
+  "cls": "mock",
+  "types": "QQQEQQQQQQEEQQEEQQQ",
+  "kappas": [
+   "1/30"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "-1/30"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 7882,
+  "label": "q^{4n\u00b2/2} \u00b7 \u220f(1+q^2k)^-1 \u220f(1+q^(2k-1))^-1",
+  "cls": "mock",
+  "types": "QEQEQQEQQQQEEEEEEEE",
+  "kappas": [
+   "1/48"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "-1/48"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 7954,
+  "label": "q^{4n\u00b2/2} \u00b7 \u220f(1+q^(2k-1))^-1 \u220f(1-q^(2k-1))^-1",
+  "cls": "mock",
+  "types": "EEEQEEEEEEQQEEQQEEE",
+  "kappas": [
+   "1/192",
+   "1/48"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "-1/12"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 8234,
+  "label": "(\u22121)\u207f q^{4n\u00b2/2} \u00b7 \u220f(1+q^(2k-1)) \u220f(1-q^(2k-1))",
+  "cls": "mock",
+  "types": "QQQEQQQQQQEEQQEEQQQ",
+  "kappas": [
+   "1/60"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "-1/60"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 8438,
+  "label": "q^{(4n\u00b2+2n)/2} \u00b7 \u220f(1+q^2k) \u220f(1+q^(2k-1))",
+  "cls": "mock",
+  "types": "EQEQEQQEEEQQQQQQQQQ",
+  "kappas": [
+   "1/240"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "11/60"
+  ],
+  "same_fp": [
+   "psi1"
+  ]
+ },
+ {
+  "id": 8839,
+  "label": "q^{(4n\u00b2+4n)/2} \u00b7 \u220f(1+q^2k)^-1",
+  "cls": "mock",
+  "types": "QQQEQQQQQQEEQQEEQQQ",
+  "kappas": [
+   "1/30"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "11/30"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 9542,
+  "label": "q^{(4n\u00b2+6n)/2} \u00b7 \u220f(1+q^2k) \u220f(1+q^(2k-1))",
+  "cls": "mock",
+  "types": "EQEQQEQEEEQQQQQQQQQ",
+  "kappas": [
+   "1/240"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "59/60"
+  ],
+  "same_fp": [
+   "psi0"
+  ]
+ },
+ {
+  "id": 4,
+  "label": "q^{(1n\u00b2\u22121n)/2} \u00b7 \u220f(1-q^k)^-1",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "-1/24",
+   "1/48"
+  ],
+  "w": [
+   "0"
+  ],
+  "off": [
+   "1/24"
+  ],
+  "same_fp": [
+   "Euler (-q;q)inf"
+  ]
+ },
+ {
+  "id": 30,
+  "label": "q^{(1n\u00b2\u22121n)/2} \u00b7 \u220f(1+q^k) \u220f(1-q^k)^-2",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "0",
+   "1/16"
+  ],
+  "w": [
+   "-1/2"
+  ],
+  "off": [
+   "0"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 583,
+  "label": "q^{(1n\u00b2+1n)/2} \u00b7 \u220f(1+q^k) \u220f(1-q^k)^-1",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "-1/8",
+   "0",
+   "1/32"
+  ],
+  "w": [
+   "0"
+  ],
+  "off": [
+   "1/8"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 670,
+  "label": "q^{(1n\u00b2+1n)/2} \u00b7 \u220f(1-q^k)^-1 \u220f(1-q^(2k-1))^-1",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEE?E",
+  "kappas": [
+   "-1/168",
+   "-107/336",
+   "-11/336",
+   "-25/168",
+   "13/336"
+  ],
+  "w": [
+   "0"
+  ],
+  "off": [
+   "1/168"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 1659,
+  "label": "q^{(2n\u00b2\u22122n)/2} \u00b7 \u220f(1-q^k)^-2",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "1/24"
+  ],
+  "w": [
+   "-1/2"
+  ],
+  "off": [
+   "-1/24"
+  ],
+  "same_fp": [
+   "1/(q;q)inf  [Durfee sum]"
+  ]
+ },
+ {
+  "id": 1666,
+  "label": "q^{(2n\u00b2\u22122n)/2} \u00b7 \u220f(1-q^2k)^-1",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "-1/12",
+   "1/24",
+   "1/96"
+  ],
+  "w": [
+   "0"
+  ],
+  "off": [
+   "1/12"
+  ],
+  "same_fp": [
+   "Nahm A=1,B=1/2"
+  ]
+ },
+ {
+  "id": 1803,
+  "label": "q^{(2n\u00b2\u22122n)/2} \u00b7 \u220f(1+q^2k) \u220f(1-q^2k)^-2",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "0",
+   "1/32",
+   "1/8"
+  ],
+  "w": [
+   "-1/2"
+  ],
+  "off": [
+   "0"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 2326,
+  "label": "q^{2n\u00b2/2} \u00b7 \u220f(1-q^k)^-1 \u220f(1-q^(2k-1))^-1",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEE?",
+  "kappas": [
+   "-13/336",
+   "-47/168",
+   "-61/336",
+   "1/168",
+   "11/336"
+  ],
+  "w": [
+   "0"
+  ],
+  "off": [
+   "-1/168"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 2396,
+  "label": "q^{2n\u00b2/2} \u00b7 \u220f(1-q^2k)^-2 \u220f(1+q^(2k-1))",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "0",
+   "1/32",
+   "1/8"
+  ],
+  "w": [
+   "-1/2"
+  ],
+  "off": [
+   "-1/8"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 2407,
+  "label": "q^{2n\u00b2/2} \u00b7 \u220f(1-q^2k)^-1 \u220f(1-q^(2k-1))^-1",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "-1/40",
+   "-9/40",
+   "1/40"
+  ],
+  "w": [
+   "0"
+  ],
+  "off": [
+   "-1/40"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 2908,
+  "label": "q^{(2n\u00b2+2n)/2} \u00b7 \u220f(1+q^2k) \u220f(1-q^2k)^-1",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "-1/4",
+   "0",
+   "1/16",
+   "1/64"
+  ],
+  "w": [
+   "0"
+  ],
+  "off": [
+   "1/4"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 2950,
+  "label": "q^{(2n\u00b2+2n)/2} \u00b7 \u220f(1-q^2k)^-1 \u220f(1+q^(2k-1))^-1",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "-1/10",
+   "-1/40",
+   "-31/160",
+   "1/10",
+   "1/160"
+  ],
+  "w": [
+   "0"
+  ],
+  "off": [
+   "1/40"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 3046,
+  "label": "(\u22121)\u207f q^{(2n\u00b2+2n)/2} \u00b7 \u220f(1-q^2k)^-1",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "-1/12",
+   "-1/48"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "1/12"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 3503,
+  "label": "q^{(2n\u00b2+4n)/2} \u00b7 \u220f(1-q^2k)^-1 \u220f(1+q^(2k-1))",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "-7/16",
+   "0",
+   "1/16",
+   "1/64"
+  ],
+  "w": [
+   "0"
+  ],
+  "off": [
+   "7/16"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 4000,
+  "label": "q^{(3n\u00b2\u22123n)/2} \u00b7 \u220f(1-q^k)^-1 \u220f(1+q^k+q^2k)^-1",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "-1/72",
+   "-1/8",
+   "1/144",
+   "1/16"
+  ],
+  "w": [
+   "0"
+  ],
+  "off": [
+   "1/8"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 4534,
+  "label": "q^{(3n\u00b2\u22121n)/2} \u00b7 \u220f(1-q^k)^-1 \u220f(1-q^(2k-1))^-1",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "-1/120",
+   "-17/240",
+   "-49/120",
+   "7/240"
+  ],
+  "w": [
+   "0"
+  ],
+  "off": [
+   "1/120"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 5656,
+  "label": "q^{(3n\u00b2+3n)/2} \u00b7 \u220f(1-q^k)^-1 \u220f(1+q^k+q^2k)^-1",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "-1/72",
+   "-1/8",
+   "1/144",
+   "1/16"
+  ],
+  "w": [
+   "0"
+  ],
+  "off": [
+   "1/8"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 5932,
+  "label": "(\u22121)\u207f q^{(3n\u00b2+3n)/2} \u00b7 \u220f(1-q^k)^-1 \u220f(1+q^k+q^2k)^-1",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "-1/72",
+   "-1/8"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "1/8"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 6633,
+  "label": "q^{(4n\u00b2\u22124n)/2} \u00b7 \u220f(1-q^2k)^-2",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "1/12",
+   "1/48"
+  ],
+  "w": [
+   "-1/2"
+  ],
+  "off": [
+   "-1/12"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 6769,
+  "label": "q^{(4n\u00b2\u22124n)/2} \u00b7 \u220f(1+q^2k)^-1 \u220f(1-q^2k)^-1",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "-1/6",
+   "1/12",
+   "1/192",
+   "1/48"
+  ],
+  "w": [
+   "0"
+  ],
+  "off": [
+   "1/6"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 7737,
+  "label": "q^{4n\u00b2/2} \u00b7 \u220f(1-q^2k)^-2",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "1/12",
+   "1/48"
+  ],
+  "w": [
+   "-1/2"
+  ],
+  "off": [
+   "-1/12"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 7738,
+  "label": "q^{4n\u00b2/2} \u00b7 \u220f(1-q^2k)^-1",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "-11/120",
+   "-11/30",
+   "1/120",
+   "1/30"
+  ],
+  "w": [
+   "0"
+  ],
+  "off": [
+   "-1/30"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 7873,
+  "label": "q^{4n\u00b2/2} \u00b7 \u220f(1+q^2k)^-1 \u220f(1-q^2k)^-1",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "-1/6",
+   "1/12",
+   "1/192",
+   "1/48"
+  ],
+  "w": [
+   "0"
+  ],
+  "off": [
+   "-1/12"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 7918,
+  "label": "q^{4n\u00b2/2} \u00b7 \u220f(1-q^2k)^-1 \u220f(1+q^(2k-1))^-1",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "-23/48",
+   "1/12",
+   "1/192",
+   "1/48"
+  ],
+  "w": [
+   "0"
+  ],
+  "off": [
+   "-1/48"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 8149,
+  "label": "(\u22121)\u207f q^{4n\u00b2/2} \u00b7 \u220f(1+q^2k)^-1 \u220f(1-q^2k)^-1",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "-1/24",
+   "-1/96",
+   "1/12"
+  ],
+  "w": [
+   "0"
+  ],
+  "off": [
+   "-1/12"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 8842,
+  "label": "q^{(4n\u00b2+4n)/2} \u00b7 \u220f(1-q^2k)^-1",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "-11/120",
+   "-11/30",
+   "1/120",
+   "1/30"
+  ],
+  "w": [
+   "0"
+  ],
+  "off": [
+   "11/30"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 8977,
+  "label": "q^{(4n\u00b2+4n)/2} \u00b7 \u220f(1+q^2k)^-1 \u220f(1-q^2k)^-1",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "-1/6",
+   "1/12",
+   "1/192",
+   "1/48"
+  ],
+  "w": [
+   "0"
+  ],
+  "off": [
+   "1/6"
+  ],
+  "same_fp": []
+ },
+ {
+  "id": 9253,
+  "label": "(\u22121)\u207f q^{(4n\u00b2+4n)/2} \u00b7 \u220f(1+q^2k)^-1 \u220f(1-q^2k)^-1",
+  "cls": "modular",
+  "types": "EEEEEEEEEEEEEEEEEEE",
+  "kappas": [
+   "-1/24",
+   "-1/6",
+   "-1/96"
+  ],
+  "w": [
+   "1/2"
+  ],
+  "off": [
+   "1/6"
+  ],
+  "same_fp": []
+ }
+]

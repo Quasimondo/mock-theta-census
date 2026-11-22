@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite it as below."
+title: "mock-theta-census: a numerical census of Ramanujan-style q-series and the sign-twisted functions psi_0*, psi_1*"
+authors:
+  - family-names: Klingemann
+    given-names: Mario
+date-released: 2026-11-22
+version: 1.0.0
+license: MIT

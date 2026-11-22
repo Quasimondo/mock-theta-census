@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+*.log
+exp_m1.json
+series.json
+results_partial.json
