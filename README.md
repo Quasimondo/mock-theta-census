@@ -46,7 +46,7 @@ All results here are **numerical evidence and conjectures** unless marked as pro
 |---|---|
 | `census/` | Evaluator and labeled catalog (`catalog.py`), per-root probe (`probe.py`), generator and dedupe (`search.py`), staged search (`stage.py`, `filt.py`, `dclass.py`), q→1 dilogarithm pre-filter (`dilog.py`), identification tools (`ident.py`, `shadow.py`, `companions.py`, …), plus all result data (`cands.json`, `labels.json`, `stageC_summary.json`, `*.jsonl`) |
 | `psi_star/` | Quantum-modularity tests with Kontsevich–Zagier control (`qmf*.py`); exact identities, expansion at q = −1 and large-order analysis (`s1`–`s11`) |
-| `docs/` | GitHub Pages site (`index.html`, `explorer-v3.html`, `fingerprints-v1.html`); `formulas.md` (every formula in LaTeX, Unicode, plain text and Mathematica, with equivalent forms and coefficients), `handoff-v1.md` (full account of method and results), `addendum-v2.md` (identities, proofs, resurgence analysis), `psi-star-brief.md` (focused statement of the open problem) |
+| `docs/` | `twists.md` (sign twists of the catalog functions); GitHub Pages site (`index.html`, `explorer-v3.html`, `fingerprints-v1.html`); `formulas.md` (every formula in LaTeX, Unicode, plain text and Mathematica, with equivalent forms and coefficients), `handoff-v1.md` (full account of method and results), `addendum-v2.md` (identities, proofs, resurgence analysis), `psi-star-brief.md` (focused statement of the open problem) |
 | `psi_star/formulas_check.py` | Checks every equivalent form in `docs/formulas.md` to 50 digits |
 | `psi_star/s12_odd_limits.py` | Radial limits of ψ₁\*, ψ₀\* at odd-order roots vs. the closed form (first period)/3 |
 
@@ -68,6 +68,10 @@ The full census takes a few hours on 2 cores. `stage.py` is resumable, and `cens
 ## How this was made
 
 This was an exploratory project by Mario Klingemann, an artist and creative technologist, not a professional mathematician. The computations and much of the code were developed in conversation with AI assistants (Anthropic's Claude Opus 5.5 and Claude Fable 5.2). Every claim in the documents is backed by a script in this repository. Corrections are very welcome.
+
+## Sign twists: a pattern beyond ψ\*
+
+Inserting (−1)ⁿ into the other catalog mock theta functions gives more companions that are bounded at all 19 roots and are not a known function at ±q: the 5th-order F₀, F₁, the 3rd-order ψ and the 8th-order T₀, and the family F(z) at z = i, −ω. Three more twists turn out to be false theta functions. F₀\*, F₁\* do not follow the ψ\* pattern of identities (I), (II) in any simple way. Details, the full table and first checks: [`docs/twists.md`](docs/twists.md).
 
 ## How to cite
 
