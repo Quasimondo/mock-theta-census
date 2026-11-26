@@ -67,6 +67,8 @@ F₀\*, F₁\* are the natural next pair after ψ₀\*, ψ₁\*: same order, als
 - **No linear relation found.** Neither F₀\* nor F₁\* is a rational linear combination of 1, ψ₀\*, ψ₁\*, f₀\*, f₁\* (at q and q²) and φ₀\*, φ₁\* (at ±q). This was checked to q²⁰⁰.
 - **Scripts:** `census/twist_checks/` (`F1.py` builds the series; `F2.py`–`F5.py` are the searches).
 
+**Update 2026-11-26:** the guess below was right. `addendum-v3.md` §4 proves the bilateral identities (III), (IV): the bilateral sum is θ₄(q²)(−q;q)∞ times a sign-twisted Slater-type sum with (q;q)₂ₙ denominators, which was outside the library used here.
+
 So F₀\*, F₁\* are not a rearrangement of the ψ\* story. A guess, not verified: F₀ is built on (q;q²)ₙ, so the bilateral argument needs a base-q² version of the partial-fraction step, and the missing factor would be a series outside the library above. The method that identified R₀, R₁ for ψ\* (the exact expansion at q = −1 and its large-order behaviour) is the obvious next step.
 
 ## Caveats

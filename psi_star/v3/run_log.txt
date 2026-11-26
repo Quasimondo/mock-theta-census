@@ -1,0 +1,217 @@
+##### python3 q3_oddroot.py
+(a) |A - B|, |A0 - B0| for all primitive roots of odd order m <= 25:
+    largest difference: 7.59e-37
+(b),(c),(d) along q = zeta e^(-t):
+    m  h   u=m^2 t   |f1* - (2/3)A|   |psi1* - A/3|   |2psi1* - f1* - th4 R1|   u*log|th4 R1|   (bound: < -pi^2/6 = -1.645)
+    1  0   0.25      0.0597           0.0298          1.48e-61                 -2.70093
+    1  0   0.125     0.0288           0.0144          2.96e-61                 -2.96347
+    1  0   0.0625    0.0141           0.00707         1.25e-58                 -3.11833
+    1  0   0.03125   0.00701          0.0035          5.87e-57                 -3.18382
+    3  1   0.25      0.0585           0.0292          1.03e-57                 -2.48753
+    3  1   0.125     0.0286           0.0143          2.17e-56                 -2.88735
+    3  1   0.0625    0.0141           0.00704         4.56e-56                 -3.05473
+    3  1   0.03125   0.00699          0.0035          1.58e-56                 -3.15715
+    5  1   0.25      0.0696           0.0347          1.97e-56                 -2.34575
+    5  1   0.125     0.0342           0.0171          2.42e-56                 -2.83517
+    5  1   0.0625    0.0169           0.00846         5.09e-56                 -3.01574
+    5  1   0.03125   0.0084           0.0042          2.19e-56                 -3.13983
+    5  2   0.25      0.0717           0.0358          1.75e-56                 -2.45826
+    5  2   0.125     0.0345           0.0172          2.17e-56                 -2.85259
+    5  2   0.0625    0.0169           0.00846         7.68e-56                 -3.04938
+    5  2   0.03125   0.00838          0.00419         1.55e-55                 -3.15294
+    7  1   0.25      0.0896           0.0447          2.1e-56                  -2.22674
+    7  1   0.125     0.0444           0.0222          9.93e-56                 -2.78638
+    7  1   0.0625    0.022            0.011           4.07e-56                 -2.98427
+    7  1   0.03125   0.0109           0.00547         1.82e-56                 -3.12517
+    7  3   0.25      0.0874           0.0437          7.16e-56                 -2.52111
+    7  3   0.125     0.0415           0.0207          6.88e-56                 -2.83375
+    7  3   0.0625    0.0202           0.0101          8.71e-56                 -3.08201
+    7  3   0.03125   0.01             0.005           3.64e-55                 -3.15873
+    9  2   0.25      0.103            0.0513          3.53e-56                 -2.29754
+    9  2   0.125     0.0495           0.0247          3.94e-56                 -2.79192
+    9  2   0.0625    0.0243           0.0121          8.49e-56                 -3.00417
+    9  2   0.03125   0.012            0.00601         2.63e-55                 -3.13349
+##### python3 q4_twists.py
+(III)  F0* + sum_{n>=1} q^(n^2)(q;q^2)_n = theta4(q^2) (-q;q)_inf X(q^2): True
+(IV)   q F1* - sum_{n>=0} q^((n+1)^2)(q;q^2)_n = theta4(q^2) (-q;q)_inf Y(q^2): True
+X = (-q;q)_inf R0 : False    Y = q (-q;q)_inf R1 : False
+X [1, -1, -1, -2, -1, -2, -1, -1, 1, 0, 3, 3, 6, 6]
+Y [0, 1, 1, 1, 0, 0, -1, -2, -3, -3, -5, -5, -6, -6]
+(-q)R0 [1, 0, -1, -1, -2, -2, -2, -2, -2, -1, 0, 1, 2, 4]
+(-q)R1 [1, 1, 0, 0, -1, -2, -2, -3, -4, -4, -4, -4, -4, -3]
+##### python3 q5_threshold.py /tmp/zfam_results.jsonl
+threshold: Re V = 0 at a* = 0.10736584181229166611 = 1/9.313949233 of a turn
+Re V(0) - pi^2/60 = 4.93e-32
+
+F(z) at roots of odd order m in zfam_results.jsonl, by a = distance of arg(z^m)/2pi from an integer
+  a        predicted kappa = max(Re V,0)/(4 pi^2)   classes found        fitted kappa (range over rows with growth)
+  0        0.0041666667                            E:6 Q:1 X:28         0.0041666667 .. 0.0041666667
+  1/12     0.0016555805                            X:12                 0.0016555805 .. 0.0016555805
+  1/11     0.0011785967                            X:14                 0.0011785967 .. 0.0011785967
+  1/10     0.0005516302                            ?:8 X:2              0.0005516302 .. 0.0005516302
+  1/9      bounded (Re V = -0.0117)                ?:1 Q:3 X:8          -0.0003890468 .. -0.0001294629
+  1/8      bounded (Re V = -0.0584)                ?:8 Q:4 X:2          -0.0004150682 .. -0.0002493340
+  1/7      bounded (Re V = -0.1265)                Q:8                  
+  1/6      bounded (Re V = -0.2313)                Q:12                 
+  2/11     bounded (Re V = -0.3063)                Q:14                 
+  1/5      bounded (Re V = -0.4048)                Q:10                 
+  2/9      bounded (Re V = -0.5378)                Q:12                 
+  1/4      bounded (Re V = -0.7231)                Q:18                 
+  3/11     bounded (Re V = -0.8905)                Q:14                 
+  2/7      bounded (Re V = -0.9925)                Q:8                  
+  3/10     bounded (Re V = -1.1098)                Q:10                 
+  1/3      bounded (Re V = -1.4048)                Q:18                 
+  4/11     bounded (Re V = -1.6980)                Q:14                 
+  3/8      bounded (Re V = -1.8140)                Q:14                 
+  2/5      bounded (Re V = -2.0803)                Q:10                 
+  5/12     bounded (Re V = -2.2663)                Q:12                 
+  3/7      bounded (Re V = -2.4031)                Q:8                  
+  4/9      bounded (Re V = -2.5906)                Q:12                 
+  5/11     bounded (Re V = -2.7128)                Q:14                 
+  1/2      bounded (Re V = -3.2899)                Q:17                 
+
+check of V and of the prefactor at q = e^(-t)  (Richardson in t)
+  a = 0/1: F/prediction at t = 1/800 .. 1/12800: ['(1.0002292 + 0.0j)', '(1.0001146 + 0.0j)', '(1.0000573 + 0.0j)', '(1.0000286 + 0.0j)', '(1.0000143 + 0.0j)']
+           extrapolated to t = 0: (1.0 + 0.0j)   |limit - 1| = 5.14e-24
+  a = 1/12: F/prediction at t = 1/800 .. 1/12800: ['(1.0002295 - 8.4130375e-6j)', '(1.0001147 - 4.2065736e-6j)', '(1.0000574 - 2.1033005e-6j)', '(1.0000287 - 1.0516537e-6j)', '(1.0000143 - 5.2582771e-7j)']
+           extrapolated to t = 0: (1.0 - 4.47177106023180081e-22j)   |limit - 1| = 4.74e-22
+
+limit rule in the bounded case, F(z; zeta e^(-t)) -> A_z/(1 - 2 z^m):
+  z = e^(2 pi i 1/4), root 0/1: |extrapolated limit - prediction| = 3.5e-8
+  z = e^(2 pi i 1/5), root 0/1: |extrapolated limit - prediction| = 2.87e-6
+  z = e^(2 pi i 1/5), root 1/3: |extrapolated limit - prediction| = 1.8e-11
+  z = e^(2 pi i 1/6), root 1/5: |extrapolated limit - prediction| = 1.88e-5
+  z = e^(2 pi i 1/2), root 2/7: |extrapolated limit - prediction| = 6.89e-13
+##### python3 q2_largeorder.py
+=== q = -1 (control: addendum-v2 table) ===
+ psi1@-1: K = c0 = 0.11659097299239956786   K^2 pi - table = -5.23e-31   s1 - table = 4.62e-26   fit residual 1.09e-39
+ psi0@-1: K = c0 = -0.30523913007552310433   K^2 pi - table = -4.7e-31   s1 - table = 6.07e-27   fit residual 3.74e-40
+=== q = i : singularity at -pi^2/240 ===
+ psi1@i: c0 = (0.1333943911318216799856 - 0.08244226762806335327548j)  (change with other window: 1.97e-27), fit residual 8.79e-40
+      attached series 1 + s1 t + s2 t^2: s1 = (1.20943236703327445 - 0.289442719099991588j), s2 = (2.16257692071381 - 0.0688415861416618j)
+ psi0@i: c0 = (-0.1333943911318216799856 + 0.215836658759885033261j)  (change with other window: 1.15e-27), fit residual 5.2e-40
+      attached series 1 + s1 t + s2 t^2: s1 = (0.209432367033274448 - 0.110557280900008412j), s2 = (0.558717362680622 - 0.0539344662916632j)
+ direct: (1/2) theta4 R at q = i e^(-t), times sqrt(t) e^(-pi^2/(240 t)), Richardson to t = 0:
+   psi1@i: limit = (0.419070839209814454 - 0.259000022325607459j) ;  pi * c0(large order) = (0.419070839209814454 - 0.259000022325607459j) ; ratio = (1.0 - 1.24706978720766e-22j)
+        first correction of theta4*R: (1.2094323670333 - 0.28944271909999j) ;  s1 from large order: (1.2094323670333 - 0.28944271909999j)
+   psi0@i: limit = (-0.419070839209814454 + 0.678070861535421914j) ;  pi * c0(large order) = (-0.419070839209814454 + 0.678070861535421914j) ; ratio = (1.0 - 1.2729036958779e-22j)
+        first correction of theta4*R: (0.20943236703327 - 0.11055728090001j) ;  s1 from large order: (0.20943236703327 - 0.11055728090001j)
+=== q -> 1 : singularities at pi^2/3 -+ i Cl2(pi/3) ===
+ psi1@1: c0 = (0.20704203726714110201 + 0.055476746685024886493j)  (change with other window: 1.81e-16), fit residual 5.95e-31; with S moved by 1e-12 relative: residual 3.0e-25
+      attached series: s1 = (0.2500000000000337 - 0.03207501495500626j), s2 = (0.012217078181874 - 0.040093768689558j)
+ psi0@1: c0 = (-0.055476746685024884899 - 0.20704203726714115124j)  (change with other window: 1.36e-16), fit residual 8.48e-31; with S moved by 1e-12 relative: residual 6.8e-25
+      attached series: s1 = (-0.0833333333333968 - 0.03207501495498643j), s2 = (-0.015560699576778 + 0.034747932871256j)
+ saddle prefactor C = (1+w) sqrt(pi w/(1+2w)), w = e^(-2 pi i/3): (0.348570679661472123 - 1.30088348652542947j)
+   c0 * pi / C = (-3.740274831321e-17 + 0.5j)
+   c0 * pi / conj C = (0.25 - 0.433012701892219j)
+ direct: (1/2) theta4 R1 at q = e^(-t), least squares for C, s1, s2 with S fixed:
+   C(direct) = (0.34857067966214 - 1.3008834865255j)   saddle C = (0.34857067966147 - 1.3008834865254j)   s1(direct) = (0.2499999999 - 0.03207501521j)   s1(large order) = (0.25 - 0.03207501496j)
+   2 pi c0(large order) / (i C(direct)) = (1.0 - 4.59875466159e-13j)
+=== closed forms (PSLQ found them; differences shown) ===
+ q=i  psi1*: pi c0^2 - (5-sqrt5)(1-2i)/80 = 5.67e-31   s1 - [(175+84 sqrt5)/300 - i(5+sqrt5)/25] = 1.11e-25
+ q=i  psi0*: pi c0^2 + (5+sqrt5)(1+2i)/80 = 5.43e-31   s1 - [(84 sqrt5-125)/300 - i(5-sqrt5)/25] = 4.05e-26
+ q->1 psi1*: c0 - e^(i pi/12)/(2 3^(1/4) sqrt(pi)) = 2.15e-17   s1 - (1/4 - i sqrt3/54) = 4.32e-14
+ q->1 psi0*: c0 - e^(-7 i pi/12)/(2 3^(1/4) sqrt(pi)) = 3.29e-17   s1 - (-1/12 - i sqrt3/54) = 6.39e-14
+##### python3 q1_limits.py 9
+56 values of rho; largest extrapolation uncertainty 5.008525558412235e-13
+##### python3 q1_law.py 9
+rho      W(e^(-pi i rho))                               |L1 - Cbar W|   |L0 - w Cbar W|   |corr1 - s1bar|  |corr0 - s1bar'|
+0        (1.0 + 0.0j)                                   6.2e-21         6.2e-21           1.5e-19          1.5e-19
+1        (0.33333333333333 + 0.0j)                      5.6e-21         5.6e-21           4.0e-19          4.0e-19
+1/2      (0.66666666666667 + 0.33333333333333j)         5.9e-21         5.9e-21           1.9e-19          1.9e-19
+3/2      (0.66666666666667 - 0.33333333333333j)         5.4e-21         5.4e-21           1.7e-19          1.7e-19
+1/3      (0.5 + 0.86602540378444j)                      6.0e-21         6.0e-21           1.4e-19          1.4e-19
+4/3      (2.5 + 0.86602540378444j)                      5.4e-21         5.5e-21           4.9e-20          4.9e-20
+2/3      (2.5 - 0.86602540378444j)                      5.8e-21         5.8e-21           5.3e-20          5.3e-20
+5/3      (0.5 - 0.86602540378444j)                      5.3e-21         5.3e-21           1.3e-19          1.3e-19
+1/4      (-0.040440114519881 + 0.90236892706218j)       6.1e-21         6.1e-21           1.6e-19          1.6e-19
+5/4      (1.3737734478532 + 0.43096440627115j)          5.5e-21         5.5e-21           9.1e-20          9.1e-20
+3/4      (1.3737734478532 - 0.43096440627115j)          5.8e-21         5.8e-21           9.6e-20          9.6e-20
+7/4      (-0.040440114519881 - 0.90236892706218j)       5.2e-21         5.2e-21           1.4e-19          1.4e-19
+1/5      (-0.18169499062491 + 0.31701883876505j)        6.1e-21         6.1e-21           4.0e-19          4.0e-19
+6/5      (1.6909830056251 + 4.0287400534704j)           5.5e-21         5.5e-21           3.0e-20          3.0e-20
+2/5      (2.8090169943749 - 0.13875727571289j)          6.0e-21         6.0e-21           5.1e-20          5.1e-20
+7/5      (1.6816949906249 + 0.19592841743082j)          5.4e-21         5.4e-21           7.7e-20          7.7e-20
+...
+56 values of rho (denominators <= 9, both classes mod 2):
+  largest |L1 - Cbar W| / max(|W|,1): 6.22e-21    largest |L0 - e^(2 pi i/3) Cbar W| / max(|W|,1): 6.23e-21
+  largest deviation of the first correction from s1bar: 4.04e-19 (psi1*) 4.04e-19 (psi0*)
+##### python3 q1_second.py
+attached series coefficients s_j (psi1*), and agreement between two fits:
+  s_0 = (1.0 + 0.0j)   (diff 0.0)
+  s_1 = (0.25 - 0.032075014955j)   (diff 1.1e-14)
+  s_2 = (0.01221707819 - 0.0400937686933j)   (diff 2.4e-12)
+  s_3 = (-0.0340470679918 + 0.0103680065208j)   (diff 3.1e-10)
+  s_4 = (0.0198132962683 + 0.0513954476614j)   (diff 2.8e-8)
+  s_5 = (0.100437146478 - 0.042932793856j)   (diff 1.8e-6)
+  s_6 = (-0.111687514169 - 0.245632789092j)   (diff 8.8e-5)
+  s_7 = (-0.723285467426 + 0.340799122353j)   (diff 0.0033)
+  s_8 = (1.23815079954 + 2.52405158575j)   (diff 0.095)
+  s_9 = (9.09512989882 - 5.98920480644j)   (diff 2.1)
+  s_10 = (-10.7481723658 - 19.7305702308j)   (diff 37.0)
+  s_11 = (-348.2818019 - 266.592483368j)   (diff 5.0e+2)
+rho = 0
+   X = 30     remainder (6, 8, 10 terms of the growing series): (0.30978705 - 0.034806624j) | (0.3177626 - 0.023521935j) | (0.32135185 - 0.017460077j)    perturbative series: (0.33198428 - 0.02317442j)
+   X = 40     remainder (6, 8, 10 terms of the growing series): (0.33843334 - 0.036006517j) | (0.33303659 - 0.024272106j) | (0.33128048 - 0.021086413j)    perturbative series: (0.33257311 - 0.017412844j)
+   X = 50     remainder (6, 8, 10 terms of the growing series): (0.35544682 - 0.016474518j) | (0.33769431 - 0.014815809j) | (0.33452283 - 0.014732607j)    perturbative series: (0.33284645 - 0.013942016j)
+   X = 60     remainder (6, 8, 10 terms of the growing series): (0.35406629 + 0.018139535j) | (0.33588619 - 0.0074756655j) | (0.33386159 - 0.010743072j)    perturbative series: (0.3329951 - 0.011623629j)
+   X = 80     remainder (6, 8, 10 terms of the growing series): (0.16844688 + 0.0064646551j) | (0.32139368 - 0.0079988939j) | (0.33181773 - 0.0083964781j)    perturbative series: (0.33314302 - 0.0087216411j)
+rho = 1
+   X = 31     remainder (6, 8, 10 terms of the growing series): (0.33013387 - 0.034304283j) | (0.33418853 - 0.03243567j) | (0.33604326 - 0.031394359j)    perturbative series: (0.33206955 - 0.022432892j)
+   X = 41     remainder (6, 8, 10 terms of the growing series): (0.33435618 - 0.023461467j) | (0.33476153 - 0.019096975j) | (0.33478561 - 0.017923935j)    perturbative series: (0.33260967 - 0.016990063j)
+   X = 51     remainder (6, 8, 10 terms of the growing series): (0.33955646 - 0.017728077j) | (0.33447365 - 0.01412378j) | (0.33356633 - 0.013567033j)    perturbative series: (0.33286533 - 0.013669435j)
+   X = 61     remainder (6, 8, 10 terms of the growing series): (0.3446645 - 0.0059032365j) | (0.33449018 - 0.010568468j) | (0.33332321 - 0.011193974j)    perturbative series: (0.33300609 - 0.011433461j)
+   X = 81     remainder (6, 8, 10 terms of the growing series): (0.28395383 + 0.026173909j) | (0.32966532 - 0.0063159185j) | (0.33280685 - 0.0082942667j)    perturbative series: (0.33314768 - 0.0086140883j)
+rho = 1/2
+   X = 61/2   remainder (6, 8, 10 terms of the growing series): (0.33781392 - 0.045782582j) | (0.34188461 - 0.036504487j) | (0.34351761 - 0.031787208j)    perturbative series: (0.33202795 - 0.022797656j)
+   X = 81/2   remainder (6, 8, 10 terms of the growing series): (0.34418112 - 0.027131329j) | (0.33843842 - 0.019302439j) | (0.33671055 - 0.017272895j)    perturbative series: (0.33259173 - 0.017198862j)
+   X = 101/2  remainder (6, 8, 10 terms of the growing series): (0.34999028 - 0.011065637j) | (0.33646697 - 0.012540847j) | (0.33413178 - 0.012954556j)    perturbative series: (0.33285603 - 0.013804382j)
+   X = 121/2  remainder (6, 8, 10 terms of the growing series): (0.34404548 + 0.014231262j) | (0.33427857 - 0.0079123349j) | (0.3332717 - 0.010644344j)    perturbative series: (0.33300066 - 0.011527762j)
+   X = 161/2  remainder (6, 8, 10 terms of the growing series): (0.20506304 - 0.022807004j) | (0.32418869 - 0.0099454373j) | (0.33211432 - 0.0086372318j)    perturbative series: (0.33314537 - 0.0086675312j)
+rho = 1/3
+   X = 91/3   remainder (6, 8, 10 terms of the growing series): (0.34809232 - 0.040674601j) | (0.3446138 - 0.027459319j) | (0.34235751 - 0.021034446j)    perturbative series: (0.33201363 - 0.022921882j)
+   X = 121/3  remainder (6, 8, 10 terms of the growing series): (0.35168629 - 0.019692076j) | (0.33915872 - 0.016264136j) | (0.33563059 - 0.015568853j)    perturbative series: (0.3325856 - 0.017269604j)
+   X = 151/3  remainder (6, 8, 10 terms of the growing series): (0.34864982 + 0.0027807629j) | (0.33576975 - 0.0099478074j) | (0.3336631 - 0.012327814j)    perturbative series: (0.33285287 - 0.013849958j)
+   X = 181/3  remainder (6, 8, 10 terms of the growing series): (0.32332046 + 0.024343584j) | (0.33143354 - 0.0067264463j) | (0.33264752 - 0.010417088j)    perturbative series: (0.33299882 - 0.011559541j)
+   X = 241/3  remainder (6, 8, 10 terms of the growing series): (0.21213472 - 0.12857679j) | (0.32488079 - 0.017404365j) | (0.33204018 - 0.0095057878j)    perturbative series: (0.33314459 - 0.0086854931j)
+rho = 2/3
+   X = 92/3   remainder (6, 8, 10 terms of the growing series): (0.30191242 - 0.026101595j) | (0.33636886 - 0.016456378j) | (0.35272614 - 0.010430247j)    perturbative series: (0.33204204 - 0.022674763j)
+   X = 122/3  remainder (6, 8, 10 terms of the growing series): (0.32078376 - 0.060151357j) | (0.32938748 - 0.026669554j) | (0.33106504 - 0.017410018j)    perturbative series: (0.33259779 - 0.017128696j)
+   X = 152/3  remainder (6, 8, 10 terms of the growing series): (0.37586313 - 0.055725414j) | (0.34111644 - 0.02164356j) | (0.33472036 - 0.016155556j)    perturbative series: (0.33285916 - 0.013759105j)
+   X = 182/3  remainder (6, 8, 10 terms of the growing series): (0.42934765 + 0.01567999j) | (0.34564711 - 0.0075747844j) | (0.33582647 - 0.010974168j)    perturbative series: (0.33300249 - 0.011496156j)
+   X = 242/3  remainder (6, 8, 10 terms of the growing series): (0.0013414413 + 0.31601166j) | (0.309277 + 0.013301176j) | (0.33093339 - 0.00572548j)    perturbative series: (0.33314615 - 0.0086496434j)
+psi1@i: k! a_k within 3.6e-11 of (Gaussian) integers for k <= 31
+    first values of k! a_k: ['2-1i', '-12+7i', '1016-617i', '-185424+113359i', '63459680-38919569i', '-34807340352+21384025687i']
+psi0@i: k! a_k within 4.45e-15 of (Gaussian) integers for k <= 30
+    first values of k! a_k: ['-1+2i', '14-22i', '-1036+1666i', '188504-303766i', '-64192432+103566082i', '35122646624-56701881622i']
+psi1@-1: k! a_k within 5.03e-14 of (Gaussian) integers for k <= 35
+psi0@-1: k! a_k within 3.47e-14 of (Gaussian) integers for k <= 35
+psi1@1: 3^(2k+1) k! a_k within 4.59e-13 of integers for k <= 39
+    a_0..a_6 = ['1/3', '1/9', '5/162', '5/486', '29/17496', '-1937/262440', '-23207/944784']
+psi0@1: 3^(2k+1) k! a_k within 3.86e-13 of integers for k <= 39
+    a_0..a_6 = ['1/3', '0', '1/81', '1/81', '139/8748', '203/8748', '89131/2361960']
+##### python3 q1_fit.py
+rho/2        hat=0  rel residual L1: 0.971  L0: 0.971
+rho/2        hat=1  rel residual L1: 0.969  L0: 0.969
+(rho+1)/2    hat=0  rel residual L1: 0.915  L0: 0.915
+(rho+1)/2    hat=1  rel residual L1: 0.918  L0: 0.918
+rho          hat=0  rel residual L1: 0.966  L0: 0.966
+rho          hat=1  rel residual L1: 0.953  L0: 0.953
+2 rho        hat=0  rel residual L1: 0.906  L0: 0.906
+2 rho        hat=1  rel residual L1: 0.896  L0: 0.896
+rho/4        hat=0  rel residual L1: 0.964  L0: 0.964
+rho/4        hat=1  rel residual L1: 0.959  L0: 0.959
+-rho/2       hat=0  rel residual L1: 0.944  L0: 0.944
+-rho/2       hat=1  rel residual L1: 0.928  L0: 0.928
+-(rho+1)/2   hat=0  rel residual L1: 0.792  L0: 0.792
+-(rho+1)/2   hat=1  rel residual L1: 0.814  L0: 0.814
+-rho         hat=0  rel residual L1: 0.892  L0: 0.892
+-rho         hat=1  rel residual L1: 0.824  L0: 0.824
+-2rho        hat=0  rel residual L1: 0.943  L0: 0.943
+-2rho        hat=1  rel residual L1: 0.924  L0: 0.924
+##### python3 q1_search.py
+kappa1 = const * (xi;xi^2) xi = e(-rho/2)  exponent (2 j^2 +2 j)/2 eps -1  const = (1.0 + 3.05496938e-13j)  max deviation 1.25e-12
+kappa0 = const * (xi;xi^2) xi = e(-rho/2)  exponent (2 j^2 +2 j)/2 eps -1  const = (-0.5 + 0.8660254038j)  max deviation 1.25e-12
+kappa1 = const * (-xi;xi^2) xi = e(-(rho+1)/2)  exponent (2 j^2 +2 j)/2 eps -1  const = (1.0 + 3.05496938e-13j)  max deviation 1.25e-12
+kappa0 = const * (-xi;xi^2) xi = e(-(rho+1)/2)  exponent (2 j^2 +2 j)/2 eps -1  const = (-0.5 + 0.8660254038j)  max deviation 1.25e-12
+4 hits
