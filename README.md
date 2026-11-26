@@ -8,11 +8,11 @@ A complete numerical census of short Ramanujan-style q-series, classified as **m
 
 These are Ramanujan's fifth-order mock theta functions ψ₁, ψ₀ with a sign twist (−1)ⁿ. They are bounded at every root of unity tested and terminate at even-order roots. At q = −1 they have a divergent asymptotic series with integer coefficients, whose large-order behavior is controlled by Ramanujan's entire Rogers–Ramanujan function at a = 1. As far as we could find, neither the functions nor the identities below appear in the literature. **We'd be glad to hear if they do.**
 
-Two later findings extend this. The same sign twist gives bounded, non-trivial companions for several other mock theta functions (fifth-order F₀, F₁, third-order ψ, eighth-order T₀). And a census of 6,327 double sums found one mock-theta-like double sum, **D(q) = Σ_{m,n≥0} q^{m²−mn+n²} / ((−q;q)ₘ (−q;q)ₙ)**, which grows exactly like Ramanujan's third-order f(q) but has golden-ratio asymptotics at q = 1. It is now explained by a proved identity: **D = θ₄·f + 4R**, with R = Σ_{d>k≥0} (−1)^{d+k+1} q^{d²}/(−q;q)ₖ a sum of theta tails.
+Two later findings extend this. The same sign twist gives bounded, non-trivial companions for several other mock theta functions (fifth-order F₀, F₁, eighth-order T₀); for the third-order ψ it gives a known function, −σ\*/2 of Andrews–Dyson–Hickerson. And a census of 6,327 double sums found one mock-theta-like double sum, **D(q) = Σ_{m,n≥0} q^{m²−mn+n²} / ((−q;q)ₘ (−q;q)ₙ)**, which grows exactly like Ramanujan's third-order f(q) but has golden-ratio asymptotics at q = 1. It is now explained by a proved identity: **D = θ₄·f + 4R**, with R = Σ_{d>k≥0} (−1)^{d+k+1} q^{d²}/(−q;q)ₖ a sum of theta tails.
 
 **Interactive pages:** [quasimondo.github.io/mock-theta-census](https://quasimondo.github.io/mock-theta-census/)
 - [Explorer](https://quasimondo.github.io/mock-theta-census/explorer-v4.html): mock theta functions on the unit disk, with a radial probe toward any root of unity, including ψ₁\* and ψ₀\* and the double sum D
-- [Fingerprints](https://quasimondo.github.io/mock-theta-census/fingerprints-v2.html): the classifier on 51 known functions, both censuses, the sign twists, and the double sum D
+- [Fingerprints](https://quasimondo.github.io/mock-theta-census/fingerprints-v3.html): the classifier on 51 known functions, both censuses, the sign twists, and the double sum D
 - [Formula sheet](docs/formulas.md): every formula in LaTeX, Unicode, plain text and Mathematica
 
 All results here are **numerical evidence and conjectures** unless marked as proved. Computations used Arb ball arithmetic (python-flint) at 50+ significant digits, and exact integer arithmetic where possible.
@@ -29,7 +29,7 @@ All results here are **numerical evidence and conjectures** unless marked as pro
    - 2ψ₀\* = f₀\* − θ₄·R₀
    - 2ψ₁\* = f₁\* + θ₄·R₁
 
-   with f₀\* = Σ(−1)ⁿq^{n²}/(−q;q)ₙ, f₁\* = Σ(−1)ⁿq^{n²+n}/(−q;q)ₙ, θ₄ = Σ(−1)ⁿq^{n²}, R₀ = Σ(−1)ⁿq^{n²}/(q;q)ₙ, R₁ = Σ(−1)ⁿq^{n²+n}/(q;q)ₙ. These are the z = −1 analogues of the classical bilateral-series identities for f₀ + 2ψ₀ and f₁ + 2ψ₁.
+   with f₀\* = Σ(−1)ⁿq^{n²}/(−q;q)ₙ, f₁\* = Σ(−1)ⁿq^{n²+n}/(−q;q)ₙ, θ₄ = Σ(−1)ⁿq^{n²}, R₀ = Σ(−1)ⁿq^{n²}/(q;q)ₙ, R₁ = Σ(−1)ⁿq^{n²+n}/(q;q)ₙ. These are the z = −1 analogues of the classical bilateral-series identities for f₀ + 2ψ₀ and f₁ + 2ψ₁; the method of relating fifth-order functions to modular bilateral series is that of Bajpai, Kimport, Liang, Ma and Ricci (*Bilateral series and Ramanujan's radial limits*, Proc. AMS 2015).
 4. **Asymptotics at q = −1** (numerical, 15–18 digits).
    - ψ₁\*(−e^{−t}) = Σ cₖ tᵏ/k! with integer cₖ = 1, −1, 27, −1237, 106587, −14667181, …
    - Borel singularity at π²/60, with Stokes data π·K² = (5 ± 3√5)/40 and subleading coefficients such as (13 − 6√5)/60.
@@ -37,7 +37,7 @@ All results here are **numerical evidence and conjectures** unless marked as pro
    - Radial limits at every root of unity are finite. At even order m the series terminates; at odd order m the terms repeat with a factor −2 every m steps, and the limit is one third of the first m terms (checked at all odd orders m ≤ 15 to 10⁻¹⁴; not proved).
 5. **Transformation behavior.** Under x ↦ x/(2x+1) (Γ₀(2)), ψ₁\* and ψ₀\* transform *together*, to ~10⁻⁹ on held-out roots. Unrelated pairs reach only 10⁻⁴ to 10⁻¹, and the Kontsevich–Zagier control reaches 10⁻¹⁰. But the best-fit weight is ≈ 0.508, not ½, so this is not a classical weight-½ quantum modular form with constant multipliers. Our reading: this fits the resurgent / matrix-valued quantum modularity framework of Garoufalidis–Zagier, as a sign-twisted sibling of the analysis of f₀ near q = −1 in C. Wheeler's thesis (Bonn 2023, Ch. 7).
 
-6. **Sign twists: a pattern beyond ψ\*.** Inserting (−1)ⁿ into the other catalog mock theta functions gives more companions that are bounded at all 19 roots and are not a known function at ±q: the 5th-order F₀, F₁, the 3rd-order ψ and the 8th-order T₀, and the family F(z) at z = i, −ω. Three more twists turn out to be false theta functions. F₀\*, F₁\* do not follow the ψ\* pattern of identities (I), (II) in any simple way. Details, the full table and first checks: [`docs/twists.md`](docs/twists.md).
+6. **Sign twists: a pattern beyond ψ\*.** Inserting (−1)ⁿ into the other catalog mock theta functions gives more companions that are bounded at all 19 roots and are not a known function at ±q: the 5th-order F₀, F₁ and the 8th-order T₀, and the family F(z) at z = i, −ω. The twist of the 3rd-order ψ is also bounded, but it is a known function: −σ\*(q)/2, the Andrews–Dyson–Hickerson companion of σ(q) (ℚ(√6), Maass forms, quantum modular). Three more twists turn out to be false theta functions. None of the dense bounded twists becomes sparse after multiplying by an eta quotient, so none of them is a single Hecke-type double sum over such a product (`census3/hecke/`). F₀\*, F₁\* do not follow the ψ\* pattern of identities (I), (II) in any simple way. Details, the full table and first checks: [`docs/twists.md`](docs/twists.md).
 7. **The double sum d1151, and an identity for it.** The rank-2 census left one candidate,
 
      D(q) = Σ_{m,n≥0} q^{m²−mn+n²} / ((−q;q)ₘ (−q;q)ₙ).
@@ -51,7 +51,7 @@ All results here are **numerical evidence and conjectures** unless marked as pro
 
 - Are ψ₀\*, ψ₁\*, the family F(z) = Σ zⁿq^{n(n+1)/2}(−q;q)ₙ (which satisfies F(z) = 1 + zqF(zq) + zq²F(zq²)), or the identities in (3) known?
 - Is the right structure a matrix-valued holomorphic quantum modular form built from (1, ψ₀\*, ψ₁\*) and θ₄R₀, θ₄R₁?
-- What happens at other values of the twist z? F(i) and F(−ω) are bounded at all 19 roots (`docs/twists.md`), F(ω) is not.
+- Other values of the twist z (`census3/`, all z of order ≤ 12): at a root of odd order m, F(z) grows when z^m is within about 1/9 of a turn of 1 and is bounded otherwise; at even order it is always bounded. So F(z) is bounded at every root only for z = −1, ±i, −ω, −ω̄. Why the threshold sits where it does is open.
 - What are the non-modular pieces of F₀\*, F₁\* (the analogue of θ₄·R₀, θ₄·R₁ for ψ\*)?
 - Is the general-z identity for Σ q^{m²−mn+n²}/((zq)ₘ(q/z)ₙ) (`docs/d1151-identity.md`, section 3) known?
 
@@ -62,7 +62,8 @@ All results here are **numerical evidence and conjectures** unless marked as pro
 | `census/` | Evaluator and labeled catalog (`catalog.py`), per-root probe (`probe.py`), generator and dedupe (`search.py`), staged search (`stage.py`, `filt.py`, `dclass.py`), q→1 dilogarithm pre-filter (`dilog.py`), identification tools (`ident.py`, `shadow.py`, `companions.py`, …), plus all result data (`cands.json`, `labels.json`, `stageC_summary.json`, `*.jsonl`) |
 | `census2/` | Rank-2 (double-sum) census: generator (`gen2.py`), evaluators (`sum2_fast.py`, `sum2.py`), staged runner (`run2.py`), report (`report2.py`); results of the first run in `census2/results/`, the analysis of d1151 in `census2/d1151/`; sign-twist scripts are in `census/twist.py` and `census/twist_checks/` |
 | `psi_star/` | Quantum-modularity tests with Kontsevich–Zagier control (`qmf*.py`); exact identities, expansion at q = −1 and large-order analysis (`s1`–`s11`) |
-| `docs/` | `d1151.md` (the double sum d1151, how it was found), `d1151-identity.md` (its identity and proof), `d1151-brief.md` (the brief that led to it); `twists.md` (sign twists of the catalog functions); GitHub Pages site (`index.html`, `explorer-v4.html`, `fingerprints-v2.html`); `formulas.md` (every formula in LaTeX, Unicode, plain text and Mathematica, with equivalent forms and coefficients), `handoff-v1.md` (full account of method and results), `addendum-v2.md` (identities, proofs, resurgence analysis), `psi-star-brief.md` (focused statement of the open problem) |
+| `census3/` | One-parameter families F(z), g₂(x,q), g₃(x,q) at all roots of unity of order ≤ 12 (`zfam.py`, `zreport.py`, `zextra.py`, results and `README.md`); `hecke/`: sparsity test of the bounded twists against eta quotients and an f_{a,b,c} matcher |
+| `docs/` | `d1151.md` (the double sum d1151, how it was found), `d1151-identity.md` (its identity and proof), `d1151-brief.md` (the brief that led to it); `twists.md` (sign twists of the catalog functions); GitHub Pages site (`index.html`, `explorer-v4.html`, `fingerprints-v3.html`); `formulas.md` (every formula in LaTeX, Unicode, plain text and Mathematica, with equivalent forms and coefficients), `handoff-v1.md` (full account of method and results), `addendum-v2.md` (identities, proofs, resurgence analysis), `psi-star-brief.md` (focused statement of the open problem) |
 | `psi_star/formulas_check.py` | Checks every equivalent form in `docs/formulas.md` to 50 digits |
 | `psi_star/s12_odd_limits.py` | Radial limits of ψ₁\*, ψ₀\* at odd-order roots vs. the closed form (first period)/3 |
 
