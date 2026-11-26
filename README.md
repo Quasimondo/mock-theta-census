@@ -51,7 +51,7 @@ All results here are **numerical evidence and conjectures** unless marked as pro
 
 - Are ψ₀\*, ψ₁\*, the family F(z) = Σ zⁿq^{n(n+1)/2}(−q;q)ₙ (which satisfies F(z) = 1 + zqF(zq) + zq²F(zq²)), or the identities in (3) known?
 - Is the right structure a matrix-valued holomorphic quantum modular form built from (1, ψ₀\*, ψ₁\*) and θ₄R₀, θ₄R₁?
-- Other values of the twist z (`census3/`, all z of order ≤ 12): at a root of odd order m, F(z) grows when z^m is within about 1/9 of a turn of 1 and is bounded otherwise; at even order it is always bounded. So F(z) is bounded at every root only for z = −1, ±i, −ω, −ω̄. Why the threshold sits where it does is open.
+- Other values of the twist z (`census3/`, all z of order ≤ 12): at a root of odd order m, F(z) grows when z^m is closer than a₀ ≈ 0.10737 of a turn to 1 and is bounded otherwise; at even order it is always bounded. So F(z) is bounded at every root only for z = −1, ±i, −ω, −ω̄. The threshold a₀ is where the real part of a dilogarithm saddle-point value V changes sign; the predicted κ matches the fitted values to 4–5 digits at q = 1 (heuristic, `census3/README.md`).
 - What are the non-modular pieces of F₀\*, F₁\* (the analogue of θ₄·R₀, θ₄·R₁ for ψ\*)?
 - Is the general-z identity for Σ q^{m²−mn+n²}/((zq)ₘ(q/z)ₙ) (`docs/d1151-identity.md`, section 3) known?
 

@@ -25,7 +25,7 @@ At q = 1 the exponent follows a clean law in a = k/N (taking a ≤ 1/2; a and 1 
 | even | any | Q: 540 of 540 |
 | odd | exactly 1 | R, κ = 1/240 (as for ψ₁ = F(1) at q = 1, but with an inexact law): 28 of 28 |
 | odd | within 1/10 of a turn of 1 | X (irrational κ, dilogarithm type): 26 of 26 |
-| odd | 1/9 to 1/8 of a turn from 1 | boundary zone: X, Q and timeouts mixed |
+| odd | 1/9 to 1/8 of a turn from 1 | X, Q and timeouts mixed: a classifier artifact (see below), the true class is Q |
 | odd | at least 1/7 of a turn from 1 | Q: 233 of 233 |
 
 So F(z) is bounded at every root of unity only if z^m stays far from 1 for every odd m.
@@ -34,3 +34,20 @@ order N: the roots of order N itself (N odd) or of order m with z^m near 1 give 
 F(e^{2πi·5/11}) and F(e^{2πi·6/11}) look bounded at all 19 standard roots, but `zextra.py`
 shows them growing at roots of order 9 (X) and 11 (R, κ = 1/240). So the bounded companions
 in this family are exactly ψ₁* = F(−1) and the already known F(i), F(−ω) with their conjugates.
+
+### The threshold (saddle point, 2026-11-26)
+
+For z = e^{2πia} and q = e^{−t} the terms of F(z) behave like exp(V(x)/t), x = nt, with
+V(x) = 2πia·x − x²/2 + Li₂(−e^{−x}) + π²/12 and saddle at w² + w = e^{−2πia}, w = e^{−x}
+(derived by a Fable session; heuristic, not proved). Then κ = Re V/4π² at q = 1:
+
+| a | 0 | 1/12 | 1/11 | 1/10 | 1/9 | 1/7 |
+|---|---|---|---|---|---|---|
+| predicted κ | 1/240 | 0.001656 | 0.001179 | 0.0005516 | −0.000296 | −0.0032 |
+| fitted κ (`zfam_results.jsonl`) | 1/240 | 0.0016556 | 0.0011786 | 0.0005516 | −0.00024 (X) | ≈ 0 (Q) |
+
+Re V changes sign at **a₀ = 0.107365841812 ≈ 1/9.314**. Below a₀ the saddle term grows (irrational κ);
+above it the term decays, the function is bounded, and the small negative κ the classifier sometimes
+reports (as at a = 1/9) is that decaying term, not growth. So the rule is: F(z) grows at roots of odd
+order m exactly when z^m is closer than a₀ of a turn to 1 (checked at q = 1 by the table; for m > 1 it
+fits all 233 + 26 clean cells above, but the reduction of order m to z^m is not derived).
