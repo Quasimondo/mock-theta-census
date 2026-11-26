@@ -23,10 +23,14 @@ Cells in the order of the 19 roots 0/1, 1/2, 1/3, 1/4, 1/5, 2/5, 1/6, 1/7, 2/7, 
 | ψ₀ (= ψ₀\*) | 5 | `QQQQQQQQQQQQQQQQQQQ` | dense |
 | F₀ | 5 | `QQQQQQQQQQQQQQQQQQQ` | dense |
 | F₁ | 5 | `QQQQQQQQQQQQQQQQQQQ` | dense |
-| ψ | 3 | `QQQQQQQQQQQQQQQQQQQ` | only 0, ±1, but about half nonzero |
+| ψ | 3 | `QQQQQQQQQQQQQQQQQQQ` | sparse: 0, ±1, ±2 (first ±2 at q⁷⁰); **known: −σ\*/2**, see below |
 | T₀ | 8 | `QQQQQQQQQQQQQQQQQQQ` | dense |
 | F(z) at z = i | — | `QQQQQQQQQQQQQQQQQQQ` | dense, Gaussian integers |
 | F(z) at z = −ω | — | `QQQQQQQQQQQQQQQQQQQ` | dense, in ℤ[ω] |
+
+**The twist of the third-order ψ is a known function.** ψ\* = Σₙ≥₁ (−1)ⁿ⁻¹ qⁿ² / (q;q²)ₙ is −σ\*(q)/2, where σ\*(q) = 2 Σₙ≥₁ (−1)ⁿ qⁿ² / (q;q²)ₙ is the companion of Ramanujan's σ(q) = Σ q^{n(n+1)/2}/(−q;q)ₙ studied by Andrews, Dyson and Hickerson (1988). Its coefficients are governed by the arithmetic of ℚ(√6) through a Hecke-type double sum whose sign pattern is not the mock theta one, and Cohen showed that σ and σ\* together give a Maass waveform. σ is Zagier's standard example of a quantum modular form. So "bounded at every root" here matches a known mechanism. It was missing from the validation catalog, which is why the census did not recognise it. (Found 2026-11-26 while checking which twists become sparse after multiplying by eta quotients; see `census3/hecke/`.)
+
+By the same test the other dense entries (ψ₀\*, ψ₁\*, F₀\*, F₁\*, T₀\*) do not become sparse under any eta quotient Πₐ (qᵃ;qᵃ)∞^{eₐ} with a ∈ {1, 2, 4}, −2 ≤ eₐ ≤ 2: 386 or more of the first 400 coefficients stay nonzero. For comparison, f₀(q)(q;q)∞ and ψ₁(q)(q²;q²)∞ have 160 and 143 nonzero coefficients. So none of them is a single Hecke-type double sum divided by such a product.
 
 ### Bounded at all 19 roots, false theta functions
 
