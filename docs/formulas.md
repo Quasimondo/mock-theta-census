@@ -165,3 +165,51 @@ $$\sum_{n\ge0}\frac{q^{\binom n2}(-q;q)_n^2}{(-q^3;q^3)_n}=H(-\omega),\qquad \su
 \sum_{n\ge0}\frac{q^{\binom n2}(-q;q)_n^2}{(-q^3;q^3)_n}=H(-\omega),\qquad
 \sum_{n\ge0}\frac{q^{\binom n2}(q^2;q^2)_n}{(q^3;q^3)_n}=H(\omega)
 ```
+
+## 8. The double sum d1151 and its identity
+
+$$D(q)=\sum_{m,n\ge0}\frac{q^{m^2-mn+n^2}}{(-q;q)_m\,(-q;q)_n}=\vartheta_4(q)\,f(q)+4R(q),\qquad R(q)=\sum_{d>k\ge0}\frac{(-1)^{d+k+1}q^{d^2}}{(-q;q)_k}$$
+
+```latex
+D(q)=\sum_{m,n\ge0}\frac{q^{m^2-mn+n^2}}{(-q;q)_m\,(-q;q)_n}=\vartheta_4(q)\,f(q)+4R(q),\qquad
+R(q)=\sum_{d>k\ge0}\frac{(-1)^{d+k+1}q^{d^2}}{(-q;q)_k}
+```
+
+- Unicode: D(q) = Σ_{m,n≥0} q^{m²−mn+n²}/((−q;q)ₘ(−q;q)ₙ) = θ₄(q)·f(q) + 4R(q), R(q) = Σ_{d>k≥0} (−1)^{d+k+1} q^{d²}/(−q;q)ₖ
+- Plain: `D(q) = theta4(q)*f(q) + 4*R(q)`, `R(q) = sum_{d>k>=0} (-1)^(d+k+1) q^(d^2) / (-q;q)_k`
+- Here f(q) = Σ q^{n²}/(−q;q)ₙ² is Ramanujan's third-order mock theta function and θ₄(q) = Σ_{n∈ℤ} (−1)ⁿq^{n²}. **Proved** (`d1151-identity.md`).
+
+Equivalent forms of R:
+
+$$R(q)=\sum_{d\ge1}(-1)^{d-1}q^{d^2}\sum_{k=0}^{d-1}\frac{(-1)^k}{(-q;q)_k}=\sum_{i\ge1}(-1)^{i-1}q^{i^2}\,\Phi(q^{2i}),\qquad \Phi(z)=\sum_{n\ge0}\frac{z^n q^{n^2}}{(-q;q)_n}$$
+
+```latex
+R(q)=\sum_{d\ge1}(-1)^{d-1}q^{d^2}\sum_{k=0}^{d-1}\frac{(-1)^k}{(-q;q)_k}=\sum_{i\ge1}(-1)^{i-1}q^{i^2}\,\Phi(q^{2i}),\qquad
+\Phi(z)=\sum_{n\ge0}\frac{z^n q^{n^2}}{(-q;q)_n}
+```
+
+The key lemma, for the diagonal sums S_d = Σ_{n≥0} q^{n²+dn}/((−q;q)ₙ(−q;q)_{n+d}) (S₀ = f):
+
+$$S_d(q)+S_{d+1}(q)=\frac{2}{(-q;q)_d}$$
+
+```latex
+S_d(q)+S_{d+1}(q)=\frac{2}{(-q;q)_d},\qquad S_d(q)=\sum_{n\ge0}\frac{q^{n^2+dn}}{(-q;q)_n\,(-q;q)_{n+d}}
+```
+
+General z (proved), with the rank generating function ρ(z) = Σ q^{n²}/((zq;q)ₙ(q/z;q)ₙ):
+
+$$\sum_{m,n\ge0}\frac{q^{m^2-mn+n^2}}{(zq;q)_m\,(q/z;q)_n}=\rho(z)\sum_{d\in\mathbb Z}z^d q^{d^2}-\Big(1-\frac1z\Big)\sum_{d>k\ge0}\frac{z^{d-k}q^{d^2}}{(zq;q)_k}-(1-z)\sum_{d>k\ge0}\frac{z^{k-d}q^{d^2}}{(q/z;q)_k}$$
+
+```latex
+\sum_{m,n\ge0}\frac{q^{m^2-mn+n^2}}{(zq;q)_m\,(q/z;q)_n}=\rho(z)\sum_{d\in\mathbb Z}z^d q^{d^2}
+-\Big(1-\frac1z\Big)\sum_{d>k\ge0}\frac{z^{d-k}q^{d^2}}{(zq;q)_k}-(1-z)\sum_{d>k\ge0}\frac{z^{k-d}q^{d^2}}{(q/z;q)_k}
+```
+
+- z = −1 gives the identity for D; z = 1 gives the Durfee-rectangle identity Σ q^{n²+dn}/((q)ₙ(q)_{n+d}) = 1/(q;q)∞.
+- Keywords: A2 quadratic form, sum of tails, theta tails, rank generating function, Durfee rectangle, telescoping.
+
+Coefficients (q⁰ … q⁴⁰):
+- D: `1, 3, -4, 7, -7, 7, -11, 19, -22, 22, -30, 42, -45, 49, -65, 80, -87, 95, -111, 138, -157, 164, -196, 239, -257, 280, -324, 374, -416, 447, -510, 596, -649, 695, -786, 903, -979, 1049, -1187, 1335, -1454`
+- R: `0, 1, 0, 0, 0, -1, 1, -1, 1, 0, 1, -2, 2, -1, 1, -2, 2, -2, 2, -4, 4, -2, 3, -5, 4, -2, 4, -6, 6, -5, 5, -7, 8, -5, 5, -9, 8, -7, 9, -11, 11`
+
+Verified by `census2/d1151/verify_R.py`.
