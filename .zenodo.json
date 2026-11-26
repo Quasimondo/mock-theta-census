@@ -2,11 +2,13 @@
   "upload_type": "software",
   "title": "mock-theta-census: a numerical census of Ramanujan-style q-series and the sign-twisted fifth-order functions ψ₀*, ψ₁*",
   "creators": [
-    {"name": "Klingemann, Mario"}
+    {
+      "name": "Klingemann, Mario"
+    }
   ],
-  "version": "1.1.0",
+  "version": "1.2.0",
   "license": "MIT",
-  "description": "<p>A computational search for Ramanujan-style mock theta functions. A classifier based on radial asymptotics at 19 roots of unity (Arb ball arithmetic) sorts q-series into modular, mock, quantum-type and neither, and classifies the known functions of a 51-function validation catalog correctly (the one exception, a sum of two modular forms with different offsets, is a documented limitation). A census of 8,869 distinct Eulerian series finds 25 mock theta functions, all identified: 23 are known functions, rescalings or specializations of the universal mock theta function g₂, and two are half a fifth-order function plus half of a sign-twisted companion.</p><p>The companions ψ₁*(q) = Σ (−1)ⁿ q^{n(n+1)/2} (−q;q)ₙ and ψ₀*(q) = Σ (−1)ⁿ q^{(n+1)(n+2)/2} (−q;q)ₙ satisfy 2ψ₀* = f₀* − θ₄·R₀ and 2ψ₁* = f₁* + θ₄·R₁, with R₀, R₁ the entire Rogers–Ramanujan function at a = 1, q (OEIS A039924, A224898). Their expansion at q = −1 has integer coefficients whose large-order behaviour is governed by R₀, R₁ (constants in ℚ(√5)); radial limits at odd-order roots appear to equal one third of the first period (numerical). Proof status of every claim is marked in the documents.</p><p>Includes code, data, a formula sheet in several notations, a rank-2 (double-sum) census pipeline, and interactive pages (https://quasimondo.github.io/mock-theta-census/). Code: MIT. Data and documents: CC BY 4.0.</p><p>Made by Mario Klingemann with extensive assistance from AI models (Anthropic's Claude), which wrote most of the code and analysis under his direction; see the README section 'How this was made'.</p>",
+  "description": "<p>A computational search for Ramanujan-style mock theta functions. A classifier based on radial asymptotics at 19 roots of unity (Arb ball arithmetic) sorts q-series into modular, mock, quantum-type and neither, and classifies the known functions of a 51-function validation catalog correctly (the one exception, a sum of two modular forms with different offsets, is a documented limitation). A census of 8,869 distinct Eulerian series finds 25 mock theta functions, all identified: 23 are known functions, rescalings or specializations of the universal mock theta function g₂, and two are half a fifth-order function plus half of a sign-twisted companion.</p><p>The companions ψ₁*(q) = Σ (−1)ⁿ q^{n(n+1)/2} (−q;q)ₙ and ψ₀*(q) = Σ (−1)ⁿ q^{(n+1)(n+2)/2} (−q;q)ₙ satisfy 2ψ₀* = f₀* − θ₄·R₀ and 2ψ₁* = f₁* + θ₄·R₁, with R₀, R₁ the entire Rogers–Ramanujan function at a = 1, q (OEIS A039924, A224898). Their expansion at q = −1 has integer coefficients whose large-order behaviour is governed by R₀, R₁ (constants in ℚ(√5)); radial limits at odd-order roots appear to equal one third of the first period (numerical). Proof status of every claim is marked in the documents.</p><p>Version 1.2 adds sign twists of all catalog mock theta functions (bounded, non-trivial companions also for the fifth-order F₀, F₁, the third-order ψ and the eighth-order T₀) and a rank-2 census of 6,327 double sums. Its one mock candidate, D(q) = Σ q^{m²−mn+n²}/((−q;q)ₘ(−q;q)ₙ), has the growth fingerprint of the third-order f(q). At q = 1 its exact expansion has the golden-ratio large-order constants found for ψ* at q = −1: π²/60, π·K² = 8(5+√5)/25, s₁ = (35+6√5)/300 (numerical).</p><p>Includes code, data, a formula sheet in several notations, a rank-2 (double-sum) census pipeline, and interactive pages (https://quasimondo.github.io/mock-theta-census/). Code: MIT. Data and documents: CC BY 4.0.</p><p>Made by Mario Klingemann with extensive assistance from AI models (Anthropic's Claude), which wrote most of the code and analysis under his direction; see the README section 'How this was made'.</p>",
   "keywords": [
     "mock theta functions",
     "q-series",
@@ -15,10 +17,20 @@
     "experimental mathematics",
     "Rogers-Ramanujan",
     "resurgence",
-    "fifth-order mock theta functions"
+    "fifth-order mock theta functions",
+    "double sums",
+    "A2 Rogers-Ramanujan"
   ],
   "related_identifiers": [
-    {"identifier": "https://github.com/Quasimondo/mock-theta-census", "relation": "isSupplementTo", "scheme": "url"},
-    {"identifier": "https://quasimondo.github.io/mock-theta-census/", "relation": "isDocumentedBy", "scheme": "url"}
+    {
+      "identifier": "https://github.com/Quasimondo/mock-theta-census",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://quasimondo.github.io/mock-theta-census/",
+      "relation": "isDocumentedBy",
+      "scheme": "url"
+    }
   ]
 }

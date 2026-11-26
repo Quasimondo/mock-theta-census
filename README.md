@@ -46,7 +46,7 @@ All results here are **numerical evidence and conjectures** unless marked as pro
 |---|---|
 | `census/` | Evaluator and labeled catalog (`catalog.py`), per-root probe (`probe.py`), generator and dedupe (`search.py`), staged search (`stage.py`, `filt.py`, `dclass.py`), q→1 dilogarithm pre-filter (`dilog.py`), identification tools (`ident.py`, `shadow.py`, `companions.py`, …), plus all result data (`cands.json`, `labels.json`, `stageC_summary.json`, `*.jsonl`) |
 | `psi_star/` | Quantum-modularity tests with Kontsevich–Zagier control (`qmf*.py`); exact identities, expansion at q = −1 and large-order analysis (`s1`–`s11`) |
-| `docs/` | `twists.md` (sign twists of the catalog functions); GitHub Pages site (`index.html`, `explorer-v3.html`, `fingerprints-v1.html`); `formulas.md` (every formula in LaTeX, Unicode, plain text and Mathematica, with equivalent forms and coefficients), `handoff-v1.md` (full account of method and results), `addendum-v2.md` (identities, proofs, resurgence analysis), `psi-star-brief.md` (focused statement of the open problem) |
+| `docs/` | `d1151.md` (the double-sum candidate); `twists.md` (sign twists of the catalog functions); GitHub Pages site (`index.html`, `explorer-v3.html`, `fingerprints-v1.html`); `formulas.md` (every formula in LaTeX, Unicode, plain text and Mathematica, with equivalent forms and coefficients), `handoff-v1.md` (full account of method and results), `addendum-v2.md` (identities, proofs, resurgence analysis), `psi-star-brief.md` (focused statement of the open problem) |
 | `psi_star/formulas_check.py` | Checks every equivalent form in `docs/formulas.md` to 50 digits |
 | `psi_star/s12_odd_limits.py` | Radial limits of ψ₁\*, ψ₀\* at odd-order roots vs. the closed form (first period)/3 |
 
@@ -68,6 +68,18 @@ The full census takes a few hours on 2 cores. `stage.py` is resumable, and `cens
 ## How this was made
 
 This was an exploratory project by Mario Klingemann, an artist and creative technologist, not a professional mathematician. The computations and much of the code were developed in conversation with AI assistants (Anthropic's Claude Opus 5.5 and Claude Fable 5.2). Every claim in the documents is backed by a script in this repository. Corrections are very welcome.
+
+## A double-sum candidate: d1151
+
+The rank-2 (double-sum) census left one mock theta candidate,
+
+  D(q) = Σ_{m,n≥0} q^{m²−mn+n²} / ((−q;q)ₘ (−q;q)ₙ).
+
+- **Growth:** where it grows it has exactly the fingerprint of Ramanujan's third-order f(q): κ = 1/24 at all 12 even-order roots, bounded at the odd-order ones.
+- **Not a known function:** it is not a rational linear combination of the third-order functions, the sign twists and standard theta functions (checked to q⁹⁰).
+- **Asymptotics at q = 1:** its exact expansion has integer coefficients (times k!). Their growth carries the golden-ratio constants seen for ψ\* at q = −1: Borel singularity at π²/60, π·K² = 8(5+√5)/25 and s₁ = (35+6√5)/300, all numerical.
+
+Details and proof status: [`docs/d1151.md`](docs/d1151.md). Census results: `census2/results/`.
 
 ## Sign twists: a pattern beyond ψ\*
 
