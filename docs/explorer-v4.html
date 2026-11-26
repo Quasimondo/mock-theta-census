@@ -70,8 +70,8 @@ th:first-child,td:first-child{text-align:left}
 <body>
 <section class="band"><div class="wrap">
 <a class="back" href="./">← mock-theta-census</a>
-<h1>Mock theta functions on the unit disk, and the new ψ*</h1>
-<p class="lede">Brightness shows how large the function gets. Mock theta functions blow up at the rim, at roots of unity, the way theta functions do. But no single theta function cancels every spike. Try subtracting Ramanujan's own partner b(q). Then compare ψ₁ with ψ₁*, the sign-twisted companion found in this census: walk straight toward any root of unity and it stays bounded.</p>
+<h1>Mock theta functions on the unit disk, ψ* and the double sum D</h1>
+<p class="lede">Brightness shows how large the function gets. Mock theta functions blow up at the rim, at roots of unity, the way theta functions do. But no single theta function cancels every spike. Try subtracting Ramanujan's own partner b(q). Then compare ψ₁ with ψ₁*, the sign-twisted companion found in this census: walk straight toward any root of unity and it stays bounded. Finally D, a double sum from the second census: it blows up exactly where f does, because it is θ₄·f plus a piece that grows more slowly.</p>
 <div class="main">
   <div>
     <div class="disk" id="disk">
@@ -106,11 +106,11 @@ th:first-child,td:first-child{text-align:left}
 
 <section class="band radial"><div class="wrap">
 <h2 id="rhead">Radial test</h2>
-<p class="lede">Walk along the ray q = r·ζ toward a root of unity ζ. For f: Ramanujan claimed in his last letter that near an even-order root (order 2k), f(q) − (−1)<sup>k</sup> b(q) stays bounded. Folsom, Ono and Rhoades proved it in 2013 and found the exact limit.</p>
+<p class="lede" id="raylede">Walk along the ray q = r·ζ toward a root of unity ζ. For f: Ramanujan claimed in his last letter that near an even-order root (order 2k), f(q) − (−1)<sup>k</sup> b(q) stays bounded. Folsom, Ono and Rhoades proved it in 2013 and found the exact limit.</p>
 <div class="rgrid">
   <div>
     <div class="fig" id="chart"><svg id="csvg" aria-label="Radial growth chart"></svg></div>
-    <p class="note">Horizontal axis: distance ε = 1 − r to the rim, shrinking to the right. Beyond |f| ≈ 10<sup>13</sup>, ordinary 64-bit arithmetic can't subtract two huge numbers accurately; that stretch is drawn dashed.</p>
+    <p class="note" id="raynote">Horizontal axis: distance ε = 1 − r to the rim, shrinking to the right. Beyond |f| ≈ 10<sup>13</sup>, ordinary 64-bit arithmetic can't subtract two huge numbers accurately; that stretch is drawn dashed.</p>
   </div>
   <div>
     <div class="panel">
@@ -130,6 +130,7 @@ th:first-child,td:first-child{text-align:left}
 <div><h3>What "mock" means</h3><p>A theta function blows up at the rim in a pattern fixed by one symmetry law, so a single correction explains every spike. Here f needs b at some roots and −b at others. Zwegers (2002) found the missing piece: f is half of a harmonic Maass form, completed by a non-holomorphic "shadow".</p></div>
 <div><h3>The limit formula</h3><p>For ζ of order 2k: lim [f(rζ) − (−1)<sup>k</sup>b(rζ)] = −4 Σ<sub>n=0</sub><sup>k−1</sup> (1+ζ)²(1+ζ²)²⋯(1+ζ<sup>n</sup>)² ζ<sup>n+1</sup>. The sum is finite: those limiting values form a "quantum modular form", an object type Zagier named in 2010.</p></div>
 <div><h3>Odd orders</h3><p>At roots of odd order f stays finite: try ζ = 1, where the series formally becomes Σ 1/4ⁿ = 4/3. Only the even-order roots carry the theta-like spikes.</p></div>
+<div><h3>The double sum D</h3><p>D = Σ q<sup>m²−mn+n²</sup>/((−q;q)<sub>m</sub>(−q;q)<sub>n</sub>) was the one mock-like function in a census of 6,327 double sums. It is explained by a short proof: every diagonal m − n = d of the sum is ±f plus a finite sum, and the signs are those of θ₄. So D = θ₄·f + 4R. Pick D and a root: at even orders the three curves show D sticking to θ₄·f while 4R grows more slowly; at odd orders θ₄·f falls away and D is carried by 4R. The table checks the identity at each point, with D summed directly.</p></div>
 <div><h3>ψ₁* and ψ₀*</h3><p>Inserting (−1)ⁿ into the fifth-order ψ₁, ψ₀ removes the spikes at the roots of unity: along a ray into any root, ψ* stays bounded. Between roots it can still grow large, as the bright patches near q = 1 show. At even-order roots the series stops after m/2 terms, and the radial limit equals that finite sum, e.g. ψ₁*(i) = 2 − i. At odd orders the limits come from cancellation: ψ₁* and ψ₀* both tend to 1/3 as q → 1, which is what the formal sum Σ(−2)ⁿ gives, and ψ₁* → 1, ψ₀* → 0 at the cube roots. In general, at a root of odd order m the terms repeat with factor −2 every m steps, and the limit is one third of the first m terms (checked to 10⁻¹⁴ at all roots of odd order up to 15; not proved). Those limits come from huge terms cancelling, so the radial probe for ψ* uses exact big-number arithmetic instead of ordinary floating point.</p></div>
 </div></section>
 
@@ -211,7 +212,51 @@ function bfun(qr,qi){
   }
   return [pr*tr-pi*ti,pr*ti+pi*tr];
 }
+function cmul(a,b,c,d){return [a*c-b*d,a*d+b*c]}
+function cdivi(a,b,c,d){const dd=c*c+d*d;return [(a*c+b*d)/dd,(b*c-a*d)/dd]}
+// numbers as [re, im, ex] = (re + i im) * e^ex, so that nothing overflows near the rim
+function sumLog(L,P){let M=-Infinity;for(const x of L)if(x>M)M=x;let sr=0,si=0;for(let i=0;i<L.length;i++){const w=Math.exp(L[i]-M);sr+=w*Math.cos(P[i]);si+=w*Math.sin(P[i])}return [sr,si,M]}
+function invLogs(qr,qi,K){ // log|1/(-q;q)_k| and its phase, k = 0..K
+  const lm=[0],ph=[0];const L=Math.log(Math.hypot(qr,qi)),A=Math.atan2(qi,qr);
+  for(let k=1;k<=K;k++){const mg=Math.exp(k*L),re=1+mg*Math.cos(k*A),im=mg*Math.sin(k*A);lm.push(lm[k-1]-Math.log(Math.hypot(re,im)));ph.push(ph[k-1]-Math.atan2(im,re))}
+  return [lm,ph];
+}
+function dDirect(qr,qi){
+  const lr=lnr(qr,qi),K=Math.min(4000,Math.ceil(Math.sqrt((2*Math.PI*Math.PI/(12*lr)+80)/(0.75*lr)))+5);
+  const [lm,ph]=invLogs(qr,qi,K),L=Math.log(Math.hypot(qr,qi)),A=Math.atan2(qi,qr);
+  let LL=[],PP=[],top=-Infinity;
+  for(let m=0;m<=K;m++)for(let n=0;n<=K;n++){const E=m*m-m*n+n*n,l=E*L+lm[m]+lm[n];if(l>top)top=l}
+  for(let m=0;m<=K;m++)for(let n=0;n<=K;n++){const E=m*m-m*n+n*n,l=E*L+lm[m]+lm[n];if(l<top-60)continue;LL.push(l);PP.push(E*A+ph[m]+ph[n])}
+  return sumLog(LL,PP);
+}
+function rForm(qr,qi){ // R = sum_{d>=1} (-1)^{d-1} q^{d^2} P_d,  P_d = sum_{k<d} (-1)^k / (-q;q)_k
+  const lr=lnr(qr,qi),L=Math.log(Math.hypot(qr,qi)),A=Math.atan2(qi,qr);
+  const D=Math.ceil(Math.sqrt((2*Math.PI*Math.PI/(12*lr)+80)/lr))+5,[lm,ph]=invLogs(qr,qi,D);
+  let Pr=0,Pi=0,Pe=-Infinity;const LL=[],PP=[];
+  for(let d=1;d<=D;d++){
+    const k=d-1,sg=k%2?Math.PI:0,e=lm[k];          // add (-1)^k / (-q;q)_k to P (scaled)
+    if(e>Pe){const w=Math.exp(Pe-e);Pr*=w;Pi*=w;Pe=e}
+    const w=Math.exp(e-Pe);Pr+=w*Math.cos(ph[k]+sg);Pi+=w*Math.sin(ph[k]+sg);
+    const mag=Math.hypot(Pr,Pi);if(mag===0)continue;
+    LL.push(d*d*L+Pe+Math.log(mag));PP.push(d*d*A+Math.atan2(Pi,Pr)+(d%2?0:Math.PI));
+  }
+  return sumLog(LL,PP);
+}
+function fWatson(qr,qi){ // Watson: f = theta4/(-q;q)inf - 4 psi(-q); free of the cancellation that ruins the plain series near even-order roots
+  const lr=lnr(qr,qi),L=Math.log(Math.hypot(qr,qi)),A=Math.atan2(qi,qr);
+  let lp=0,pp=0;for(let k=1;k<200000;k++){const mg=Math.exp(k*L);if(mg<1e-18)break;const re=1+mg*Math.cos(k*A),im=mg*Math.sin(k*A);lp-=Math.log(Math.hypot(re,im));pp-=Math.atan2(im,re)}
+  const T=theta(qr,qi,true),tl=Math.log(Math.hypot(T[0],T[1])),ta=Math.atan2(T[1],T[0]);
+  // psi(-q) = sum_{n>=1} (-q)^{n^2} / ((-q);(q^2))_n with (x;q^2)_n = prod (1 - x q^{2k}) ... here x=-q: prod_{k<n} (1 + q^{2k+1})
+  const LL=[tl+lp],PP=[ta+pp];let ld=0,pd=0;
+  for(let n=1;n<100000;n++){const k=2*n-1,mg=Math.exp(k*L),re=1+mg*Math.cos(k*A),im=mg*Math.sin(k*A);ld-=Math.log(Math.hypot(re,im));pd-=Math.atan2(im,re);
+    const E=n*n,l=E*L+ld+Math.log(4);if(E*lr>800&&l<LL[0]-80)break;LL.push(l);PP.push(E*A+pd+(n%2?Math.PI:0)+Math.PI)}
+  return sumLog(LL,PP);
+}
+
+function thfLog(qr,qi,even){const T=theta(qr,qi,true);if(even){const F=fWatson(qr,qi),v=cmul(T[0],T[1],F[0],F[1]);return [v[0],v[1],F[2]]}const F=series('f',qr,qi),v=cmul(T[0],T[1],F[0],F[1]);return [v[0],v[1],0]}
+function thf(qr,qi){const T=theta(qr,qi,true),F=series('f',qr,qi);return cmul(T[0],T[1],F[0],F[1])}
 function evalAt(id,sub,qr,qi){
+  if(id==='d1151'){const P=thf(qr,qi),R=rForm(qr,qi),w=4*Math.exp(Math.min(700,R[2]));return [P[0]+w*R[0],P[1]+w*R[1],0]}
   if(id==='b'){const v=bfun(qr,qi);return [v[0],v[1],0]}
   if(id==='theta'){const v=theta(qr,qi,false);return [v[0],v[1],0]}
   if(PSI[id])return psiSeries(id,qr,qi);
@@ -239,7 +284,7 @@ self.onmessage=e=>{
     self.postMessage({type:'map',S:m.S,final:true,ms:Date.now()-t0,re:r.re,im:r.im,fl:r.fl},[r.re.buffer,r.im.buffer,r.fl.buffer]);
   } else if(m.type==='ray'){
     const a=2*Math.PI*m.h/m.m,ca=Math.cos(a),sa=Math.sin(a),out=[];
-    for(const eps of m.eps){const r=1-eps,qr=r*ca,qi=r*sa;out.push(PSI[m.id]?{eps,F:psiBig(m.id,r,a,m.m),B:[0,0]}:{eps,F:series('f',qr,qi),B:bfun(qr,qi)})}
+    for(const eps of m.eps){const r=1-eps,qr=r*ca,qi=r*sa;if(m.id==='d1151'){const R=rForm(qr,qi);out.push({eps,F:dDirect(qr,qi),B:thfLog(qr,qi,m.m%2===0),R:[4*R[0],4*R[1],R[2]]});continue}out.push(PSI[m.id]?{eps,F:psiBig(m.id,r,a,m.m),B:[0,0]}:{eps,F:series('f',qr,qi),B:bfun(qr,qi)})}
     self.postMessage({type:'ray',key:m.key,out});
   }
 };
@@ -259,6 +304,7 @@ const FNS=[
  {id:'psi1',lab:'ψ₁',f:'ψ₁(q) = Σ q<sup>n(n+1)/2</sup> (1+q)(1+q²)⋯(1+q<sup>n</sup>)',n:'Fifth order. Compare it with ψ₁*, which differs only by the sign (−1)ⁿ.'},
  {id:'psi1s',lab:'ψ₁*',f:'ψ₁*(q) = Σ (−1)ⁿ q<sup>n(n+1)/2</sup> (1+q)(1+q²)⋯(1+q<sup>n</sup>)',n:'Found in this census: ψ₁ with the sign (−1)ⁿ inserted. Bounded along every ray into a root of unity; the bright patches lie between the roots. 2ψ₁* = f₁* + θ₄·R₁, a sign-twisted fifth-order function plus a theta function times an entire Rogers–Ramanujan function.'},
  {id:'psi0s',lab:'ψ₀*',f:'ψ₀*(q) = Σ (−1)ⁿ q<sup>(n+1)(n+2)/2</sup> (1+q)(1+q²)⋯(1+q<sup>n</sup>)',n:'Found in this census, the partner of ψ₁*. 2ψ₀* = f₀* − θ₄·R₀.'},
+ {id:'d1151',lab:'D',f:'D(q) = Σ<sub>m,n≥0</sub> q<sup>m²−mn+n²</sup> / (1+q)⋯(1+q<sup>m</sup>) · (1+q)⋯(1+q<sup>n</sup>)',n:'The double sum found by the rank-2 census. Proved: D = θ₄·f + 4R, with f the third-order function above and R = Σ (−1)^(d+k+1) q^(d²)/(−q;q)ₖ over d > k ≥ 0, a sum of theta tails. The disk is drawn from that identity; the radial probe sums D directly and compares.'},
  {id:'b',lab:'b',f:'b(q) = (1−q)(1−q³)(1−q⁵)⋯ · (1 − 2q + 2q⁴ − 2q⁹ + ⋯)',n:'Ramanujan\'s theta partner for f: a true modular form.'},
  {id:'theta',lab:'θ₃',f:'θ₃(q) = 1 + 2q + 2q⁴ + 2q⁹ + ⋯',n:'An honest theta function, for comparison. One symmetry law governs its behaviour at every root of unity.'}];
 const SUBS=[{v:0,lab:'f alone'},{v:-1,lab:'f − b'},{v:1,lab:'f + b'}];
@@ -340,10 +386,11 @@ const rayW=new Worker(wurl);
 const EPS=[];for(let i=0;i<=72;i++)EPS.push(10**-(0.7+i*2.3/72));
 const TEPS=[0.1,0.03,0.01,0.003,0.001];
 const PSI_IDS=['psi1','psi1s','psi0s'];
+const RAYKIND=id=>PSI_IDS.includes(id)?id:(id==='d1151'?'d1151':'f');
 rayW.onmessage=e=>{if(e.data.key!==rayKey)return;rayData=e.data.out;$('status2').textContent='';drawRay()};
 function setRoot(h,m){m=Math.max(1,Math.min(60,m|0));h=((h|0)%m+m)%m;if(m>1){const g=gcd(h,m);h/=g;m/=g}else h=0;
   st.h=h;st.m=m;$('hh').value=h;$('mm').value=m;chips();overlay();
-  rayKey++;rayData=null;$('status2').textContent=PSI_IDS.includes(st.id)?'computing with exact big-number arithmetic…':'';rayW.postMessage({type:'ray',key:rayKey,h,m,id:PSI_IDS.includes(st.id)?st.id:'f',eps:EPS.concat(TEPS)});}
+  rayKey++;rayData=null;$('status2').textContent=PSI_IDS.includes(st.id)?'computing with exact big-number arithmetic…':'';rayW.postMessage({type:'ray',key:rayKey,h,m,id:RAYKIND(st.id),eps:EPS.concat(TEPS)});}
 function psiFinite(id,h,m){const off=id==='psi0s'?1:0,sg=id==='psi1'?1:-1,a=2*Math.PI*h/m,zr=Math.cos(a),zi=Math.sin(a);
   let tr=off?zr:1,ti=off?zi:0,sr=tr,si=ti,pr=1,pi=0;
   for(let n=1;n<m;n++){let t=pr*zr-pi*zi;pi=pr*zi+pi*zr;pr=t;let ar=sg*(1+pr),ai=sg*pi;t=ar*pr-ai*pi;ai=ar*pi+ai*pr;ar=t;if(off){t=ar*zr-ai*zi;ai=ar*zi+ai*zr;ar=t}t=tr*ar-ti*ai;ti=tr*ai+ti*ar;tr=t;sr+=tr;si+=ti}
@@ -351,7 +398,9 @@ function psiFinite(id,h,m){const off=id==='psi0s'?1:0,sg=id==='psi1'?1:-1,a=2*Ma
 function drawRay(){
   const svg=$('csvg'),W=svg.clientWidth,H=svg.clientHeight;if(!rayData||!W)return;
   if(rayData.psi!==undefined&&rayData.psi!==(PSI_IDS.includes(st.id)?st.id:'f'))return;
+  if(st.id!=='d1151'&&drawDRay.saved){$('raylede').innerHTML=drawDRay.saved[0];$('raynote').innerHTML=drawDRay.saved[1];drawDRay.saved=null}
   if(PSI_IDS.includes(st.id))return drawPsiRay(svg,W,H);
+  if(st.id==='d1151')return drawDRay(svg,W,H);
   const even=st.m%2===0,k=st.m/2,sg=even&&k%2?1:-1,L=even?limitL(st.h,st.m):null;
   const pts=rayData.slice(0,EPS.length).map(d=>{const fm=Math.hypot(...d.F),gr=d.F[0]+sg*d.B[0],gi=d.F[1]+sg*d.B[1],big=Math.max(fm,Math.hypot(...d.B))>1e13;
     return {x:-Math.log10(d.eps),f:Math.log10(fm),e:even?Math.log10(Math.max(1e-6,Math.hypot(gr-L[0],gi-L[1]))):null,big}});
@@ -411,6 +460,38 @@ function drawPsiRay(svg,W,H){
     $('rhead').innerHTML=`At ζ = ${z}, ${nm} stays bounded and tends to a finite value`;
   }
 }
+function drawDRay(svg,W,H){
+  if(!rayData[0]||!rayData[0].R)return;
+  if(!drawDRay.saved)drawDRay.saved=[$('raylede').innerHTML,$('raynote').innerHTML];
+  $('raylede').innerHTML='Walk along the ray q = r·ζ toward a root of unity ζ. Three curves on a log scale: D summed directly as a double sum (pink), θ₄·f (chalk) and 4R from its closed form (teal). The identity D = θ₄·f + 4R is proved; the table checks it at each point.';
+  $('raynote').innerHTML='Horizontal axis: distance ε = 1 − r to the rim, shrinking to the right. Near even-order roots f is computed from Watson\'s identity f(q) = θ₄(q)/(−q;q)<sub>∞</sub> − 4ψ(−q), because the plain series loses all precision there.';
+  const lg=v=>Math.log10(Math.max(1e-300,Math.hypot(v[0],v[1])))+v[2]/Math.LN10;
+  const at=(v,e)=>{const w=Math.exp(v[2]-e);return [v[0]*w,v[1]*w]};
+  const sciL=l=>{if(!isFinite(l))return '∞';const e=Math.floor(l),m=10**(l-e);return (l>-4&&l<4)?(10**l).toPrecision(4):`${m.toFixed(2)}×10${sup(e)}`};
+  const pts=rayData.slice(0,EPS.length).map(d=>({x:-Math.log10(d.eps),D:lg(d.F),T:lg(d.B),R:lg(d.R)}));
+  const ml=46,mr=W<520?14:118,mt=14,mb=34,x0=0.7,x1=3,top=Math.max(...pts.map(p=>Math.max(p.D,p.T,p.R))),y0=-6,y1=Math.max(3,Math.min(400,Math.ceil(top/3)*3)),step=Math.max(1,Math.ceil((y1-y0)/7));
+  const X=x=>ml+(x-x0)/(x1-x0)*(W-ml-mr),Y=y=>mt+(1-(Math.max(y0,Math.min(y1,y))-y0)/(y1-y0))*(H-mt-mb);
+  let g='';for(let y=y0;y<=y1;y+=step)g+=`<line x1="${ml}" x2="${W-mr}" y1="${Y(y)}" y2="${Y(y)}" stroke="#2f3a3d"/><text x="${ml-8}" y="${Y(y)+4}" text-anchor="end">10${sup(y)}</text>`;
+  for(const x of [1,2,3])g+=`<text x="${X(x)}" y="${H-10}" text-anchor="${x===3&&W<520?'end':'middle'}">ε = ${['0.1','0.01','0.001'][x-1]}</text>`;
+  const path=k=>pts.map((p,i)=>`${i?'L':'M'}${X(p.x).toFixed(1)},${Y(p[k]).toFixed(1)}`).join('');
+  g+=`<path d="${path('T')}" fill="none" stroke="var(--chalk)" stroke-width="5" opacity=".55"/>`;
+  g+=`<path d="${path('R')}" fill="none" stroke="var(--teal)" stroke-width="3"/>`;
+  g+=`<path d="${path('D')}" fill="none" stroke="var(--pink)" stroke-width="2"/>`;
+  const lp=pts[pts.length-1];
+  if(W>=520){g+=`<text x="${X(lp.x)+8}" y="${Y(lp.D)-6}" style="fill:var(--pink)">|D|</text><text x="${X(lp.x)+8}" y="${Y(lp.T)+10}" style="fill:var(--chalk)">|θ₄·f|</text><text x="${X(lp.x)+8}" y="${Y(lp.R)+4}" style="fill:var(--teal)">|4R|</text>`}
+  svg.innerHTML=g;
+  const rows=rayData.slice(EPS.length),z=rootName(st.h,st.m),last=rows[rows.length-1];
+  const chk=d=>{const e=Math.max(d.F[2],d.B[2],d.R[2]),F=at(d.F,e),B=at(d.B,e),R=at(d.R,e);return Math.hypot(F[0]-B[0]-R[0],F[1]-B[1]-R[1])/Math.hypot(F[0],F[1])};
+  const val=v=>{const l=lg(v);return l>4?sciL(l):(()=>{const w=at(v,0);return fc(w[0],w[1])})()};
+  $('tab').innerHTML=`<tr><th>ε</th><th>D(rζ), summed directly</th><th>|D − θ₄f − 4R| / |D|</th></tr>`+rows.map(d=>`<tr><td>${d.eps}</td><td>${val(d.F)}</td><td>${sci(chk(d))}</td></tr>`).join('');
+  if(st.m%2===0){
+    $('limlab').textContent='Even order: D follows θ₄·f';$('lim').innerHTML=`|4R| / |θ₄f| = ${sciL(lg(last.R)-lg(last.B))} at ε = 0.001`;
+    $('rhead').innerHTML=`At ζ = ${z}, D grows exactly like θ₄·f (κ = 1/24); 4R grows more slowly (κ = 1/60)`;
+  } else {
+    $('limlab').textContent='Odd order: θ₄·f vanishes here';$('lim').innerHTML=`D → 4R(ζ) ≈ ${val(last.F)}`;
+    $('rhead').innerHTML=`At ζ = ${z}, θ₄·f dies away and D is carried by 4R, which stays bounded`;
+  }
+}
 const ro=new ResizeObserver(()=>drawRay());ro.observe($('csvg'));
 
 /* controls */
@@ -423,7 +504,7 @@ function chips(){
   $('subnote').textContent=st.id!=='f'?'Pick f to try the correction.':st.sub===0?'Every even-order root carries a spike.':st.sub<0?'Spikes at orders 4, 8, 12 vanish; the others get worse. Hatched areas: double precision exhausted.':'Spikes at orders 2, 6, 10 vanish; the others get worse. Hatched areas: double precision exhausted.';
   $('rv').textContent='r ≤ '+st.rmax.toFixed(3);
 }
-$('fn').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const was=PSI_IDS.includes(st.id)?st.id:'f';st.id=b.dataset.v;chips();render();overlay();if((PSI_IDS.includes(st.id)?st.id:'f')!==was)setRoot(st.h,st.m)});
+$('fn').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const was=RAYKIND(st.id);st.id=b.dataset.v;chips();render();overlay();if(RAYKIND(st.id)!==was)setRoot(st.h,st.m)});
 $('sub').addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;st.sub=+b.dataset.v;chips();render()});
 $('col').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;st.col=b.dataset.v;chips();if(last)paint(last)});
 $('roots').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;setRoot(+b.dataset.h,+b.dataset.m)});
