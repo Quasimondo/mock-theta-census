@@ -1,0 +1,62 @@
+##### python3 z1_checks.py a b c d e
+(a) Faddeev integral against the product formulas: |integral/product - 1|
+    theta =   -70, |t| = 0.5:  8.14e-27   1.62e-27   4.81e-26
+    theta =   -80, |t| = 0.3:  1.38e-26   6.29e-27   1.48e-24
+    theta =  -100, |t| = 0.3:  2.0e-26   0.0   4.39e-26
+    theta =  -120, |t| = 0.6:  1.02e-26   4.56e-27   4.4e-26
+    double-precision version (strip integral + functional equation + inversion) against the products, |numpy/product - 1|:
+    theta =   -80, |t| = 0.3, w = -0.7+0.4i, -5+9i, -12-20i, 2-i, 6-11i:  3.4e-13  8.2e-14  6.5e-14  1.7e-13  8.2e-14
+    theta =  -100, |t| = 0.3, w = -0.7+0.4i, -5+9i, -12-20i, 2-i, 6-11i:  3.4e-13  8.2e-14  6.5e-14  1.7e-13  2.9e-14
+    theta =   -70, |t| = 0.15, w = -0.7+0.4i, -5+9i, -12-20i, 2-i, 6-11i:  1.7e-12  1.4e-13  1.3e-13  5.6e-13  1.2e-13
+    at real x (theta = -90): functional equations and inversion relation of the integral
+    |t| = 0.6, w = (-0.8 + 0.0j):  shift i b: 0.0   shift i/b: 5.19e-26   inversion: 3.06e-26
+    |t| = 0.6, w = (0.5 + 0.0j):  shift i b: 0.0   shift i/b: 0.0   inversion: 5.86e-26
+    |t| = 0.6, w = (-2.5 + 0.01j):  shift i b: 1.14e-26   shift i/b: 1.05e-26   inversion: 7.59e-26
+    |t| = 0.2, w = (-0.8 + 0.0j):  shift i b: 0.0   shift i/b: 1.1e-25   inversion: 2.26e-25
+    |t| = 0.2, w = (0.5 + 0.0j):  shift i b: 1.29e-26   shift i/b: 0.0   inversion: 2.23e-25
+    |t| = 0.2, w = (-2.5 + 0.01j):  shift i b: 1.14e-26   shift i/b: 1.63e-26   inversion: 2.28e-25
+(b) Lemma S: |Lam(w) + sum_{j<K} B_2j(1/2) t^(2j-1) Li_(2-2j)(-e^w)/(2j)!| / |t|^(2K-1),  |t| = 0.4, 0.2, 0.1, 0.05
+    theta =   -90, w =  (-0.5 + 1.2j), K = 2:  0.000289  0.000291  0.000292  0.000292
+    theta =   -90, w =  (-0.5 + 1.2j), K = 3:  2.33e-5  2.37e-5  2.38e-5  2.39e-5
+    theta =   -90, w =   (0.3 - 0.8j), K = 2:  0.000154  0.000156  0.000156  0.000156
+    theta =   -90, w =   (0.3 - 0.8j), K = 3:  9.88e-6  1.0e-5  1.01e-5  1.01e-5
+    theta =   -90, w =  (-3.0 + 2.5j), K = 2:  7.15e-5  7.11e-5  7.1e-5  7.1e-5
+    theta =   -90, w =  (-3.0 + 2.5j), K = 3:  2.94e-6  2.91e-6  2.91e-6  2.9e-6
+    theta =   -85, w =  (-0.5 + 1.2j), K = 2:  0.000289  0.000291  0.000292  0.000292
+    theta =   -85, w =  (-0.5 + 1.2j), K = 3:  2.33e-5  2.37e-5  2.38e-5  2.39e-5
+    theta =   -85, w =   (0.3 - 0.8j), K = 2:  0.000155  0.000156  0.000156  0.000156
+    theta =   -85, w =   (0.3 - 0.8j), K = 3:  9.89e-6  1.0e-5  1.01e-5  1.01e-5
+    theta =   -85, w =  (-3.0 + 2.5j), K = 2:  7.15e-5  7.11e-5  7.1e-5  7.1e-5
+    theta =   -85, w =  (-3.0 + 2.5j), K = 3:  2.94e-6  2.91e-6  2.91e-6  2.9e-6
+    theta =  -100, w =  (-0.5 + 1.2j), K = 2:  0.000289  0.000291  0.000292  0.000292
+    theta =  -100, w =  (-0.5 + 1.2j), K = 3:  2.32e-5  2.37e-5  2.38e-5  2.39e-5
+    theta =  -100, w =   (0.3 - 0.8j), K = 2:  0.000154  0.000156  0.000156  0.000156
+    theta =  -100, w =   (0.3 - 0.8j), K = 3:  9.88e-6  1.0e-5  1.01e-5  1.01e-5
+    theta =  -100, w =  (-3.0 + 2.5j), K = 2:  7.14e-5  7.11e-5  7.1e-5  7.1e-5
+    theta =  -100, w =  (-3.0 + 2.5j), K = 3:  2.93e-6  2.91e-6  2.91e-6  2.9e-6
+(c) Lemma F: sup over Re w in [-12, 0], |Im w| <= pi of |Lam(w) + Li2(-e^w)/t| e^(-Re w/2)
+    theta =   -90:  |t|=0.4: 0.3467 (at 0.00-3.14i)   |t|=0.2: 0.3466 (at 0.00-3.14i)   |t|=0.1: 0.3466 (at 0.00-3.14i)   |t|=0.05: 0.3466 (at 0.00-3.14i)
+    theta =   -75:  |t|=0.4: 0.3488 (at 0.00+3.14i)   |t|=0.2: 0.3477 (at 0.00+3.14i)   |t|=0.1: 0.3471 (at 0.00+3.14i)   |t|=0.05: 0.3468 (at 0.00+3.14i)
+    theta =  -120:  |t|=0.4: 0.3508 (at 0.00-3.14i)   |t|=0.2: 0.3487 (at 0.00-3.14i)   |t|=0.1: 0.3476 (at 0.00-3.14i)   |t|=0.05: 0.3471 (at 0.00-3.14i)
+    theta =   -60:  |t|=0.4: 0.3508 (at 0.00+3.14i)   |t|=0.2: 0.3487 (at 0.00+3.14i)   |t|=0.1: 0.3476 (at 0.00+3.14i)   |t|=0.05: 0.3471 (at 0.00+3.14i)
+(d) sup over the contour (delta = 10 deg, |w| <= 30, both halves) of |H| / exp(psi(rho)/|t|)
+  f"  min of pi/|sin(alpha)|: {(np.pi/np.abs(np.sin(bs - d))).min():.3f}")
+    margin of the dual factors, min over |beta| <= 30 deg of cos(gamma) - |sin(alpha) sin(2 beta)|: 0.3830;  min of pi/|sin(alpha)|: 4.887
+    theta =   -90:  |t|=0.4: 0.7076 (at -1.60)   |t|=0.2: 0.7073 (at -1.60)   |t|=0.1: 0.7072 (at -1.60)
+    theta =   -89:  |t|=0.4: 0.7078 (at -1.50)   |t|=0.2: 0.7074 (at -1.50)   |t|=0.1: 0.7073 (at -1.50)
+    theta =   -91:  |t|=0.4: 0.7074 (at -1.60)   |t|=0.2: 0.7072 (at -1.60)   |t|=0.1: 0.7072 (at -1.60)
+    theta =   -85:  |t|=0.4: 0.7092 (at 25.80)   |t|=0.2: 0.7081 (at 25.80)   |t|=0.1: 0.7076 (at 25.80)
+    theta =   -95:  |t|=0.4: 0.7065 (at -1.90)   |t|=0.2: 0.7068 (at -1.90)   |t|=0.1: 0.7070 (at -1.90)
+    theta =   -60:  |t|=0.4: 0.7206 (at 0.30)   |t|=0.2: 0.7156 (at 0.16)   |t|=0.1: 0.7133 (at 0.08)
+    theta =  -120:  |t|=0.4: 0.7017 (at -2.70)   |t|=0.2: 0.7044 (at -2.60)   |t|=0.1: 0.7058 (at -2.60)
+    theta =  -150:  |t|=0.4: 0.6978 (at -3.00)   |t|=0.2: 0.7024 (at -3.00)   |t|=0.1: 0.7048 (at -3.00)
+    theta =   -30:  |t|=0.4: 0.7544 (at 0.24)   |t|=0.2: 0.7457 (at 0.12)   |t|=0.1: 0.7416 (at 0.06)
+(e) check of the double-precision integrator at theta = -80, |t| = 0.3 against the product-formula integrator of v13: 4.17e-14
+    psi1, real x = 0.047746 (|q| = 1, theta = -90, |t| = 0.3):  P J = 0.330580057167-0.033046552525j   Borel sum = 0.330580057167-0.033046552525j   difference = 3.69e-14
+    psi1, theta = -90, K = 1: |ratio - 1| at |t| = 0.2, 0.1, 0.05:  0.0555   0.0278   0.0139
+    psi1, theta = -90, K = 3: |ratio - 1| at |t| = 0.2, 0.1, 0.05:  0.0516   0.0195   0.0085
+    psi1, theta = -90, K = 6: |ratio - 1| at |t| = 0.2, 0.1, 0.05:  0.4695   0.2560   0.1309
+    psi0, real x = 0.047746 (|q| = 1, theta = -90, |t| = 0.3):  P J = 0.332329469738+0.000288013873j   Borel sum = 0.332329469738+0.000288013873j   difference = 3.96e-14
+    psi0, theta = -90, K = 2: |ratio - 1| at |t| = 0.2, 0.1, 0.05:  0.1923   0.0990   0.0499
+    psi0, theta = -90, K = 3: |ratio - 1| at |t| = 0.2, 0.1, 0.05:  0.2452   0.1271   0.0641
+    psi0, theta = -90, K = 6: |ratio - 1| at |t| = 0.2, 0.1, 0.05:  0.3287   0.1723   0.0875

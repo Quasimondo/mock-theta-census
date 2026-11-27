@@ -1,0 +1,106 @@
+##### python3 s1_window.py 300
+psi1*: a_0..a_5 = 1/3, 1/9, 5/162, 5/486, 29/17496, -1937/262440   (17 s)
+   compared with v3: 151 coefficients, worst relative deviation 4.07e-120;  exact zeros at k = []
+   a_300 = -2.070605e+451,  denominator of a_300 has 756 digits
+psi0*: a_0..a_5 = 1/3, 0/1, 1/81, 1/81, 139/8748, 203/8748   (18 s)
+   compared with v3: 151 coefficients, worst relative deviation 4.54e-120;  exact zeros at k = [1]
+   a_300 = 3.394741e+451,  denominator of a_300 has 755 digits
+
+##### python3 s2_poles.py 40 60
+S = pi^2/3 - i Cl2 = (3.28986813369645 - 1.01494160640965j)   |S| = 3.4428678   arg S (deg) = -17.1453
+psi1, Pade [40/40]: 39 poles, 1 spurious pole-zero pairs
+   nearest six (pole, |pole|, arg in degrees):
+       (3.29249669478 - 1.01423770776j)    3.4451724    -17.1212
+       (3.29249669478 + 1.01423770776j)    3.4451724    17.1212
+       (3.31366715473 + 1.00846108981j)    3.463724    16.9268
+       (3.31366715473 - 1.00846108981j)    3.463724    -16.9268
+       (3.35678343706 + 0.996099210284j)    3.5014581    16.5278
+       (3.35678343706 - 0.996099210284j)    3.5014581    -16.5278
+   distance of the nearest pole to S: 0.00272   to conj(S): 0.00272
+   |arg| < 20 degrees: 28 poles;  nearest: (3.2924967 - 1.0142377j)  |.| = 3.44517
+   20 <= |arg| < 60 degrees: 2 poles;  nearest: (59.224434 + 82.134219j)  |.| = 101.26
+   60 <= |arg| < 120 degrees: 2 poles;  nearest: (-31.86498 + 91.755849j)  |.| = 97.1314
+   |arg| >= 120 degrees: 7 poles;  nearest: (-16.517333 + 0.96740826j)  |.| = 16.5456
+psi1, Pade [60/60]: 60 poles, 0 spurious pole-zero pairs
+   nearest six (pole, |pole|, arg in degrees):
+       (3.29097779118 + 1.01461281115j)    3.4438313    17.1346
+       (3.29097779118 - 1.01461281115j)    3.4438313    -17.1346
+       (3.29987790656 - 1.0119553904j)    3.4515573    -17.0489
+       (3.29987790656 + 1.0119553904j)    3.4515573    17.0489
+       (3.31780102712 + 1.00649390476j)    3.4671074    16.8758
+       (3.31780102712 - 1.00649390476j)    3.4671074    -16.8758
+   distance of the nearest pole to S: 0.00116   to conj(S): 0.00116
+   |arg| < 20 degrees: 44 poles;  nearest: (3.2909778 + 1.0146128j)  |.| = 3.44383
+   20 <= |arg| < 60 degrees: 2 poles;  nearest: (92.987352 + 84.746722j)  |.| = 125.812
+   60 <= |arg| < 120 degrees: 2 poles;  nearest: (21.997125 + 163.55585j)  |.| = 165.028
+   |arg| >= 120 degrees: 12 poles;  nearest: (-16.474443 + 1.0115997j)  |.| = 16.5055
+psi0, Pade [40/40]: 40 poles, 0 spurious pole-zero pairs
+   nearest six (pole, |pole|, arg in degrees):
+       (3.29232630274 - 1.01418152538j)    3.444993    -17.1211
+       (3.29232630274 + 1.01418152538j)    3.444993    17.1211
+       (3.31210839644 - 1.0079559485j)    3.4620857    -16.9263
+       (3.31210839644 + 1.0079559485j)    3.4620857    16.9263
+       (3.35230698537 - 0.994699660433j)    3.4967684    -16.5267
+       (3.35230698537 + 0.994699660433j)    3.4967684    16.5267
+   distance of the nearest pole to S: 0.00257   to conj(S): 0.00257
+   |arg| < 20 degrees: 29 poles;  nearest: (3.2923263 - 1.0141815j)  |.| = 3.44499
+   20 <= |arg| < 60 degrees: 0 poles
+   60 <= |arg| < 120 degrees: 0 poles
+   |arg| >= 120 degrees: 11 poles;  nearest: (-16.514416 + 0.9597436j)  |.| = 16.5423
+psi0, Pade [60/60]: 59 poles, 1 spurious pole-zero pairs
+   nearest six (pole, |pole|, arg in degrees):
+       (3.2909872612 - 1.01461652815j)    3.4438414    -17.1346
+       (3.2909872612 + 1.01461652815j)    3.4438414    17.1346
+       (3.2999646434 - 1.01198849329j)    3.4516499    -17.049
+       (3.2999646434 + 1.01198849329j)    3.4516499    17.049
+       (3.3180505079 + 1.00658369387j)    3.4673722    16.876
+       (3.3180505079 - 1.00658369387j)    3.4673722    -16.876
+   distance of the nearest pole to S: 0.00117   to conj(S): 0.00117
+   |arg| < 20 degrees: 43 poles;  nearest: (3.2909873 - 1.0146165j)  |.| = 3.44384
+   20 <= |arg| < 60 degrees: 0 poles
+   60 <= |arg| < 120 degrees: 0 poles
+   |arg| >= 120 degrees: 16 poles;  nearest: -16.172523  |.| = 16.1725
+
+##### python3 s3_sectors.py 30 0.3 psi1 -250 -220 -190 -160 -135 -110 -100
+psi1, |t| = 0.3, 30 digits
+phi =  -250  arg x =  -160  |q| = 1.1081   P J = (0.32005458059598281113 + 0.029421332111284624254j)   quadrature: 0.0   Borel (theta = -170.0): Pade 90 vs 60: 1.7e-10   |P J - Borel| = 2.43e-12
+phi =  -220  arg x =  -130  |q| = 1.2584   P J = (0.30839816442990996777 + 0.018925737188009652144j)   quadrature: 0.0   Borel (theta = -170.0): Pade 90 vs 60: 5.0e-24   |P J - Borel| = 1.28e-28
+phi =  -190  arg x =  -100  |q| = 1.3437   P J = (0.30289228413138669544 + 0.0049629060924179599242j)   quadrature: 0.0   Borel (theta = -170.0): Pade 90 vs 60: 0.0   |P J - Borel| = 1.5e-31
+phi =  -160  arg x =   -70  |q| = 1.3257   P J = (0.3040020510627964295 - 0.0098342163606763417473j)   quadrature: 0.0   Borel (theta = -160.0): Pade 90 vs 60: 0.0   |P J - Borel| = 2.23e-31
+phi =  -135  arg x =   -45  |q| = 1.2363   P J = (0.30993716516564228077 - 0.020991467277546765411j)   quadrature: 0.0   Borel (theta = -135.0): Pade 90 vs 60: 0.0   |P J - Borel| = 1.85e-31
+phi =  -110  arg x =   -20  |q| = 1.1081   P J = (0.32005462367060271973 - 0.02942091835277953104j)   quadrature: 0.0   Borel (theta = -110.0): Pade 90 vs 60: 0.0   |P J - Borel| = 2.47e-31
+phi =  -100  arg x =   -10  |q| = 1.0535   P J = (0.32509655023542894976 - 0.031646457322449557092j)   quadrature: 0.0   Borel (theta = -100.0): Pade 90 vs 60: 0.0   |P J - Borel| = 1.97e-31
+
+##### python3 s3_sectors.py 30 0.3 psi1 -80 -60 -30 0 30 60
+psi1, |t| = 0.3, 30 digits
+phi =   -80  arg x =    10  |q| = 0.94924   P J = (0.33638393911283548314 - 0.033511508370142972433j)   quadrature: 0.0   Borel (theta = -80.0): Pade 90 vs 60: 0.0   |P J - Borel| = 9.88e-32
+phi =   -60  arg x =    30  |q| = 0.86071   P J = (0.34830424460804004901 - 0.031262224832108600904j)   quadrature: 3.3e-31   Borel (theta = -60.0): Pade 90 vs 60: 3.8e-29   |P J - Borel| = 3.78e-29
+phi =   -30  arg x =    60  |q| = 0.7712   P J = (0.36362091262845505409 - 0.019378584639813526961j)   quadrature: 0.0   Borel (theta = -30.0): Pade 90 vs 60: 3.3e-14   |P J - Borel| = 3.33e-14
+phi =     0  arg x =    90  |q| = 0.74082   P J = (0.36964085484843653381 + 0.000040277505701394339041j)   quadrature: 6.0e-35   Borel (theta = -25.0): Pade 90 vs 60: 1.8e-9   |P J - Borel| = 1.84e-9
+phi =    30  arg x =   120  |q| = 0.7712   P J = (0.36454904346831840384 + 0.019989486366166202783j)   quadrature: 6.2e-33   Borel (theta = -25.0): Pade 90 vs 60: 2.0e-7   |P J - Borel| = 1.98e-7
+phi =    60  arg x =   150  |q| = 0.86071   P J = (0.14755151655291562992 + 0.032841193616753637571j)   quadrature: 0.0   Borel (theta = -25.0): Pade 90 vs 60: 2.9e-5   |P J - Borel| = 2.87e-5
+
+##### python3 s3_sectors.py 25 0.3 psi0 -190 -135
+psi0, |t| = 0.3, 25 digits
+phi =  -190  arg x =  -100  |q| = 1.3437   P J = (0.3341611170128813969 - 0.00026809632676523763448j)   quadrature: 0.0   Borel (theta = -170.0): Pade 90 vs 60: 0.0   |P J - Borel| = 1.99e-26
+phi =  -135  arg x =   -45  |q| = 1.2363   P J = (0.33347525061817858989 + 0.00089650854615121083666j)   quadrature: 0.0   Borel (theta = -135.0): Pade 90 vs 60: 0.0   |P J - Borel| = 8.31e-27
+
+##### python3 s3_sectors.py 25 0.3 psi0 -80 -60
+psi0, |t| = 0.3, 25 digits
+phi =   -80  arg x =    10  |q| = 0.94924   P J = (0.33224200023167993084 - 0.000058105519800934465479j)   quadrature: 0.0   Borel (theta = -80.0): Pade 90 vs 60: 4.6e-29   |P J - Borel| = 2.65e-26
+phi =   -60  arg x =    30  |q| = 0.86071   P J = (0.33243467189927932204 - 0.00081846803755019709858j)   quadrature: 0.0   Borel (theta = -60.0): Pade 90 vs 60: 1.6e-24   |P J - Borel| = 1.59e-24
+
+##### python3 s3b_lateral.py
+phi =   -30  theta =   -30   |P J - S_theta|, Pade order:  [40] 1.8e-21   [60] 1.8e-21   [75] 5.7e-20   [90] 3.3e-14   [120] 1.7e-5
+phi =   -30  theta =   -45   |P J - S_theta|, Pade order:  [40] 1.8e-21   [60] 1.8e-21   [75] 1.8e-21   [90] 1.9e-21   [120] 1.6e-17
+phi =   -30  theta =   -60   |P J - S_theta|, Pade order:  [40] 1.8e-21   [60] 1.8e-21   [75] 1.8e-21   [90] 1.8e-21   [120] 1.8e-21
+phi =     0  theta =   -25   |P J - S_theta|, Pade order:  [40] 1.5e-20   [60] 1.1e-20   [75] 6.0e-16   [90] 1.8e-9   [120] 0.0002
+phi =     0  theta =   -45   |P J - S_theta|, Pade order:  [40] 1.5e-20   [60] 3.8e-21   [75] 3.8e-21   [90] 4.9e-21   [120] 1.3e-15
+phi =     0  theta =   -60   |P J - S_theta|, Pade order:  [40] 1.5e-20   [60] 3.8e-21   [75] 3.8e-21   [90] 3.8e-21   [120] 3.8e-21
+phi =     0  theta =   -75   |P J - S_theta|, Pade order:  [40] 1.5e-20   [60] 3.8e-21   [75] 3.8e-21   [90] 3.8e-21   [120] 3.8e-21
+phi =    30  theta =   -25   |P J - S_theta|, Pade order:  [40] 5.6e-14   [60] 7.6e-18   [75] 5.1e-14   [90] 2.0e-7   [120] 0.0047
+phi =    30  theta =   -45   |P J - S_theta|, Pade order:  [40] 5.6e-14   [60] 6.4e-18   [75] 3.8e-20   [90] 1.1e-19   [120] 3.4e-14
+phi =    30  theta =   -55   |P J - S_theta|, Pade order:  [40] 1.1e-10   [60] 3.4e-11   [75] 3.3e-11   [90] 3.3e-11   [120] 3.3e-11
+phi =  -250  theta =  -170   |P J - S_theta|, Pade order:  [40] 5.4e-9   [60] 1.7e-10   [75] 4.6e-11   [90] 2.4e-12   [120] 2.9e-13
+phi =  -250  theta =  -165   |P J - S_theta|, Pade order:  [40] 8.9e-8   [60] 1.7e-10   [75] 4.6e-11   [90] 2.4e-12   [120] 3.0e-13
+phi =  -250  theta =  -175   |P J - S_theta|, Pade order:  [40] 5.4e-9   [60] 1.7e-10   [75] 4.6e-11   [90] 2.4e-12   [120] 2.9e-13

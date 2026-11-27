@@ -1,0 +1,162 @@
+##### python3 w0_concavity.py
+theta =  -255: concave on   0 of   3 admissible contours
+theta =  -250: concave on   0 of   7 admissible contours
+theta =  -245: concave on   0 of  12 admissible contours
+theta =  -240: concave on   0 of  14 admissible contours
+theta =  -235: concave on   0 of  17 admissible contours
+theta =  -230: concave on   0 of  19 admissible contours
+theta =  -225: concave on   0 of  22 admissible contours
+theta =  -220: concave on   0 of  24 admissible contours
+theta =  -215: concave on   0 of  27 admissible contours
+theta =  -210: concave on   0 of  29 admissible contours
+theta =  -205: concave on   0 of  32 admissible contours
+theta =  -200: concave on   0 of  34 admissible contours
+theta =  -195: concave on   6 of  37 admissible contours
+theta =  -190: concave on  14 of  39 admissible contours
+theta =  -185: concave on  19 of  42 admissible contours
+theta =  -180: concave on  23 of  44 admissible contours
+theta =  -175: concave on  27 of  47 admissible contours
+theta =  -170: concave on  31 of  49 admissible contours
+theta =  -165: concave on  34 of  52 admissible contours
+theta =  -160: concave on  38 of  54 admissible contours
+theta =  -155: concave on  40 of  57 admissible contours
+theta =  -150: concave on  44 of  59 admissible contours
+theta =  -145: concave on  47 of  62 admissible contours
+theta =  -140: concave on  50 of  64 admissible contours
+theta =  -135: concave on  53 of  67 admissible contours
+theta =  -130: concave on  55 of  69 admissible contours
+theta =  -125: concave on  58 of  72 admissible contours
+theta =  -120: concave on  61 of  74 admissible contours
+theta =  -115: concave on  63 of  77 admissible contours
+theta =  -110: concave on  65 of  79 admissible contours
+theta =  -105: concave on  68 of  82 admissible contours
+theta =  -100: concave on  70 of  82 admissible contours
+theta =   -95: concave on  72 of  80 admissible contours
+theta =   -90: concave on  74 of  77 admissible contours
+theta =   -85: concave on  75 of  75 admissible contours
+theta =   -80: concave on  72 of  72 admissible contours
+theta =   -75: concave on  70 of  70 admissible contours
+theta =   -70: concave on  67 of  67 admissible contours
+theta =   -65: concave on  65 of  65 admissible contours
+theta =   -60: concave on  62 of  62 admissible contours
+theta =   -55: concave on  59 of  60 admissible contours
+theta =   -50: concave on  56 of  57 admissible contours
+theta =   -45: concave on  54 of  55 admissible contours
+theta =   -40: concave on  51 of  52 admissible contours
+theta =   -35: concave on  49 of  50 admissible contours
+theta =   -30: concave on  46 of  47 admissible contours
+theta =   -25: concave on  43 of  45 admissible contours
+theta =   -20: concave on  40 of  42 admissible contours
+theta =   -15: concave on  38 of  40 admissible contours
+theta =   -10: concave on  35 of  37 admissible contours
+theta =    -5: concave on  33 of  35 admissible contours
+theta =     0: concave on  29 of  32 admissible contours
+theta =     5: concave on  27 of  30 admissible contours
+theta =    10: concave on  24 of  27 admissible contours
+theta =    15: concave on  22 of  25 admissible contours
+theta =    20: concave on  19 of  22 admissible contours
+theta =    25: concave on  16 of  20 admissible contours
+theta =    30: concave on  13 of  17 admissible contours
+theta =    35: concave on  11 of  15 admissible contours
+theta =    40: concave on   7 of  12 admissible contours
+theta =    45: concave on   5 of  10 admissible contours
+theta =    50: concave on   1 of   7 admissible contours
+theta =    55: concave on   0 of   5 admissible contours
+theta =    60: concave on   0 of   2 admissible contours
+total: concave on 2101 of 2760;  no concave contour at theta = [-255, -250, -245, -240, -235, -230, -225, -220, -215, -210, -205, -200, 55, 60];  all concave at theta = [-85, -80, -75, -70, -65, -60]
+
+##### python3 w1_descent.py
+(1) 3000 random points (beta in (-85,85), all admissible delta, rho in (0.02,30), both halves):
+    max |psi/rho - exact formula| = 4.26e-09
+    max (X - ln 2) = -5.600e-04 (<= 0),   min (X - lambda_alpha) = 2.759e-02 (>= 0),   max |Y| = 0.6990 (<= pi/2 = 1.5708)
+    violations of  psi/rho <= -kappa - c rho sin(2 delta):  0
+(2) kappa for delta = 10 degrees:  beta, theta = arg t, alpha, gamma, kappa
+    beta =  -64   theta =  -218   alpha =  -74   gamma =  -54   kappa =  0.1027
+    beta =  -60   theta =  -210   alpha =  -70   gamma =  -50   kappa =  0.3728
+    beta =  -50   theta =  -190   alpha =  -60   gamma =  -40   kappa =  0.7578
+    beta =  -40   theta =  -170   alpha =  -50   gamma =  -30   kappa =  1.0138
+    beta =  -30   theta =  -150   alpha =  -40   gamma =  -20   kappa =  1.2390
+    beta =  -20   theta =  -130   alpha =  -30   gamma =  -10   kappa =  1.4266
+    beta =  -10   theta =  -110   alpha =  -20   gamma =    0   kappa =  1.5708
+    beta =    0   theta =   -90   alpha =  -10   gamma =   10   kappa =  1.4266
+    beta =   10   theta =   -70   alpha =    0   gamma =   20   kappa =  1.2390
+    beta =   20   theta =   -50   alpha =   10   gamma =   30   kappa =  1.0138
+    beta =   30   theta =   -30   alpha =   20   gamma =   40   kappa =  0.7578
+    beta =   40   theta =   -10   alpha =   30   gamma =   50   kappa =  0.4787
+    beta =   50   theta =    10   alpha =   40   gamma =   60   kappa =  0.1851
+    beta =   60   theta =    30   alpha =   50   gamma =   70   kappa = -0.1141
+    beta =   64   theta =    38   alpha =   54   gamma =   74   kappa = -0.2333
+    minimum of kappa over -60 <= beta <= 50 (theta from -210 to 10), step 0.05: 0.1851
+(3) delta = 10 degrees: actual sup over rho (both halves) of psi/rho, against -kappa
+    beta = -60.0  theta = -210.0:   sup psi/rho = -1.4889    -kappa = -0.3728
+    beta = -45.0  theta = -180.0:   sup psi/rho = -2.1764    -kappa = -0.8891
+    beta = -30.0  theta = -150.0:   sup psi/rho = -2.7156    -kappa = -1.2390
+    beta = -15.0  theta = -120.0:   sup psi/rho = -3.0697    -kappa = -1.5044
+    beta =   0.0  theta =  -90.0:   sup psi/rho = -2.9740    -kappa = -1.4266
+    beta =  15.0  theta =  -60.0:   sup psi/rho = -2.5548    -kappa = -1.1307
+    beta =  30.0  theta =  -30.0:   sup psi/rho = -1.9616    -kappa = -0.7578
+    beta =  42.5  theta =   -5.0:   sup psi/rho = -1.3631    -kappa = -0.4063
+    beta =  50.0  theta =   10.0:   sup psi/rho = -0.9710    -kappa = -0.1851
+
+##### python3 w2_checks.py a b
+(a) |q| > 1, inversion relation at 6 points: max defect 1.92e-30
+(b) Euler-Maclaurin on the contour (delta = 10 deg, left half, rho = |w|), defect/|t|^K, for |t| = 0.2, 0.1, 0.05, 0.025
+    theta =  -200, rho = 0.5, K = 1:  0.0191  0.0191  0.0191  0.0191
+    theta =  -200, rho = 0.5, K = 3:  8.03e-5  8.02e-5  8.01e-5  8.01e-5
+    theta =  -200, rho = 0.5, K = 5:  4.5e-6  4.49e-6  4.49e-6  4.49e-6
+    theta =  -200, rho = 3.0, K = 1:  0.0156  0.0156  0.0156  0.0156
+    theta =  -200, rho = 3.0, K = 3:  0.00101  0.00101  0.00101  0.00101
+    theta =  -200, rho = 3.0, K = 5:  0.00018  0.00018  0.00018  0.00018
+    theta =  -150, rho = 0.5, K = 1:  0.0171  0.0171  0.0171  0.0171
+    theta =  -150, rho = 0.5, K = 3:  7.49e-5  7.48e-5  7.48e-5  7.48e-5
+    theta =  -150, rho = 0.5, K = 5:  3.89e-6  3.88e-6  3.88e-6  3.88e-6
+    theta =  -150, rho = 3.0, K = 1:  0.00431  0.00432  0.00432  0.00432
+    theta =  -150, rho = 3.0, K = 3:  0.000139  0.000139  0.000139  0.000139
+    theta =  -150, rho = 3.0, K = 5:  6.39e-6  6.42e-6  6.42e-6  6.42e-6
+    theta =  -110, rho = 0.5, K = 1:  0.0161  0.0161  0.0161  0.0161
+    theta =  -110, rho = 0.5, K = 3:  7.12e-5  7.12e-5  7.13e-5  7.13e-5
+    theta =  -110, rho = 0.5, K = 5:  3.49e-6  3.49e-6  3.5e-6  3.5e-6
+    theta =  -110, rho = 3.0, K = 1:  0.00241  0.00241  0.00241  0.00241
+    theta =  -110, rho = 3.0, K = 3:  6.4e-5  6.4e-5  6.4e-5  6.4e-5
+    theta =  -110, rho = 3.0, K = 5:  1.35e-6  1.35e-6  1.35e-6  1.35e-6
+    theta =   -70, rho = 0.5, K = 1:  0.0157  0.0157  0.0157  0.0157
+    theta =   -70, rho = 0.5, K = 3:  6.98e-5  6.99e-5  6.99e-5  6.99e-5
+    theta =   -70, rho = 0.5, K = 5:  3.35e-6  3.35e-6  3.36e-6  3.36e-6
+    theta =   -70, rho = 3.0, K = 1:  0.00198  0.00198  0.00198  0.00198
+    theta =   -70, rho = 3.0, K = 3:  4.97e-5  4.97e-5  4.97e-5  4.97e-5
+    theta =   -70, rho = 3.0, K = 5:  5.99e-7  6.0e-7  6.0e-7  6.0e-7
+    theta =     0, rho = 0.5, K = 1:  0.0168  0.0168  0.0168  0.0168
+    theta =     0, rho = 0.5, K = 3:  7.39e-5  7.38e-5  7.38e-5  7.38e-5
+    theta =     0, rho = 0.5, K = 5:  3.78e-6  3.77e-6  3.77e-6  3.77e-6
+    theta =     0, rho = 3.0, K = 1:  0.0036  0.0036  0.0036  0.0036
+    theta =     0, rho = 3.0, K = 3:  0.000109  0.000109  0.000109  0.000109
+    theta =     0, rho = 3.0, K = 5:  4.1e-6  4.1e-6  4.11e-6  4.11e-6
+
+##### python3 w2_checks.py c
+(c) sup over the contour (delta = 10 deg; rho in (0, 6], both halves) of |H| / exp(psi(rho)/|t|)
+    theta =  -200:  |t|=0.4: 0.7387 (at -0.22)   |t|=0.2: 0.7448 (at -0.1)   |t|=0.1: 0.7489 (at -0.06)
+    theta =  -150:  |t|=0.4: 0.6978 (at -3.0)   |t|=0.2: 0.7024 (at -3.0)   |t|=0.1: 0.7048 (at -3.0)
+    theta =  -110:  |t|=0.4: 0.7035 (at -2.5)   |t|=0.2: 0.7053 (at -2.5)   |t|=0.1: 0.7062 (at -2.4)
+    theta =   -70:  |t|=0.4: 0.7152 (at 6.0)   |t|=0.2: 0.7115 (at 0.18)   |t|=0.1: 0.7097 (at 0.1)
+    theta =   -20:  |t|=0.4: 0.7748 (at 0.22)   |t|=0.2: 0.7627 (at 0.1)   |t|=0.1: 0.7578 (at 0.06)
+    theta =     0:  |t|=0.4: 0.8382 (at 0.2)   |t|=0.2: 0.8274 (at 0.1)   |t|=0.1: 0.8039 (at 0.06)
+    theta =     8:  |t|=0.4: 0.8782 (at 0.2)   |t|=0.2: 0.867 (at 0.1)   |t|=0.1: 0.8301 (at 0.06)
+
+##### python3 w2_checks.py d
+(d) ( P J - sum_{k<K} a_k t^k ) / (a_K t^K),  |t| = 0.2, 0.1, 0.05   (contour angle delta = 10 deg)
+    psi1, theta =     0, K =  1:  (1.059118 - 5.9099716e-6j)    (1.028709 + 1.1234525e-12j)    (1.0141217 - 6.1312475e-20j)
+    psi1, theta =     0, K =  3:  (0.96186431 - 0.0015956923j)    (1.0056959 + 1.2133287e-9j)    (1.0059182 - 2.6486989e-16j)
+    psi1, theta =     0, K =  6:  (2.1811893 + 0.083542301j)    (1.3575204 - 5.0818956e-7j)    (1.1520175 + 8.8750304e-13j)
+    psi1, theta =     0, K = 10:  (3.0488952 + 1.0860797j)    (1.3517877 - 0.00010570633j)    (1.1537046 + 2.9536911e-9j)
+    psi1, theta =  -150, K =  1:  (0.95375631 - 0.02475075j)    (0.97640858 - 0.013106628j)    (0.98808777 - 0.0067461658j)
+    psi1, theta =  -150, K =  3:  (0.9600928 - 0.028334381j)    (0.98266924 - 0.012350198j)    (0.99214285 - 0.0053142504j)
+    psi1, theta =  -150, K =  6:  (0.66116122 - 0.12283541j)    (0.80345423 - 0.087499767j)    (0.89383629 - 0.05335598j)
+    psi1, theta =  -150, K = 10:  (0.65917932 - 0.12121649j)    (0.80116065 - 0.087704449j)    (0.89238227 - 0.053894466j)
+    psi1, theta =  -200, K =  1:  (0.95055154 + 0.016781804j)    (0.97459794 + 0.008923092j)    (0.98712503 + 0.0046034493j)
+    psi1, theta =  -200, K =  3:  (0.95533803 + 0.019403923j)    (0.98043544 + 0.0085462384j)    (0.99119809 + 0.0036839451j)
+    psi1, theta =  -200, K =  6:  (0.65517311 + 0.081166625j)    (0.79567467 + 0.05839345j)    (0.88769246 + 0.035948592j)
+    psi1, theta =  -200, K = 10:  (0.65374583 + 0.080049152j)    (0.79357827 + 0.058476324j)    (0.88623344 + 0.036291425j)
+    psi0, theta =  -130, K =  2:  (0.87166051 - 0.11056174j)    (0.93484856 - 0.064931637j)    (0.96748805 - 0.03525608j)
+    psi0, theta =  -130, K =  3:  (0.8359512 - 0.13623016j)    (0.91619055 - 0.081716435j)    (0.95812006 - 0.044868552j)
+    psi0, theta =  -130, K =  6:  (0.77990923 - 0.16773287j)    (0.88604299 - 0.10587715j)    (0.94292236 - 0.059606671j)
+    psi0, theta =  -130, K = 10:  (0.95687242 - 0.14312164j)    (1.0117379 - 0.049144476j)    (1.0138881 - 0.0087817016j)
