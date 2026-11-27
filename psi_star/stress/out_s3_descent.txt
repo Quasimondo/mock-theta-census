@@ -1,0 +1,44 @@
+S3  Proposition 1, delta = 10 deg; 735 theta values x 2000 rho values per half
+(i)   exact formula: max |psi/rho - formula| = 8.68e-13  (2940000 samples)
+(ii)  max |Y| = 0.370327  (pi/2 = 1.570796; ratio 0.2358)
+      max X = 0.693062  (ln 2 = 0.693147; ratio 0.9999);  min (X - lambda_alpha) = 8.1586e-03
+(iii) min over samples of [(-kappa rho - c rho^2 sin2d) - psi]/rho = 7.8548e-01 at theta=10.0000, r=-0.001
+(iv)  min kappa(theta) on [-210,10] = 0.185115 at theta = 10.0000  (claim >= 0.185)
+      min over samples of [(-0.185 rho) - psi]/rho = 7.8577e-01 at theta=10.0000, r=-0.001
+
+True margin  kappa_true(theta) = min_rho(-psi/rho), rho in [1e-3,100], and the formula kappa(theta):
+  theta= -260.0  beta= -85.0  gamma= -75.0  alpha= -95.0  kappa= -0.2630  kappa_true=  0.1438 (delta not admissible)
+  theta= -250.0  beta= -80.0  gamma= -70.0  alpha= -90.0  kappa= -0.1141  kappa_true=  0.4234 (delta not admissible)
+  theta= -240.0  beta= -75.0  gamma= -65.0  alpha= -85.0  kappa= -1.1964  kappa_true=  0.6997 
+  theta= -230.0  beta= -70.0  gamma= -60.0  alpha= -80.0  kappa= -0.4436  kappa_true=  0.9708 
+  theta= -220.0  beta= -65.0  gamma= -55.0  alpha= -75.0  kappa=  0.0257  kappa_true=  1.2344 
+  theta= -215.0  beta= -62.5  gamma= -52.5  alpha= -72.5  kappa=  0.2104  kappa_true=  1.3628 
+  theta= -212.0  beta= -61.0  gamma= -51.0  alpha= -71.0  kappa=  0.3102  kappa_true=  1.4386 
+  theta= -210.0  beta= -60.0  gamma= -50.0  alpha= -70.0  kappa=  0.3728  kappa_true=  1.4887 
+  theta= -200.0  beta= -55.0  gamma= -45.0  alpha= -65.0  kappa=  0.6206  kappa_true=  1.7316 
+  theta= -150.0  beta= -30.0  gamma= -20.0  alpha= -40.0  kappa=  1.2390  kappa_true=  2.7153 
+  theta= -120.0  beta= -15.0  gamma=  -5.0  alpha= -25.0  kappa=  1.5044  kappa_true=  3.0695 
+  theta=  -90.0  beta=   0.0  gamma=  10.0  alpha= -10.0  kappa=  1.4266  kappa_true=  2.9738 
+  theta=  -60.0  beta=  15.0  gamma=  25.0  alpha=   5.0  kappa=  1.1307  kappa_true=  2.5546 
+  theta=  -30.0  beta=  30.0  gamma=  40.0  alpha=  20.0  kappa=  0.7578  kappa_true=  1.9613 
+  theta=    0.0  beta=  45.0  gamma=  55.0  alpha=  35.0  kappa=  0.3332  kappa_true=  1.2344 
+  theta=    5.0  beta=  47.5  gamma=  57.5  alpha=  37.5  kappa=  0.2594  kappa_true=  1.1036 
+  theta=   10.0  beta=  50.0  gamma=  60.0  alpha=  40.0  kappa=  0.1851  kappa_true=  0.9708 
+  theta=   12.0  beta=  51.0  gamma=  61.0  alpha=  41.0  kappa=  0.1553  kappa_true=  0.9171 
+  theta=   15.0  beta=  52.5  gamma=  62.5  alpha=  42.5  kappa=  0.1105  kappa_true=  0.8361 
+  theta=   20.0  beta=  55.0  gamma=  65.0  alpha=  45.0  kappa=  0.0356  kappa_true=  0.6997 
+  theta=   25.0  beta=  57.5  gamma=  67.5  alpha=  47.5  kappa= -0.0393  kappa_true=  0.5621 
+  theta=   30.0  beta=  60.0  gamma=  70.0  alpha=  50.0  kappa= -0.1141  kappa_true=  0.4234 
+  theta=   35.0  beta=  62.5  gamma=  72.5  alpha=  52.5  kappa= -0.1887  kappa_true=  0.2839 
+  theta=   40.0  beta=  65.0  gamma=  75.0  alpha=  55.0  kappa= -0.2630  kappa_true=  0.1438 
+  theta=   50.0  beta=  70.0  gamma=  80.0  alpha=  60.0  kappa= -0.4099  kappa_true= -0.1368 
+
+formula kappa >= 0.185 exactly on theta in [-215.720, 10.000];  kappa > 0 on [-220.640, 22.370]
+
+formula kappa(theta, delta) for delta != 10 deg (a fixed contour gamma = gamma(theta0) has delta = 10 + (theta0 - theta)/2):
+   delta= 5.0: min over [-210,10] = 0.3332 at theta=-210.0
+   delta= 8.0: min over [-210,10] = 0.2446 at theta=10.0
+   delta= 9.0: min over [-210,10] = 0.2149 at theta=10.0
+   delta=11.0: min over [-210,10] = 0.1553 at theta=10.0
+   delta=12.0: min over [-210,10] = 0.1254 at theta=10.0
+   delta=15.0: min over [-210,10] = 0.0356 at theta=10.0

@@ -1,0 +1,22 @@
+(a) identities as exact power series to q^400
+   (I)   2 psi0* - f0* + theta4 R0:  0 to order 400
+   (II)  2 psi1* - f1* - theta4 R1:  0 to order 400
+   (V)   W + F_a - psi P+:           0 to order 400
+   (VI)  q W3 + F_b - psi P-:        0 to order 400
+   G(-q^5) = (W - 1 + q^2 W3)/q^3: 0 to order 397;  G(-1/q) = 1 - W + q W3: 0 to order 400
+   double-sum forms (-q)_inf psi1*, (-q)_inf psi0*: 0 to order 400, 0 to order 400
+
+(b) odd-root rule, steps (c) and (d)
+   min |(-q;q)_{mJ}| / 1.4^J over J with r^{J m^2} >= 1/2 (m <= 11, 1-r >= 1e-4): 1.2516 (claim >= 1)
+   theta4 R1 at q = zeta e^{-t}: m^2 t log|theta4 R1| (claimed bound exponent -(pi^2/4 - 1 - eps); claimed true value -pi^2/3 = -3.290):
+    m=3:  m^2t=0.5000: -2.118  m^2t=0.2500: -2.488  m^2t=0.1250: -2.887  m^2t=0.0625: -3.055  m^2t=0.0312: -3.157
+    m=5:  m^2t=0.5000: -1.946  m^2t=0.2500: -2.346  m^2t=0.1250: -2.835  m^2t=0.0625: -3.016  m^2t=0.0312: -3.140
+    m=7:  m^2t=0.5000: -1.775  m^2t=0.2500: -2.227  m^2t=0.1250: -2.786  m^2t=0.0625: -2.984  m^2t=0.0312: -3.125
+
+(c) odd-root rule: |psi1*(r zeta) - A/3|, |psi0*(r zeta) - A0/3| as r -> 1, all primitive roots, m <= 9
+   m=3:  1-r=1e-02: 3.42e-03  1-r=1e-03: 3.34e-04  1-r=1e-04: 3.33e-05   (relative to max(|A|, 1); A0 = 0 for m = 3; should scale like 1 - r)
+   m=5:  1-r=1e-02: 8.64e-03  1-r=1e-03: 8.03e-04  1-r=1e-04: 7.97e-05   (relative to max(|A|, 1); A0 = 0 for m = 3; should scale like 1 - r)
+   m=7:  1-r=1e-02: 2.66e-02  1-r=1e-03: 1.99e-03  1-r=1e-04: 1.96e-04   (relative to max(|A|, 1); A0 = 0 for m = 3; should scale like 1 - r)
+   m=9:  1-r=1e-02: 1.36e-01  1-r=1e-03: 6.32e-03  1-r=1e-04: 6.15e-04   (relative to max(|A|, 1); A0 = 0 for m = 3; should scale like 1 - r)
+
+run time 9 s

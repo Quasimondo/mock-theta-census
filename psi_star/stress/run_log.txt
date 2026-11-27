@@ -1,0 +1,448 @@
+====================================================================================================
+s1_kernel.py
+====================================================================================================
+(a) Theorem C (I(u) = c e^{-pi i u^2/2} D(u)) and (B1), by quadrature on L
+   150 samples (21 skipped as ill-conditioned): max |I_quad/I_C - 1| = 3.01e-07 at x=(0.44969457634713217+0.2068925822847882j) delta=36.1 u=(0.3082973159491267-1.7752177589300164j)
+   (B1) both recursions: max residual / (sum of |terms|) = 3.95e-09
+
+(b) Fourier transforms on H = {Im(w e^{-i delta}) < 0}
+   80 samples: max |G_quad/G_formula - 1| = 2.97e-09,  max |F_quad/F_formula - 1| = 2.39e-07
+
+(c) steps (X) and (Y): the integrals against K(lambda) by quadrature
+   80 samples (3 skipped): max relative error (X): 4.69e-08, (Y): 4.47e-08
+
+(d) Theorem A (both routes), (B2), (B3); dual sums with I(u -+ m/b) from Theorem C
+   120 samples (61 skipped): (A up) 6.54e-10, (A down) 6.54e-10 relative to |J| where the two sums cancel by < 1e3; relative to |residue sum| + |dual sum| in all samples: 6.54e-10, 4.84e-10;
+   (B2) first 4.95e-06, second 6.50e-10, (B3) 1.78e-14
+
+(e) Theorem I (the four exact formulas) with all integrals by quadrature on L, and the link P.J(1/(2b)) [v12, over L] = e^{t/8} int H ds [Parts 3-5, over the s-contour]
+   60 samples (1 skipped): psi1* 3.1e-11, f1* 3.4e-13, psi0* 4.6e-13, f0* 3.8e-13 (relative)
+   P = 2^{-1/2} e^{pi^2/(12t)+t/6}/b vs (-q;q)/(b q^{1/8} (p;p^2)): 2.3e-15;  P.J over L vs e^{t/8} int H ds: psi1 2.7e-13, psi0 2.7e-13
+
+run time 289 s
+
+====================================================================================================
+s2_faddeev.py
+====================================================================================================
+(f) accuracy of the double-precision Lambda (products, Faddeev) against mpmath (40 digits)
+   max |e^{Lambda - Lambda_ref} - 1|: products 2.1e-14, Faddeev 4.7e-11
+
+(a) Lemma Phi
+   Faddeev = product formula (Im x > 0) / Phi_{1/b} product (Im x < 0): 318 points, max |ratio - 1| = 5.4e-12
+   real x: functional eq. (b): 7.5e-13; (1/b) [integral vs functional equation, pi<Im w<pi(1+x)]: 7.3e-14; inversion: 1.4e-14; Phi_b(0)^2: 6.5e-12
+
+(b) Lemma S: sup |defect| / |t|^{2K-1};  defect = -Lambda - sum_{j<K} ...
+   K=2 eps1=1.571:  |t|=1.50:0.000652  |t|=0.80:0.00063  |t|=0.40:0.000614  |t|=0.20:0.000609  |t|=0.10:0.000608  |t|=0.05:0.000608   (worst at arg x=60, w=0.00-1.57i)
+   K=2 eps1=0.524:  |t|=1.50:0.0118  |t|=0.80:0.017  |t|=0.40:0.0179  |t|=0.20:0.0173  |t|=0.10:0.017  |t|=0.05:0.017   (worst at arg x=60, w=-0.00+2.62i)
+   K=2 eps1=0.100:  |t|=1.50:0.146  |t|=0.80:0.431  |t|=0.40:1.18  |t|=0.20:2.18  |t|=0.10:2.58  |t|=0.05:2.51   (worst at arg x=60, w=-0.01+3.04i)
+   K=3 eps1=1.571:  |t|=1.50:8.25e-05  |t|=0.80:8.59e-05  |t|=0.40:8.2e-05  |t|=0.20:8.06e-05  |t|=0.10:8.04e-05   (worst at arg x=60, w=0.00-1.57i)
+   K=3 eps1=0.524:  |t|=1.50:0.00665  |t|=0.80:0.0151  |t|=0.40:0.021  |t|=0.20:0.0205  |t|=0.10:0.0198   (worst at arg x=-60, w=-0.01-2.62i)
+   K=3 eps1=0.100:  |t|=1.50:1.09  |t|=0.80:3.86  |t|=0.40:14.6  |t|=0.20:44.3  |t|=0.10:77.9   (worst at arg x=-60, w=-0.02-3.04i)
+
+(c) Lemma F: sup |Lambda + Li2(-e^w)/t| e^{-Re w/2}, Re w <= 0, |Im w| <= pi
+   |t|=1.5708 (|x|=0.2500): sup = 0.51107 at arg x=60.0, w=-0.4411+3.1416i
+   |t|=1.0000 (|x|=0.1592): sup = 0.47853 at arg x=60.0, w=-0.2555+3.1416i
+   |t|=0.5000 (|x|=0.0796): sup = 0.45370 at arg x=60.0, w=-0.1161+3.1416i
+   |t|=0.2000 (|x|=0.0318): sup = 0.44028 at arg x=-60.0, w=-0.0436-3.1416i
+   |t|=0.1000 (|x|=0.0159): sup = 0.43603 at arg x=60.0, w=-0.0213+3.1416i
+   |t|=0.0500 (|x|=0.0080): sup = 0.43395 at arg x=60.0, w=-0.0105+3.1416i
+   |t|=0.0200 (|x|=0.0032): sup = 0.43272 at arg x=60.0, w=-0.0042+3.1416i
+   |t|=0.0100 (|x|=0.0016): sup = 0.43231 at arg x=60.0, w=-0.0021+3.1416i
+   overall sup = 0.51107  (doc: 0.347; note ln(2)/2 = 0.34657)
+   by direction (|t| = 0.01 and 1.5708):  -60: 0.4320/0.5105  -30: 0.3494/0.3663  -10: 0.3466/0.3537  0: 0.3466/0.3481  10: 0.3466/0.3537  30: 0.3494/0.3663  60: 0.4320/0.5105
+   beyond:  (|t|=1.57,arg x=75): 0.9519; (|t|=1.57,arg x=85: line Im sigma=1/2 not admissible) (|t|=0.10,arg x=80): 0.9499; (|t|=0.10,arg x=89): 2.9208; (|t|=2.50,arg x=0): 0.3505; (|t|=3.00,arg x=30): 0.3838; (|t|=0.10,arg x=-85): 1.5230;
+
+(d) Lemma D
+   min over |beta| <= 30 of cos(gamma) - |sin(alpha) sin(2 beta)| = 0.383022 at beta = -30.000 (claim >= 0.383)
+   min rho with N != 0 on the left half: pi/|sin alpha|max = 4.8875 (claim >= 4.88)
+   actual |E| = |Lambda(w) - Lambda(w - 2 pi i N)| on the left half (products, Im x != 0):
+   |t|=0.40: max |e^E - 1| = 1.50e-13  (theta=-150, rho=4.90, N=1);  |t| log(max) = -11.81
+   |t|=0.20: max |e^E - 1| = 2.22e-16  (theta=-120, rho=7.44, N=1);  |t| log(max) = -7.21
+   |t|=0.10: max |e^E - 1| = 2.23e-16  (theta=-140, rho=5.80, N=1);  |t| log(max) = -3.60
+   |t|=0.05: max |e^E - 1| = 2.29e-16  (theta=-150, rho=5.25, N=1);  |t| log(max) = -1.80
+
+(e) Lemma B, 0 <= arg x <= 60, |x| <= 1/4
+   (i) sup over the closed strip, all Re w, of log(1/|Phi_b|) - Re(Li2(-e^w)/t):
+      |t|=1.57: 0.4000; |t|=0.50: 0.3813; |t|=0.10: 0.3738; |t|=0.02: 0.3664;  => C = e^{0.4000}
+   (ii) sup |(1/Phi_b) e^{-Li2/t} - 1| / |t| on |Im w| <= pi - eps1:
+     eps1=0.524: |t|=1.57: 0.0903; |t|=0.50: 0.0861; |t|=0.10: 0.0836; |t|=0.02: 0.0834;
+     eps1=1.571: |t|=1.57: 0.0429; |t|=0.50: 0.0420; |t|=0.10: 0.0417; |t|=0.02: 0.0417;
+   (iii) ray w = i pi - rho e^{-i delta1}: sup of log(1/|Phi_b|) - Re(Li2/t) - N ln 2, N = 1 + rho/(2pi):
+     delta1=30: |t|=1.57: -0.1884; |t|=0.50: -0.0883; |t|=0.10: -0.0426; |t|=0.05: -0.0360;
+     delta1=60: |t|=1.57: -0.1919; |t|=0.50: -0.0913; |t|=0.10: -0.0433; |t|=0.05: -0.0364;
+     delta1=80: |t|=1.57: -0.1984; |t|=0.50: -0.0943; |t|=0.10: -0.0439; |t|=0.05: -0.0367;
+     without the 2^N factor (is it needed?): sup of log(1/|Phi_b|) - Re(Li2/t), delta1=30:
+       |t|=1.57: 0.6935; |t|=0.50: 0.6931; |t|=0.10: 0.6931; |t|=0.05: 0.6931;
+
+run time 198 s
+
+====================================================================================================
+s3_descent.py
+====================================================================================================
+S3  Proposition 1, delta = 10 deg; 735 theta values x 2000 rho values per half
+(i)   exact formula: max |psi/rho - formula| = 8.68e-13  (2940000 samples)
+(ii)  max |Y| = 0.370327  (pi/2 = 1.570796; ratio 0.2358)
+      max X = 0.693062  (ln 2 = 0.693147; ratio 0.9999);  min (X - lambda_alpha) = 8.1586e-03
+(iii) min over samples of [(-kappa rho - c rho^2 sin2d) - psi]/rho = 7.8548e-01 at theta=10.0000, r=-0.001
+(iv)  min kappa(theta) on [-210,10] = 0.185115 at theta = 10.0000  (claim >= 0.185)
+      min over samples of [(-0.185 rho) - psi]/rho = 7.8577e-01 at theta=10.0000, r=-0.001
+
+True margin  kappa_true(theta) = min_rho(-psi/rho), rho in [1e-3,100], and the formula kappa(theta):
+  theta= -260.0  beta= -85.0  gamma= -75.0  alpha= -95.0  kappa= -0.2630  kappa_true=  0.1438 (delta not admissible)
+  theta= -250.0  beta= -80.0  gamma= -70.0  alpha= -90.0  kappa= -0.1141  kappa_true=  0.4234 (delta not admissible)
+  theta= -240.0  beta= -75.0  gamma= -65.0  alpha= -85.0  kappa= -1.1964  kappa_true=  0.6997 
+  theta= -230.0  beta= -70.0  gamma= -60.0  alpha= -80.0  kappa= -0.4436  kappa_true=  0.9708 
+  theta= -220.0  beta= -65.0  gamma= -55.0  alpha= -75.0  kappa=  0.0257  kappa_true=  1.2344 
+  theta= -215.0  beta= -62.5  gamma= -52.5  alpha= -72.5  kappa=  0.2104  kappa_true=  1.3628 
+  theta= -212.0  beta= -61.0  gamma= -51.0  alpha= -71.0  kappa=  0.3102  kappa_true=  1.4386 
+  theta= -210.0  beta= -60.0  gamma= -50.0  alpha= -70.0  kappa=  0.3728  kappa_true=  1.4887 
+  theta= -200.0  beta= -55.0  gamma= -45.0  alpha= -65.0  kappa=  0.6206  kappa_true=  1.7316 
+  theta= -150.0  beta= -30.0  gamma= -20.0  alpha= -40.0  kappa=  1.2390  kappa_true=  2.7153 
+  theta= -120.0  beta= -15.0  gamma=  -5.0  alpha= -25.0  kappa=  1.5044  kappa_true=  3.0695 
+  theta=  -90.0  beta=   0.0  gamma=  10.0  alpha= -10.0  kappa=  1.4266  kappa_true=  2.9738 
+  theta=  -60.0  beta=  15.0  gamma=  25.0  alpha=   5.0  kappa=  1.1307  kappa_true=  2.5546 
+  theta=  -30.0  beta=  30.0  gamma=  40.0  alpha=  20.0  kappa=  0.7578  kappa_true=  1.9613 
+  theta=    0.0  beta=  45.0  gamma=  55.0  alpha=  35.0  kappa=  0.3332  kappa_true=  1.2344 
+  theta=    5.0  beta=  47.5  gamma=  57.5  alpha=  37.5  kappa=  0.2594  kappa_true=  1.1036 
+  theta=   10.0  beta=  50.0  gamma=  60.0  alpha=  40.0  kappa=  0.1851  kappa_true=  0.9708 
+  theta=   12.0  beta=  51.0  gamma=  61.0  alpha=  41.0  kappa=  0.1553  kappa_true=  0.9171 
+  theta=   15.0  beta=  52.5  gamma=  62.5  alpha=  42.5  kappa=  0.1105  kappa_true=  0.8361 
+  theta=   20.0  beta=  55.0  gamma=  65.0  alpha=  45.0  kappa=  0.0356  kappa_true=  0.6997 
+  theta=   25.0  beta=  57.5  gamma=  67.5  alpha=  47.5  kappa= -0.0393  kappa_true=  0.5621 
+  theta=   30.0  beta=  60.0  gamma=  70.0  alpha=  50.0  kappa= -0.1141  kappa_true=  0.4234 
+  theta=   35.0  beta=  62.5  gamma=  72.5  alpha=  52.5  kappa= -0.1887  kappa_true=  0.2839 
+  theta=   40.0  beta=  65.0  gamma=  75.0  alpha=  55.0  kappa= -0.2630  kappa_true=  0.1438 
+  theta=   50.0  beta=  70.0  gamma=  80.0  alpha=  60.0  kappa= -0.4099  kappa_true= -0.1368 
+
+formula kappa >= 0.185 exactly on theta in [-215.720, 10.000];  kappa > 0 on [-220.640, 22.370]
+
+formula kappa(theta, delta) for delta != 10 deg (a fixed contour gamma = gamma(theta0) has delta = 10 + (theta0 - theta)/2):
+   delta= 5.0: min over [-210,10] = 0.3332 at theta=-210.0
+   delta= 8.0: min over [-210,10] = 0.2446 at theta=10.0
+   delta= 9.0: min over [-210,10] = 0.2149 at theta=10.0
+   delta=11.0: min over [-210,10] = 0.1553 at theta=10.0
+   delta=12.0: min over [-210,10] = 0.1254 at theta=10.0
+   delta=15.0: min over [-210,10] = 0.0356 at theta=10.0
+
+====================================================================================================
+s4_uniform.py
+====================================================================================================
+(a) Lemma 1' remainder ratio R = |rho_K| cos(arg t1) / |t1|^{K-1}
+   500 admissible samples (of 663 drawn)
+   K=1 eta=0.25  n=132  max R=1.078e-02 (|t1|=0.169, arg=53.59, zeta0=-0.57+9.39i)  max R(|t1|<0.02)=5.032e-04  max R(|arg|>85)=1.425e-04
+   K=1 eta=0.50  n=139  max R=2.330e-02 (|t1|=0.438, arg=-0.05, zeta0=0.02+7.60i)  max R(|t1|<0.02)=1.014e-03  max R(|arg|>85)=5.609e-04
+   K=1 eta=1.00  n=134  max R=1.493e-02 (|t1|=0.381, arg=-44.29, zeta0=-0.33+8.07i)  max R(|t1|<0.02)=4.104e-04  max R(|arg|>85)=8.941e-05
+   K=1 eta=2.00  n= 95  max R=6.027e-03 (|t1|=0.485, arg=-29.97, zeta0=-1.82+8.30i)  max R(|t1|<0.02)=4.845e-04  max R(|arg|>85)=3.256e-05
+   K=2 eta=0.25  n=132  max R=1.382e-03 (|t1|=0.452, arg=-0.79, zeta0=-1.26+8.63i)  max R(|t1|<0.02)=2.835e-05  max R(|arg|>85)=1.096e-06
+   K=2 eta=0.50  n=139  max R=1.179e-03 (|t1|=0.15, arg=0.37, zeta0=-0.14+3.89i)  max R(|t1|<0.02)=3.654e-05  max R(|arg|>85)=1.225e-05
+   K=2 eta=1.00  n=134  max R=6.140e-04 (|t1|=0.492, arg=36.68, zeta0=0.46-7.19i)  max R(|t1|<0.02)=9.321e-06  max R(|arg|>85)=1.349e-05
+   K=2 eta=2.00  n= 95  max R=3.739e-04 (|t1|=0.232, arg=-29.68, zeta0=0.74+5.64i)  max R(|t1|<0.02)=5.418e-06  max R(|arg|>85)=3.926e-06
+   K=3 eta=0.25  n=132  max R=1.479e-03 (|t1|=0.169, arg=53.59, zeta0=-0.57+9.39i)  max R(|t1|<0.02)=1.346e-05  max R(|arg|>85)=4.391e-06
+   K=3 eta=0.50  n=139  max R=8.514e-04 (|t1|=0.15, arg=0.37, zeta0=-0.14+3.89i)  max R(|t1|<0.02)=9.148e-05  max R(|arg|>85)=1.009e-05
+   K=3 eta=1.00  n=134  max R=2.794e-04 (|t1|=0.381, arg=-44.29, zeta0=-0.33+8.07i)  max R(|t1|<0.02)=5.339e-06  max R(|arg|>85)=6.037e-06
+   K=3 eta=2.00  n= 95  max R=1.233e-04 (|t1|=0.485, arg=-29.97, zeta0=-1.82+8.30i)  max R(|t1|<0.02)=2.528e-06  max R(|arg|>85)=7.860e-07
+   K=4 eta=0.25  n=132  max R=2.175e-04 (|t1|=0.169, arg=53.59, zeta0=-0.57+9.39i)  max R(|t1|<0.02)=3.567e-06  max R(|arg|>85)=7.364e-08
+   K=4 eta=0.50  n=139  max R=2.330e-04 (|t1|=0.15, arg=0.37, zeta0=-0.14+3.89i)  max R(|t1|<0.02)=6.254e-06  max R(|arg|>85)=5.179e-06
+   K=4 eta=1.00  n=134  max R=2.648e-05 (|t1|=0.436, arg=-75.91, zeta0=-1.09+3.10i)  max R(|t1|<0.02)=4.837e-07  max R(|arg|>85)=1.707e-06
+   K=4 eta=2.00  n= 95  max R=5.090e-06 (|t1|=0.232, arg=-29.68, zeta0=0.74+5.64i)  max R(|t1|<0.02)=2.923e-07  max R(|arg|>85)=6.994e-08
+
+(b) Lemma A: min distance of the paths to i pi(2m+1), divided by eta
+   min dist/eta on the contour paths = 1.0000 at theta=-30.0, signed rho=0  (claim >= 1)
+   min dist/(3eta/4) for |w| <= eta/4 = 1.0061 at theta=-23.0, w=(0.2970004693187856+0.6538509641439142j)  (claim >= 1)
+
+(c) sup over the contour of log|H| - psi/|t| (=: log C_psi; for psi_0^* minus rho = |t||s|) and of log|H| + 0.185|s| (=: log C_U)
+  version psi_1^*
+       |t|   logC_psi  at theta     logC_U  at theta
+     0.400    -0.1165    10.000    -0.5060    10.000   (rho at max: 0.199, -0.171)
+     0.200    -0.1294    10.000    -0.5079    10.000   (rho at max: 0.099, -0.0876)
+     0.100    -0.1357    10.000    -0.5091    10.000   (rho at max: 0.0506, -0.0435)
+     0.050    -0.1386    10.000    -0.5098    10.000   (rho at max: 0.0251, -0.0223)
+     0.020    -0.1405    10.000    -0.5102    10.000   (rho at max: 0.0101, -0.00892)
+     0.010    -0.1410    10.000    -0.5101    10.000   (rho at max: 0.005, -0.00443)
+     0.005    -0.1414    10.000    -0.5101    10.000   (rho at max: 0.00248, -0.0022)
+  version psi_0^*
+       |t|   logC_psi  at theta     logC_U  at theta
+     0.400    -0.1632    10.000    -0.6355    10.000   (rho at max: 0.199, -0.166)
+     0.200    -0.1525    10.000    -0.5740    10.000   (rho at max: 0.099, -0.085)
+     0.100    -0.1474    10.000    -0.5424    10.000   (rho at max: 0.0491, -0.0435)
+     0.050    -0.1445    10.000    -0.5265    10.000   (rho at max: 0.0251, -0.0216)
+     0.020    -0.1428    10.000    -0.5169    10.000   (rho at max: 0.0101, -0.00865)
+     0.010    -0.1422    10.000    -0.5135    10.000   (rho at max: 0.005, -0.00443)
+     0.005    -0.1420    10.000    -0.5118    10.000   (rho at max: 0.00248, -0.0022)
+
+  very small |t| at the worst directions (psi_1^*):
+   theta=   10.0:  |t|=0.010: -0.1412 / -0.5103  |t|=0.003: -0.1422 / -0.5101  |t|=0.001: -0.1416 / -0.5108
+   theta= -210.0:  |t|=0.010: -0.2469 / -0.8056  |t|=0.003: -0.2469 / -0.8052  |t|=0.001: -0.2464 / -0.8048
+   theta=  -90.0:  |t|=0.010: -0.3466 / -1.0347  |t|=0.003: -0.3466 / -1.0347  |t|=0.001: -0.3466 / -1.0347
+   theta= -150.0:  |t|=0.010: -0.3454 / -1.0285  |t|=0.003: -0.3450 / -1.0281  |t|=0.001: -0.3449 / -1.0280
+   theta=  -30.0:  |t|=0.010: -0.3034 / -0.9585  |t|=0.003: -0.3038 / -0.9587  |t|=0.001: -0.3039 / -0.9588
+
+  beyond the sector (psi_1^*, |t| = 0.05 and 0.01): log C_psi / log C_U
+   theta=-240.0:   |t|=0.05:  -0.0611 /  -0.3121   |t|=0.01:  -0.0593 /  -0.3076
+   theta=-230.0:   |t|=0.05:  -0.1437 /  -0.5150   |t|=0.01:  -0.1423 /  -0.5113
+   theta=-225.0:   |t|=0.05:  -0.1762 /  -0.6026   |t|=0.01:  -0.1749 /  -0.5984
+   theta=-220.0:   |t|=0.05:  -0.2043 /  -0.6805   |t|=0.01:  -0.2027 /  -0.6765
+   theta=-215.0:   |t|=0.05:  -0.2288 /  -0.7491   |t|=0.01:  -0.2263 /  -0.7458
+   theta=-212.0:   |t|=0.05:  -0.2413 /  -0.7862   |t|=0.01:  -0.2390 /  -0.7827
+   theta=  12.0:   |t|=0.05:  -0.1242 /  -0.4726   |t|=0.01:  -0.1267 /  -0.4725
+   theta=  15.0:   |t|=0.05:  -0.1009 /  -0.4130   |t|=0.01:  -0.1032 /  -0.4140
+   theta=  20.0:   |t|=0.05:  -0.0566 /  -0.3076   |t|=0.01:  -0.0584 /  -0.3067
+   theta=  25.0:   |t|=0.05:  -0.0040 /  -0.1890   |t|=0.01:  -0.0053 /  -0.1898
+   theta=  30.0:   |t|=0.05:   0.0593 /  -0.0596   |t|=0.01:   0.0585 /  -0.0598
+   theta=  35.0:   |t|=0.05:   0.1365 /   0.0837   |t|=0.01:   0.1363 /   0.0870
+
+run time 188 s
+
+====================================================================================================
+s5_factorial.py
+====================================================================================================
+1. Proposition 2 (shift identity): |P.J - (sum_{n<N} (-1)^n tau_n + R_N)| / |P.J|
+   234 tests; worst of |difference| / max(|P.J|, 1e-16 * sum of |terms|) = 1.60e-01 at theta=-179.25 |t|=0.0586 N=37 version psi_1^*
+   past the hypothesis (N - 1/2)|t| cos(gamma) >= pi cos(alpha): poles of 1/Phi_b are crossed
+   theta= -90.0 |t|=0.30 N_crit=10.97:  N=9: 1.5e-13  N=10: 3.2e-13  N=11: 4.9e+00  N=12: 1.9e+01
+   theta= -60.0 |t|=0.30 N_crit=12.01:  N=11: 1.6e-13  N=12: 1.6e-13  N=13: 1.6e-01  N=14: 4.3e-01
+   theta=   0.0 |t|=0.30 N_crit=15.46:  N=14: 1.6e-13  N=15: 1.6e-13  N=16: 2.3e-03  N=17: 2.6e-03
+
+2. Lemma G: |g(e^{-omega})| <= 1/2 e^{L|omega|} when dist([0,omega], i pi(2m+1)) >= 1
+   146068 admissible samples; max log-ratio -0.0570 at omega=(0.007542916382539122-0.009682956879322191j)
+   after local optimisation: max log-ratio -0.0000 at omega=(-9.998758545470457e-10-1.927584310394123e-11j) (claim <= 0)
+   sup Re h(omega)/|omega| over samples = 1.4908  (L = 3.7195)
+   inf |1 + e^{omega'}| = 0.63212 at eta=(-1+0j)   (c3 = 0.58157, claimed true inf 1 - 1/e = 0.63212)
+
+3. Corollary G: max over the contour of log|D_N(w)| - (-nu N + L c1 |s|)   (claim <= 0)
+   N <= 0.04/|t|: max = -0.1413 at |t|=0.010 theta=-180.0 N=1 rho=0
+   beyond, with c1 replaced by c = N|t| (nu = ln2 - L c):  max over the grid by c:
+   c=0.04:-1.203  c=0.06:-1.070  c=0.08:-1.903  c=0.10:-2.974  c=0.12:-4.283  c=0.14:-5.832  c=0.16:-7.619  c=0.18:-9.645  c=0.20:-11.911  c=0.22:-14.417  c=0.24:-17.162  c=0.26:-20.147  c=0.28:-23.372  c=0.30:-26.837
+   actual constant: sup over contour and theta of (log|D_N| + N ln2) / sum_j |omega_j|, N|t| = 0.04:
+   = 1.4942   (Lemma G gives L = 3.7195)
+
+4. Corollary R: |P.J - sum_{n<N}(-1)^n tau_n| <= C2 e^{-nu N}
+   with C_U = e^{-0.505} (measured, S4) and kappa0 = 0.175: C2 = 48.15;  kappa0 - L c1 = 0.0262
+   max ratio actual/bound = 6.005e-03 at theta=-180 |t|=0.010 N=1 psi_1 (|R_N| = 1.678e-01)
+   int |H||D_N||ds| actually (vs the proof's C_U 2/(kappa0 - L c1) e^{-nu N}):
+   theta= -210:  N=1: 3.324e-01 (bound 2.671e+01)  N=2: 1.692e-01 (bound 1.550e+01)  N=4: 4.557e-02 (bound 5.217e+00)
+   theta=  -90:  N=1: 1.805e-01 (bound 2.671e+01)  N=2: 9.028e-02 (bound 1.550e+01)  N=4: 2.260e-02 (bound 5.217e+00)
+   theta=   10:  N=1: 4.890e-01 (bound 2.671e+01)  N=2: 2.409e-01 (bound 1.550e+01)  N=4: 5.594e-02 (bound 5.217e+00)
+   decay well past N = 0.04/|t| (theta=-90, |t|=0.05): |R_N| for N = 1..30 step 5:
+   1:1.67e-01  6:5.47e-03  11:2.04e-04  16:9.50e-06  21:6.07e-07  26:5.98e-08
+
+5. Lemma T: |tau_n(t)| <= (e^c/2) lambda^n on |t| <= 0.3/n
+   max ratio = 0.7267 at n=1 version psi_1, t=-0.3+3.674e-17i (claim <= 1)
+   the bound with the stated lambda for radius c'/n, sup over n <= 60 of the ratio:
+    c'=0.3: 0.727  c'=0.5: 0.962  c'=0.8: 1.35e+03  c'=1.0: 5.23e+06  c'=1.5: 2.31e+15
+
+6. Coefficients and Theorem 4
+   a_0..a_2 (psi_1) = 0.333333333333333, 0.111111111111111, 0.0308641975308642   (claim 1/3, 1/9, 5/162)
+   a_0..a_2 (psi_0) = 0.333333333333333, -7.23454677508529e-310, 0.0123456790123457
+   comparison with v13's exact coefficients (k < 46): max rel. diff psi_1: 1.7e-71, psi_0: 1.4e-71
+   |a_k/k!|^{1/k} at k = 10, 20, 30, 45: 0.2245, 0.2508, 0.2615, 0.2618   (1/|S| = 0.2905)
+   max_k |a_k| / (A0 k! B0^k) = 1.035e-01
+   (coefficients in 11 s)
+   ratio |P.J - sum_{k<K} a_k t^k| / (K! (240|t|)^K): max over K <= 40 (= A needed), and K at the max;
+   B_eff = max over K with remainder above the double floor of (rem/K!)^{1/K}/|t|
+   psi_1 theta= -210.0:  |t|=0.01: A=0.332(K=0) Beff=0.124  |t|=0.05: A=0.329(K=0) Beff=0.140  |t|=0.30: A=0.306(K=0) Beff=0.257
+   psi_1 theta= -209.9:  |t|=0.01: A=0.332(K=0) Beff=0.124  |t|=0.05: A=0.329(K=0) Beff=0.140  |t|=0.30: A=0.306(K=0) Beff=0.257
+   psi_1 theta= -180.0:  |t|=0.01: A=0.332(K=0) Beff=0.124  |t|=0.05: A=0.328(K=0) Beff=0.139  |t|=0.30: A=0.303(K=0) Beff=0.257
+   psi_1 theta= -150.0:  |t|=0.01: A=0.332(K=0) Beff=0.124  |t|=0.05: A=0.329(K=0) Beff=0.140  |t|=0.30: A=0.306(K=0) Beff=0.257
+   psi_1 theta= -120.0:  |t|=0.01: A=0.333(K=0) Beff=0.124  |t|=0.05: A=0.331(K=0) Beff=0.141  |t|=0.30: A=0.317(K=0) Beff=0.258
+   psi_1 theta=  -90.0:  |t|=0.01: A=0.333(K=0) Beff=0.111  |t|=0.05: A=0.333(K=0) Beff=0.124  |t|=0.30: A=0.332(K=0) Beff=0.258
+   psi_1 theta=  -60.0:  |t|=0.01: A=0.334(K=0) Beff=0.124  |t|=0.05: A=0.336(K=0) Beff=0.146  |t|=0.30: A=0.350(K=0) Beff=0.259
+   psi_1 theta=  -30.0:  |t|=0.01: A=0.334(K=0) Beff=0.124  |t|=0.05: A=0.338(K=0) Beff=0.148  |t|=0.30: A=0.364(K=0) Beff=0.260
+   psi_1 theta=    0.0:  |t|=0.01: A=0.334(K=0) Beff=0.124  |t|=0.05: A=0.339(K=0) Beff=0.149  |t|=0.30: A=0.370(K=0) Beff=0.273
+   psi_1 theta=    9.9:  |t|=0.01: A=0.334(K=0) Beff=0.124  |t|=0.05: A=0.339(K=0) Beff=0.149  |t|=0.30: A=0.369(K=0) Beff=0.294
+   psi_1 theta=   10.0:  |t|=0.01: A=0.334(K=0) Beff=0.124  |t|=0.05: A=0.339(K=0) Beff=0.149  |t|=0.30: A=0.369(K=0) Beff=0.294
+   psi_0 theta= -210.0:  |t|=0.01: A=0.333(K=0) Beff=0.127  |t|=0.05: A=0.333(K=0) Beff=0.178  |t|=0.30: A=0.334(K=0) Beff=0.257
+   psi_0 theta= -209.9:  |t|=0.01: A=0.333(K=0) Beff=0.127  |t|=0.05: A=0.333(K=0) Beff=0.178  |t|=0.30: A=0.334(K=0) Beff=0.257
+   psi_0 theta= -180.0:  |t|=0.01: A=0.333(K=0) Beff=0.127  |t|=0.05: A=0.333(K=0) Beff=0.178  |t|=0.30: A=0.334(K=0) Beff=0.257
+   psi_0 theta= -150.0:  |t|=0.01: A=0.333(K=0) Beff=0.127  |t|=0.05: A=0.333(K=0) Beff=0.178  |t|=0.30: A=0.334(K=0) Beff=0.257
+   psi_0 theta= -120.0:  |t|=0.01: A=0.333(K=0) Beff=0.127  |t|=0.05: A=0.333(K=0) Beff=0.179  |t|=0.30: A=0.333(K=0) Beff=0.257
+   psi_0 theta=  -90.0:  |t|=0.01: A=0.333(K=0) Beff=0.000  |t|=0.05: A=0.333(K=0) Beff=0.078  |t|=0.30: A=0.332(K=0) Beff=0.258
+   psi_0 theta=  -60.0:  |t|=0.01: A=0.333(K=0) Beff=0.127  |t|=0.05: A=0.333(K=0) Beff=0.182  |t|=0.30: A=0.332(K=0) Beff=0.259
+   psi_0 theta=  -30.0:  |t|=0.01: A=0.333(K=0) Beff=0.128  |t|=0.05: A=0.333(K=0) Beff=0.183  |t|=0.30: A=0.334(K=0) Beff=0.260
+   psi_0 theta=    0.0:  |t|=0.01: A=0.333(K=0) Beff=0.128  |t|=0.05: A=0.333(K=0) Beff=0.184  |t|=0.30: A=0.335(K=0) Beff=0.265
+   psi_0 theta=    9.9:  |t|=0.01: A=0.333(K=0) Beff=0.128  |t|=0.05: A=0.333(K=0) Beff=0.184  |t|=0.30: A=0.335(K=0) Beff=0.286
+   psi_0 theta=   10.0:  |t|=0.01: A=0.333(K=0) Beff=0.128  |t|=0.05: A=0.333(K=0) Beff=0.184  |t|=0.30: A=0.335(K=0) Beff=0.286
+   largest A needed: 0.3696 (psi_1, theta=0.0, |t|=0.30, K=0)
+
+7. Theorem 5: P.J = S_theta0[Phi](t) at theta0 = -120, -80, t near the edge of C_R
+   R=0.01 theta0=-120.0:  phi=-60(|t|=0.00485): 1.5e-13[pade 0e+00]  phi=0(|t|=0.0097): 1.6e-13[pade 0e+00]  phi=60(|t|=0.00485): 1.5e-13[pade 0e+00]  phi=85(|t|=0.000845): 5.3e-11[pade 0e+00]
+   R=0.01 theta0= -80.0:  phi=-85(|t|=0.000845): 1.1e-13[pade 0e+00]  phi=-60(|t|=0.00485): 1.4e-13[pade 0e+00]  phi=0(|t|=0.0097): 1.6e-13[pade 0e+00]  phi=60(|t|=0.00485): 1.3e-13[pade 0e+00]  phi=85(|t|=0.000845): 1.1e-13[pade 0e+00]
+   R=0.10 theta0=-120.0:  phi=-60(|t|=0.0485): 1.6e-13[pade 0e+00]  phi=0(|t|=0.097): 1.6e-13[pade 0e+00]  phi=60(|t|=0.0485): 1.6e-13[pade 0e+00]  phi=85(|t|=0.00845): 1.5e-13[pade 0e+00]
+   R=0.10 theta0= -80.0:  phi=-85(|t|=0.00845): 1.5e-13[pade 0e+00]  phi=-60(|t|=0.0485): 1.5e-13[pade 0e+00]  phi=0(|t|=0.097): 1.6e-13[pade 0e+00]  phi=60(|t|=0.0485): 1.5e-13[pade 0e+00]  phi=85(|t|=0.00845): 1.6e-13[pade 0e+00]
+   R=0.30 theta0=-120.0:  phi=-60(|t|=0.145): 1.6e-13[pade 0e+00]  phi=0(|t|=0.291): 1.6e-13[pade 0e+00]  phi=60(|t|=0.145): 1.6e-13[pade 0e+00]  phi=85(|t|=0.0254): 1.6e-13[pade 0e+00]
+   R=0.30 theta0= -80.0:  phi=-85(|t|=0.0254): 1.6e-13[pade 0e+00]  phi=-60(|t|=0.145): 1.6e-13[pade 0e+00]  phi=0(|t|=0.291): 1.6e-13[pade 0e+00]  phi=60(|t|=0.145): 1.6e-13[pade 0e+00]  phi=85(|t|=0.0254): 1.5e-13[pade 0e+00]
+
+run time 700 s
+
+====================================================================================================
+s6_state.py
+====================================================================================================
+(a) Gamma_1, Gamma_2, Gamma_3: closed formulas and bounds
+   Gamma_2: max |Im V + Cl2(pi - eta)| = 5.6e-16, max |Re V - (3/4 eta^2 - pi eta - pi^2/12)| = 1.8e-15
+   Gamma_3: max |Im V - pi r| = 0.0e+00;  max of Re V + pi^2/12 + r^2/2 = 1.11e-16 (claim <= 0)
+   Gamma_1: max |Re Q + pi^2/2 + rho^2/4| = 3.4e-13, max |Im Q - rho^2 sin(pi/6)cos(pi/6)| = 2.3e-13
+            min (Im V - 0.433 rho^2 + 0.01) = 9.791e-03 (claim >= 0);  max (Re V + pi^2/3) = 0.000e+00 (claim <= 0)
+            min Im Li2(-e^w) for rho <= 2pi: -4.609e-15 (claim >= 0); max |Li2| for rho >= 2pi: 0.0043 (claim < 0.01)
+   Gamma_2, tau=0.0: max of g - g(2pi/3) + 0.015 (eta - 2pi/3)^2 = -4.586e-07 (claim <= 0)
+   Gamma_2, tau=0.1: max of g - g(2pi/3) + 0.015 (eta - 2pi/3)^2 = -3.763e-07 (claim <= 0)
+   Gamma_2, tau=0.2: max of g - g(2pi/3) + 0.015 (eta - 2pi/3)^2 = -2.941e-07 (claim <= 0)
+   (L1) on Gamma: c_eff(tau) = inf over Gamma of (H(w0) - H(w)) / min(|w-w0|^2, |w-w0|)
+   H_tau(w0) = Cl2 - tau 5pi^2/12; V(w0) = -4.112335167121-1.014941606410i  (claim -5pi^2/12 = -4.112335167121, -Cl2 = -1.014941606410)
+   tau=0.0000:0.3128 tau=0.0500:0.2753 tau=0.1000:0.2378 tau=0.1500:0.2003 tau=0.2000:0.1627 tau=0.2200:0.1390 tau=0.2206:0.1381 tau=0.2400:0.1076 tau=0.2468:0.0969 tau=0.2600:0.0762 tau=0.3000:0.0134 tau=0.4000:-0.1437 tau=0.5000:-0.3008 tau=0.5770:-0.4218 tau=0.6000:-0.4579
+   (L1) on this Gamma holds for tau < 0.3085, i.e. arg x < 17.15 deg (claimed: tau <= 0.2, 11.3 deg)
+
+(b) horizontal line through w1: d/dr Im V < 0 for r < r1, > 0 for r > r1
+   305 values of a (incl. 1e-3, 0.999): sign pattern violated for 0;  min of the valley margins (eta1 + 2 pi a, -pi a - eta1) = 1.704e-04 (claim > 0)
+
+(c) Theorem 6: (exact/asymptotic - 1)/|t|
+   check vs. L at arg x=30 |t|=0.6: decaying 1.7e-11, growing 2.7e-07 (relative)
+   check vs. L at arg x=45 |t|=0.5: decaying 6.1e-10, growing 2.2e-05 (relative)
+   check vs. L at arg x=11 |t|=0.8: decaying 2.5e-12, growing 6.0e-09 (relative)
+   grow   argx= 0.0: 0.122 0.099 0.094 0.091 0.090 0.090  argx= 2.0: 0.120 0.099 0.094 0.091 0.090 0.090  argx= 5.0: 0.118 0.099 0.093 0.091 0.090 0.090  argx= 8.0: 0.116 0.099 0.093 0.091 0.090 0.090  argx=11.0: 0.114 0.098 0.093 0.091 0.090 0.090  argx=11.3: 0.114 0.098 0.093 0.091 0.090 0.090
+         (|t| = 0.5, 0.2, 0.1, 0.05, 0.02, 0.01); max = 0.122
+   grow0  argx= 0.0: 0.218 0.245 0.249 0.251 0.252 0.252  argx= 5.0: 0.221 0.245 0.249 0.251 0.252 0.252  argx=11.0: 0.225 0.245 0.249 0.251 0.252 0.252
+         (|t| = 0.5, 0.2, 0.1, 0.05, 0.02, 0.01); max = 0.252
+   dec    argx= 0.0: 0.076 0.083 0.086 0.087 0.089 0.089  argx=10.0: 0.076 0.083 0.086 0.087 0.089 0.089  argx=30.0: 0.077 0.083 0.086 0.088 0.089 0.089  argx=45.0: 0.078 0.084 0.087 0.088 0.089 0.089  argx=60.0: 0.079 0.085 0.087 0.088 0.089 0.089
+         (|t| = 0.5, 0.2, 0.1, 0.05, 0.02, 0.01); max = 0.089
+   dec0   argx= 0.0: 0.261 0.256 0.254 0.253 0.253 0.252  argx=30.0: 0.266 0.258 0.255 0.253 0.253 0.252  argx=60.0: 0.268 0.257 0.254 0.253 0.252 0.252
+         (|t| = 0.5, 0.2, 0.1, 0.05, 0.02, 0.01); max = 0.268
+   beyond: growing integral at arg x = 13, 16, 20 deg (the proof's (L1) on Gamma holds below 17.15 deg):
+    argx=13:  |t|=0.20: 0.098  |t|=0.10: 0.093  |t|=0.05: 0.091  |t|=0.02: 0.090
+    argx=16:  |t|=0.20: 0.098  |t|=0.10: 0.093  |t|=0.05: 0.091  |t|=0.02: 0.090
+    argx=20:  |t|=0.20: 0.098  |t|=0.10: 0.093  |t|=0.05: 0.091  |t|=0.02: 0.090
+
+(d) Theorem 7: epsilon(a) and (exact/asymptotic - 1)/|t| at real x and at arg x = epsilon(a)/2
+         a        c0         M   eps_suff   eps_true              ratio at |t| = 0.2, 0.1, 0.05, 0.02
+   (eps_suff = atan(c0/M), 90 if M = 0; eps_true = largest tau with (L1) on the line, searched up to tau = 50, i.e. 88.85 deg)
+    0.0100    0.0048    0.0000      90.00      88.85    (integral not computed: valley margin 0.017)
+    0.0500    0.0241    0.0000      90.00      88.85    [argx=0.0: 0.02 0.02 0.02 0.02] [argx=30.0: 0.02 0.02 0.02 0.02]
+    0.1459    0.0724    0.0000      90.00      88.85    [argx=0.0: 0.02 0.02 0.02 0.02] [argx=30.0: 0.02 0.02 0.02 0.02]
+    0.1858    0.0941    0.0000      90.00      88.85    [argx=0.0: 0.03 0.02 0.02 0.02] [argx=30.0: 0.02 0.02 0.02 0.02]
+    0.2286    0.1191    0.0000      90.00      88.85    [argx=0.0: 0.03 0.03 0.03 0.03] [argx=30.0: 0.03 0.03 0.03 0.03]
+    0.2500    0.1325    0.0000      90.00      88.85    [argx=0.0: 0.03 0.03 0.03 0.03] [argx=30.0: 0.03 0.03 0.03 0.03]
+    0.3687    0.2232    0.0000      90.00      88.85    [argx=0.0: 0.05 0.06 0.06 0.06] [argx=30.0: 0.05 0.05 0.06 0.06]
+    0.4598    0.3232    0.0000      90.00      88.85    [argx=0.0: 0.08 0.08 0.08 0.08] [argx=30.0: 0.08 0.08 0.08 0.08]
+    0.5000    0.3796    0.0000      90.00      88.85    [argx=0.0: 0.08 0.09 0.09 0.09] [argx=30.0: 0.08 0.09 0.09 0.09]
+    0.7031    0.3922    0.0000      90.00      88.85    [argx=0.0: 0.07 0.07 0.07 0.07] [argx=30.0: 0.07 0.07 0.07 0.07]
+    0.7500    0.3512    0.0000      90.00      88.85    [argx=0.0: 0.06 0.06 0.06 0.06] [argx=30.0: 0.06 0.06 0.06 0.06]
+    0.7908    0.3061    0.0000      90.00      88.85    [argx=0.0: 0.05 0.05 0.05 0.05] [argx=30.0: 0.05 0.05 0.05 0.05]
+    0.9100    0.1409    0.0000      90.00      88.85    [argx=0.0: 0.03 0.03 0.03 0.03] [argx=30.0: 0.03 0.03 0.03 0.03]
+    0.9247    0.1185    0.0000      90.00      88.85    [argx=0.0: 0.02 0.02 0.02 0.02] [argx=30.0: 0.02 0.02 0.02 0.02]
+    0.9363    0.1005    0.0000      90.00      88.85    [argx=0.0: 0.02 0.02 0.02 0.02] [argx=30.0: 0.02 0.02 0.02 0.02]
+    0.9500    0.0791    0.0000      90.00      88.85    [argx=0.0: 0.02 0.02 0.02 0.02] [argx=30.0: 0.02 0.02 0.02 0.02]
+    0.9900    0.0159    0.0000      90.00      88.85    (integral not computed: valley margin 0.028)
+
+(e) the forms in section 0.2 (Theorem III): P.I(-+1/(2b)) against -+A e^{+-5 pi i/12} t^{-1/2} e^{-Sbar/t, -S/t}, and q^{1/2} P.I(b +- 1/(2b)) / P.I(+-1/(2b)) against e^{-+2 pi i/3}: (ratio - 1)/|t|
+   arg x= 0.0:  |t|=0.20: 0.262 0.246 0.350 0.322  |t|=0.05: 0.254 0.250 0.337 0.330  |t|=0.02: 0.253 0.251 0.335 0.332
+   arg x= 5.0:  |t|=0.20: 0.262 0.246 0.349 0.322  |t|=0.05: 0.254 0.250 0.336 0.330  |t|=0.02: 0.253 0.251 0.335 0.332
+   arg x=11.0:  |t|=0.20: 0.262 0.246 0.347 0.321  |t|=0.05: 0.254 0.250 0.336 0.330  |t|=0.02: 0.253 0.251 0.334 0.332
+
+run time 2061 s
+
+====================================================================================================
+s7_roots.py
+====================================================================================================
+(a) Lemma R1
+   4000 samples: max |B_m|/min(1+C d,(m+1)C d) = 7.368e-01 at X=4 m=286 delta=6.18e-04; max |B_m-(1-c^X)|/(X^2 3^{X-1} d) = 1.852e-02; max (1-c^X)/min(1,(m+1)X^2 d) = 1.0000
+   sup (|B_m| - 1)/(X^2 delta) over X <= 40 = 0.0000  (so C ~ X^2 suffices; doc C = X^2 (1 + 3^{X-1}))
+   radial limit: |psi_1^*(rho q0) - sum_{n<X/2}| for delta = 1-rho:
+    X= 4:  d=1e-02: 1.00e-01  d=1e-03: 1.33e-02  d=1e-04: 1.38e-03
+    X= 6:  d=1e-02: 3.62e-01  d=1e-03: 5.86e-02  d=1e-04: 6.31e-03
+    X=10:  d=1e-02: 1.65e+00  d=1e-03: 4.00e-01  d=1e-04: 4.78e-02
+    X=20:  d=1e-02: 1.90e+01  d=1e-03: 8.03e+00  d=1e-04: 1.31e+00
+
+(b) Lemma R2
+   bracket 1/(2K) - e^{-1/K + 2delta}/(2 - delta) at delta -> 0: 0.07662 (claim 0.077); > 0 for delta < 0.10392
+   (with e^{-1/K + delta}: > 0 for delta < 0.17153);  largest K with bracket > 0 at delta -> 0: K < 1.7632
+   max |1-p^k|/(k K delta) = 1.0000; max (2j-1)!!(K d)^j / min(K d, sqrt2 e^{-j}) = 1.0000; max |(p;p^2)_j| / tail bound (j > j1) = 0.0317   (claims <= 1)
+   W(p) - 1 and W3(p) - 1 on the edge |1 - p| = (3/2)(1 - |p|) and on the path of v20 (X = 6):
+    delta=1e-01: edge |W-1|=9.78e-02 |W3-1|=8.16e-02;  path |1-p|/(1-|p|)=1.0000 |W-1|=6.92e-02 |W3-1|=5.76e-02
+    delta=3e-02: edge |W-1|=3.88e-02 |W3-1|=3.66e-02;  path |1-p|/(1-|p|)=1.0000 |W-1|=2.63e-02 |W3-1|=2.48e-02
+    delta=1e-02: edge |W-1|=1.43e-02 |W3-1|=1.40e-02;  path |1-p|/(1-|p|)=1.0000 |W-1|=9.53e-03 |W3-1|=9.35e-03
+    delta=3e-03: edge |W-1|=4.43e-03 |W3-1|=4.41e-03;  path |1-p|/(1-|p|)=1.0000 |W-1|=2.96e-03 |W3-1|=2.94e-03
+    delta=1e-03: edge |W-1|=1.49e-03 |W3-1|=1.49e-03;  path |1-p|/(1-|p|)=1.0000 |W-1|=9.95e-04 |W3-1|=9.93e-04
+
+(c) Lemma R2' (p -> -1 along x = 1/X + i eps, X odd)
+   X= 5:  d=0.100: phi/d^2=0.071  d=0.030: phi/d^2=0.066  d=0.010: phi/d^2=0.064  d=0.003: phi/d^2=0.064   (claim phi <= delta^2; -> 1/(pi X) = 0.064)
+   X= 7:  d=0.100: phi/d^2=0.050  d=0.030: phi/d^2=0.047  d=0.010: phi/d^2=0.046  d=0.003: phi/d^2=0.046   (claim phi <= delta^2; -> 1/(pi X) = 0.045)
+   X=11:  d=0.100: phi/d^2=0.032  d=0.030: phi/d^2=0.030  d=0.010: phi/d^2=0.029  d=0.003: phi/d^2=0.029   (claim phi <= delta^2; -> 1/(pi X) = 0.029)
+   X=21:  d=0.100: phi/d^2=0.017  d=0.030: phi/d^2=0.016  d=0.010: phi/d^2=0.015  d=0.003: phi/d^2=0.015   (claim phi <= delta^2; -> 1/(pi X) = 0.015)
+   lower bounds for |(p;p^2)_n| (claim: >= (9/8)^n for n <= n1, >= e^{-0.3/delta} for n > n1):
+    X= 5 d=0.100 n1=5:  path: 1.689/283   phi=4d^2: 1.689/270   phi=d: 1.687/153   phi=3d: 1.128/23
+    X= 5 d=0.030 n1=17:  path: 1.751/9.97e+07   phi=4d^2: 1.751/9.87e+07   phi=d: 1.751/1.94e+07   phi=3d: 1.247/3.15e+04
+    X= 5 d=0.010 n1=50:  path: 1.769/4.47e+23   phi=4d^2: 1.769/4.46e+23   phi=d: 1.769/7.3e+21   phi=3d: 1.769/2.85e+13
+    X= 5 d=0.003 n1=167:  path: 1.775/4.09e+78   phi=4d^2: 1.775/4.08e+78   phi=d: 1.775/7.45e+72   phi=3d: 1.775/6.37e+44
+    X= 5 d=0.001 n1=500:  path: 1.777/2.92e+235   phi=4d^2: 1.777/2.92e+235   phi=d: 1.777/4.09e+218   phi=3d: 1.777/2.36e+134
+    X=11 d=0.100 n1=5:  path: 1.689/283   phi=4d^2: 1.689/270   phi=d: 1.687/153   phi=3d: 1.128/23
+    X=11 d=0.030 n1=17:  path: 1.751/9.97e+07   phi=4d^2: 1.751/9.87e+07   phi=d: 1.751/1.94e+07   phi=3d: 1.247/3.15e+04
+    X=11 d=0.010 n1=50:  path: 1.769/4.47e+23   phi=4d^2: 1.769/4.46e+23   phi=d: 1.769/7.3e+21   phi=3d: 1.769/2.85e+13
+    X=11 d=0.003 n1=167:  path: 1.775/4.09e+78   phi=4d^2: 1.775/4.08e+78   phi=d: 1.775/7.45e+72   phi=3d: 1.775/6.37e+44
+    X=11 d=0.001 n1=500:  path: 1.777/2.92e+235   phi=4d^2: 1.777/2.92e+235   phi=d: 1.777/4.09e+218   phi=3d: 1.777/2.36e+134
+   G(Q) bound log G <= 2 log(1/(1-Q)) + pi^2/(15 lambda), and |psi(p)| delta^{1/2} e^{pi^2/(8 delta)}, |P+-| / (2 delta^-2 e^{pi^2/(30 delta)}):
+    max of log G - bound over Q in (0,1): -0.1529 (claim <= 0)
+    X= 5 d=0.100: C_psi=3.279  |P+-|/bound=3.68e-06  F_a+1/3=1.2e-02 F_b-1/3=2.6e-02  W-1/3=1.2e-02 pW3+1/3=2.6e-02
+    X= 5 d=0.050: C_psi=3.282  |P+-|/bound=8.26e-10  F_a+1/3=5.8e-03 F_b-1/3=1.2e-02  W-1/3=5.8e-03 pW3+1/3=1.2e-02
+    X= 5 d=0.020: C_psi=3.283  |P+-|/bound=3.05e-20  F_a+1/3=2.3e-03 F_b-1/3=4.6e-03  W-1/3=2.3e-03 pW3+1/3=4.6e-03
+    X= 5 d=0.010: C_psi=3.284  |P+-|/bound=5.86e-37  F_a+1/3=1.1e-03 F_b-1/3=2.2e-03  W-1/3=1.1e-03 pW3+1/3=2.2e-03
+    X=11 d=0.100: C_psi=3.278  |P+-|/bound=3.67e-06  F_a+1/3=1.2e-02 F_b-1/3=2.6e-02  W-1/3=1.2e-02 pW3+1/3=2.6e-02
+    X=11 d=0.050: C_psi=3.281  |P+-|/bound=8.26e-10  F_a+1/3=5.8e-03 F_b-1/3=1.2e-02  W-1/3=5.8e-03 pW3+1/3=1.2e-02
+    X=11 d=0.020: C_psi=3.283  |P+-|/bound=3.05e-20  F_a+1/3=2.3e-03 F_b-1/3=4.6e-03  W-1/3=2.3e-03 pW3+1/3=4.6e-03
+    X=11 d=0.010: C_psi=3.284  |P+-|/bound=5.86e-37  F_a+1/3=1.1e-03 F_b-1/3=2.2e-03  W-1/3=1.1e-03 pW3+1/3=2.2e-03
+
+(d) Lemma R3: continuity at x = 1/X: |value(eps) - value(0)| / |value(0)|
+   X=4:  eps=1e-02: J 1.8e-02 I+ 6.8e-02 I- 8.2e-02  eps=1e-03: J 1.8e-03 I+ 7.0e-03 I- 8.5e-03  eps=1e-04: J 1.8e-04 I+ 7.1e-04 I- 8.5e-04
+   X=5:  eps=1e-02: J 1.9e-02 I+ 1.1e-01 I- 1.3e-01  eps=1e-03: J 1.9e-03 I+ 1.2e-02 I- 1.3e-02  eps=1e-04: J 1.9e-04 I+ 1.2e-03 I- 1.4e-03
+   X=8:  eps=1e-02: J 2.0e-02 I+ 2.8e-01 I- 3.0e-01  eps=1e-03: J 2.0e-03 I+ 3.2e-02 I- 3.4e-02  eps=1e-04: J 2.0e-04 I+ 3.3e-03 I- 3.5e-03
+
+(e) Theorems 9, 11 at x = 1/X (relative error of the three-integral formula)
+     X psi1 formula psi0 formula  psi1/lead-1  psi0/lead-1   note
+     2     3.78e-14     1.10e-12    9.772e-01    4.726e-02   outside the stated range X*(psi1/lead - 1) = 1.954  [L vs descent contours: psi1 6e-14/9e-15, psi0 nan/6e-03]
+     3     6.06e-14     3.16e-13    1.226e+00          nan   outside the stated range X*(psi1/lead - 1) = 3.679  [L vs descent contours: psi1 1e-13/6e-14, psi0 nan/2e-13]
+     4     4.21e-13     3.08e-13    4.883e-01    1.101e-01   edge |x| = 1/4           X*(psi1/lead - 1) = 1.953  [L vs descent contours: psi1 1e-13/4e-13, psi0 nan/8e-15]
+     5     1.18e-12     6.52e-13    6.671e-01    2.399e-01                            X*(psi1/lead - 1) = 3.335  [L vs descent contours: psi1 2e-13/2e-12, psi0 nan/7e-15]
+     6     7.13e-11     4.97e-12    2.498e-01    1.531e-01                            X*(psi1/lead - 1) = 1.499  [L vs descent contours: psi1 4e-13/7e-11, psi0 nan/3e-14]
+     7     9.97e-10     1.92e-11    2.211e-01    1.141e-01                            X*(psi1/lead - 1) = 1.548  [L vs descent contours: psi1 5e-13/1e-09, psi0 nan/1e-13]
+     8     8.07e-09     3.10e-11    1.844e-01    1.485e-01                            X*(psi1/lead - 1) = 1.475  [L vs descent contours: psi1 4e-12/7e-09, psi0 5e-10/2e-12]
+     9     3.04e-13     1.95e-13    7.656e-02    2.091e-01                            X*(psi1/lead - 1) = 0.689
+    10     3.47e-13     2.26e-13    1.844e-01    1.183e-01                            X*(psi1/lead - 1) = 1.844
+    11     3.64e-13     2.90e-13    1.817e-01    1.804e-01                            X*(psi1/lead - 1) = 1.998
+    12     3.89e-13     3.05e-13    1.729e-01    8.001e-02                            X*(psi1/lead - 1) = 2.075
+    13     3.95e-13     3.71e-13    1.913e-01    1.093e-01                            X*(psi1/lead - 1) = 2.487
+    15     4.50e-13     4.22e-13    1.491e-01    4.126e-02                            X*(psi1/lead - 1) = 2.236
+    16     5.07e-13     4.25e-13    1.131e-01    3.352e-02                            X*(psi1/lead - 1) = 1.810
+    20     1.68e-12     1.43e-12    8.025e-02    3.653e-02                            X*(psi1/lead - 1) = 1.605
+    21     1.77e-12     1.52e-12    7.153e-02    4.352e-02                            X*(psi1/lead - 1) = 1.502
+    25     2.08e-12     1.89e-12    7.305e-02    2.780e-02                            X*(psi1/lead - 1) = 1.826
+    30     2.52e-12     2.30e-12    5.433e-02    2.037e-02                            X*(psi1/lead - 1) = 1.630
+    31     2.60e-12     2.38e-12    5.091e-02    1.994e-02                            X*(psi1/lead - 1) = 1.578
+    40     5.99e-12     5.61e-12    4.075e-02    1.501e-02                            X*(psi1/lead - 1) = 1.630
+    41     6.14e-12     5.76e-12    3.956e-02    1.440e-02                            X*(psi1/lead - 1) = 1.622
+
+run time 393 s
+
+====================================================================================================
+sa_appendix.py
+====================================================================================================
+(a) identities as exact power series to q^400
+   (I)   2 psi0* - f0* + theta4 R0:  0 to order 400
+   (II)  2 psi1* - f1* - theta4 R1:  0 to order 400
+   (V)   W + F_a - psi P+:           0 to order 400
+   (VI)  q W3 + F_b - psi P-:        0 to order 400
+   G(-q^5) = (W - 1 + q^2 W3)/q^3: 0 to order 397;  G(-1/q) = 1 - W + q W3: 0 to order 400
+   double-sum forms (-q)_inf psi1*, (-q)_inf psi0*: 0 to order 400, 0 to order 400
+
+(b) odd-root rule, steps (c) and (d)
+   min |(-q;q)_{mJ}| / 1.4^J over J with r^{J m^2} >= 1/2 (m <= 11, 1-r >= 1e-4): 1.2516 (claim >= 1)
+   theta4 R1 at q = zeta e^{-t}: m^2 t log|theta4 R1| (claimed bound exponent -(pi^2/4 - 1 - eps); claimed true value -pi^2/3 = -3.290):
+    m=3:  m^2t=0.5000: -2.118  m^2t=0.2500: -2.488  m^2t=0.1250: -2.887  m^2t=0.0625: -3.055  m^2t=0.0312: -3.157
+    m=5:  m^2t=0.5000: -1.946  m^2t=0.2500: -2.346  m^2t=0.1250: -2.835  m^2t=0.0625: -3.016  m^2t=0.0312: -3.140
+    m=7:  m^2t=0.5000: -1.775  m^2t=0.2500: -2.227  m^2t=0.1250: -2.786  m^2t=0.0625: -2.984  m^2t=0.0312: -3.125
+
+(c) odd-root rule: |psi1*(r zeta) - A/3|, |psi0*(r zeta) - A0/3| as r -> 1, all primitive roots, m <= 9
+   m=3:  1-r=1e-02: 3.42e-03  1-r=1e-03: 3.34e-04  1-r=1e-04: 3.33e-05   (relative to max(|A|, 1); A0 = 0 for m = 3; should scale like 1 - r)
+   m=5:  1-r=1e-02: 8.64e-03  1-r=1e-03: 8.03e-04  1-r=1e-04: 7.97e-05   (relative to max(|A|, 1); A0 = 0 for m = 3; should scale like 1 - r)
+   m=7:  1-r=1e-02: 2.66e-02  1-r=1e-03: 1.99e-03  1-r=1e-04: 1.96e-04   (relative to max(|A|, 1); A0 = 0 for m = 3; should scale like 1 - r)
+   m=9:  1-r=1e-02: 1.36e-01  1-r=1e-03: 6.32e-03  1-r=1e-04: 6.15e-04   (relative to max(|A|, 1); A0 = 0 for m = 3; should scale like 1 - r)
+
+run time 9 s
+

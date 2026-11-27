@@ -1,0 +1,77 @@
+(a) Lemma R1
+   4000 samples: max |B_m|/min(1+C d,(m+1)C d) = 7.368e-01 at X=4 m=286 delta=6.18e-04; max |B_m-(1-c^X)|/(X^2 3^{X-1} d) = 1.852e-02; max (1-c^X)/min(1,(m+1)X^2 d) = 1.0000
+   sup (|B_m| - 1)/(X^2 delta) over X <= 40 = 0.0000  (so C ~ X^2 suffices; doc C = X^2 (1 + 3^{X-1}))
+   radial limit: |psi_1^*(rho q0) - sum_{n<X/2}| for delta = 1-rho:
+    X= 4:  d=1e-02: 1.00e-01  d=1e-03: 1.33e-02  d=1e-04: 1.38e-03
+    X= 6:  d=1e-02: 3.62e-01  d=1e-03: 5.86e-02  d=1e-04: 6.31e-03
+    X=10:  d=1e-02: 1.65e+00  d=1e-03: 4.00e-01  d=1e-04: 4.78e-02
+    X=20:  d=1e-02: 1.90e+01  d=1e-03: 8.03e+00  d=1e-04: 1.31e+00
+
+(b) Lemma R2
+   bracket 1/(2K) - e^{-1/K + 2delta}/(2 - delta) at delta -> 0: 0.07662 (claim 0.077); > 0 for delta < 0.10392
+   (with e^{-1/K + delta}: > 0 for delta < 0.17153);  largest K with bracket > 0 at delta -> 0: K < 1.7632
+   max |1-p^k|/(k K delta) = 1.0000; max (2j-1)!!(K d)^j / min(K d, sqrt2 e^{-j}) = 1.0000; max |(p;p^2)_j| / tail bound (j > j1) = 0.0317   (claims <= 1)
+   W(p) - 1 and W3(p) - 1 on the edge |1 - p| = (3/2)(1 - |p|) and on the path of v20 (X = 6):
+    delta=1e-01: edge |W-1|=9.78e-02 |W3-1|=8.16e-02;  path |1-p|/(1-|p|)=1.0000 |W-1|=6.92e-02 |W3-1|=5.76e-02
+    delta=3e-02: edge |W-1|=3.88e-02 |W3-1|=3.66e-02;  path |1-p|/(1-|p|)=1.0000 |W-1|=2.63e-02 |W3-1|=2.48e-02
+    delta=1e-02: edge |W-1|=1.43e-02 |W3-1|=1.40e-02;  path |1-p|/(1-|p|)=1.0000 |W-1|=9.53e-03 |W3-1|=9.35e-03
+    delta=3e-03: edge |W-1|=4.43e-03 |W3-1|=4.41e-03;  path |1-p|/(1-|p|)=1.0000 |W-1|=2.96e-03 |W3-1|=2.94e-03
+    delta=1e-03: edge |W-1|=1.49e-03 |W3-1|=1.49e-03;  path |1-p|/(1-|p|)=1.0000 |W-1|=9.95e-04 |W3-1|=9.93e-04
+
+(c) Lemma R2' (p -> -1 along x = 1/X + i eps, X odd)
+   X= 5:  d=0.100: phi/d^2=0.071  d=0.030: phi/d^2=0.066  d=0.010: phi/d^2=0.064  d=0.003: phi/d^2=0.064   (claim phi <= delta^2; -> 1/(pi X) = 0.064)
+   X= 7:  d=0.100: phi/d^2=0.050  d=0.030: phi/d^2=0.047  d=0.010: phi/d^2=0.046  d=0.003: phi/d^2=0.046   (claim phi <= delta^2; -> 1/(pi X) = 0.045)
+   X=11:  d=0.100: phi/d^2=0.032  d=0.030: phi/d^2=0.030  d=0.010: phi/d^2=0.029  d=0.003: phi/d^2=0.029   (claim phi <= delta^2; -> 1/(pi X) = 0.029)
+   X=21:  d=0.100: phi/d^2=0.017  d=0.030: phi/d^2=0.016  d=0.010: phi/d^2=0.015  d=0.003: phi/d^2=0.015   (claim phi <= delta^2; -> 1/(pi X) = 0.015)
+   lower bounds for |(p;p^2)_n| (claim: >= (9/8)^n for n <= n1, >= e^{-0.3/delta} for n > n1):
+    X= 5 d=0.100 n1=5:  path: 1.689/283   phi=4d^2: 1.689/270   phi=d: 1.687/153   phi=3d: 1.128/23
+    X= 5 d=0.030 n1=17:  path: 1.751/9.97e+07   phi=4d^2: 1.751/9.87e+07   phi=d: 1.751/1.94e+07   phi=3d: 1.247/3.15e+04
+    X= 5 d=0.010 n1=50:  path: 1.769/4.47e+23   phi=4d^2: 1.769/4.46e+23   phi=d: 1.769/7.3e+21   phi=3d: 1.769/2.85e+13
+    X= 5 d=0.003 n1=167:  path: 1.775/4.09e+78   phi=4d^2: 1.775/4.08e+78   phi=d: 1.775/7.45e+72   phi=3d: 1.775/6.37e+44
+    X= 5 d=0.001 n1=500:  path: 1.777/2.92e+235   phi=4d^2: 1.777/2.92e+235   phi=d: 1.777/4.09e+218   phi=3d: 1.777/2.36e+134
+    X=11 d=0.100 n1=5:  path: 1.689/283   phi=4d^2: 1.689/270   phi=d: 1.687/153   phi=3d: 1.128/23
+    X=11 d=0.030 n1=17:  path: 1.751/9.97e+07   phi=4d^2: 1.751/9.87e+07   phi=d: 1.751/1.94e+07   phi=3d: 1.247/3.15e+04
+    X=11 d=0.010 n1=50:  path: 1.769/4.47e+23   phi=4d^2: 1.769/4.46e+23   phi=d: 1.769/7.3e+21   phi=3d: 1.769/2.85e+13
+    X=11 d=0.003 n1=167:  path: 1.775/4.09e+78   phi=4d^2: 1.775/4.08e+78   phi=d: 1.775/7.45e+72   phi=3d: 1.775/6.37e+44
+    X=11 d=0.001 n1=500:  path: 1.777/2.92e+235   phi=4d^2: 1.777/2.92e+235   phi=d: 1.777/4.09e+218   phi=3d: 1.777/2.36e+134
+   G(Q) bound log G <= 2 log(1/(1-Q)) + pi^2/(15 lambda), and |psi(p)| delta^{1/2} e^{pi^2/(8 delta)}, |P+-| / (2 delta^-2 e^{pi^2/(30 delta)}):
+    max of log G - bound over Q in (0,1): -0.1529 (claim <= 0)
+    X= 5 d=0.100: C_psi=3.279  |P+-|/bound=3.68e-06  F_a+1/3=1.2e-02 F_b-1/3=2.6e-02  W-1/3=1.2e-02 pW3+1/3=2.6e-02
+    X= 5 d=0.050: C_psi=3.282  |P+-|/bound=8.26e-10  F_a+1/3=5.8e-03 F_b-1/3=1.2e-02  W-1/3=5.8e-03 pW3+1/3=1.2e-02
+    X= 5 d=0.020: C_psi=3.283  |P+-|/bound=3.05e-20  F_a+1/3=2.3e-03 F_b-1/3=4.6e-03  W-1/3=2.3e-03 pW3+1/3=4.6e-03
+    X= 5 d=0.010: C_psi=3.284  |P+-|/bound=5.86e-37  F_a+1/3=1.1e-03 F_b-1/3=2.2e-03  W-1/3=1.1e-03 pW3+1/3=2.2e-03
+    X=11 d=0.100: C_psi=3.278  |P+-|/bound=3.67e-06  F_a+1/3=1.2e-02 F_b-1/3=2.6e-02  W-1/3=1.2e-02 pW3+1/3=2.6e-02
+    X=11 d=0.050: C_psi=3.281  |P+-|/bound=8.26e-10  F_a+1/3=5.8e-03 F_b-1/3=1.2e-02  W-1/3=5.8e-03 pW3+1/3=1.2e-02
+    X=11 d=0.020: C_psi=3.283  |P+-|/bound=3.05e-20  F_a+1/3=2.3e-03 F_b-1/3=4.6e-03  W-1/3=2.3e-03 pW3+1/3=4.6e-03
+    X=11 d=0.010: C_psi=3.284  |P+-|/bound=5.86e-37  F_a+1/3=1.1e-03 F_b-1/3=2.2e-03  W-1/3=1.1e-03 pW3+1/3=2.2e-03
+
+(d) Lemma R3: continuity at x = 1/X: |value(eps) - value(0)| / |value(0)|
+   X=4:  eps=1e-02: J 1.8e-02 I+ 6.8e-02 I- 8.2e-02  eps=1e-03: J 1.8e-03 I+ 7.0e-03 I- 8.5e-03  eps=1e-04: J 1.8e-04 I+ 7.1e-04 I- 8.5e-04
+   X=5:  eps=1e-02: J 1.9e-02 I+ 1.1e-01 I- 1.3e-01  eps=1e-03: J 1.9e-03 I+ 1.2e-02 I- 1.3e-02  eps=1e-04: J 1.9e-04 I+ 1.2e-03 I- 1.4e-03
+   X=8:  eps=1e-02: J 2.0e-02 I+ 2.8e-01 I- 3.0e-01  eps=1e-03: J 2.0e-03 I+ 3.2e-02 I- 3.4e-02  eps=1e-04: J 2.0e-04 I+ 3.3e-03 I- 3.5e-03
+
+(e) Theorems 9, 11 at x = 1/X (relative error of the three-integral formula)
+     X psi1 formula psi0 formula  psi1/lead-1  psi0/lead-1   note
+     2     3.78e-14     1.10e-12    9.772e-01    4.726e-02   outside the stated range X*(psi1/lead - 1) = 1.954  [L vs descent contours: psi1 6e-14/9e-15, psi0 nan/6e-03]
+     3     6.06e-14     3.16e-13    1.226e+00          nan   outside the stated range X*(psi1/lead - 1) = 3.679  [L vs descent contours: psi1 1e-13/6e-14, psi0 nan/2e-13]
+     4     4.21e-13     3.08e-13    4.883e-01    1.101e-01   edge |x| = 1/4           X*(psi1/lead - 1) = 1.953  [L vs descent contours: psi1 1e-13/4e-13, psi0 nan/8e-15]
+     5     1.18e-12     6.52e-13    6.671e-01    2.399e-01                            X*(psi1/lead - 1) = 3.335  [L vs descent contours: psi1 2e-13/2e-12, psi0 nan/7e-15]
+     6     7.13e-11     4.97e-12    2.498e-01    1.531e-01                            X*(psi1/lead - 1) = 1.499  [L vs descent contours: psi1 4e-13/7e-11, psi0 nan/3e-14]
+     7     9.97e-10     1.92e-11    2.211e-01    1.141e-01                            X*(psi1/lead - 1) = 1.548  [L vs descent contours: psi1 5e-13/1e-09, psi0 nan/1e-13]
+     8     8.07e-09     3.10e-11    1.844e-01    1.485e-01                            X*(psi1/lead - 1) = 1.475  [L vs descent contours: psi1 4e-12/7e-09, psi0 5e-10/2e-12]
+     9     3.04e-13     1.95e-13    7.656e-02    2.091e-01                            X*(psi1/lead - 1) = 0.689
+    10     3.47e-13     2.26e-13    1.844e-01    1.183e-01                            X*(psi1/lead - 1) = 1.844
+    11     3.64e-13     2.90e-13    1.817e-01    1.804e-01                            X*(psi1/lead - 1) = 1.998
+    12     3.89e-13     3.05e-13    1.729e-01    8.001e-02                            X*(psi1/lead - 1) = 2.075
+    13     3.95e-13     3.71e-13    1.913e-01    1.093e-01                            X*(psi1/lead - 1) = 2.487
+    15     4.50e-13     4.22e-13    1.491e-01    4.126e-02                            X*(psi1/lead - 1) = 2.236
+    16     5.07e-13     4.25e-13    1.131e-01    3.352e-02                            X*(psi1/lead - 1) = 1.810
+    20     1.68e-12     1.43e-12    8.025e-02    3.653e-02                            X*(psi1/lead - 1) = 1.605
+    21     1.77e-12     1.52e-12    7.153e-02    4.352e-02                            X*(psi1/lead - 1) = 1.502
+    25     2.08e-12     1.89e-12    7.305e-02    2.780e-02                            X*(psi1/lead - 1) = 1.826
+    30     2.52e-12     2.30e-12    5.433e-02    2.037e-02                            X*(psi1/lead - 1) = 1.630
+    31     2.60e-12     2.38e-12    5.091e-02    1.994e-02                            X*(psi1/lead - 1) = 1.578
+    40     5.99e-12     5.61e-12    4.075e-02    1.501e-02                            X*(psi1/lead - 1) = 1.630
+    41     6.14e-12     5.76e-12    3.956e-02    1.440e-02                            X*(psi1/lead - 1) = 1.622
+
+run time 393 s
