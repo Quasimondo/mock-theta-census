@@ -174,6 +174,7 @@ cd ../v25 && python3 check_small_X.py            # the root-of-unity formulas at
 cd ../v26 && python3 u1_fixes.py a c             # corrections after the stress test (Lemma V; the e^w-versions)
 cd ../v27 && python3 w1_round2.py                # after the second stress test (Theorem 15 in X·Vol; Lemma J up to x = 1)
 cd ../v28 && python3 x1_kind.py                  # f* as a one-sided Nahm sum; growth along rays (not mock modular)
+python3 check_v28.py                             # independent check: Proposition N exactly, Theorem 19 on rays
 cd ../theorems && python3 assemble.py --check     # docs/psi-star-theorems-v1.md is current with the addenda
 python3 assemble_zfamily.py --check               # docs/zfamily-theorems-v1.md likewise
 ```

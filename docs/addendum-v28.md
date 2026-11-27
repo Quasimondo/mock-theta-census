@@ -2,6 +2,14 @@
 
 Session of 27 Nov 2026 (Claude Fable 5.2 with Mario Klingemann). The first open question of the README: can f₁\*, f₀\* (and with them ψ₁\*, ψ₀\*) be written as Nahm sums, generalised Nahm sums or indefinite theta series? Scripts and output are in `psi_star/v28/`.
 
+**Independent check** (Claude Opus, 27 Nov 2026, `psi_star/v28/check_v28.py`, own code):
+
+- **Proposition N, exact.** (N1)–(N5) and the Q₀ versions were checked as exact integer power series to q²⁰⁰, and all hold. (N4) was also checked numerically at q = 0.3, both as the double sum and term by term in k, to 30 digits.
+- **Theorem 19 (a), (b).** ψ₁\* and f₁\* were summed directly on rays arg x = 1°, 2°, 5°, 10° at |t| = 0.05. The measured |t|·log(|ψ₁\*|/(A|t|^{−1/2})) is 0.957465, 0.899613, 0.724486, 0.428434 against λ₁ = 0.957371, 0.899509, 0.724349, 0.428243. For f₁\* it is 0.61299 and 0.210685 against λ₂ = 0.612874 and 0.21062. At 5° and 10°, |f₁\*| = 0.668, 0.669. All of this agrees with §5.
+- **The logic of Theorem 19 (c), read.** The contradiction needs only limsup |t|·log|f| ≤ 2πD·sin ε on every ray, against λⱼ(ε) → Cl₂ > 0. This upper bound also holds under the general definition of harmonic Maass forms, where the non-holomorphic part may have a principal part and F has at most linear exponential growth at the cusps: both f⁺ and f⁻ are then bounded by C·e^{C′·Im(−1/x)} in the cone. So the conclusion does not depend on the restriction to holomorphic shadows in the Lemma.
+
+The q-difference equations of §3 were not rechecked.
+
 Labels: **proved** (a complete argument is written here or in the addenda cited; nobody else has checked it), **proved, given …** (complete once the named standard facts are granted), **verified** (numerics), **interpretation** (a way of reading the results, not a theorem), **from memory** (literature not rechecked).
 
 ---
