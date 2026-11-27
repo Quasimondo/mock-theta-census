@@ -1,13 +1,13 @@
-# Handoff: ψ\* modularity project (state after addendum v18)
+# Handoff: ψ\* modularity project (state after addendum v19)
 
-Prepared 26 Nov 2026 for a fresh session; updated after addenda v12–v18 (26–27 Nov). Project owner: Mario Klingemann. Public repo with the earlier material: https://github.com/Quasimondo/mock-theta-census (`docs/addendum-v2.md`, `docs/twists.md`, `census3/`).
+Prepared 26 Nov 2026 for a fresh session; updated after addenda v12–v19 (26–27 Nov). Project owner: Mario Klingemann. Public repo with the earlier material: https://github.com/Quasimondo/mock-theta-census (`docs/addendum-v2.md`, `docs/twists.md`, `census3/`).
 
-This folder holds everything produced in the sessions that wrote addenda v3–v18:
+This folder holds everything produced in the sessions that wrote addenda v3–v19:
 
-- `addenda/` — `addendum-v2.md` (copy from the repo, defines (I), (II)) and `psi-star-addendum-v3.md` … `v18.md`.
-- `scripts/v3` … `scripts/v18` — the scripts of each addendum, each with a `README.md`, a `run_log.txt` (complete output), and cached `*.json` limit files.
+- `addenda/` — `addendum-v2.md` (copy from the repo, defines (I), (II)) and `psi-star-addendum-v3.md` … `v19.md`.
+- `scripts/v3` … `scripts/v19` — the scripts of each addendum, each with a `README.md`, a `run_log.txt` (complete output), and cached `*.json` limit files.
 
-Read in this order: this file, then v18 (the z-family: everything below is its special case z = −1), v17 (Borel summability; its §7 lists what is open), v16 and v15 (the uniform bound it rests on), v14 and v13 (background for these), v12 (the proof of the kernel identity), v11, v10, v7, v6 (the route to it), then v5 (the laws), then v8, v9 (the F\* family). v3, v4 are background.
+Read in this order: this file, then v19 (asymptotics of the state integrals; the forward laws as theorems), v18 (the z-family: everything below is its special case z = −1), v17 (Borel summability; its §7 lists what is open), v16 and v15 (the uniform bound it rests on), v14 and v13 (background for these), v12 (the proof of the kernel identity), v11, v10, v7, v6 (the route to it), then v5 (the laws), then v8, v9 (the F\* family). v3, v4 are background.
 
 ---
 
@@ -23,7 +23,7 @@ is proved, together with its analogues for ψ₀\*, f₁\*, f₀\* and a general
 
 1. Prove that P·J(1/(2b)) is the Borel sum of the perturbative series Φ. State after v13: Φ has a closed formula from the 1/cosh window of the integral (exact coefficients to order 300 in `scripts/v13/phi_exact.json`); numerically P·J equals the lateral Borel sum 𝒮_θ[Φ], θ in (−176.5°, −17.1°), for arg t from −250° to +30° at |t| = 0.3, including |q| > 1 (10⁻²⁸…10⁻³¹ for −220°…−60°). Borel singularities: S = π²/3 − i·Cl₂ and conjugate; a second group near S − 2π². State after v16: P·J is analytic on −210° < arg t < 10° and has the asymptotic expansion Φ uniformly on the closed sector, including the real x-axis (|q| = 1). Ingredients: descent inequality with one contour angle δ = 10° (v15, Proposition 1); products away from the real axis (v15, Theorem 2); near the real axis Φ_b by Faddeev's integral (v16: Lemma Φ = integral equals both product formulas, with proof; Lemma S = expansion in the strip |Im w| < π uniform in x; Lemma F = leading term up to the strip edge; Lemma D = dual factors outside the strip are 1 + O(e^{−c/|t|}) on the contour). Numerically at real x the kernel integral equals the Borel sum to 4·10⁻¹⁴. State after v17: **done.** Theorem 4: |P·J − Σ_{k<K} aₖtᵏ| ≤ A·K!·(240·|t|)ᴷ on −210° ≤ arg t ≤ 10°, |t| ≤ t₀, all K (ψ₁\* and ψ₀\* versions). Mechanism: shift the contour down across N = ⌊0.04/|t|⌋ lower kernel poles; exact identity P·J = Σ_{n<N} (−1)ⁿτₙ + (−1)^N·e^{t/8}·∫ H·D_N ds with τₙ = q^{n²+n}/(2(−q;q)ₙ) and D_N = q^{N²}e^{−2Nw}/(−q^{1/2}e^{−w};q)_N (functional equation of Φ_b); |D_N| ≤ e^{−0.544·N + 0.149·|s|} against the uniform bound |H| ≤ C·e^{−0.185·|s|}; Cauchy estimates for τₙ on |t| ≤ 0.3/n. Theorem 5 (with the Nevanlinna–Sokal theorem): P·J = 𝒮_{θ₀}[Φ] for every Borel direction −120° ≤ θ₀ ≤ −80°; the Borel transform is analytic and exponentially bounded near that closed sector. So the formulas of v12 hold with the Borel sum in place of the kernel integral, for |q| < 1, −90° < arg t < 10°, small |t|. Left over here: (a) Borel directions outside [−120°, −80°] (numerically −176.5° … −17.1°; v10 defined 𝒯 along the direction of t, which is proved only for −90° < arg t ≤ −80°; route: repeat the uniform bound of v15/v16 with other contour angles δ, v17 §7); (b) the constants A, t₀, R are not explicit; (c) Theorem A of v12 for |q| > 1.
 1b. **The z-family (v18).** F(z) = Σ zⁿq^{n(n+1)/2}(−q;q)ₙ, z = e^{2πia}. Proved (v12 at u = a/b): for 0 < Re a < 1, F(z) = i·P·e^{−πia}·[J(a/b) − I((a−1)/b)·𝒲(T) + p·T·I(a/b)·𝒲(p²T)], T = e^{πi(2a−1)/x}; 𝒲(T;p) = Σ(−T)ᵏp^{k²+k}(p;p²)ₖ; I(a/b) = c·e^{−πia²/(2x)}·D(a/b), bilinear in H(·;q) and H(·;p²). Volume rule (derivation, verified 10⁻²⁶…10⁻³⁶ at q = e^{2πi/X}): potential V = −w²/2 − 2πi(a+k)w + Li₂(−e^{w}), critical points W² + W = 1/z, Im V = D(−W) on every branch (proved); selected saddle = root W in the upper half-plane with w = Log W, carried by I((a−1)/b); the other root is the decaying sector I(a/b). At z = 1 (a = 0): dual functions are the fifth-order mock theta functions φ₀(−p), φ₁(−p), F₀(p), F₁(p); I(0), I(1/b) are Rogers–Ramanujan products; Vol ≈ 2π·ln φ·|a|. Open: steepest descent for I((a−1)/b) (would prove the volume rule); trivial sector for a ≠ ½ (v13–v17 with the kernel e^{2πas}/(1+e^{2πs})); P·J(0) versus Watson's Mordell integral; the 3×3 matrix (quantum Jacobi question). Pitfall: the finite sum at a root of unity needs 0.07·X extra digits.
-2. With 1 and the stationary-phase expansion of 𝓑ⱼ (v7 §3; a derivation, to be made a proof), write out the asymptotic laws of v5 for the one-sided sums.
+2. **Done in v19** for the forward laws. Theorem 6: 𝓑₄, 𝓑₃ = (4/3)^{1/4}e^{∓iπ/12}e^{−i·Cl₂/t}(1 + O(t)), 𝓑₂, 𝓑₁ = (4/3)^{1/4}e^{±iπ/12}e^{+i·Cl₂/t}(1 + O(t)), uniformly for 0 ≤ arg x ≤ 11° (decaying pair: ≤ 60°), including tangential approach. Contours: decaying = horizontal line through the saddle −2πi/3 (derivative of the height is a difference of arguments, monotone; works for the z-family for every 0 < a < 1, Theorem 7); growing = ray from iπ at 30°, imaginary axis from iπ to 0, positive real axis (heights: quadratic, −Cl₂(π − η), π·r). Theorem 8: ψ₁\* = 𝒮[Φ₁] + (π/√3)^{1/2}t^{−1/2}[e^{5πi/12}e^{−S̄/t}W(p)(1+O(t)) + e^{−5πi/12}e^{−S/t}p·W₃(p)(1+O(t))], S = π²/3 − i·Cl₂, for 0 < arg x ≤ 10°; same for f₁\*, ψ₀\*, f₀\*. Left: the growing integral I((a−1)/b) for a ≠ ½ (volume rule for general z); radial limits at roots of unity; converse and mirror laws of v5 (other functions, not started).
 3. The same construction for W, W₃ in the bounded direction (guess: exchange the roles of q and p), for 𝒥 (v9); the Stokes jump across arg t = −17.1° (v10 §3); identity (VII) (v8).
 4. Someone other than the author should check the proofs. The chain for "one-sided sum = Borel sum + bilinear terms" is: v12 §2–§4 (kernel identity); v15 Proposition 1 and Lemma 3′; v16 Lemmas Φ, F, D and §4 (uniform bound); v17.
 
@@ -38,7 +38,7 @@ is proved, together with its analogues for ψ₀\*, f₁\*, f₀\* and a general
 | identity (VII) | exact to r²⁹⁹, no proof | v8 |
 | 𝓑₁…𝓑₄ = state integrals of Φ_b | proved (closing lemma in v12 §4.1) | v7, v12 |
 | two-sector law for R₀, R₁ and the bilateral parts | follows from the line above + stationary phase (not written out) | v6, v7 |
-| forward law ψ\* ↔ (1, W, p·W₃); f\* ↔ (2, −2F_a, −2F_b) | numerics 10⁻¹⁸…10⁻²⁹ | v5 |
+| forward law ψ\* ↔ (1, W, p·W₃); f\* ↔ (2, −2F_a, −2F_b) | numerics 10⁻¹⁸…10⁻²⁹; now proved, see the v19 line below | v5 |
 | converse law W, W₃ → ψ₀\*, ψ₁\*; mirror law at q = −1 | numerics 10⁻²⁹…10⁻³⁰ | v5 |
 | F\* ↔ 𝒥, 𝒦 and 𝒥 → F\* | numerics 10⁻¹⁷, 10⁻²⁸ | v8, v9 |
 | exact three-sector formula for ψ₁\* with Borel sum | numerics 10⁻⁵⁵ at 5 points | v10 |
@@ -48,12 +48,14 @@ is proved, together with its analogues for ψ₀\*, f₁\*, f₀\* and a general
 | shift identity P·J = Σ_{n<N} (−1)ⁿτₙ + moved integral; N residues approximate P·J up to C·e^{−0.544·N} for N ≤ 0.04/\|t\| | proved; numerics 10⁻¹³ | v17 |
 | exact formula for F(z), all z (Theorem Z), both routes; dual functions 𝒲(T;p), 𝒢(T;p); z = 1: ψ₁, f₁ with φ₀, φ₁, F₀, F₁ of the dual nome and Rogers–Ramanujan coefficients | proved (specialisation of v12); numerics 10⁻²⁷…10⁻³¹; series identities exact to order 300 | v18 |
 | volume rule \|F(z; e^{2πi/X})\| ~ e^{Vol(z)·X/2π}, with constant and phase: saddle W in the upper half-plane, w = Log W, of the term I((a−1)/b) | derivation; Im V = D(−W) proved; numerics 10⁻²⁶…10⁻³⁶ for ten z | v18 |
+| asymptotics of 𝓑₁…𝓑₄ with constants (4/3)^{1/4}e^{∓iπ/12}, error O(t), uniform for 0 ≤ arg x ≤ 11° (Theorem 6); decaying integral I(a/b) for all 0 < a < 1 (Theorem 7) | proved; numerics: relative error 0.05·\|t\| in three directions | v19 |
+| forward law of v5 for ψ₁\*, f₁\*, ψ₀\*, f₀\* with Borel sum, exact dual functions and O(t) errors, 0 < arg x ≤ 10° (Theorem 8) | proved (chain v12, v15–v17, v19) | v19 |
 | closed formula for the coefficients of Φ (Bernoulli polynomials under a 1/cosh window) | derivation; exact check of 151 coefficients | v13 |
 | P·J analytic on −210° < arg t < 10° with asymptotic expansion Φ uniformly on the closed sector (includes real x, \|q\| = 1), for ψ₁\* and ψ₀\* | proved | v14, v15, v16 |
 | Faddeev's integral = both product formulas; functional equations and inversion for all Re b > 0 | proved (classical; proof in v16 §1) | v16 |
 | descent of the leading exponent along straight contours, margin κ ≥ 0.185 for −210° ≤ arg t ≤ 10° including the real x-axis | proved | v15 |
 
-The exact formulas for the one-sided sums are proved (v12), and so is the Borel-sum statement for the kernel integral (v17, directions −120° … −80°). Their asymptotic laws (v5) are not: the asymptotics of 𝓑ⱼ is still a derivation.
+The exact formulas for the one-sided sums are proved (v12), and so is the Borel-sum statement for the kernel integral (v17, directions −120° … −80°). The forward asymptotic laws of v5 are proved as well (v19). The converse and mirror laws, and the F\* family, are numerics only.
 
 ---
 

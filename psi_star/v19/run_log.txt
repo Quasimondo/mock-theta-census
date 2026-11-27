@@ -1,0 +1,32 @@
+(a) growing integral, a' = -1/2, saddle w0 = 2 pi i/3;  H0 = Cl2(pi/3) - tau 5 pi^2/12
+    V(w0) = -4.112335167121-1.014941606410j   (-5 pi^2/12 = -4.112335167121, -Cl2(pi/3) = -1.014941606410)
+    tau = 0.0:  left ray: max(H - H0) = -1.0149, sup (H - H0)/min(d^2, d) = -0.9570;  segment: max(H - H0) = -0.0000, sup (H - H0)/min(d^2, d) = -0.3127;  real axis: max(H - H0) = -1.0149, sup (H - H0)/min(d^2, d) = -0.4846
+    tau = 0.1:  left ray: max(H - H0) = -0.9327, sup (H - H0)/min(d^2, d) = -0.8907;  segment: max(H - H0) = -0.0000, sup (H - H0)/min(d^2, d) = -0.2377;  real axis: max(H - H0) = -0.6860, sup (H - H0)/min(d^2, d) = -0.3275
+    tau = 0.2:  left ray: max(H - H0) = -0.8505, sup (H - H0)/min(d^2, d) = -0.8121;  segment: max(H - H0) = -0.0000, sup (H - H0)/min(d^2, d) = -0.1627;  real axis: max(H - H0) = -0.3570, sup (H - H0)/min(d^2, d) = -0.1704
+    on the left ray: min Im V = +0.00001 (claim >= 0), max Re V = -3.28988 (claim <= -pi^2/3 = -3.28987)
+    on the real axis: max |Im V - pi r| = 0.0e+00, max Re V = -0.82247 (claim <= -pi^2/12 = -0.82247)
+    on the segment: max |Im V + Cl2(pi - eta)| = 4.2e-16, max |Re V - (3 eta^2/4 - pi eta - pi^2/12)| = 8.9e-16
+(b) decaying integrals: horizontal line through w1 = Log W, W the root of W^2 + W = e^(-2 pi i a) in the lower half-plane
+    a = 0.5000: Im w1/pi = -0.6667, critical-point defect 2.5e-16, -Im V(w1) = -1.014942;  tau = 0.0: max(H - H0) = -0.0000, sup (H - H0)/min(d^2, d) = -0.3789; tau = 0.2: max(H - H0) = -0.0000, sup (H - H0)/min(d^2, d) = -0.5016; tau = 1.0: max(H - H0) = -0.0000, sup (H - H0)/min(d^2, d) = -0.9920; tau = 1.7: max(H - H0) = -0.0000, sup (H - H0)/min(d^2, d) = -1.4211
+    a = 0.2500: Im w1/pi = -0.3574, critical-point defect 7.9e-17, -Im V(w1) = -0.696701;  tau = 0.0: max(H - H0) = -0.0000, sup (H - H0)/min(d^2, d) = -0.1324; tau = 0.05: max(H - H0) = -0.0000, sup (H - H0)/min(d^2, d) = -0.1644
+    a = 0.3333: Im w1/pi = -0.4704, critical-point defect 1.2e-16, -Im V(w1) = -0.865129;  tau = 0.0: max(H - H0) = -0.0000, sup (H - H0)/min(d^2, d) = -0.1923; tau = 0.05: max(H - H0) = -0.0000, sup (H - H0)/min(d^2, d) = -0.2238
+    a = 0.8333: Im w1/pi = -0.9067, critical-point defect 5.0e-16, -Im V(w1) = -0.486618;  tau = 0.0: max(H - H0) = -0.0000, sup (H - H0)/min(d^2, d) = -0.2516; tau = 0.05: max(H - H0) = -0.0000, sup (H - H0)/min(d^2, d) = -0.3202
+    a = 0.0300: Im w1/pi = -0.0434, critical-point defect 6.9e-17, -Im V(w1) = -0.090606;  tau = 0.0: max(H - H0) = -0.0000, sup (H - H0)/min(d^2, d) = -0.0144; tau = 0.01: max(H - H0) = -0.0000, sup (H - H0)/min(d^2, d) = -0.0210
+    a = 0.9700: Im w1/pi = -0.9834, critical-point defect 1.7e-16, -Im V(w1) = -0.090606;  tau = 0.0: max(H - H0) = -0.0000, sup (H - H0)/min(d^2, d) = -0.0475; tau = 0.01: max(H - H0) = -0.0000, sup (H - H0)/min(d^2, d) = -0.0620
+(c) min over [0, 2 pi/3) of log(2 cos(eta/2))/(pi - 3 eta/2) = 0.220636 at eta = 0.0000  (log 2/pi = 0.220636); limit at 2 pi/3: 0.577347 (1/sqrt 3 = 0.577350)
+    min over (2 pi/3, pi) of -log(2 cos(eta/2))/(3 eta/2 - pi) = 0.577352
+(d) exact B_j (Theorem C of v12) divided by the asymptotic value, minus 1;  B4, B3 growing, B2, B1 decaying
+    arg x =  0.5 deg, |x| = 1/100: B4: 0.00346  B3: 0.00346  B2: 0.00316  B1: 0.00316   (|t| = 0.0628, |B4| = 1.11e+7, |B2| = 1.04e-7)
+    arg x =  0.5 deg, |x| = 1/200: B4: 0.00169  B3: 0.00169  B2: 0.00162  B1: 0.00162   (|t| = 0.0314, |B4| = 1.15e+14, |B2| = 1.0e-14)
+    arg x =  0.5 deg, |x| = 1/400: B4: 0.000835  B3: 0.000835  B2: 0.000817  B1: 0.000817   (|t| = 0.0157, |B4| = 1.23e+28, |B2| = 9.35e-29)
+    arg x =    5 deg, |x| = 1/100: B4: 0.00346  B3: 0.00346  B2: 0.00317  B1: 0.00316   (|t| = 0.0628, |B4| = 1.05e+7, |B2| = 1.1e-7)
+    arg x =    5 deg, |x| = 1/200: B4: 0.00169  B3: 0.00169  B2: 0.00162  B1: 0.00162   (|t| = 0.0314, |B4| = 1.02e+14, |B2| = 1.13e-14)
+    arg x =    5 deg, |x| = 1/400: B4: 0.000835  B3: 0.000835  B2: 0.000817  B1: 0.000817   (|t| = 0.0157, |B4| = 9.68e+27, |B2| = 1.19e-28)
+    arg x =   11 deg, |x| = 1/100: B4: 0.00346  B3: 0.00345  B2: 0.00317  B1: 0.00316   (|t| = 0.0628, |B4| = 8.29e+6, |B2| = 1.39e-7)
+    arg x =   11 deg, |x| = 1/200: B4: 0.00169  B3: 0.00169  B2: 0.00162  B1: 0.00162   (|t| = 0.0314, |B4| = 6.38e+13, |B2| = 1.81e-14)
+    arg x =   11 deg, |x| = 1/400: B4: 0.000835  B3: 0.000835  B2: 0.000817  B1: 0.000817   (|t| = 0.0157, |B4| = 3.78e+27, |B2| = 3.06e-28)
+(e) coefficients of Theorem 8: exact value divided by the asymptotic value, minus 1
+    arg x =  1 deg, |x| = 1/100: P I(1/(2b)): 0.0157  P I(-1/(2b)): 0.016  psi0 decaying: 0.0207  psi0 growing: 0.0212
+    arg x =  1 deg, |x| = 1/400: P I(1/(2b)): 0.00395  P I(-1/(2b)): 0.00397  psi0 decaying: 0.00522  psi0 growing: 0.00525
+    arg x = 10 deg, |x| = 1/100: P I(1/(2b)): 0.0157  P I(-1/(2b)): 0.016  psi0 decaying: 0.0207  psi0 growing: 0.0212
+    arg x = 10 deg, |x| = 1/400: P I(1/(2b)): 0.00395  P I(-1/(2b)): 0.00397  psi0 decaying: 0.00522  psi0 growing: 0.00525
