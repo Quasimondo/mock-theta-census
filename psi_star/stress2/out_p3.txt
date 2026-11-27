@@ -1,0 +1,37 @@
+(a) closing lemma: on Re xi = sigma_N (xi = y/b), tau from the point on C upwards:
+    E(tau) = log|Phi_b(b xi)| + Re(-A pi i y^2);  bound -c sigma_N^2, c = pi(1-A) min(|x|^2/Im x, |x| sin 2delta/cos^2(delta-beta))
+    reported: f_N = sup_tau E / (-c sigma_N^2) (the remark says 1 <= f <= 1.5 for the sup), and sup E + c sigma_N^2
+   80 (x, delta, A) samples: f at the largest N in [0.982, 0.999];  max of (sup E + c sigma_N^2)/(sigma_N + 1) = 0.141
+   (f >= 1 means the bound holds at leading order; the lower-order terms are bounded by the last number)
+   trend in N for three samples (f_N, N = 2, 4, 8, 16, 32):
+     x=(0.1+0.15j) delta=30 A=0.5 (min attained by point on C): 0.9440 0.9860 0.9965 0.9991 0.9998
+     x=(-0.2+0.1j) delta=10 A=0.0 (min attained by point on C): 0.9677 0.9945 0.9987 0.9997 0.9999
+     x=(0.3+0.05j) delta=40 A=0.5 (min attained by point on C): 0.9613 0.9585 0.9903 0.9976 0.9994
+
+(b) Lemma L on a model: F(t) = int_R g(w) e^{V(w)/t} dw, V = -w^2/2 - w^4/12 + i w^3/10, g = e^{iw}/(2 + cos w): (F / (g(0)(2 pi t)^{1/2}) - 1)/|t|
+   arg t =    0 ((L1) holds):  0.701  0.796  0.863  0.916  0.936
+   arg t =   30 ((L1) holds):  0.712  0.806  0.872  0.920  0.939
+   arg t =   60 ((L1) holds):  0.748  0.839  0.896  0.934  0.946
+   arg t =   80 ((L1) fails):  0.787  0.875  0.912  15347537350560372.000  301122227594566730161033111448075311015553042219008.000
+
+(e) v26 §3 Lemma V: g(lambda) = lambda^4 + 2c lambda^3 + lambda^2
+   1999 values of a: max number of solutions of g = 1: 1 (claim 1); lambda_- in [0.5000, 0.6927] (claim (1/2, 0.7071)); max g(lambda_-) = 0.0832 (claim < 0.16); cos eta1 < -2sqrt2/3 first at a = 0.80800 (v26: 0.807674)
+   v26 §2, growing e^w-version on Gamma_3 at real x: slope of log|integrand| in r against 1 - pi/|t|
+    X=2: 0.0000 vs 0.0000  X=3: -0.5000 vs -0.5000  X=4: -1.0000 vs -1.0000  X=6: -2.0000 vs -2.0000
+
+(c) Theorem 8 (psi_1^*): R = (psi1* - S[Phi1] - decaying term) / growing term - 1, reported as R/|t|
+   arg x=10.0:  |t|=0.40: 0.272 (|p|=0.00)  |t|=0.20: 0.262 (|p|=0.00)  |t|=0.10: 0.256 (|p|=0.00)  |t|=0.05: 0.254 (|p|=0.00)  |t|=0.03: 0.253 (|p|=0.00)
+   arg x= 5.0:  |t|=0.40: 0.274 (|p|=0.01)  |t|=0.20: 0.262 (|p|=0.00)  |t|=0.10: 0.256 (|p|=0.00)  |t|=0.05: 0.254 (|p|=0.00)  |t|=0.03: 0.253 (|p|=0.00)
+   arg x= 2.0:  |t|=0.40: 0.275 (|p|=0.18)  |t|=0.20: 0.262 (|p|=0.03)  |t|=0.10: 0.256 (|p|=0.00)  |t|=0.05: 0.254 (|p|=0.00)  |t|=0.03: 0.253 (|p|=0.00)
+   arg x= 1.0:  |t|=0.40: 0.276 (|p|=0.42)  |t|=0.20: 0.262 (|p|=0.18)  |t|=0.10: 0.256 (|p|=0.03)  |t|=0.05: 0.254 (|p|=0.00)  |t|=0.03: 0.253 (|p|=0.00)
+   arg x= 0.3:  |t|=0.40: 0.276 (|p|=0.77)  |t|=0.20: 0.262 (|p|=0.60)  |t|=0.10: 0.256 (|p|=0.36)  |t|=0.05: 0.254 (|p|=0.13)  |t|=0.03: 0.263 (|p|=0.03)
+
+(d) Theorem C at 30 digits outside the round-1 sample: |I_quad / (c e^{-pi i u^2/2} D(u)) - 1|
+   x=(0.02 + 0.4j) delta=10.0 u=(0.7 + 0.3j) (|q| = 0.08): 1.72e-31  (9 s)
+   x=(0.05 + 0.45j) delta=40.0 u=(-0.5 + 0.8j) (|q| = 0.06): 4.95e-31  (6 s)
+   x=(0.1 + 0.014j) delta=2.0 u=(0.3 - 0.2j) (|q| = 0.92, arg b ~ 4 deg, delta small): 7.99e-30  (327 s)
+   x=(-0.3 + 0.12j) delta=3.0 u=(0.4 + 0.1j) (arg x = 158 deg (beta 79 deg), delta = 3 deg): 7.14e-31  (36 s)
+   x=(0.2 + 0.2j) delta=66.0 u=(-0.6 - 0.4j) (delta near 90 - beta = 67.5 deg): 4.76e-31  (8 s)
+   x=(0.15 + 0.04j) delta=1.0 u=(0.2 + 0.2j) (|q| = 0.78, delta = 1 deg): 2.2e-30  (173 s)
+
+run time 602 s
