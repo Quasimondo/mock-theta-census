@@ -1,4 +1,6 @@
-# Handoff: ψ\* modularity project (state after addendum v27; the file keeps its name because other documents refer to it)
+# Handoff: ψ\* modularity project (state after addendum v27)
+
+*This file was `docs/psi-star-handoff-v21.md` until 27 Nov 2026; it now has a name without a version and is updated in place.*
 
 Prepared 26 Nov 2026 for a fresh session; updated after addenda v12–v21 (26–27 Nov). Project owner: Mario Klingemann. Public repo with the earlier material: https://github.com/Quasimondo/mock-theta-census (`docs/addendum-v2.md`, `docs/twists.md`, `census3/`).
 

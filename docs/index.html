@@ -26,15 +26,17 @@ a{color:var(--teal)}
 </head>
 <body><div class="wrap">
 <h1>mock-theta-census</h1>
-<p class="lede">A computational search for Ramanujan-style mock theta functions. A growth test at 19 roots of unity classifies q-series; a census of 8,869 functions finds 25 mock theta functions, all identified; and two of them lead to the sign-twisted fifth-order companions ψ₁*, ψ₀*.</p>
+<p class="lede">A computational search for Ramanujan-style mock theta functions. A growth test at 19 roots of unity classifies q-series; a census of 8,869 functions finds 25 mock theta functions, all identified; and two of them lead to the sign-twisted fifth-order companions ψ₁*, ψ₀*. These have exact formulas in terms of Faddeev's quantum dilogarithm, grow at roots of unity like the volume of an ideal tetrahedron, and sit in a one-parameter family F(z) that runs from ψ₁* at z = −1 to Ramanujan's ψ₁ at z = 1, where the same formula becomes the classical transformation laws of the fifth-order mock theta functions.</p>
 <div class="cards">
 <a href="explorer-v4.html"><b>Explorer</b><span>Mock theta functions on the unit disk: watch f(q) blow up at the roots of unity, compare ψ₁ with ψ₁*, ψ₀*, and see the double sum D split into θ₄·f + 4R.</span></a>
 <a href="fingerprints-v3.html"><b>Fingerprints</b><span>The classifier on 51 known functions, both censuses, the sign twists, and the double sum D.</span></a>
-<a href="https://github.com/Quasimondo/mock-theta-census/blob/main/docs/formulas.md"><b>Formula sheet</b><span>Every formula in LaTeX, Unicode, plain text and Mathematica, with coefficient lists.</span></a>
+<a href="https://github.com/Quasimondo/mock-theta-census/blob/main/docs/formulas.md"><b>Formula sheet</b><span>Every formula in LaTeX, Unicode, plain text and Mathematica: the q-series, the identities (I)–(VII), the state integrals and exact formulas, the volume rule and the laws at z = 1.</span></a>
 <a href="https://github.com/Quasimondo/mock-theta-census/blob/main/docs/psi-star-theorems-v1.md"><b>Theorems and proofs</b><span>What is proved about ψ₁*, ψ₀*: exact formulas, Borel summability, the law at roots of unity. One document, written for referees; not yet refereed.</span></a>
+<a href="https://github.com/Quasimondo/mock-theta-census/blob/main/docs/zfamily-theorems-v1.md"><b>The z-family</b><span>F(z) for every z: the exact formula, the tetrahedron-volume rule at roots of unity, and the limit z → 1 with the Mordell integral. Companion document; not yet refereed.</span></a>
 <a href="https://github.com/Quasimondo/mock-theta-census"><b>Code and data</b><span>The census scripts, results, and the write-ups on GitHub.</span></a>
 </div>
 <p class="law">ψ₁*(q) = Σ (−1)ⁿ q<sup>n(n+1)/2</sup> (−q;q)<sub>n</sub>, &nbsp; 2ψ₁* = f₁* + θ₄·R₁</p>
+<p class="law">lim<sub>X even</sub> (1/X)·log|F(z; e<sup>2πi/X</sup>)| = Vol(z)/2π, &nbsp; W² + W = 1/z</p>
 <p class="small">Mario Klingemann, 2026. Made with Claude. Code MIT, data and documents CC BY 4.0.</p>
 </div></body>
 </html>

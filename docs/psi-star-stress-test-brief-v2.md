@@ -76,5 +76,5 @@ The same as round 1 (`docs/psi-star-stress-test-brief-v1.md` §2): own code; adv
 
 ## 6. Context
 
-- README items 5–7 and the "Status" paragraph summarise the results. `docs/psi-star-handoff-v21.md` is the project state for a fresh session; the file name is older than its content.
+- README items 5–7 and the "Status" paragraph summarise the results. `docs/psi-star-handoff.md` is the project state for a fresh session.
 - Addenda v22–v25 each start with an independent verification note. Their scripts are in `psi_star/v22` … `v25`.

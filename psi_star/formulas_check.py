@@ -95,6 +95,56 @@ check("sum q^binom(n,2) (-q;q)_n^2/(-q^3;q^3)_n = H(-w)",
 check("sum q^binom(n,2) (q^2;q^2)_n/(q^3;q^3)_n = H(w)",
       lambda q: S(lambda n: q ** binom2(n) * poch(q * q, q * q, n) / poch(q ** 3, q ** 3, n)), lambda q: H(w, q), Q)
 
+# --- section 9: identities (III)-(VII) ----------------------------------------
+F0s = lambda q: S(lambda n: (-1) ** n * q ** (2 * n * n) / poch(q, q * q, n), 0, 60)
+F1s = lambda q: S(lambda n: (-1) ** n * q ** (2 * n * n + 2 * n) / poch(q, q * q, n + 1), 0, 60)
+Xs  = lambda q: S(lambda n: (-1) ** n * q ** (n * n) / poch(q, q, 2 * n), 0, 60)
+Ys  = lambda q: S(lambda n: (-1) ** n * q ** ((n + 1) ** 2) / poch(q, q, 2 * n + 1), 0, 60)
+check("(III) F0* + sum q^{n^2}(q;q^2)_n = theta4(q^2)(-q;q)_inf X(q^2)",
+      lambda q: F0s(q) + S(lambda n: q ** (n * n) * poch(q, q * q, n), 1), lambda q: th4(q * q) * poch_inf(-q, q) * Xs(q * q), Q)
+check("(IV) qF1* - sum q^{(n+1)^2}(q;q^2)_n = theta4(q^2)(-q;q)_inf Y(q^2)",
+      lambda q: q * F1s(q) - S(lambda n: q ** ((n + 1) ** 2) * poch(q, q * q, n)), lambda q: th4(q * q) * poch_inf(-q, q) * Ys(q * q), Q)
+Wd  = lambda q: S(lambda j: (-1) ** j * q ** (j * j + j) * poch(q, q * q, j), 0, 60)
+W3d = lambda q: S(lambda j: (-1) ** j * q ** (j * j + 3 * j) * poch(q, q * q, j), 0, 60)
+Fa  = lambda q: S(lambda n: q ** (2 * n * n - n) / poch(q, q * q, n), 1, 60)
+Fb  = lambda q: S(lambda n: q ** (2 * n * n - 3 * n + 1) / poch(q, q * q, n), 1, 60)
+psiR = lambda q: S(lambda n: q ** (n * (n + 1) // 2))
+Pp  = lambda q: S(lambda k: q ** (2 * k * k + k) / poch(q * q, q * q, k), 0, 60)
+Pm  = lambda q: S(lambda k: q ** (2 * k * k - k) / poch(q * q, q * q, k), 0, 60)
+check("(V)  W + F_a = psi P_+", lambda q: Wd(q) + Fa(q), lambda q: psiR(q) * Pp(q), Q)
+check("(VI) q W3 + F_b = psi P_-", lambda q: q * W3d(q) + Fb(q), lambda q: psiR(q) * Pm(q), Q)
+Jc = lambda r: S(lambda m: r ** (2 * m * m + m) / poch(-r * r, r * r, m), 0, 60)
+Kc = lambda r: 2 * S(lambda n: r ** ((n + 1) ** 2) * poch(-r * r, r * r, n), 0, 60)
+check("(VII) J + K = psi(r)(r^2;r^4)_inf sum r^{m(m+1)/2}/(r^2;r^2)_m (not proved)", lambda r: Jc(r) + Kc(r),
+      lambda r: psiR(r) * poch_inf(r * r, r ** 4) * S(lambda m: r ** (m * (m + 1) // 2) / poch(r * r, r * r, m)), Q)
+# --- section 13: the dual series at z = 1, and the four fifth-order laws with the Mordell integral ------------
+calW = lambda T, p: S(lambda k: (-T) ** k * p ** (k * k + k) * poch(p, p * p, k), 0, 60)
+phi0 = lambda q: S(lambda n: q ** (n * n) * poch(-q, q * q, n), 0, 60)
+phi1 = lambda q: S(lambda n: q ** ((n + 1) ** 2) * poch(-q, q * q, n), 0, 60)
+check("calW(1/p; p) = phi0(-p)", lambda p: calW(1 / p, p), lambda p: phi0(-p), Q)
+check("p calW(p; p) = -phi1(-p)", lambda p: p * calW(p, p), lambda p: -phi1(-p), Q)
+def mordell(r, al):                        # L(r, alpha), ray turned so that the Gaussian decays
+    ph = mp.expj(-mp.arg(al) / 2)
+    g = lambda s: (lambda y: mp.exp(-3 * al * y * y / 2) * (mp.cosh((3 * r - 2) * al * y) + mp.cosh((3 * r - 1) * al * y)) / mp.cosh(3 * al * y / 2))(s * ph) * ph
+    return mp.quad(g, [c / mp.sqrt(abs(al)) for c in (0, 1, 3, 8, 20)])
+f1u = lambda q: S(lambda n: q ** (n * n + n) / poch(-q, q, n))
+f0u = lambda q: S(lambda n: q ** (n * n) / poch(-q, q, n))
+F0u = lambda q: S(lambda n: q ** (2 * n * n) / poch(q, q * q, n), 0, 60)
+F1u = lambda q: S(lambda n: q ** (2 * n * n + 2 * n) / poch(q, q * q, n + 1), 0, 60)
+def laws(x):
+    q, p, t = mp.expjpi(2 * x), mp.expjpi(-1 / x), -2j * mp.pi * x
+    qa = lambda al: mp.expjpi(2 * x * al); pa = lambda al: mp.expjpi(-al / x)
+    cp = mp.sqrt(mp.pi * (5 + mp.sqrt(5)) / (10 * t)); cm = mp.sqrt(mp.pi * (5 - mp.sqrt(5)) / (10 * t))
+    M1 = mp.sqrt(60 * t / mp.pi) * mordell(mp.mpf(2) / 5, 10 * t); M0 = mp.sqrt(60 * t / mp.pi) * mordell(mp.mpf(1) / 5, 10 * t)
+    F0, F1, f0, f1 = F0u(p) - 1, F1u(p), phi0(-p), phi1(-p)
+    return [qa(mp.mpf(11) / 60) * f1u(q) - (M1 + 2 * cp * pa(-mp.mpf(1) / 120) * F0 - 2 * cm * pa(mp.mpf(71) / 120) * F1),
+            2 * qa(mp.mpf(11) / 60) * psi1(q) - (-M1 + 2 * cp * pa(-mp.mpf(1) / 120) * f0 + 2 * cm * pa(-mp.mpf(49) / 120) * f1),
+            qa(-mp.mpf(1) / 60) * f0u(q) - (M0 + 2 * cm * pa(-mp.mpf(1) / 120) * F0 + 2 * cp * pa(mp.mpf(71) / 120) * F1),
+            2 * qa(-mp.mpf(1) / 60) * psi0(q) - (-M0 + 2 * cm * pa(-mp.mpf(1) / 120) * f0 - 2 * cp * pa(-mp.mpf(49) / 120) * f1)]
+XL = [(mp.mpc('0.3', '0.25'),), (mp.mpc('-0.1', '0.3'),)]
+for k, name in enumerate(("f1", "psi1", "f0", "psi0")):
+    check(f"fifth-order law for {name} with the Mordell integral (sec. 13)", lambda x, k=k: laws(x)[k], lambda x: 0, XL)
+
 w_ = max(len(n) for n, _ in checks)
 for name, err in checks:
     print(f"{name:<{w_}}  max|diff| = {mp.nstr(err, 3):>9}  {'OK' if err < mp.mpf(10) ** -30 else 'FAIL'}")
