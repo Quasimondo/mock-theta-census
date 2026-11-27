@@ -1,0 +1,75 @@
+== s1_series.py 300 ==
+(R1) chi0(q) = 2 F0(q) - phi0(-q): holds to order q^300
+(R2) q chi1(q) = 2 q F1(q) + phi1(-q): holds to order q^300
+(R3) psi1(q) - f1(q) = q chi1(q^2): holds to order q^300
+(R4) psi0(q) - f0(q) + 2 = chi0(q^2): holds to order q^300
+(R5) G(q) H(-q) + G(-q) H(q) = 2/(q^2;q^4)_inf^2: holds to order q^300
+(S1) sum q^(n^2)/(q^4;q^4)_n = G(q)/(-q^2;q^2)_inf: holds to order q^300
+(S2) sum q^(n^2+2n)/(q^4;q^4)_n = H(q)/(-q^2;q^2)_inf: holds to order q^300
+(S3) sum q^(m^2)/(q;q)_(2m) = G(q^4)/(q;q^2)_inf: holds to order q^300
+(S4) sum q^(m^2+m)/(q;q)_(2m+1) = H(-q)/(q;q^2)_inf: holds to order q^300
+(S5) sum q^(m^2+m)/(q;q)_(2m) = G(-q)/(q;q^2)_inf: holds to order q^300
+(S6) sum q^(m^2+2m)/(q;q)_(2m+1) = H(q^4)/(q;q^2)_inf: holds to order q^300
+
+== s2_law.py ==
+x = (0.3 + 0.2j)   (t = (1.2566 - 1.885j))
+  (a) |series/monomial - 1|:  I(0): 2.04e-31,  I(1/b): 2.73e-31,  I(b): 3.32e-31,  I(b+1/b): 7.85e-31;   integral I(0): 1.82e-31
+  (b) |law - series|:  f1 9.86e-32,  psi1 5.58e-31,  f0 2.79e-31,  psi0 2.54e-31;   f1 = (0.91977110746 - 0.0289748939321j), psi0 = (-0.0670193486201 + 0.262966963786j)
+  (c) M1 = (0.63893601983972447624 + 0.26979032775432867919j),  |M1 - sqrt(60 t/pi) L(2/5, 10 t)| = 1.1e-31
+      M0 = (1.1174061875557185054 + 0.20879220329559845449j),  |M0 - sqrt(60 t/pi) L(1/5, 10 t)| = 2.33e-31
+      the integrals themselves: |J(1/b)/closed form - 1| = 1.72e-31,  |J(b + 1/b)/closed form - 1| = 2.0e-31
+  (d) quoted chi law: |(6a)| = 5.97e-31,  |(6b)| = 3.32e-31
+  (e) the four bilinear forms of D(u) (step 1 of the proof): 1.97e-31, 3.89e-31, 2.82e-31, 1.98e-31;   matrix T S T^2 S: 9.88e-31
+      G(q^4), H(q^4), G(-q), H(-q) in terms of G(+-r), H(+-r):  2.04e-31, 5.96e-31, 3.94e-31, 2.99e-31;   (q;q^2)(p;p^2) = sqrt 2 (qp)^(1/24): 2.47e-32
+x = (0.11 + 0.03j)   (t = (0.1885 - 0.69115j))
+  (a) |series/monomial - 1|:  I(0): 3.66e-32,  I(1/b): 2.86e-31,  I(b): 2.33e-31,  I(b+1/b): 1.49e-30;   integral I(0): 1.33e-31
+  (b) |law - series|:  f1 1.97e-31,  psi1 1.97e-31,  f0 3.56e-31,  psi0 3.94e-31;   f1 = (1.11580216449 + 0.347835826744j), psi0 = (0.0339499235048 + 0.731084899604j)
+  (c) M1 = (1.0024242576845327384 + 0.45172137486411328237j),  |M1 - sqrt(60 t/pi) L(2/5, 10 t)| = 9.86e-32
+      M0 = (1.3756460821032034567 + 0.29962881989892474154j),  |M0 - sqrt(60 t/pi) L(1/5, 10 t)| = 3.97e-31
+      the integrals themselves: |J(1/b)/closed form - 1| = 2.61e-31,  |J(b + 1/b)/closed form - 1| = 3.01e-31
+  (d) quoted chi law: |(6a)| = 2.2e-31,  |(6b)| = 5.51e-31
+  (e) the four bilinear forms of D(u) (step 1 of the proof): 2.11e-31, 1.98e-31, 1.72e-31, 1.59e-31;   matrix T S T^2 S: 9.88e-31
+      G(q^4), H(q^4), G(-q), H(-q) in terms of G(+-r), H(+-r):  1.05e-31, 2.01e-31, 5.51e-32, 1.97e-31;   (q;q^2)(p;p^2) = sqrt 2 (qp)^(1/24): 1.1e-31
+x = (0.2 + 0.5j)   (t = (3.1416 - 1.2566j))
+  (a) |series/monomial - 1|:  I(0): 3.95e-31,  I(1/b): 9.29e-31,  I(b): 2.08e-31,  I(b+1/b): 1.23e-30;   integral I(0): 5.07e-32
+  (b) |law - series|:  f1 1.39e-31,  psi1 2.2e-31,  f0 6.96e-31,  psi0 6.97e-31;   f1 = (0.998555425792 + 0.00114178467368j), psi0 = (0.013289627279 + 0.0410481342649j)
+  (c) M1 = (0.56516155700342666149 + 0.092330905008160835413j),  |M1 - sqrt(60 t/pi) L(2/5, 10 t)| = 2.01e-31
+      M0 = (1.0396420046035393092 + 0.07865971505179793251j),  |M0 - sqrt(60 t/pi) L(1/5, 10 t)| = 7.18e-31
+      the integrals themselves: |J(1/b)/closed form - 1| = 1.38e-31,  |J(b + 1/b)/closed form - 1| = 5.3e-31
+  (d) quoted chi law: |(6a)| = 2.16e-32,  |(6b)| = 8.17e-32
+  (e) the four bilinear forms of D(u) (step 1 of the proof): 1.98e-31, 4.69e-31, 2.97e-32, 4.21e-31;   matrix T S T^2 S: 9.88e-31
+      G(q^4), H(q^4), G(-q), H(-q) in terms of G(+-r), H(+-r):  1.97e-31, 1.03e-30, 1.0e-31, 1.31e-31;   (q;q^2)(p;p^2) = sqrt 2 (qp)^(1/24): 1.85e-32
+x = (0.0 + 0.3j)   (t = (1.885 + 0.0j))
+  (a) |series/monomial - 1|:  I(0): 1.97e-31,  I(1/b): 9.32e-31,  I(b): 3.98e-31,  I(b+1/b): 6.8e-31;   integral I(0): 2.05e-31
+  (b) |law - series|:  f1 1.35e-31,  psi1 4.17e-31,  f0 2.3e-31,  psi0 2.73e-31;   f1 = (1.02002550001 + 0.0j), psi0 = (0.155882180009 + 0.0j)
+  (c) M1 = (0.72475357548025069091 - 1.349499648766806496e-31j),  |M1 - sqrt(60 t/pi) L(2/5, 10 t)| = 1.35e-31
+      M0 = (1.163932047808188582 - 2.2998858798065503164e-31j),  |M0 - sqrt(60 t/pi) L(1/5, 10 t)| = 3.03e-31
+      the integrals themselves: |J(1/b)/closed form - 1| = 2.79e-31,  |J(b + 1/b)/closed form - 1| = 1.98e-31
+  (d) quoted chi law: |(6a)| = 1.97e-31,  |(6b)| = 9.86e-32
+  (e) the four bilinear forms of D(u) (step 1 of the proof): 9.86e-32, 3.73e-31, 5.92e-31, 4.0e-31;   matrix T S T^2 S: 9.88e-31
+      G(q^4), H(q^4), G(-q), H(-q) in terms of G(+-r), H(+-r):  0.0, 1.97e-31, 9.86e-32, 0.0;   (q;q^2)(p;p^2) = sqrt 2 (qp)^(1/24): 0.0
+x = (0.05 + 0.4j)   (t = (2.5133 - 0.31416j))
+  (a) |series/monomial - 1|:  I(0): 2.02e-31,  I(1/b): 1.06e-30,  I(b): 8.69e-32,  I(b+1/b): 6.94e-31;   integral I(0): 1.44e-31
+  (b) |law - series|:  f1 2.12e-30,  psi1 2.21e-30,  f0 2.47e-32,  psi0 2.47e-31;   f1 = (1.00500905187 + 0.00346467889257j), psi0 = (0.0773636477553 + 0.025502397055j)
+  (c) M1 = (0.64331278581262905982 + 0.032783724427242140569j),  |M1 - sqrt(60 t/pi) L(2/5, 10 t)| = 2.15e-30
+      M0 = (1.1009658968014743613 + 0.026208139582461189808j),  |M0 - sqrt(60 t/pi) L(1/5, 10 t)| = 1.97e-31
+      the integrals themselves: |J(1/b)/closed form - 1| = 3.44e-30,  |J(b + 1/b)/closed form - 1| = 3.14e-31
+  (d) quoted chi law: |(6a)| = 3.95e-31,  |(6b)| = 9.9e-32
+  (e) the four bilinear forms of D(u) (step 1 of the proof): 2.96e-31, 2.95e-31, 3.94e-31, 1.99e-31;   matrix T S T^2 S: 9.88e-31
+      G(q^4), H(q^4), G(-q), H(-q) in terms of G(+-r), H(+-r):  7.84e-33, 1.21e-30, 0.0, 1.98e-31;   (q;q^2)(p;p^2) = sqrt 2 (qp)^(1/24): 1.97e-31
+x = (0.6 + 0.25j)   (t = (1.5708 - 3.7699j))
+  (a) |series/monomial - 1|:  I(0): 2.51e-31,  I(1/b): 9.86e-31,  I(b): 3.96e-31,  I(b+1/b): 1.93e-30;   integral I(0): 5.04e-32
+  (b) |law - series|:  f1 1.39e-31,  psi1 4.41e-31,  f0 8.93e-31,  psi0 3.59e-31;   f1 = (1.00853992563 + 0.0506096832351j), psi0 = (-0.166972397416 - 0.129668895857j)
+  (c) M1 = (0.47231170229446128381 + 0.26852283560469513126j),  |M1 - sqrt(60 t/pi) L(2/5, 10 t)| = 6.97e-32
+      M0 = (0.9928789490695556338 + 0.23873653422594868482j),  |M0 - sqrt(60 t/pi) L(1/5, 10 t)| = 5.41e-31
+      the integrals themselves: |J(1/b)/closed form - 1| = 1.97e-31,  |J(b + 1/b)/closed form - 1| = 9.68e-31
+  (d) quoted chi law: |(6a)| = 3.96e-31,  |(6b)| = 5.17e-32
+  (e) the four bilinear forms of D(u) (step 1 of the proof): 1.17e-31, 5.79e-31, 3.99e-31, 4.23e-31;   matrix T S T^2 S: 9.88e-31
+      G(q^4), H(q^4), G(-q), H(-q) in terms of G(+-r), H(+-r):  4.35e-32, 4.04e-31, 3.97e-31, 3.94e-31;   (q;q^2)(p;p^2) = sqrt 2 (qp)^(1/24): 4.93e-32
+
+== s3_real.py ==
+X =   5: M1 = (0.77171948549 + 0.510605729191j), |M1 - Mordell| = 1.89e-14;   M0 = (1.23398873755 + 0.353287061008j), |M0 - Mordell| = 3.91e-14
+X =   8: M1 = (0.952341202764 + 0.552041197956j), |M1 - Mordell| = 3.45e-14;   M0 = (1.34959242741 + 0.365549412765j), |M0 - Mordell| = 4.92e-14
+X =  20: M1 = (1.34194590542 + 0.557078930423j), |M1 - Mordell| = 7.13e-13;   M0 = (1.59280652753 + 0.354254139796j), |M0 - Mordell| = 8.57e-13
+X =  40: M1 = (1.61707846013 + 0.478346365388j), |M1 - Mordell| = 4.06e-12;   M0 = (1.76321692508 + 0.300631540363j), |M0 - Mordell| = 4.47e-12
+
