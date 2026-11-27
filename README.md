@@ -82,7 +82,7 @@ A one-page summary of the state of the ψ\* work, with a status table, is in [`d
 - **An independent reader** for the proofs in addenda v12, v14–v17 and v19–v21, and for the formulas of v18. The consolidated document `docs/psi-star-theorems-v1.md` is meant as the starting point (its §0.5 lists where to look first).
 - **From exact formulas to asymptotic laws:** the growing integral I((a−1)/b) for z ≠ −1, which would make the tetrahedron-volume rule of item 7 a theorem; radial limits at the other roots of unity e^{2πih/k}, h ≠ 1 (e^{2πi/X} is done, v20, v21); the converse and mirror laws of item 5; Borel summability in directions outside −120° … −80°, and the Stokes jump at arg t = −17.1°.
 - **The rest of the structure:** Theorem A of v12 for |q| > 1; the trivial sector for general z; the integral at z = 1 versus the Mordell integral in Watson's formulas; whether 𝒲(T; p) is an Appell–Lerch sum; the full 3×3 matrix (a matrix-valued quantum modular form with a Jacobi variable in the sense of Garoufalidis–Zagier).
-- **Smaller items:** a proof of (VII); W, W₃ and 𝒥 in their bounded directions; identities for the twist T₀\*; a proof of the F(z) threshold rule of item 10.
+- **Smaller items:** the root e^{2πi/3} (x = ⅓ lies outside the range of the bounds used in v20, v21) and the correction −2πi·s̄₁/X at roots of unity as a theorem; a proof of (VII); W, W₃ and 𝒥 in their bounded directions; identities for the twist T₀\*; a proof of the F(z) threshold rule of item 10.
 
 ## Related work
 
@@ -153,6 +153,7 @@ cd ../v18 && python3 check_saddle.py              # tetrahedron-volume rule with
 cd ../v19 && python3 check_thm68.py quick         # the forward law (Theorem 8) against the q-series
 cd ../v20 && python3 check_thm10.py               # the law at even roots of unity (Theorem 10)
 cd ../v21 && python3 check_thm12.py               # the law at odd roots of unity (Theorem 12)
+cd ../theorems && python3 assemble.py --check     # docs/psi-star-theorems-v1.md is current with the addenda
 ```
 
 Each `psi_star/vN/` folder has the scripts of `docs/addendum-vN.md` with a `README.md` and `run_log.txt`, plus the independent `check_*.py` scripts.
