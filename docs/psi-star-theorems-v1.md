@@ -4,7 +4,7 @@ Consolidated from addenda v2–v4, v12, v14–v17, v19–v21 of this repository 
 
 **Status.** Every proof below was written by one AI model. The numerical statements were rechecked by a second model with separate code (`psi_star/v*/check_*.py`). The analytic estimates have not been checked line by line by anyone, and no mathematician has refereed them. "Proved" in this document means: a complete argument is written here. §0.5 lists where I think a referee should look first.
 
-**What this document is.** §0 states the results once, in one notation, and gives the map of the proof. Parts 1–7 and the appendix are the proofs, taken unchanged from the addenda and put in logical order (headings demoted, nothing else edited). The addenda keep their theorem numbers, so "Theorem 6" means the same here and there. Part 1 (from v12) uses a few symbols differently from the rest; §0.6 has the concordance. Numerical checks are not repeated here; each addendum has its table and its scripts.
+**What this document is.** §0 states the results once, in one notation, and gives the map of the proof. Parts 1–7 and the appendix are the proofs, taken unchanged from the addenda and put in logical order (headings demoted and prefixed with their source, e.g. "[v21 §2]", nothing else edited; references such as "§4" inside a section mean that section of the same addendum). The addenda keep their theorem numbers, so "Theorem 6" means the same here and there. Part 1 (from v12) uses a few symbols differently from the rest; §0.6 has the concordance. Numerical checks are not repeated here; each addendum has its table and its scripts.
 
 ---
 
@@ -129,7 +129,7 @@ Local notation: see §0.6. Statements in §1, proofs in §2–§5.
 
 *From `docs/addendum-v12.md`, §1–§5; text unchanged.*
 
-### 1. Notation and statements
+### [v12 §1] Notation and statements
 
 x in the upper half-plane, b = √x with β = arg b ∈ (0, π/2); q = e^{2πix}, p = e^{−πi/x}, q̃ = p²; c_b = i(b + 1/b)/2. For a point y write ξ = y/b, v = e^{2πby} = e^{2πxξ}, w = e^{2πy/b} = e^{2πξ}. As in v7,
 
@@ -185,7 +185,7 @@ All of §1 is **proved** (§2–§5) and **verified** (§6).
 
 ---
 
-### 2. Proof of Theorem A
+### [v12 §2] Proof of Theorem A
 
 **Bounds for 1/Φ_b.** Two forms are used.
 
@@ -210,7 +210,7 @@ Remark. Subtracting the two routes shows that neither one-sided sum alone is the
 
 ---
 
-### 3. Proof of Theorem B
+### [v12 §3] Proof of Theorem B
 
 **(B1).** From Φ_b(y + i/b) = Φ_b(y)/(1 + p^{−1}w) one gets g_u(y + i/b) = p^{−1}·e^{2πiu/b}·w·(1 + p^{−1}w)·g_u(y). There is no pole between L and L + i/b and the decay is Gaussian in the strip, so ∫_L g_u(y + i/b) dy = I(u); and w·g_u = g_{u+1/b}. The second relation follows in the same way from Φ_b(y + ib) = Φ_b(y)/(1 + q^{1/2}v). ∎
 
@@ -230,11 +230,11 @@ So W, W₃, F_a, F_b are the four generating sums of one three-term recursion, r
 
 ---
 
-### 4. Proof of Theorem C
+### [v12 §4] Proof of Theorem C
 
 The integral I(u) cannot be closed in either half-plane (see the remark after the closing lemma). The integral of v7 can, and I(u) is a Fourier transform away from it.
 
-#### 4.1 Closing lemma (this also completes v7)
+#### [v12 §4.1] Closing lemma (this also completes v7)
 
 Let C be the contour of v7 with both angles equal to δ: from ∞·e^{i(π−δ)} through 0 to ∞·e^{iδ}. Consider ∫_C Φ_b(y)·e^{−Aπi·y² + 2πλy} dy with A = ½ (any λ), or with A = 0 and 2πλ = 2πi·w where Im(w·e^{−iδ}) < 0 and Re(w·b) > 0.
 
@@ -258,7 +258,7 @@ These are the classical Fourier transform formulas for the quantum dilogarithm (
 
 Remark. The estimate needs A < 1 for Φ_b·e^{−Aπiy²}. (As far as I remember, without having re-read it, this is the condition B > A of Garoufalidis–Kashaev for B = 1.) I(u) is, by (2.2), an integral of Φ_b·e^{−2πiy²}, so A = 2: it cannot be closed, which is why v11 found that "closing naively" fails and why step (C) needs a different tool.
 
-#### 4.2 Two Gaussian linearisations
+#### [v12 §4.2] Two Gaussian linearisations
 
 Let Σ_η = {e^{iδ}(ρ − iη) : ρ ∈ ℝ} with η > 0 large, and K(λ) = ∫ Φ_b(z)·e^{πi·z² + 2πλz} dz over any line of direction e^{iδ} below all poles of Φ_b (left end in the left sector at angle π + δ, right end at angle δ; both are directions of Gaussian decay).
 
@@ -282,7 +282,7 @@ because for v = u/2 + i·c_b/2 one has Z = e^{πiub}, Z̃ = −p·e^{πiu/b}, wh
 
 ---
 
-### 5. The corollary, and consistency
+### [v12 §5] The corollary, and consistency
 
 - **ψ₁\*.** (A↑) at u = 1/(2b): e^{πiub} = i, e^{2πiub} = −1, so the residue term is ψ₁\*/P. By (B3) and Theorem C the dual sum is c·p^{1/8}·[𝓑₂·p·W₃ − 𝓑₄·W] = (κ/(2P))·[…]. This is the identity of v11. ∎
 - **f₁\*.** (A↓) at the same u: residue term f₁\*/(2P), dual sum (κ/(2P))·[𝓑₂F_b − 𝓑₄F_a].
@@ -298,7 +298,7 @@ Lemma Φ and the strip lemmas S, F, D (v16), then the bounds in the form used fo
 
 *From `docs/addendum-v16.md`, §1–§3; text unchanged.*
 
-### 1. Φ_b by Faddeev's integral
+### [v16 §1] Φ_b by Faddeev's integral
 
 For Re b > 0 and |Im z| < Re(b + 1/b)/2 let
 
@@ -329,7 +329,7 @@ and the inversion relation reads Λ(w) + Λ(−w) = −t/24 + π²/(6t) + w²/(2
 
 ---
 
-### 2. Two uniform lemmas in the strip
+### [v16 §2] Two uniform lemmas in the strip
 
 Throughout: |arg x| ≤ 60° and |x| ≤ ¼. Constants do not depend on x in this set; in particular they do not depend on whether x is real.
 
@@ -358,7 +358,7 @@ Numerically the supremum of the left side times e^{−Re w/2} is 0.347 (attained
 
 ---
 
-### 3. The contour
+### [v16 §3] The contour
 
 Take the contour of v15 with δ = 10°, for |β| ≤ 30° (−150° ≤ θ ≤ −30°): w = ±ρ·e^{iα}, α = β − 10° ∈ [−40°, 20°], γ = β + 10° ∈ [−20°, 40°].
 
@@ -383,7 +383,7 @@ For real x this is easy to see directly: |p| = 1, and the factors are 1 + (a num
 
 *From `docs/addendum-v19.md`, §2; text unchanged.*
 
-### 2. Bounds for Φ_b (from v16)
+### [v19 §2] Bounds for Φ_b (from v16)
 
 **Lemma B.** For 0 ≤ arg x ≤ 60°, |x| ≤ ¼, with constants independent of x:
 
@@ -410,9 +410,9 @@ The contour angle is δ = 10° from here on.
 
 *From `docs/addendum-v15.md`, §1; text unchanged.*
 
-### 1. The descent inequality
+### [v15 §1] The descent inequality
 
-#### 1.1 Setting
+#### [v15 §1.1] Setting
 
 t = |t|·e^{iθ} with −270° < θ < 90°, β = (θ + 90°)/2 = arg b. A contour angle δ is admissible if 0 < δ < 90° − |β|. Put α = β − δ and γ = β + δ; both lie in (−90°, 90°). The contour is s = r·e^{−iγ} (r real), and
 
@@ -428,7 +428,7 @@ So w runs over the line e^{iα}·ℝ; the right half of the contour (r > 0) has 
 
 The first term comes from the Gaussian and the quantum dilogarithm, the second from the kernel, |1/(2cosh πs)| ≈ e^{−π|Re s|}.
 
-#### 1.2 Proposition 1
+#### [v15 §1.2] Proposition 1
 
 Let ℓ = X + i·Y be
 
@@ -466,7 +466,7 @@ Needed later: Lemma 3′ (away from the real x-axis) and the first bullet of the
 
 *From `docs/addendum-v14.md`, §2.1–§2.3 (contour, Euler–Maclaurin lemma, second form of the integrand); text unchanged.*
 
-#### 2.1 The contour and the integrand
+#### [v14 §2.1] The contour and the integrand
 
 In the sector, 0 < β < 45°, so δ = β is an admissible angle for the line L = e^{−iδ}·ℝ of v12 (the condition there is 0 < δ < 90° − β). J does not depend on the admissible δ: turning L keeps both ends in directions of Gaussian decay and crosses no pole.
 
@@ -478,7 +478,7 @@ On this L write y = b·s and s = −i·τ/t. Then τ = i·t·s runs over the rea
 
 Two facts about the geometry, both from θ < 0: Re s = τ·|sin θ|/|t| and Im s = −τ·cos θ/|t|. For the ψ₀\* integral the integrand has the extra factor e^{τ} and the prefactor is e^{t/8 − t/2}.
 
-#### 2.2 Lemma 1 (Euler–Maclaurin with remainder)
+#### [v14 §2.2] Lemma 1 (Euler–Maclaurin with remainder)
 
 Let u ∈ ℂ with 1 + u·e^{−ty} in the right half-plane or in the disk |z − 1| ≤ 1 − d for all y ≥ 0 (some d > 0), and let F(y) = log(1 + u·e^{−ty}) with the principal logarithm. Then for a ∈ (0, 1] and K ≥ 1
 
@@ -496,7 +496,7 @@ Proof. Euler–Maclaurin with offset a: the sum is ∫₀^∞ F − Σ_{k≤K} B
 
 uniformly in τ ≤ τ₁ and in the sector. (Apply the lemma with K + 1; c₁ = −½·ln 2.)
 
-#### 2.3 Lemma 2 (the other form of the integrand)
+#### [v14 §2.3] Lemma 2 (the other form of the integrand)
 
 For all τ,
 
@@ -508,9 +508,9 @@ By Lemma 1 with u = e^{−τ} (τ ≥ 0, so again d ≥ d₀), the logarithm of 
 
 *From `docs/addendum-v15.md`, §2 up to Lemma 3′; text unchanged.*
 
-### 2. Theorem 2
+### [v15 §2] Theorem 2
 
-#### 2.1 Statement
+#### [v15 §2.1] Statement
 
 For Im x < 0 (|q| > 1) let Φ_b := Φ_{1/b}, with the right side given by the product formula of v12 (legitimate, because Im(1/b²) > 0). Explicitly, with t₁ = t for Re t > 0 and t₁ = −t for Re t < 0, q₁ = e^{−t₁}, p₁ = e^{−2π²/t₁}, w′ = e^{2πs}:
 
@@ -530,7 +530,7 @@ and the same for the ψ₀\* version with its coefficients.
 
 In terms of x: ε ≤ arg x ≤ 100° and −120° ≤ arg x ≤ −ε.
 
-#### 2.2 Proof
+#### [v15 §2.2] Proof
 
 The contour is that of §1 with δ = 10° (admissible because |β| ≤ 60°; for Im x > 0 the integral does not depend on the admissible δ, v14 §2.1). The proof follows v14 §2 step by step; I state each lemma in the form needed now and give only what changes.
 
@@ -565,7 +565,7 @@ Proof. Lemma 2′ with K = 1 gives |C₀·e^{−w²/(2t)}/Φ_b| ≤ C·exp(Re(G(
 
 *From `docs/addendum-v16.md`, §4; text unchanged.*
 
-### 4. Theorem 3
+### [v16 §4] Theorem 3
 
 **Theorem 3.** Let P·J = e^{t/8}·∫ H ds with H = C₀·e^{−w²/(2t)}/(Φ_b(b·s)·2·cosh πs), C₀ = 2^{−1/2}·e^{π²/(12t) + t/24}, over the contour of §3, and Φ_b as in §1. For every K there are C and t₀ > 0 such that for −150° ≤ θ ≤ −30° and |t| ≤ t₀
 
@@ -595,7 +595,7 @@ The coefficients called ãₖ in the proof of Theorem 4 are the aₖ of §0.1, b
 
 *From `docs/addendum-v17.md`, §1–§5; text unchanged.*
 
-### 1. The shift identity
+### [v17 §1] The shift identity
 
 Notation as in v16 §4: t in the sector 𝕊 = {−210° ≤ θ ≤ 10°, 0 < |t| ≤ t₀}, θ = arg t, β = (θ + 90°)/2, contour Γ: s = r·e^{−iγ}, r ∈ ℝ, with γ = β + 10°, so w = i·t·s = ±ρ·e^{iα}, α = β − 10°, ρ = |t|·|s|. On 𝕊: α ∈ [−70°, 40°], γ ∈ [−50°, 60°].
 
@@ -625,7 +625,7 @@ Numerically (§6): the two sides agree to 10⁻¹³ for N = 1, 2, 5 at real x an
 
 ---
 
-### 2. The size of D_N
+### [v17 §2] The size of D_N
 
 **Lemma G.** Let c₃ = 2·e^{−1/2}·sin(½) = 0.5816 and L = 2 + 1/c₃ = 3.7195. If every point of the segment [0, ω] has distance ≥ 1 from all points i·π·(2m + 1), then
 
@@ -661,7 +661,7 @@ Numerically the decay is like 2^{−N}, and it continues far beyond N = 0.04/|t|
 
 ---
 
-### 3. The residues as functions of t
+### [v17 §3] The residues as functions of t
 
 **Lemma T.** Let c = 0.3, m_c = 1 + e^{−c}·cos c = 1.7077, λ = e^{c}/m_c = 0.7904. Then τₙ is analytic for |t| < π/n and
 
@@ -677,7 +677,7 @@ Consequently ãₖ := Σ_{n≥0} (−1)ⁿ·τ_{n,k} converges absolutely, and w
 
 ---
 
-### 4. Theorem 4
+### [v17 §4] Theorem 4
 
 **Theorem 4.** Let t₀ ≤ 0.01 be such that the uniform bound of v15/v16 holds on 𝕊. There is A such that for all t ∈ 𝕊 and all K ≥ 0
 
@@ -703,9 +703,9 @@ Remarks.
 
 ---
 
-### 5. Theorem 5: Borel summability
+### [v17 §5] Theorem 5: Borel summability
 
-#### 5.1 Statement and proof
+#### [v17 §5.1] Statement and proof
 
 **Theorem (Nevanlinna; Sokal 1980; quoted).** Let f be analytic in the disc C_R = {z : Re(1/z) > 1/R} and suppose f(z) = Σ_{k<K} cₖzᵏ + R_K(z) with |R_K(z)| ≤ A·σᴷ·K!·|z|ᴷ for all K ≥ 0 and all z ∈ C_R. Then B(ζ) = Σ cₖζᵏ/k! converges for |ζ| < 1/σ, continues analytically to the strip {ζ : dist(ζ, ℝ₊) < 1/σ}, is bounded there by a constant times e^{|ζ|/R} (on every narrower strip), and f(z) = (1/z)·∫₀^∞ e^{−ζ/z}·B(ζ) dζ for z ∈ C_R.
 
@@ -722,7 +722,7 @@ Proof. Fix θ₀ and put f(z) = P·J(e^{iθ₀}·z). For z ∈ C_R: |z| < R and 
 
 The union of the discs in (ii) contains every t with −210° < arg t < 10° and |t| < R·cos(dist(arg t, [−120°, −80°])).
 
-#### 5.2 What this says about the earlier formulas
+#### [v17 §5.2] What this says about the earlier formulas
 
 - **|q| < 1 (proved).** For Im x > 0, −90° < arg t < 10° and t in a disc of (ii), the Corollary of v12 becomes
 
@@ -742,7 +742,7 @@ Lemmas B and L are in Part 2.
 
 *From `docs/addendum-v19.md`, §1; text unchanged.*
 
-### 1. Setting
+### [v19 §1] Setting
 
 x → 0 with 0 ≤ arg x ≤ 60°, |x| ≤ ¼; t = −2πix, so arg t = −90° + ε with ε = arg x, τ = tan ε. Φ_b is Faddeev's integral (v16 §1); for real x > 0 the state integrals are defined with it. As in v18, with w = 2π·b·y and u = a′/b:
 
@@ -754,7 +754,7 @@ V′(w) = −w − 2πi·a′ − log(1 + e^{w}), V″(w) = −(1 + 2e^{w})/(1 +
 
 *From `docs/addendum-v19.md`, §3–§6; text unchanged.*
 
-### 3. Statement for the integrals
+### [v19 §3] Statement for the integrals
 
 **Theorem 6.** Uniformly for |x| → 0:
 
@@ -771,7 +771,7 @@ with the principal root. For a = ½ one can take ε = 60°.
 
 ---
 
-### 4. The decaying integrals (proof of Theorem 7 and of the first half of Theorem 6)
+### [v19 §4] The decaying integrals (proof of Theorem 7 and of the first half of Theorem 6)
 
 a′ = a ∈ (0, 1). Write η₁ = Im w₁ = arg W ∈ (−π, 0), r₁ = Re w₁.
 
@@ -787,7 +787,7 @@ The two valley conditions used above, −2πa < η₁ < −πa, are automatic: t
 
 ---
 
-### 5. The growing integrals at z = −1 (proof of the second half of Theorem 6)
+### [v19 §5] The growing integrals at z = −1 (proof of the second half of Theorem 6)
 
 a′ = −½: V(w) = −w²/2 + iπw + Li₂(−e^{w}), saddle w₀ = 2πi/3 (W = e^{2πi/3}), V(w₀) = −5π²/12 − i·Cl₂, H_τ(w₀) = Cl₂ − τ·5π²/12 ≥ 0.19 for τ ≤ 0.2.
 
@@ -815,9 +815,9 @@ Remark. Along the imaginary axis the two saddles are the minimum and the maximum
 
 ---
 
-### 6. Consequences
+### [v19 §6] Consequences
 
-#### 6.1 Theorem 8: the forward laws (proved)
+#### [v19 §6.1] Theorem 8: the forward laws (proved)
 
 By v12, ψ₁\* = P·J(1/(2b)) + P·I(1/(2b))·p·W₃(p) − P·I(−1/(2b))·W(p) (since (κ/2)·𝓑 = P·I), with P = 2^{−1/2}·e^{π²/(12t) + t/6}/b. With Theorem 6 and 1/x = −2πi/t:
 
@@ -834,11 +834,11 @@ The first exponential grows, the second decays; each O(t) is a factor of an exac
 
 (For ψ₀\*: q^{1/2}·P·I(b ± 1/(2b)) = e^{∓2πi/3}·P·I(±1/(2b))·(1 + O(t)), and e^{∓2πi/3}·e^{∓5πi/12} = −e^{∓iπ/12}.)
 
-#### 6.2 What remains exact and what is asymptotic
+#### [v19 §6.2] What remains exact and what is asymptotic
 
 The formulas of v12 are exact. Theorem 8 replaces the three coefficient functions by their leading behaviour. On a horocycle (p fixed) it gives the two-term law of v5 with relative error O(t) in each sector; radially (p → 0) it gives ψ₁\* = 𝒮 + A·e^{5πi/12}·t^{−1/2}·e^{−S̄/t}·(1 + O(t)).
 
-#### 6.3 The z-family
+#### [v19 §6.3] The z-family
 
 - Decaying sector: Theorem 7, all 0 < a < 1.
 - Growing sector for a ≠ ½: not proved. The vertical line through the saddle is again the local descent path (d/dη Im V = −r₀ − ln|1 + e^{r₀+iη}| is monotone in η ∈ (0, π)), and the real axis works on the right (Im V = 2π|a′|·r). The left part needs a case analysis in a, because the left valley starts at Im w > 2π|a′|, which is above the strip for |a′| > ½, and the saddle is not on the imaginary axis.
@@ -852,7 +852,7 @@ The formulas of v12 are exact. Theorem 8 replaces the three coefficient function
 
 *From `docs/addendum-v20.md`, §1–§3 (even X); text unchanged.*
 
-### 1. Three lemmas
+### [v20 §1] Three lemmas
 
 Throughout X = 2M is even, q₀ = e^{2πi/X}, so q₀^M = −1.
 
@@ -881,7 +881,7 @@ Proof. Φ_b(y) is analytic in (b, y) off its poles and zeros, and the zeros stay
 
 ---
 
-### 2. Theorem 9
+### [v20 §2] Theorem 9
 
 **Theorem 9.** For even X ≥ 4 the two identities of the summary hold.
 
@@ -900,7 +900,7 @@ Remarks.
 
 ---
 
-### 3. Theorem 10
+### [v20 §3] Theorem 10
 
 **Theorem 10.** As X → ∞ through even integers, the two asymptotic formulas of the summary hold.
 
@@ -920,7 +920,7 @@ Both have the growth rate Cl₂(π/3)/2π per unit of X and the torsion factor 3
 
 *From `docs/addendum-v21.md`, §1–§3 (odd X); text unchanged.*
 
-### 1. The dual series at p = −1
+### [v21 §1] The dual series at p = −1
 
 For Im x > 0 let p = e^{−πi/x}. With x = 1/X + iε, X odd, ε → 0⁺ (v20 §1): p = −ρ·e^{iφ} with ρ = exp(−πεX²/(1 + ε²X²)) and φ = πε²X³/(1 + ε²X²). Put δ = 1 − ρ. Then δ → 0 and 0 < φ ≤ δ² for small ε (φ/δ² → 1/(πX)).
 
@@ -939,7 +939,7 @@ Proof.
 
 ---
 
-### 2. Theorem 11
+### [v21 §2] Theorem 11
 
 **Theorem 11.** For odd X ≥ 5 the identity of the summary holds, and likewise
 
@@ -951,7 +951,7 @@ Equivalently A = P·[3·J(1/(2b)) − I(1/(2b)) − I(−1/(2b))]: at odd order 
 
 ---
 
-### 3. Theorem 12
+### [v21 §3] Theorem 12
 
 **Theorem 12.** As X → ∞ through odd integers, the asymptotic formulas of the summary hold for the radial limits A/3 and A₀/3.
 
@@ -965,7 +965,7 @@ Used in Part 7: identity (II) (and (I)) in the odd-root rule, and identities (V)
 
 *From `docs/addendum-v2.md`, §2; text unchanged.*
 
-### 2. New identities for ψ₀\*, ψ₁\*
+### [v2 §2] New identities for ψ₀\*, ψ₁\*
 
 Notation:
 - f₀\*(q) = Σ (−1)ⁿ q^{n²}/(−q;q)ₙ, f₁\*(q) = Σ (−1)ⁿ q^{n²+n}/(−q;q)ₙ (sign-twisted fifth-order f₀, f₁)
@@ -994,7 +994,7 @@ Equivalently (−q)∞·ψ₁\* = Σ_{j≥m≥0} (−1)^{m+j} q^{m²+j²+j}/(q)�
 
 *From `docs/addendum-v3.md`, §1; text unchanged.*
 
-### 1. The odd-root rule (question 3): proved
+### [v3 §1] The odd-root rule (question 3): proved
 
 **Theorem.** Let ζ be a primitive m-th root of unity, m odd. Then
 
@@ -1035,7 +1035,7 @@ So Abel summation with ratio −2 gives the right value because the series f₁\
 
 *From `docs/addendum-v4.md`, §1; text unchanged.*
 
-### 1. The family G(z), the companion W₃, identities (V) and (VI)
+### [v4 §1] The family G(z), the companion W₃, identities (V) and (VI)
 
 Define, for |q| < 1,
 
