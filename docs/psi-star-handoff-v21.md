@@ -1,4 +1,4 @@
-# Handoff: ψ\* modularity project (state after addendum v22; the file keeps its name because other documents refer to it)
+# Handoff: ψ\* modularity project (state after addendum v23; the file keeps its name because other documents refer to it)
 
 Prepared 26 Nov 2026 for a fresh session; updated after addenda v12–v21 (26–27 Nov). Project owner: Mario Klingemann. Public repo with the earlier material: https://github.com/Quasimondo/mock-theta-census (`docs/addendum-v2.md`, `docs/twists.md`, `census3/`).
 
@@ -20,6 +20,8 @@ The theorems and their proofs in logical order are collected in `docs/psi-star-t
 is proved, together with its analogues for ψ₀\*, f₁\*, f₀\* and a general-u version (Theorems A, B, C of v12). Mechanism: residues at the kernel poles on one side give the one-sided sum; on the moved contour the kernel is a geometric series, whose terms I(u ∓ m/b) (kernel-free integrals) obey a three-term recursion that sums to W, W₃ (or F_a, F_b); and I(u) is the integral of v7 after two Fourier transforms of Φ_b. v7's contour closing is justified in v12 §4.1.
 
 **v22 (27 Nov):** the growing state integral I((a−1)/b) has its saddle-point asymptotics for every 0 < a < 1 at real x and in a small sector (Theorem 13; contour: ray Im w = 2π, imaginary axis from 2πi to iπ, top edge of the strip, vertical line through the saddle w₀ = Log W, real axis; Im V on these is 2πa·|Re w|, Cl₂(Im w − π), linear, monotone, linear). At even roots of unity F(z; e^{2πi/X}) = i·P·e^{−πia}·[J(a/b) − I((a−1)/b) + z^X·I(a/b)] exactly (Theorem 14). Missing for the volume rule as a theorem: a bound for J(a/b) at real x for a ≠ ½ (descent inequality of v15 with the kernel e^{2πas}/(1 + e^{2πs})). A horizontal ray through the growing saddle does not work: the height at real x is −Im V, which has a minimum at the saddle along that line (v22 §5).
+
+**v23 (27 Nov):** the bound that v22 left open needs no descent inequality. For real b and real y, |Φ_b(y)| = 1 (Faddeev's integrand f satisfies conj f(ξ) = −f(−ξ̄)); at real b the contour L of J can be turned onto the real line; so |P·J(a/b)| ≤ 1/(2√2·sin πa) at real x for every 0 < a < 1 (Lemma J). With Theorems 7, 13, 14 this proves the tetrahedron-volume rule at even roots of unity for every z = e^{2πia}, 0 < a < 1, with constant and phase (Theorem 15). For a = ½ Lemma J replaces the use of v16 Theorem 3 in Theorems 10 and 12. Open: odd X for z ≠ −1 (dual series 𝒲(T) as p → −1), the expansion of P·J(a/b) for a ≠ ½.
 
 **Next tasks (1 and 2 are done: v17 for the Borel directions −120° … −80°, v19–v21 for the forward laws; what is left of each is listed in the item; 3 and 4 are open):**
 
