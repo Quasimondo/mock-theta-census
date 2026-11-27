@@ -18,5 +18,13 @@ F(z) = Σ zⁿ q^{n(n+1)/2} (−q;q)ₙ, z = e^{2πia}; ψ₁ = F(1) (mock theta
 | 1 | 0 | 0 (real shape, golden ratio) |
 
 Reading (inference): z deforms the tetrahedron; the mock theta function ψ₁ is the degenerate, zero-volume member.
-Only growth rates are tested; whether F(i), F(ω), F(−ω) have the full structure of ψ₁* (dual sum, state integrals,
-three sectors) is open. The branch of the saddle that dominates is identified numerically, not derived.
+**Correction (27 Nov 2026, from `docs/addendum-v18.md` §2.4, rechecked):** `branches.py` selects the saddle only by matching
+|Im V| to the measured rate, and that cannot distinguish the two roots of w² + w = 1/z (D(−W₂) = −D(−W₁)). For z = −1, i, −ω
+it picks the lower root, for z = ω the upper one, and the candidates it lists are not all critical points. The rates,
+volumes and tetrahedron shapes in the table are correct (the shapes of the two roots are equivalent: −W of one root is
+1 + W of the other), but the saddle identification is not. The correct rule, fixed by the full complex asymptotics
+(phase and constant), is the root W with Im W > 0, w = Log W, on the branch k = −1 of addendum-v18.
+
+Only growth rates are tested here. `docs/addendum-v18.md` answers the follow-up: F(z) has the full structure of ψ₁*
+(exact formula with state integrals and dual series 𝒲, three sectors) for every z, and the selected saddle is the root
+W with Im W > 0, w = Log W (verified to 10⁻²⁶ … 10⁻³⁶ including the constant; not yet proved).
