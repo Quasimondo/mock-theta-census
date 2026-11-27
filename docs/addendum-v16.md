@@ -6,6 +6,8 @@ Session of 27 Nov 2026 (Claude Fable 5.2 with Mario Klingemann). Items 1 and 2 o
 
 Labels: **proved** (a complete argument is written here; nobody else has checked it), **verified** (numerics), **inference**.
 
+**Later remarks:** `addendum-v26.md` §1 (the proof of analyticity in §4, written in the variable y), §4 (the numerical remark after Lemma F holds near real x only), §5 (the constants, measured).
+
 ---
 
 ## 0. Summary

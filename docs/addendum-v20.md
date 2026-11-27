@@ -6,6 +6,8 @@ Session of 27 Nov 2026 (Claude Fable 5.2 with Mario Klingemann). Item 2 of `psi-
 
 Labels: **proved** (a complete argument is written here or in the addenda cited; nobody else has checked it), **verified** (numerics), **quoted**.
 
+**Later remarks:** `addendum-v25.md` (Lemma R3 and Theorem 9 for x₀ ≤ 1, X ≥ 2); `addendum-v26.md` §4 (the bracket in Lemma R2).
+
 ---
 
 ## 0. Summary

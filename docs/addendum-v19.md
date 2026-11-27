@@ -6,6 +6,8 @@ Session of 27 Nov 2026 (Claude Fable 5.2 with Mario Klingemann). The main gap na
 
 Labels: **proved** (a complete argument is written here or in the addenda cited; nobody else has checked it), **verified** (numerics), **inference**.
 
+**Later remarks:** `addendum-v26.md` §2 (Lemma L holds for |t| ≤ t₁; the integrals with the factor e^{w} on the descent contours at real x), §3 (Theorem 7 holds for 0 ≤ arg x ≤ 60° for every a).
+
 ---
 
 ## 0. Summary

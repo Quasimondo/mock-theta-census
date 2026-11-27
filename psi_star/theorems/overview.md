@@ -1,6 +1,6 @@
 # ψ₁\*, ψ₀\*: the theorems and their proofs in one place (v1)
 
-Consolidated from addenda v2–v4, v12, v14–v17, v19–v21, v25, v26 of this repository (27 Nov 2026). Written by Claude Fable 5.2 with Mario Klingemann.
+Consolidated from addenda v2–v4, v12, v14–v17, v19–v21, v25, v26, v27 of this repository (27 Nov 2026). Written by Claude Fable 5.2 with Mario Klingemann.
 
 **Status.** Every proof below was written by one AI model. The numerical statements were rechecked by a second model with separate code (`psi_star/v*/check_*.py`). A numerical stress test of the displayed inequalities and constants by the second model (`docs/psi-star-stress-test-v1.md`) found no violation; its findings are answered in addendum v26, included below. The analytic estimates have not been checked line by line by anyone, and no mathematician has refereed them. "Proved" in this document means: a complete argument is written here. §0.5 lists where I think a referee should look first.
 
@@ -85,7 +85,7 @@ Only the uniform bound of Part 4 and Part 2 are used from the "asymptotic expans
 
 A numerical stress test of every displayed inequality, identity and uniform constant (`docs/psi-star-stress-test-v1.md`, Claude Opus 5.5, 27 Nov 2026) found no violation. Its findings were places where a statement was incomplete; they are answered in addendum v26, which is included below (in Parts 4 and 6 and in the last part). The list, with what the stress test and v26 changed:
 
-1. **Part 1, §4** (Theorem C): two applications of Fubini with complex Gaussians, and the normalisation of the Fourier transform of Φ_b, which was not compared with the literature. (Tested numerically; the closing lemma of v12 §4.1 was not tested.)
+1. **Part 1, §4** (Theorem C): two applications of Fubini with complex Gaussians, and the normalisation of the Fourier transform of Φ_b, which was not compared with the literature. (Tested numerically in both rounds; in the closing lemma of v12 §4.1 the constant c is the exact leading constant, and its remark on the factor is reworded in [v27 §4].)
 2. **Part 3** (Proposition 1): the exact formulas for ψ/ρ and the bounds for X, Y. Everything after it rests on κ ≥ 0.185. (The measured rate is ≥ 0.97; the constant 0.185 is sharp at θ = 10° by construction.)
 3. **Part 4**: the Euler–Maclaurin remainder (v14 Lemma 1) for complex step, and the constants "uniform on the sector" C, t₀. (Now measured: C = 0.60 for |t| ≤ 0.4; see [v26 §5]. The proof of analyticity is restated in [v26 §1].)
 4. **Part 2, Lemma F**: the contour shift to Im σ = ½ and the bound for r₁ there; Lemma D's margin. (The numerical remark after Lemma F is corrected in [v26 §4].)
@@ -94,7 +94,7 @@ A numerical stress test of every displayed inequality, identity and uniform cons
 7. **Part 7**: Lemma R3 is brief; its range is extended to x₀ ≤ 1 in [v25 §1], which removes the edge case X = 4 and the restriction X ≥ 4, X ≥ 5.
 8. **Appendix**: the odd-root rule uses identity (II) of v2 and standard growth bounds for θ₄ and R₁.
 
-Not tested by the stress test: the closing lemma of v12 §4.1, Lemma L and Lemma E as separate statements, Theorem 8 as a whole (only its ingredients), and the quoted theorems.
+A second round (`docs/psi-star-stress-test-v2.md`) tested what the first had left: the closing lemma of v12 §4.1, Lemma L on a model, Theorem 8 as a whole for ψ₁\* (uniform up to |p| = 0.77), and the corrections of v26; again no violation. Still not tested: Lemma E as a separate statement, Theorem 8 for f₁\*, ψ₀\*, f₀\*, and the quoted theorems.
 
 ### 0.6 Concordance
 

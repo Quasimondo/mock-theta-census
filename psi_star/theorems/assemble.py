@@ -46,8 +46,9 @@ part("Part 7. Roots of unity (Theorem V)", "", [(20, "§1–§3 (even X)", r"^##
       (25, "§1 (X = 1, 2, 3)", r"^## 1\. ", r"^## 2\. ")])
 part("Appendix. Identities and the odd-root rule", "Used in Part 7: identity (II) (and (I)) in the odd-root rule, and identities (V), (VI) in Lemma R2′.",
      [(2, "§2", r"^## 2\. ", r"^## 3\. "), (3, "§1", r"^## 1\. ", r"^## 2\. "), (4, "§1", r"^## 1\. ", r"^## 2\. ")])
-part("Corrections and constants after the stress test", "From addendum v26, which answers `docs/psi-star-stress-test-v1.md`. Its §1 is in Part 4, its §2–§3 in Part 6.",
-     [(26, "§4–§5", r"^## 4\. ", r"^## 6\. ")])
+part("Corrections and constants after the stress test", "From addendum v26, which answers `docs/psi-star-stress-test-v1.md` (its §1 is in Part 4, its §2–§3 in Part 6), and from addendum v27, which answers the second round, `docs/psi-star-stress-test-v2.md` (its other sections concern the z-family, which is not part of this document).",
+     [(26, "§4–§5", r"^## 4\. ", r"^## 6\. "),
+      (27, "§4 (the remark in the closing lemma of v12)", r"^## 4\. ", r"^## 5\. ")])
 out = "\n".join(parts).rstrip() + "\n"
 if "--check" in sys.argv:
     same = os.path.exists(OUT) and open(OUT).read() == out

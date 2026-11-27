@@ -6,6 +6,8 @@ Session of 27 Nov 2026 (Claude Fable 5.2 with Mario Klingemann). The one bound l
 
 Labels: **proved** (a complete argument is written here or in the addenda cited; nobody else has checked it), **verified** (numerics).
 
+**Later remarks:** `addendum-v27.md` §1 (Theorem 15 with its error written out in κ = X·Vol/2π; it is not uniform near z = 1), §3 (Lemma J: the contour turn is pointwise in x; the lemma holds for x ≤ 1).
+
 ---
 
 ## 0. Summary

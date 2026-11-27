@@ -10,6 +10,8 @@ Scripts and output are in `psi_star/v12/`.
 
 Labels: **proved** (a complete argument is written in this addendum; nobody else has checked it), **verified** (numerics), **inference**. Every intermediate identity of the proof was also checked numerically (§6).
 
+**Later remarks:** `addendum-v26.md` §4 (the powers p^{n²/2} in Theorem C mean e^{−πin²/(2x)}); `addendum-v27.md` §4 (the remark on the factor in the closing lemma of §4.1, reworded).
+
 ---
 
 ## 0. Summary

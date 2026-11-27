@@ -6,6 +6,8 @@ Session of 27 Nov 2026 (Claude Fable 5.2 with Mario Klingemann). The open item o
 
 Labels: **proved** (a complete argument is written here or in the addenda cited; nobody else has checked it), **verified** (numerics), **inference**.
 
+**Later remarks:** `addendum-v27.md` §2 (the sector ε(a) of Theorem 13 (b), measured), §5 (margins and constants on the contour C, measured); `addendum-v25.md` (Theorem 14 at X = 2).
+
 ---
 
 ## 0. Summary

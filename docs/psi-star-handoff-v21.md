@@ -1,4 +1,4 @@
-# Handoff: ψ\* modularity project (state after addendum v26; the file keeps its name because other documents refer to it)
+# Handoff: ψ\* modularity project (state after addendum v27; the file keeps its name because other documents refer to it)
 
 Prepared 26 Nov 2026 for a fresh session; updated after addenda v12–v21 (26–27 Nov). Project owner: Mario Klingemann. Public repo with the earlier material: https://github.com/Quasimondo/mock-theta-census (`docs/addendum-v2.md`, `docs/twists.md`, `census3/`).
 
@@ -28,6 +28,8 @@ is proved, together with its analogues for ψ₀\*, f₁\*, f₀\* and a general
 **v25 (27 Nov):** the theorems at e^{2πi/X} (9, 11, 14) hold for X = 1, 2, 3 too: Lemma R3 (continuity of the integrals at real x) holds for 0 < x₀ ≤ 1, because Lemmas F and D of v16 need only Re(1/x) > ½, distance of πxσ from the poles of 1/sinh, and bounded |t| (Lemma R3′, Theorem 18). Examples: lim ψ₁\*(r) = ⅓ = P·[J(½) − ⅓I(½) − ⅓I(−½)] at b = 1; ψ₁\*(−1) = 1; lim ψ₁\*(rω) = 1, lim ψ₀\*(rω) = 0.
 
 **v26 (27 Nov):** answers the stress test (`docs/psi-star-stress-test-v1.md`: no violation; findings F1–F5). F3: analyticity of P·J is proved on the fixed line L = e^{−10°i}ℝ in the variable y (in s the contour turns with t). F2: Lemma L holds for |t| ≤ t₁; for the e^{w}-versions (ψ₀\*) the descent contours are admissible at real x only for |t| < π/3 (decaying) and |t| < π (growing); numerics at small X must use L. F4: Theorem 7 holds for 0 ≤ arg x ≤ 60° for every 0 < a < 1, because Re V is maximal at the saddle on the horizontal line (Lemma V: g(λ) = λ²|1 + λe^{iη₁}|² crosses 1 once). Smaller points: the remark after Lemma F is right only near real x (C₁ = 0.52 on the whole domain); p^{n²/2} in Theorem C means e^{−πin²/(2x)}. Measured constants: C_U = 0.60 (t₀ = 0.4), A = 0.37 for B = 240, true descent rate ≥ 0.97. The consolidated document includes v26 §1 (Part 4), §2–§3 (Part 6), §4–§5 (last part).
+
+**v27 (27 Nov):** answers the second stress test (`docs/psi-star-stress-test-v2.md`, v22–v26: no violation). Theorem 15′: F = Π(1 + ρ₁) + E_J + E_dec with |Π| = (X/2)^{1/2}|(1+W)/(1+2W)|^{1/2}e^{κ}, κ = X·Vol/2π, |E_J| ≤ 1/(2√2 sin πa), |E_dec|/|Π| = |W|e^{−2κ}(1 + O(1/X)); so the relative error is O(1/X) only for κ ≳ ½ ln X + ln(1/sin πa), and before that it is |W|e^{−2κ} (a = 0.001, X = 800: 599/X against the measured 650/X). Uniform constants as z → 1 are open (measured: |K(a)| ≤ 1.6). Theorem 13 (b): measured ε(a) is 20° at a = 0.3, 17° at ½, and ε/Vol ≈ 26° for a ≤ 0.3, 7°–10° for a ≥ 0.9. Lemma J: the contour turn is pointwise in x; the lemma holds for x ≤ 1. Theorem 17 holds on the unit circle for 0 < x ≤ 1 (Lemma R3′). The remark in the closing lemma of v12 is reworded. Addenda v12, v16, v19, v20, v22, v23, v24 carry a line "Later remarks" pointing to v25–v27.
 
 **Next tasks (1 and 2 are done: v17 for the Borel directions −120° … −80°, v19–v21 for the forward laws; what is left of each is listed in the item; 3 and 4 are open):**
 
