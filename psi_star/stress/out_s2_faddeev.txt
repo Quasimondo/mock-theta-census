@@ -1,0 +1,51 @@
+(f) accuracy of the double-precision Lambda (products, Faddeev) against mpmath (40 digits)
+   max |e^{Lambda - Lambda_ref} - 1|: products 2.1e-14, Faddeev 4.7e-11
+
+(a) Lemma Phi
+   Faddeev = product formula (Im x > 0) / Phi_{1/b} product (Im x < 0): 318 points, max |ratio - 1| = 5.4e-12
+   real x: functional eq. (b): 7.5e-13; (1/b) [integral vs functional equation, pi<Im w<pi(1+x)]: 7.3e-14; inversion: 1.4e-14; Phi_b(0)^2: 6.5e-12
+
+(b) Lemma S: sup |defect| / |t|^{2K-1};  defect = -Lambda - sum_{j<K} ...
+   K=2 eps1=1.571:  |t|=1.50:0.000652  |t|=0.80:0.00063  |t|=0.40:0.000614  |t|=0.20:0.000609  |t|=0.10:0.000608  |t|=0.05:0.000608   (worst at arg x=60, w=0.00-1.57i)
+   K=2 eps1=0.524:  |t|=1.50:0.0118  |t|=0.80:0.017  |t|=0.40:0.0179  |t|=0.20:0.0173  |t|=0.10:0.017  |t|=0.05:0.017   (worst at arg x=60, w=-0.00+2.62i)
+   K=2 eps1=0.100:  |t|=1.50:0.146  |t|=0.80:0.431  |t|=0.40:1.18  |t|=0.20:2.18  |t|=0.10:2.58  |t|=0.05:2.51   (worst at arg x=60, w=-0.01+3.04i)
+   K=3 eps1=1.571:  |t|=1.50:8.25e-05  |t|=0.80:8.59e-05  |t|=0.40:8.2e-05  |t|=0.20:8.06e-05  |t|=0.10:8.04e-05   (worst at arg x=60, w=0.00-1.57i)
+   K=3 eps1=0.524:  |t|=1.50:0.00665  |t|=0.80:0.0151  |t|=0.40:0.021  |t|=0.20:0.0205  |t|=0.10:0.0198   (worst at arg x=-60, w=-0.01-2.62i)
+   K=3 eps1=0.100:  |t|=1.50:1.09  |t|=0.80:3.86  |t|=0.40:14.6  |t|=0.20:44.3  |t|=0.10:77.9   (worst at arg x=-60, w=-0.02-3.04i)
+
+(c) Lemma F: sup |Lambda + Li2(-e^w)/t| e^{-Re w/2}, Re w <= 0, |Im w| <= pi
+   |t|=1.5708 (|x|=0.2500): sup = 0.51107 at arg x=60.0, w=-0.4411+3.1416i
+   |t|=1.0000 (|x|=0.1592): sup = 0.47853 at arg x=60.0, w=-0.2555+3.1416i
+   |t|=0.5000 (|x|=0.0796): sup = 0.45370 at arg x=60.0, w=-0.1161+3.1416i
+   |t|=0.2000 (|x|=0.0318): sup = 0.44028 at arg x=-60.0, w=-0.0436-3.1416i
+   |t|=0.1000 (|x|=0.0159): sup = 0.43603 at arg x=60.0, w=-0.0213+3.1416i
+   |t|=0.0500 (|x|=0.0080): sup = 0.43395 at arg x=60.0, w=-0.0105+3.1416i
+   |t|=0.0200 (|x|=0.0032): sup = 0.43272 at arg x=60.0, w=-0.0042+3.1416i
+   |t|=0.0100 (|x|=0.0016): sup = 0.43231 at arg x=60.0, w=-0.0021+3.1416i
+   overall sup = 0.51107  (doc: 0.347; note ln(2)/2 = 0.34657)
+   by direction (|t| = 0.01 and 1.5708):  -60: 0.4320/0.5105  -30: 0.3494/0.3663  -10: 0.3466/0.3537  0: 0.3466/0.3481  10: 0.3466/0.3537  30: 0.3494/0.3663  60: 0.4320/0.5105
+   beyond:  (|t|=1.57,arg x=75): 0.9519; (|t|=1.57,arg x=85: line Im sigma=1/2 not admissible) (|t|=0.10,arg x=80): 0.9499; (|t|=0.10,arg x=89): 2.9208; (|t|=2.50,arg x=0): 0.3505; (|t|=3.00,arg x=30): 0.3838; (|t|=0.10,arg x=-85): 1.5230;
+
+(d) Lemma D
+   min over |beta| <= 30 of cos(gamma) - |sin(alpha) sin(2 beta)| = 0.383022 at beta = -30.000 (claim >= 0.383)
+   min rho with N != 0 on the left half: pi/|sin alpha|max = 4.8875 (claim >= 4.88)
+   actual |E| = |Lambda(w) - Lambda(w - 2 pi i N)| on the left half (products, Im x != 0):
+   |t|=0.40: max |e^E - 1| = 1.50e-13  (theta=-150, rho=4.90, N=1);  |t| log(max) = -11.81
+   |t|=0.20: max |e^E - 1| = 2.22e-16  (theta=-120, rho=7.44, N=1);  |t| log(max) = -7.21
+   |t|=0.10: max |e^E - 1| = 2.23e-16  (theta=-140, rho=5.80, N=1);  |t| log(max) = -3.60
+   |t|=0.05: max |e^E - 1| = 2.29e-16  (theta=-150, rho=5.25, N=1);  |t| log(max) = -1.80
+
+(e) Lemma B, 0 <= arg x <= 60, |x| <= 1/4
+   (i) sup over the closed strip, all Re w, of log(1/|Phi_b|) - Re(Li2(-e^w)/t):
+      |t|=1.57: 0.4000; |t|=0.50: 0.3813; |t|=0.10: 0.3738; |t|=0.02: 0.3664;  => C = e^{0.4000}
+   (ii) sup |(1/Phi_b) e^{-Li2/t} - 1| / |t| on |Im w| <= pi - eps1:
+     eps1=0.524: |t|=1.57: 0.0903; |t|=0.50: 0.0861; |t|=0.10: 0.0836; |t|=0.02: 0.0834;
+     eps1=1.571: |t|=1.57: 0.0429; |t|=0.50: 0.0420; |t|=0.10: 0.0417; |t|=0.02: 0.0417;
+   (iii) ray w = i pi - rho e^{-i delta1}: sup of log(1/|Phi_b|) - Re(Li2/t) - N ln 2, N = 1 + rho/(2pi):
+     delta1=30: |t|=1.57: -0.1884; |t|=0.50: -0.0883; |t|=0.10: -0.0426; |t|=0.05: -0.0360;
+     delta1=60: |t|=1.57: -0.1919; |t|=0.50: -0.0913; |t|=0.10: -0.0433; |t|=0.05: -0.0364;
+     delta1=80: |t|=1.57: -0.1984; |t|=0.50: -0.0943; |t|=0.10: -0.0439; |t|=0.05: -0.0367;
+     without the 2^N factor (is it needed?): sup of log(1/|Phi_b|) - Re(Li2/t), delta1=30:
+       |t|=1.57: 0.6935; |t|=0.50: 0.6931; |t|=0.10: 0.6931; |t|=0.05: 0.6931;
+
+run time 198 s
