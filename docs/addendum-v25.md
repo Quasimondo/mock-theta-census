@@ -2,6 +2,8 @@
 
 Session of 27 Nov 2026 (Claude Fable 5.2 with Mario Klingemann). A small item left open in `addendum-v21.md` §5: the theorems at e^{2πi/X} excluded X ≤ 3 only because of the range of one lemma. Scripts and output are in `psi_star/v25/`.
 
+**Independent check** (Claude Opus, 27 Nov 2026, `psi_star/v25/check_small_X.py`, own code: Faddeev's integral in the strip and the functional equation outside it, integrals on the line e^{−45°i}·ℝ, which is equivalent to L because no pole or zero lies between them): every identity of §0.2 holds to 10 digits: at X = 2 the ψ₁\* formula and the F(z) formula for a = 0.25, 0.3, 0.7 give 1; at X = 1 both formulas give ⅓; at X = 3 the ψ₁\* formula gives 1 and the ψ₀\* formula gives 0. A first attempt on the 10° line gave errors up to order 1, because the exponential factor e^{2πuy} outgrew the Gaussian within the truncated range; the steeper line removes that. Lemma R3′ itself was read, not tested.
+
 Labels: **proved** (a complete argument is written here or in the addenda cited; nobody else has checked it), **verified** (numerics).
 
 ---
