@@ -58,8 +58,8 @@ and the corresponding formulas for f₁\*, ψ₀\*, f₀\* (Part 6, §6.1). Here
 
 **Theorem V (roots of unity; Part 7; v20, v21).** Let q₀ = e^{2πi/X}, x = 1/X, and let the integrals be taken with Faddeev's Φ_b at real b.
 
-- X ≥ 4 even: the finite sum ψ₁\*(q₀) = Σ_{n<X/2} (−1)ⁿ q₀^{n(n+1)/2} (−q₀;q₀)ₙ equals P·[J(1/(2b)) + I(1/(2b)) − I(−1/(2b))] (Theorem 9).
-- X ≥ 5 odd: lim_{r→1⁻} ψ₁\*(r·q₀) = A_X/3 = P·[J(1/(2b)) − ⅓·I(1/(2b)) − ⅓·I(−1/(2b))], with A_X the sum of the first X terms (Theorem 11; the first equality is the odd-root rule of v3).
+- X ≥ 2 even (X = 2 by Theorem 18 of v25): the finite sum ψ₁\*(q₀) = Σ_{n<X/2} (−1)ⁿ q₀^{n(n+1)/2} (−q₀;q₀)ₙ equals P·[J(1/(2b)) + I(1/(2b)) − I(−1/(2b))] (Theorem 9).
+- X ≥ 1 odd (X = 1, 3 by Theorem 18 of v25): lim_{r→1⁻} ψ₁\*(r·q₀) = A_X/3 = P·[J(1/(2b)) − ⅓·I(1/(2b)) − ⅓·I(−1/(2b))], with A_X the sum of the first X terms (Theorem 11; the first equality is the odd-root rule of v3).
 - As X → ∞: the radial value is w_X·3^{−1/4}·(X/2)^{1/2}·e^{Cl₂·X/2π}·e^{2πi/3 − iπX/6}·(1 + O(1/X)) with w_X = 1 for even X and ⅓ for odd X (Theorems 10, 12).
 - The same for ψ₀\* with the extra factor e^{2πi/3} in the asymptotics.
 
@@ -956,6 +956,29 @@ Equivalently A = P·[3·J(1/(2b)) − I(1/(2b)) − I(−1/(2b))]: at odd order 
 **Theorem 12.** As X → ∞ through odd integers, the asymptotic formulas of the summary hold for the radial limits A/3 and A₀/3.
 
 Proof. As for Theorem 10 of v20: −⅓·P·I(−1/(2b)) = ⅓·A′·e^{5πi/12}·t^{−1/2}·e^{−S̄/t}·(1 + O(t)) with A′ = (π/√3)^{1/2} (v19, Theorem 6 at real x), the other two terms are O(1) and O(|t|^{−1/2}e^{−Cl₂/|t|}), and at t = −2πi/X the leading term is ⅓·3^{−1/4}·(X/2)^{1/2}·e^{2πi/3}·e^{Cl₂X/2π − iπX/6}. For ψ₀\* the growing integral carries the extra factor e^{2πi/3}. ∎
+
+*From `docs/addendum-v25.md`, §1 (X = 1, 2, 3); text unchanged.*
+
+### [v25 §1] Continuity at real x up to x = 1
+
+**Lemma R3′.** Let 0 < x₀ ≤ 1 and let u(x) be continuous and bounded near x₀. The integrals I(u), J(u) of v12 over L = e^{−10°·i}·ℝ, with Faddeev's Φ_b, are continuous in x on {Im x ≥ 0} near x₀.
+
+Proof. The proof of Lemma R3 (v20 §1) needs, for x in a neighbourhood N of x₀ in {Im x ≥ 0}, a constant C with |1/Φ_b| ≤ C on the left half of L and |1/Φ_b| ≤ C·|e^{−w²/(2t)}| on the right half. It took this from Lemmas F and D of v16, which were stated for |x| ≤ ¼. Their proofs use the size of x as follows.
+
+- *Lemma F* (|Λ(w) + Li₂(−e^{w})/t| ≤ C₁·e^{Re w/2} for Re w ≤ 0, |Im w| ≤ π). The contour of Faddeev's integral is moved from ℝ + i0 to Im σ = ½. (i) No pole is crossed if the poles σ = i·n/x of r₁(πxσ) lie above the line: Im(i/x) = Re(1/x) > ½. (ii) On the line, u = πxσ must stay away from the poles iπn (n ≠ 0) of 1/sinh u: for real x the distance is at least π·(1 − x/2). For x ∈ N both hold, with Re(1/x) ≥ 0.9 and distance ≥ 1.5 if N is small. The other steps (|r₁(u)| ≤ C·min(|u|, 1/|u|) on the line, and the integral of min(|x|, 1/(|x|·|σ|²))) do not use the size of x. So Lemma F holds on N with a constant C₁(N).
+- *Lemma D* (outside the strip). The factors of the products are 1 + η with |η| ≤ exp(−(2πρ/|t|)·0.383), there are at most ρ of them, and ρ ≥ 4.88. For |t| ≤ 2π·1.01 this gives |η| ≤ e^{−0.37ρ} ≤ 0.17 and |E| ≤ Σ |log(1 + η)| ≤ 1.2·ρ·e^{−0.37ρ} ≤ 1.2. So E is bounded (no longer exponentially small, which is not needed here).
+
+With these two bounds and the inversion relation the proof of Lemma R3 applies word for word; the factor e^{2πuy} is e^{O(ρ)} for bounded u. ∎
+
+**Theorem 18.** (a) Theorem 9 of v20 holds for X = 2. (b) Theorem 11 of v21 holds for X = 1 and X = 3. (c) Theorem 14 of v22 holds for X = 2.
+
+Proof. In the three proofs the restriction on X entered only through Lemma R3 (x₀ = 1/X ≤ ¼); Lemma R3′ removes it. The other ingredients have no restriction: Lemma R1 of v20 is stated for X = 2M with any M ≥ 1; Lemmas R2 (v20) and R2′ (v21) are statements about p → ±1 along the path x = 1/X + iε, for any X; the odd-root rule of v3 is proved for every odd m, and its proof covers m = 1 (ζ = 1: (−1;1)ₙ = 2ⁿ, the terms of f₁\* satisfy term_{n+1} = −½·term_n, and θ₄(e^{−t}) → 0). The values: for X = 1, A = A₀ = 1; for X = 2 the sums stop at n = 0 because 1 + q₀ = 0; for X = 3, A = 1 − ω(1 + ω) + (1 + ω)(1 + ω²) = 3 and A₀ = ω − (1 + ω) + 1 = 0. P = 2^{−1/2}·e^{π²/(12t) + t/6}/b at t = −2πi is 2^{−1/2}·e^{−7πi/24}. ∎
+
+Remarks.
+
+- b = 1 is the self-dual point of Φ_b. There the three integrals are taken with Φ₁, and the identity 1 = P·[3·J(½) − I(½) − I(−½)] says that the divergent series ψ₁\*(1) = Σ (−2)ⁿ, summed as 1/(1 + 2) = ⅓ by the radial limit, is given by the formula of v12 at its most symmetric point.
+- At X = 3 the radial limit of ψ₀\* vanishes, so there the kernel integral is exactly one third of the sum of the two state integrals.
+- Lemma R3′ also removes the remark on the edge case X = 4 in v20.
 
 ---
 

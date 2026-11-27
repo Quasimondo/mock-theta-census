@@ -58,8 +58,8 @@ and the corresponding formulas for f₁\*, ψ₀\*, f₀\* (Part 6, §6.1). Here
 
 **Theorem V (roots of unity; Part 7; v20, v21).** Let q₀ = e^{2πi/X}, x = 1/X, and let the integrals be taken with Faddeev's Φ_b at real b.
 
-- X ≥ 4 even: the finite sum ψ₁\*(q₀) = Σ_{n<X/2} (−1)ⁿ q₀^{n(n+1)/2} (−q₀;q₀)ₙ equals P·[J(1/(2b)) + I(1/(2b)) − I(−1/(2b))] (Theorem 9).
-- X ≥ 5 odd: lim_{r→1⁻} ψ₁\*(r·q₀) = A_X/3 = P·[J(1/(2b)) − ⅓·I(1/(2b)) − ⅓·I(−1/(2b))], with A_X the sum of the first X terms (Theorem 11; the first equality is the odd-root rule of v3).
+- X ≥ 2 even (X = 2 by Theorem 18 of v25): the finite sum ψ₁\*(q₀) = Σ_{n<X/2} (−1)ⁿ q₀^{n(n+1)/2} (−q₀;q₀)ₙ equals P·[J(1/(2b)) + I(1/(2b)) − I(−1/(2b))] (Theorem 9).
+- X ≥ 1 odd (X = 1, 3 by Theorem 18 of v25): lim_{r→1⁻} ψ₁\*(r·q₀) = A_X/3 = P·[J(1/(2b)) − ⅓·I(1/(2b)) − ⅓·I(−1/(2b))], with A_X the sum of the first X terms (Theorem 11; the first equality is the odd-root rule of v3).
 - As X → ∞: the radial value is w_X·3^{−1/4}·(X/2)^{1/2}·e^{Cl₂·X/2π}·e^{2πi/3 − iπX/6}·(1 + O(1/X)) with w_X = 1 for even X and ⅓ for odd X (Theorems 10, 12).
 - The same for ψ₀\* with the extra factor e^{2πi/3} in the asymptotics.
 

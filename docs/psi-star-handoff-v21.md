@@ -1,4 +1,4 @@
-# Handoff: ψ\* modularity project (state after addendum v24; the file keeps its name because other documents refer to it)
+# Handoff: ψ\* modularity project (state after addendum v25; the file keeps its name because other documents refer to it)
 
 Prepared 26 Nov 2026 for a fresh session; updated after addenda v12–v21 (26–27 Nov). Project owner: Mario Klingemann. Public repo with the earlier material: https://github.com/Quasimondo/mock-theta-census (`docs/addendum-v2.md`, `docs/twists.md`, `census3/`).
 
@@ -24,6 +24,8 @@ is proved, together with its analogues for ψ₀\*, f₁\*, f₀\* and a general
 **v23 (27 Nov):** the bound that v22 left open needs no descent inequality. For real b and real y, |Φ_b(y)| = 1 (Faddeev's integrand f satisfies conj f(ξ) = −f(−ξ̄)); at real b the contour L of J can be turned onto the real line; so |P·J(a/b)| ≤ 1/(2√2·sin πa) at real x for every 0 < a < 1 (Lemma J). With Theorems 7, 13, 14 this proves the tetrahedron-volume rule at even roots of unity for every z = e^{2πia}, 0 < a < 1, with constant and phase (Theorem 15). For a = ½ Lemma J replaces the use of v16 Theorem 3 in Theorems 10 and 12. Open: odd X for z ≠ −1 (dual series 𝒲(T) as p → −1), the expansion of P·J(a/b) for a ≠ ½.
 
 **v24 (27 Nov):** z = 1 (a = 0) and z = q (a = x). The state integrals are monomials: I(0) = e^{−πi/4}(2/√5)sin(2π/5)·q^{−1/60}p^{1/30}, I(1/b) = e^{−πi/4}(2/√5)sin(π/5)·q^{−1/60}p^{19/30}, I(b) = e^{−πi/4}(2/√5)sin(π/5)·q^{−19/60}p^{1/30}, I(b+1/b) = −e^{−πi/4}(2/√5)sin(2π/5)·q^{−19/60}p^{19/30} (Proposition M; proof: bilinear Rogers–Ramanujan forms of D(u), modular transformation of G, H, and G(q)H(−q) + G(−q)H(q) = 2/(q²;q⁴)∞²). Theorem Z then gives the transformation laws of f₁, ψ₁, f₀, ψ₀ with dual functions F₀, F₁, φ₀, φ₁ at p and remainders M₁ = 2i·q^{11/60}·P·J(1/b), M₀ = 2i·q^{29/60}·P·J(b+1/b) (Theorem 16). These are Mordell integrals: M₁ = (60t/π)^{1/2}·L(2/5, 10t), M₀ = (60t/π)^{1/2}·L(1/5, 10t), L(r, α) = ∫₀^∞ e^{−3αx²/2}[cosh((3r−2)αx) + cosh((3r−1)αx)]/cosh(3αx/2) dx (Theorem 17; proved from the law of χ₀, χ₁ in Gordon–McIntosh, quoted, with ψ₁ − f₁ = q·χ₁(q²), ψ₀ − f₀ + 2 = χ₀(q²), checked to q³⁰⁰). All verified to 10⁻³⁰. Attribution: the fifth-order laws are due to Zwegers (thesis, Prop. 4.10, 4.13) and Gordon–McIntosh, not Watson. Open: a proof of Theorem 17 from the integral itself.
+
+**v25 (27 Nov):** the theorems at e^{2πi/X} (9, 11, 14) hold for X = 1, 2, 3 too: Lemma R3 (continuity of the integrals at real x) holds for 0 < x₀ ≤ 1, because Lemmas F and D of v16 need only Re(1/x) > ½, distance of πxσ from the poles of 1/sinh, and bounded |t| (Lemma R3′, Theorem 18). Examples: lim ψ₁\*(r) = ⅓ = P·[J(½) − ⅓I(½) − ⅓I(−½)] at b = 1; ψ₁\*(−1) = 1; lim ψ₁\*(rω) = 1, lim ψ₀\*(rω) = 0.
 
 **Next tasks (1 and 2 are done: v17 for the Borel directions −120° … −80°, v19–v21 for the forward laws; what is left of each is listed in the item; 3 and 4 are open):**
 
@@ -57,7 +59,7 @@ is proved, together with its analogues for ψ₀\*, f₁\*, f₀\* and a general
 | asymptotics of 𝓑₁…𝓑₄ with constants (4/3)^{1/4}e^{∓iπ/12}, error O(t), uniform for 0 ≤ arg x ≤ 11° (Theorem 6); decaying integral I(a/b) for all 0 < a < 1 (Theorem 7) | proved; numerics: relative error 0.05·\|t\| in three directions | v19 |
 | forward law of v5 for ψ₁\*, f₁\*, ψ₀\*, f₀\* with Borel sum, exact dual functions and O(t) errors, 0 < arg x ≤ 10° (Theorem 8) | proved (chain v12, v15–v17, v19) | v19 |
 | ψ₁\*, ψ₀\* at even roots of unity: exact three-integral formula (Theorem 9) and asymptotics with constant and phase (Theorem 10); figure-eight ratio 2/X | proved (the last given the Kashaev asymptotics, quoted); numerics 10⁻⁸…10⁻¹³ for X = 4…60 | v20 |
-| ψ₁\*, ψ₀\* at odd roots e^{2πi/X}, X ≥ 5: radial limit = one third of a period = P·[J − ⅓I(+) − ⅓I(−)] (Theorem 11), asymptotics (Theorem 12); radial limits of W, p·W₃ at p = −1 (Lemma R2′) | proved; numerics 10⁻⁹…10⁻¹³ for X = 5…61 | v21 |
+| ψ₁\*, ψ₀\* at odd roots e^{2πi/X}, X ≥ 5 (X = 1, 3: v25): radial limit = one third of a period = P·[J − ⅓I(+) − ⅓I(−)] (Theorem 11), asymptotics (Theorem 12); radial limits of W, p·W₃ at p = −1 (Lemma R2′) | proved; numerics 10⁻⁹…10⁻¹³ for X = 5…61 | v21 |
 | closed formula for the coefficients of Φ (Bernoulli polynomials under a 1/cosh window) | derivation; exact check of 151 coefficients | v13 |
 | P·J analytic on −210° < arg t < 10° with asymptotic expansion Φ uniformly on the closed sector (includes real x, \|q\| = 1), for ψ₁\* and ψ₀\* | proved | v14, v15, v16 |
 | Faddeev's integral = both product formulas; functional equations and inversion for all Re b > 0 | proved (classical; proof in v16 §1) | v16 |

@@ -40,7 +40,8 @@ part("Part 4. The uniform bound for the kernel integrand", "Needed later: Lemma 
 part("Part 5. Factorial bounds and Borel summability (Theorem II)", "The coefficients called ãₖ in the proof of Theorem 4 are the aₖ of §0.1, by definition; the last step of that proof (ãₖ = aₖ) only identifies them with the coefficients computed in v13.", [(17, "§1–§5", r"^## 1\. ", r"^## 6\. ")])
 part("Part 6. The state integrals and the forward law (Theorems III, IV)", "Lemmas B and L are in Part 2.",
      [(19, "§1", r"^## 1\. ", r"^## 2\. "), (19, "§3–§6", r"^## 3\. ", r"^## 7\. ")])
-part("Part 7. Roots of unity (Theorem V)", "", [(20, "§1–§3 (even X)", r"^## 1\. ", r"^## 4\. "), (21, "§1–§3 (odd X)", r"^## 1\. ", r"^## 4\. ")])
+part("Part 7. Roots of unity (Theorem V)", "", [(20, "§1–§3 (even X)", r"^## 1\. ", r"^## 4\. "), (21, "§1–§3 (odd X)", r"^## 1\. ", r"^## 4\. "),
+      (25, "§1 (X = 1, 2, 3)", r"^## 1\. ", r"^## 2\. ")])
 part("Appendix. Identities and the odd-root rule", "Used in Part 7: identity (II) (and (I)) in the odd-root rule, and identities (V), (VI) in Lemma R2′.",
      [(2, "§2", r"^## 2\. ", r"^## 3\. "), (3, "§1", r"^## 1\. ", r"^## 2\. "), (4, "§1", r"^## 1\. ", r"^## 2\. ")])
 out = "\n".join(parts).rstrip() + "\n"
