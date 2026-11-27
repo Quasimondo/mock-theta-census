@@ -36,14 +36,18 @@ part("Part 3. Descent of the leading exponent", "The contour angle is δ = 10° 
 part("Part 4. The uniform bound for the kernel integrand", "Needed later: Lemma 3′ (away from the real x-axis) and the first bullet of the proof of Theorem 3 (near it), which together give |H| ≤ C·e^{−κ|s|} on the closed sector, and the Corollary (analyticity). The expansions themselves (Theorems 1–3) are superseded by Theorem 4 of Part 5.",
      [(14, "§2.1–§2.3 (contour, Euler–Maclaurin lemma, second form of the integrand)", r"^### 2\.1 ", r"^### 2\.4 "),
       (15, "§2 up to Lemma 3′", r"^## 2\. ", r"^\*\*Lemma 4′"),
-      (16, "§4", r"^## 4\. ", r"^## 5\. ")])
+      (16, "§4", r"^## 4\. ", r"^## 5\. "),
+      (26, "§1 (the proof of analyticity, restated)", r"^## 1\. ", r"^## 2\. ")])
 part("Part 5. Factorial bounds and Borel summability (Theorem II)", "The coefficients called ãₖ in the proof of Theorem 4 are the aₖ of §0.1, by definition; the last step of that proof (ãₖ = aₖ) only identifies them with the coefficients computed in v13.", [(17, "§1–§5", r"^## 1\. ", r"^## 6\. ")])
 part("Part 6. The state integrals and the forward law (Theorems III, IV)", "Lemmas B and L are in Part 2.",
-     [(19, "§1", r"^## 1\. ", r"^## 2\. "), (19, "§3–§6", r"^## 3\. ", r"^## 7\. ")])
+     [(19, "§1", r"^## 1\. ", r"^## 2\. "), (19, "§3–§6", r"^## 3\. ", r"^## 7\. "),
+      (26, "§2–§3 (Lemma L completed, the e^{w}-versions, Theorem 7 with ε(a) = 60°)", r"^## 2\. ", r"^## 4\. ")])
 part("Part 7. Roots of unity (Theorem V)", "", [(20, "§1–§3 (even X)", r"^## 1\. ", r"^## 4\. "), (21, "§1–§3 (odd X)", r"^## 1\. ", r"^## 4\. "),
       (25, "§1 (X = 1, 2, 3)", r"^## 1\. ", r"^## 2\. ")])
 part("Appendix. Identities and the odd-root rule", "Used in Part 7: identity (II) (and (I)) in the odd-root rule, and identities (V), (VI) in Lemma R2′.",
      [(2, "§2", r"^## 2\. ", r"^## 3\. "), (3, "§1", r"^## 1\. ", r"^## 2\. "), (4, "§1", r"^## 1\. ", r"^## 2\. ")])
+part("Corrections and constants after the stress test", "From addendum v26, which answers `docs/psi-star-stress-test-v1.md`. Its §1 is in Part 4, its §2–§3 in Part 6.",
+     [(26, "§4–§5", r"^## 4\. ", r"^## 6\. ")])
 out = "\n".join(parts).rstrip() + "\n"
 if "--check" in sys.argv:
     same = os.path.exists(OUT) and open(OUT).read() == out

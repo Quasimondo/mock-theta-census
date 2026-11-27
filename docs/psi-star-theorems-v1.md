@@ -1,8 +1,8 @@
 # ψ₁\*, ψ₀\*: the theorems and their proofs in one place (v1)
 
-Consolidated from addenda v2–v4, v12, v14–v17, v19–v21 of this repository (27 Nov 2026). Written by Claude Fable 5.2 with Mario Klingemann.
+Consolidated from addenda v2–v4, v12, v14–v17, v19–v21, v25, v26 of this repository (27 Nov 2026). Written by Claude Fable 5.2 with Mario Klingemann.
 
-**Status.** Every proof below was written by one AI model. The numerical statements were rechecked by a second model with separate code (`psi_star/v*/check_*.py`). The analytic estimates have not been checked line by line by anyone, and no mathematician has refereed them. "Proved" in this document means: a complete argument is written here. §0.5 lists where I think a referee should look first.
+**Status.** Every proof below was written by one AI model. The numerical statements were rechecked by a second model with separate code (`psi_star/v*/check_*.py`). A numerical stress test of the displayed inequalities and constants by the second model (`docs/psi-star-stress-test-v1.md`) found no violation; its findings are answered in addendum v26, included below. The analytic estimates have not been checked line by line by anyone, and no mathematician has refereed them. "Proved" in this document means: a complete argument is written here. §0.5 lists where I think a referee should look first.
 
 **What this document is.** §0 states the results once, in one notation, and gives the map of the proof. Parts 1–7 and the appendix are the proofs, taken unchanged from the addenda and put in logical order (headings demoted and prefixed with their source, e.g. "[v21 §2]", nothing else edited; references such as "§4" inside a section mean that section of the same addendum). The addenda keep their theorem numbers, so "Theorem 6" means the same here and there. Part 1 (from v12) uses a few symbols differently from the rest; §0.6 has the concordance. Numerical checks are not repeated here; each addendum has its table and its scripts.
 
@@ -14,7 +14,7 @@ Consolidated from addenda v2–v4, v12, v14–v17, v19–v21 of this repository 
 
 - **The functions.** For |q| < 1:
   ψ₁\* = Σ_{n≥0} (−1)ⁿ q^{n(n+1)/2} (−q;q)ₙ, ψ₀\* = Σ (−1)ⁿ q^{(n+1)(n+2)/2} (−q;q)ₙ, f₁\* = Σ (−1)ⁿ q^{n²+n}/(−q;q)ₙ, f₀\* = Σ (−1)ⁿ q^{n²}/(−q;q)ₙ.
-- **Variables.** x with Re x > 0; b = √x, β = arg b; q = e^{2πix} = e^{−t}, t = −2πix, θ = arg t = 2β − 90°; dual nome p = e^{−πi/x} = e^{−2π²/t}. |q| < 1 means Im x > 0, that is −90° < θ < 90°.
+- **Variables.** x with Re x > 0; b = √x, β = arg b; q = e^{2πix} = e^{−t}, t = −2πix, θ = arg t = 2β − 90°; dual nome p = e^{−πi/x} = e^{−2π²/t}. |q| < 1 means Im x > 0, that is −90° < θ < 90°. Fractional powers are defined through x: q^{α} = e^{2πixα}, p^{α} = e^{−πiα/x} (so p^{n²/2} in Theorem C is e^{−πin²/(2x)}).
 - **Faddeev's dilogarithm.** Φ_b(y) = (−q^{1/2}e^{2πby}; q)∞/(−p·e^{2πy/b}; p²)∞ for Im x > 0; for all Re b > 0 it is given by Faddeev's integral (Part 2, Lemma Φ), which also defines it for real x.
 - **Integrals.** L = e^{−iδ}·ℝ with 0 < δ < 90° − |β| (δ = 10° from Part 3 on), and for u ∈ ℂ
   I(u) = ∫_L e^{−πiy² + 2πuy}/Φ_b(y) dy,  J(u) = ∫_L e^{−πiy² + 2πuy}/(Φ_b(y)·(1 + e^{2πy/b})) dy.
@@ -68,10 +68,10 @@ and the corresponding formulas for f₁\*, ψ₀\*, f₀\* (Part 6, §6.1). Here
 1. **Part 1 → Theorem I.** Residues at the kernel poles on one side give the one-sided q-series; on the moved contour the kernel is a geometric series of kernel-free integrals I(u ∓ m/b) (Theorem A). These obey a three-term recursion whose generating sums are W, W₃ or F_a, F_b (Theorem B). I(u) is evaluated by two Gaussian linearisations and the Fourier transform of Φ_b (Theorem C).
 2. **Part 2: properties of Φ_b.** Faddeev's integral equals both product formulas (Lemma Φ). In the strip |Im w| < π it has an expansion uniform in x up to the real axis (Lemma S) and a leading-term bound up to the edge (Lemma F). Outside the strip the functional equation brings the argument back at negligible cost on the contours used (Lemma D, Lemma B).
 3. **Part 3: descent.** Along the straight contour with δ = 10° the leading exponent of the kernel integrand decreases linearly, with margin κ ≥ 0.185, for −210° ≤ θ ≤ 10° (Proposition 1).
-4. **Part 4: uniform bound.** |H| ≤ C·e^{−κ|s|} for the integrand H of P·J on the whole contour, uniformly on the sector: away from the real x-axis by Euler–Maclaurin for the products (v14 Lemma 1, v15 Lemmas 1′–3′), near it by Part 2 (v16 §4). Analyticity of P·J on the sector follows.
+4. **Part 4: uniform bound.** |H| ≤ C·e^{−κ|s|} for the integrand H of P·J on the whole contour, uniformly on the sector: away from the real x-axis by Euler–Maclaurin for the products (v14 Lemma 1, v15 Lemmas 1′–3′), near it by Part 2 (v16 §4). Analyticity of P·J on the sector follows (the argument is written out in [v26 §1]).
 5. **Part 5 → Theorem II.** Shifting the contour across N kernel poles gives P·J = Σ_{n<N} (−1)ⁿτₙ + (moved integral), and the functional equation turns the moved integrand into H·D_N with |D_N| ≤ e^{−0.544·N + 0.149·|s|}. With N = ⌊0.04/|t|⌋ and Cauchy estimates for τₙ this gives the factorial bounds; Nevanlinna–Sokal gives the Borel sum.
 6. **Part 6 → Theorems III, IV.** Explicit descent contours for the kernel-free integrals with closed-form heights, Lemma B, and Laplace's method. Theorem IV is Theorem I + II + III.
-7. **Part 7 → Theorem V.** Radial limits: of the q-series (Lemma R1; odd-root rule of v3, Appendix), of W, p·W₃ at p = ±1 (Lemmas R2, R2′, the latter through identities (V), (VI) of v4, Appendix), continuity of the integrals at real x (Lemma R3). Then Theorem III at real x.
+7. **Part 7 → Theorem V.** Radial limits: of the q-series (Lemma R1; odd-root rule of v3, Appendix), of W, p·W₃ at p = ±1 (Lemmas R2, R2′, the latter through identities (V), (VI) of v4, Appendix), continuity of the integrals at real x (Lemma R3; for x₀ ≤ 1 in [v25 §1]). Then Theorem III at real x.
 
 Only the uniform bound of Part 4 and Part 2 are used from the "asymptotic expansion" addenda v14–v16; the expansions proved there (Theorems 1–3) are superseded by Theorem 4 and are needed only for the remark aₖ = coefficients of v13.
 
@@ -83,14 +83,18 @@ Only the uniform bound of Part 4 and Part 2 are used from the "asymptotic expans
 
 ### 0.5 Where a referee should look first
 
-1. **Part 1, §4** (Theorem C): two applications of Fubini with complex Gaussians, and the normalisation of the Fourier transform of Φ_b, which was not compared with the literature.
-2. **Part 3** (Proposition 1): the exact formulas for ψ/ρ and the bounds for X, Y. Everything after it rests on κ ≥ 0.185.
-3. **Part 4**: the Euler–Maclaurin remainder (v14 Lemma 1) for complex step, and the constants "uniform on the sector" C, t₀, which are never made explicit.
-4. **Part 2, Lemma F**: the contour shift to Im σ = ½ and the bound for r₁ there; Lemma D's margin.
-5. **Part 5**: the justification of the contour shift (Lemma E) at real x; the thin margin 0.175 − 0.149 between the decay of H and the growth of D_N.
-6. **Part 6**: Lemma L is the standard argument, not written in full; the statements "the integrand tends to 0 at infinity in the region swept" are brief; Theorem 7 gives no explicit ε(a).
-7. **Part 7**: Lemma R3 is brief; X = 4 sits on the edge of the range of Part 2.
+A numerical stress test of every displayed inequality, identity and uniform constant (`docs/psi-star-stress-test-v1.md`, Claude Opus 5.5, 27 Nov 2026) found no violation. Its findings were places where a statement was incomplete; they are answered in addendum v26, which is included below (in Parts 4 and 6 and in the last part). The list, with what the stress test and v26 changed:
+
+1. **Part 1, §4** (Theorem C): two applications of Fubini with complex Gaussians, and the normalisation of the Fourier transform of Φ_b, which was not compared with the literature. (Tested numerically; the closing lemma of v12 §4.1 was not tested.)
+2. **Part 3** (Proposition 1): the exact formulas for ψ/ρ and the bounds for X, Y. Everything after it rests on κ ≥ 0.185. (The measured rate is ≥ 0.97; the constant 0.185 is sharp at θ = 10° by construction.)
+3. **Part 4**: the Euler–Maclaurin remainder (v14 Lemma 1) for complex step, and the constants "uniform on the sector" C, t₀. (Now measured: C = 0.60 for |t| ≤ 0.4; see [v26 §5]. The proof of analyticity is restated in [v26 §1].)
+4. **Part 2, Lemma F**: the contour shift to Im σ = ½ and the bound for r₁ there; Lemma D's margin. (The numerical remark after Lemma F is corrected in [v26 §4].)
+5. **Part 5**: the justification of the contour shift (Lemma E) at real x; the margin 0.175 − 0.149 between the decay of H and the growth of D_N. (Measured: about 0.97 against 0.06.)
+6. **Part 6**: Lemma L is the standard argument, not written in full; it holds for |t| ≤ t₁, and for the integrals with the factor e^{w} the descent contours need |t| < π/3 and |t| < π at real x ([v26 §2]). The statements "the integrand tends to 0 at infinity in the region swept" are brief. Theorem 7 now has ε(a) = 60° ([v26 §3]).
+7. **Part 7**: Lemma R3 is brief; its range is extended to x₀ ≤ 1 in [v25 §1], which removes the edge case X = 4 and the restriction X ≥ 4, X ≥ 5.
 8. **Appendix**: the odd-root rule uses identity (II) of v2 and standard growth bounds for θ₄ and R₁.
+
+Not tested by the stress test: the closing lemma of v12 §4.1, Lemma L and Lemma E as separate statements, Theorem 8 as a whole (only its ingredients), and the quoted theorems.
 
 ### 0.6 Concordance
 
@@ -587,6 +591,22 @@ Proof. Theorem 2 of v15 with ε = 60° covers |θ + 90°| ≥ 60°, Theorem 3 th
 
 In terms of x the sector is −120° ≤ arg x ≤ 100°. For real x > 0 this is a statement about |q| = 1, where neither ψ₁\* nor f₁\* exists.
 
+*From `docs/addendum-v26.md`, §1 (the proof of analyticity, restated); text unchanged.*
+
+### [v26 §1] Analyticity of P·J (the Corollary of v16 §4)
+
+**Corollary (the statement of v16, with the range of |t| written out).** P·J is analytic in t on −210° < θ < 10°, 0 < |t| < t₀, where t₀ is the constant of the uniform bound.
+
+Proof. With y = b·s the contour s = r·e^{−iγ}, γ = β + 10°, is y = |b|·r·e^{−10°·i}: the line L = e^{−10°·i}·ℝ of v12, for every t. Since w = 2πby and t = −2πib², e^{−w²/(2t)} = e^{−πiy²}, and
+
+  P·J = e^{t/8}·(C₀/b)·∫_L e^{−πiy²}/(Φ_b(y)·2cosh(πy/b)) dy,  C₀ = 2^{−1/2}·e^{π²/(12t) + t/24},  b = (it/2π)^{1/2}.
+
+- *The integrand is analytic in b for fixed y ∈ L.* Φ_b(y) is analytic in (b, y) for Re b > 0 (Lemma Φ). Its zeros y = −i·[(m + ½)·b + (n + ½)/b] have arguments in [−90° − |β|, −90° + |β|], the poles of the kernel y = i·b·(n + ½) have arguments ±90° + β. For |β| ≤ 60° neither set meets L, whose points have arguments −10° and 170°.
+- *Domination.* The bound |H| ≤ C·e^{−κ|s|} (Lemma 3′ of v15 and v16 §4), uniform on the closed sector for |t| ≤ t₀, reads |integrand| ≤ C·e^{−κ|y|/|b|} in the variable y, and |b| is bounded above and below on compact subsets of the punctured sector.
+- An integral over a fixed contour of functions analytic in a parameter, dominated locally uniformly, is analytic (Fubini and Morera). ∎
+
+No contour other than L is used, so the questions raised in F3 (descent for δ ≠ 10°, independence of the contour for Im x ≤ 0) do not arise. The stress test's S3.7 (κ > 0 for δ between 5° and 15°) shows that the other route would work as well.
+
 ---
 
 ## Part 5. Factorial bounds and Borel summability (Theorem II)
@@ -844,6 +864,53 @@ The formulas of v12 are exact. Theorem 8 replaces the three coefficient function
 - Growing sector for a ≠ ½: not proved. The vertical line through the saddle is again the local descent path (d/dη Im V = −r₀ − ln|1 + e^{r₀+iη}| is monotone in η ∈ (0, π)), and the real axis works on the right (Im V = 2π|a′|·r). The left part needs a case analysis in a, because the left valley starts at Im w > 2π|a′|, which is above the strip for |a′| > ½, and the saddle is not on the imaginary axis.
 - A statement at roots of unity (the volume rule as measured) needs in addition the radial limit of the formula of v18 and a bound for J(a/b) at real x for a ≠ ½.
 
+*From `docs/addendum-v26.md`, §2–§3 (Lemma L completed, the e^{w}-versions, Theorem 7 with ε(a) = 60°); text unchanged.*
+
+### [v26 §2] Lemma L and the integrals with the factor e^{w}
+
+**Lemma L (v19 §2), completed.** Add to the hypotheses: every piece of Γ is a segment, a ray or a line, and |t| ≤ t₁ := c·cos ε₁/(2C), where ε ≤ ε₁ is the range of arg x, c is the constant of (L1) and C the constant in the factor e^{C|w|} of (L2). If (L2) holds without that factor there is no condition on |t| beyond the one of the bounds used.
+
+Why. By (L1), (L2), on Γ: |E| ≤ C·e^{C|w\*|}·exp(cos ε·H_τ(w\*)/|t|)·exp(C·|w − w\*| − cos ε·c·min(|w − w\*|², |w − w\*|)/|t|). For |t| ≤ t₁ and |w − w\*| ≥ 1 the last exponent is at most −(c·cos ε/(2|t|))·|w − w\*|, which gives convergence and the tail estimate of the proof. Without the condition the integral over Γ need not converge.
+
+**The e^{w}-versions at real x.** For I(b ± 1/(2b)) the integrand has the extra factor e^{w}, and (L2) holds with e^{|w|} (C = 1). At real x (t = −i|t|) the sizes on the right are:
+
+- *Decaying integral (v19 §4), line Im w = η₁.* Between L and the line, and on the line, the size is e^{r·(1 + (2η + 2πa)/|t|)} with η ≤ η₁. So the integrand tends to 0 on the right, and the line is an admissible contour, exactly when |t| < −(2η₁ + 2πa). For a = ½ (η₁ = −2π/3) this is **|t| < π/3**, that is X ≥ 7 at x = 1/X.
+- *Growing integral (v19 §5), contour Γ.* On Γ₃ and in the wedge between L and the real axis the size is at most e^{r·(1 − π/|t|)}. The condition is **|t| < π**, that is X ≥ 3.
+- On the left the factor e^{w} only helps. For Im x > 0 the Gaussian factor gives decay for every t (v12 §2), and there is no condition.
+
+v19 §4 proved the decay at infinity for the integrals without e^{w} and for the others only stated (L2). The condition is a missing hypothesis in "Moving the contour", as F2 says.
+
+**Consequences.** None for the theorems: Theorem 6 is a statement for |x| → 0; Theorems 9, 11, 18 are stated with the integrals over L, which exist for every real x in their range. For numerical work: at small X the integrals I(b ± 1/(2b)) must be taken over L (the scripts of v20, v21 do this for X ≤ 8).
+
+---
+
+### [v26 §3] Theorem 7 with an explicit sector
+
+Notation of v19 §4: 0 < a < 1, W the root of W² + W = e^{−2πia} with Im W < 0, w₁ = r₁ + iη₁ = Log W, V(w) = −w²/2 − 2πia·w + Li₂(−e^{w}).
+
+**Lemma V.** On the line w = r + iη₁, Re V(w) < Re V(w₁) for r ≠ r₁.
+
+Proof. Let R(r) = Re V(r + iη₁). Since V′(w) = −w − 2πia − log(1 + e^{w}),
+
+  R′(r) = −r − ln|1 + e^{r + iη₁}| = −½·ln g(e^{r}),  g(λ) = λ²·|1 + λe^{iη₁}|² = λ⁴ + 2cλ³ + λ²,  c = cos η₁.
+
+g(|W|) = |W(1 + W)|² = 1. The claim is that g < 1 on (0, |W|) and g > 1 on (|W|, ∞); then R increases up to r₁ and decreases after it. Now g(0) = 0, g(∞) = ∞ and g′(λ) = 2λ·(2λ² + 3cλ + 1).
+
+- If c ≥ −2√2/3, the quadratic 2λ² + 3cλ + 1 has no sign change on λ > 0 (its discriminant is 9c² − 8 ≤ 0, or c ≥ 0). So g increases strictly and takes the value 1 once.
+- If −1 < c < −2√2/3, g increases on (0, λ₋), decreases on (λ₋, λ₊) and increases on (λ₊, ∞), with λ± = (3|c| ± (9c² − 8)^{1/2})/4 and ½ < λ₋ < 2^{−1/2}. At the local maximum, g(λ₋) = λ₋²·(1 − 2|c|λ₋ + λ₋²) ≤ ½·(1 − (4√2/3)·½ + ¼) < 0.16, because 1 − (4√2/3)λ + λ² decreases on [½, 2^{−1/2}]. So g < 1 on (0, λ₊], and on [λ₊, ∞) it increases strictly to ∞: again the value 1 is taken once. ∎
+
+**Theorem 7′.** Theorem 7 of v19 holds with ε(a) = 60° for every 0 < a < 1: uniformly for 0 ≤ arg x ≤ 60°, |x| → 0,
+
+  I(a/b) = (1/(2πb))·(2πt·(1 + W)/(1 + 2W))^{1/2}·e^{V(w₁)/t}·(1 + O(t)).
+
+Proof. v19 §4 proves (L1) on the line for τ = 0: Im V − Im V(w₁) ≥ c·min((r − r₁)², |r − r₁|). By Lemma V, for every τ ≥ 0: H_τ(w) − H_τ(w₁) = −(Im V − Im V(w₁)) + τ·(Re V − Re V(w₁)) ≤ −c·min((r − r₁)², |r − r₁|). So (L1) holds for all τ ≥ 0 with the constant of τ = 0 (in the words of v19: M = 0). The rest of the proof of v19 §4 is for 0 ≤ arg x ≤ 60°, the range of Lemma B. ∎
+
+Remarks.
+
+- R is concave on the whole line exactly in the first case of the proof, cos η₁ ≥ −2√2/3, which is a ≤ 0.807674. For larger a it is not concave but still has its maximum at w₁.
+- The constants depend on a and degenerate as a → 0 and a → 1 (the stress test: c₀ = 0.0048 at a = 0.01; at a → 1 the line approaches the edge of the strip).
+- This removes the item "Theorem 7 gives no explicit ε(a)" from the list for referees. Theorem 13 of v22 (the growing integral for general a) keeps its own unspecified ε(a).
+
 ---
 
 ## Part 7. Roots of unity (Theorem V)
@@ -1091,5 +1158,42 @@ P± are the two-variable Rogers–Ramanujan function Σ zᵏQ^{k²}/(Q;Q)ₖ at 
 This leaves the inner sums Aₖ = Σ_{j∈ℤ}(−1)ʲq^{j²+j}/(1 − q^{2j+2k+1}). Shifting j by k and using x^{−k}/(1−x) = 1/(1−x) + x⁻¹ + … + x^{−k} with x = q^{2j+1}, every extra term is a multiple of Σ_{j∈ℤ}(−1)ʲq^{j²+j} = 0 (the terms j and −1−j cancel). Hence Aₖ = (−1)ᵏq^{k²}·A₀. Finally A₀ = Σ_{j∈ℤ}(−1)ʲq^{j(j+1)}/(1 − q^{2j+1}) = (q²;q²)∞²/(q;q²)∞² = ψ(q)², by the partial-fraction expansion of the reciprocal theta function. Collecting factors gives (V). For (VI) the same steps with q^{j²+3j} = q^{j²+j}·x/q give Bₖ = (−1)ᵏq^{k²−2k−1}A₀. ∎
 
 Compare (I), (II) of addendum-v2: there the prefactor is θ₄ and the sums are sign-twisted Rogers–Ramanujan sums; here the prefactor is ψ and the sums carry a half-integer shift. The one-sided halves Σ_{n≥1} q^{2n²−n}/(q;q²)ₙ and Σ_{n≥1} q^{2n²−3n+1}/(q;q²)ₙ play the role of f₁\*, f₀\*. I did not find them among the classical mock theta functions (short look only).
+
+---
+
+## Corrections and constants after the stress test
+
+From addendum v26, which answers `docs/psi-star-stress-test-v1.md`. Its §1 is in Part 4, its §2–§3 in Part 6.
+
+*From `docs/addendum-v26.md`, §4–§5; text unchanged.*
+
+### [v26 §4] Smaller corrections
+
+1. **Lemma F of v16, the numerical remark.** It said that the supremum of |Λ(w) + Li₂(−e^{w})/t|·e^{−Re w/2} is 0.347, "the same for real x and for the neighbouring directions, and independent of |t|". Correct is: 0.347 = ½·ln 2 for real x and for |arg x| ≤ 10°; on the whole domain |arg x| ≤ 60°, |x| ≤ ¼ the supremum measured by the stress test is 0.511 (at |x| = ¼, arg x = ±60°, w = −0.441 ± iπ), and it depends on |t| and arg x. The lemma itself (existence of C₁) is not affected; C₁ = 0.52 works numerically.
+2. **Notation in Theorem C (v12).** All fractional powers of q and p are defined through x: q^{α} = e^{2πixα}, p^{α} = e^{−πiα/x}. In D(u) the factor p^{n²/2} is e^{−πi·n²/(2x)}; with a principal power of the number p the odd-n terms can change sign.
+3. **Lemma B (iii) of v19.** The factor 2^{N} is what the proof gives; numerically the factor 2 suffices (stress test, S2.8).
+4. **(L1) on the contour Γ of v19 §5.** Proved for τ ≤ 0.2 (arg x ≤ 11.3°). Numerically it holds for τ < 0.3085 (arg x < 17.15°) (stress test, S6.3); the proof loses the difference in the chord bound for ln(2cos(η/2)).
+5. **Lemma R2 of v20.** The bracket [1/(2K) − e^{−1/K + 2δ}/(2 − δ)] with K = 3/2 is positive for δ < 0.104, not for all δ; the proof uses it for δ → 0 only. (The argument gives e^{−1/K + δ}, for which the range is δ < 0.172.)
+6. **Constants without slack.** Lemma A (equality at ρ = 0, θ = −30°), Lemma D (0.383022 at β = −30°) and Proposition 1 (iv) (κ = 0.185115 at θ = 10°) are sharp at an edge of their domains. The statements are correct as written.
+
+---
+
+### [v26 §5] Constants measured by the stress test
+
+The proofs of Parts 4 and 5 use constants "uniform on the sector" without values. The stress test measured them (double precision; details in its table):
+
+| constant | where | measured |
+|---|---|---|
+| C_U in \|H\| ≤ C_U·e^{−0.185\|s\|} | Lemma 3′, v16 §4 | 0.60, for \|t\| from 0.4 down to 0.001; so t₀ = 0.4 works |
+| C_ψ in \|H\| ≤ C_ψ·e^{ψ/\|t\|} | the same | 0.89 |
+| true descent rate inf(−ψ/ρ) | Proposition 1 (proves 0.185) | ≥ 0.97 |
+| sharp constant in Lemma G / Corollary G | v17 §2 (proves L = 3.72) | 1.49 |
+| C₂ of Corollary R | v17 §2 | 48 |
+| A in Theorem 4 with B = 240 | v17 §4 | 0.37 |
+| C₁ of Lemma F | v16 §2 | 0.52 |
+| constants of Lemma B (i), (ii) | v19 §2 | e^{0.40}; 0.090 (ε₁ = π/6), 0.043 (ε₁ = π/2) |
+| O(t) constants of Theorem 6 | v19 §3 | ≤ 0.27 |
+
+So the margin "0.175 against 0.149" between the decay of H and the growth of D_N in v17 is an effect of the bounds; the measured rates are about 0.97 against 0.06.
 
 ---

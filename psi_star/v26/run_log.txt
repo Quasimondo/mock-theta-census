@@ -1,0 +1,21 @@
+(a) Re V on the horizontal line through the lower saddle (V = -w^2/2 - 2 pi i a w + Li2(-e^w))
+    999 values of a in [0.001, 0.999]: g = 1 has one solution in all but 0 cases;  sup (Re V - Re V(w1)) = 0.00e+00
+    Re V is concave on the whole line for a <= 0.807674 (eta1 = -160.529 deg); beyond that it is not concave but still maximal at w1
+    a = 0.9: local maximum of g at lam = 0.5252: g = 0.0666 < 1
+    a = 0.99: local maximum of g at lam = 0.5002: g = 0.0625 < 1
+(b) Theorem 7 off the real axis: (I(a/b)/asymptotic - 1)/|t|   (series of Theorem C, 90 digits)
+    a = 0.1   arg x = 30: 0.0191, 0.019, 0.019;  45: 0.019, 0.0189, 0.0189;  60: 0.0189, 0.0189, 0.0189   (|t| = 0.4, 0.2, 0.1)
+    a = 0.3   arg x = 30: 0.0385, 0.0395, 0.0401;  45: 0.038, 0.0392, 0.0399;  60: 0.0377, 0.039, 0.0398   (|t| = 0.4, 0.2, 0.1)
+    a = 0.5   arg x = 30: 0.0786, 0.0833, 0.0861;  45: 0.0796, 0.084, 0.0865;  60: 0.081, 0.085, 0.0872   (|t| = 0.4, 0.2, 0.1)
+    a = 0.8   arg x = 30: 0.049, 0.0483, 0.0477;  45: 0.0502, 0.0488, 0.048;  60: 0.0513, 0.0492, 0.0482   (|t| = 0.4, 0.2, 0.1)
+    a = 0.95  arg x = 30: 0.0207, 0.0202, 0.02;  45: 0.0207, 0.0202, 0.02;  60: 0.0207, 0.0202, 0.02   (|t| = 0.4, 0.2, 0.1)
+(c) the e^w-version of the decaying integral on the line Im w = -2 pi/3 at x = 1/X
+    X =  4: slope of log|integrand| on the right = +0.3333, predicted 1 - (pi/3)/|t| = +0.3333;  the line is not admissible
+    X =  6: slope of log|integrand| on the right = +0.0000, predicted 1 - (pi/3)/|t| = +0.0000;  the line is not admissible
+    X =  7: slope of log|integrand| on the right = -0.1667, predicted 1 - (pi/3)/|t| = -0.1667;  line against L: relative difference 3.8e-10
+    X =  8: slope of log|integrand| on the right = -0.3333, predicted 1 - (pi/3)/|t| = -0.3333;  line against L: relative difference 8.9e-10
+    X = 10: slope of log|integrand| on the right = -0.6667, predicted 1 - (pi/3)/|t| = -0.6667;  line against L: relative difference 5.1e-09
+    X = 12: slope of log|integrand| on the right = -1.0000, predicted 1 - (pi/3)/|t| = -1.0000;  line against L: relative difference 4.0e-07
+(d) P J over the fixed line L on circles |t - t0| = 0.3 |t0| around real x0 (24 points): Fourier modes c_m = mean of P J e^(-i m phi)
+    x0 = 0.1: |c_0 - P J(t0)| = 6.6e-15;  |c_-1|, |c_-2|, |c_-3| = 2.9e-15, 2.8e-15, 1.0e-15;  |c_1|, |c_2|, |c_3| = 2.0e-02, 9.4e-04, 5.9e-05   (arg x on the circle from -17.5 to 17.5 deg)
+    x0 = 0.04: |c_0 - P J(t0)| = 1.0e-14;  |c_-1|, |c_-2|, |c_-3| = 2.3e-15, 2.6e-15, 9.0e-16;  |c_1|, |c_2|, |c_3| = 8.3e-03, 1.7e-04, 5.0e-06   (arg x on the circle from -17.5 to 17.5 deg)
