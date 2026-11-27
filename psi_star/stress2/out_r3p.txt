@@ -1,0 +1,25 @@
+(a) Lemma F beyond |x| <= 1/4: sup |Lambda + Li2(-e^w)/t| e^{-Re w/2}, Re w <= 0, |Im w| <= pi
+   x0=0.250: real: 0.3481; rho=0.05: 0.3483/0.3497/0.3480/0.3497 rho=0.10: 0.3484/0.3514/0.3478/0.3514
+   x0=0.300: real: 0.3488; rho=0.05: 0.3490/0.3507/0.3486/0.3507 rho=0.10: 0.3493/0.3527/0.3484/0.3527
+   x0=0.333: real: 0.3493; rho=0.05: 0.3496/0.3515/0.3490/0.3515 rho=0.10: 0.3499/0.3536/0.3488/0.3536
+   x0=0.400: real: 0.3505; rho=0.05: 0.3509/0.3531/0.3501/0.3531 rho=0.10: 0.3513/0.3557/0.3498/0.3557
+   x0=0.500: real: 0.3527; rho=0.05: 0.3533/0.3559/0.3521/0.3559 rho=0.10: 0.3540/0.3591/0.3515/0.3591
+   x0=0.667: real: 0.3574; rho=0.05: 0.3585/0.3616/0.3564/0.3616 rho=0.10: 0.3596/0.3659/0.3554/0.3659
+   x0=0.800: real: 0.3620; rho=0.05: 0.3636/0.3671/0.3606/0.3671 rho=0.10: 0.3652/0.3721/0.3592/0.3721
+   x0=0.900: real: 0.3660; rho=0.05: 0.3680/0.3716/0.3642/0.3716 rho=0.10: 0.3700/0.3772/0.3624/0.3772
+   x0=1.000: real: 0.3705; rho=0.05: 0.3728/0.3766/0.3682/0.3766 rho=0.10: 0.3753/0.3827/0.3660/0.3827
+   overall sup 0.3827 at x = 1.0000-0.1000i, w = 0.000-3.142i  (round 1: 0.511 at |x| = 1/4, arg x = 60 deg)
+
+(b) Lemma D for |t| <= 2 pi * 1.01 on the left half of the v16 contour, |beta| <= 30 deg
+   max |eta| / e^{-0.37 rho} = 0.9555;  max sum |log(1 + eta)| = 0.1703 (claim <= 1.2);  max of that / (1.2 rho e^{-0.37 rho}) = 0.1771;  max (number of factors)/rho = 0.205
+
+(c) Theorems 9, 11, 14 at X = 1, 2, 3 with 25-digit arithmetic (own mp Faddeev integral)
+   X=1: quadrature check |J(two resolutions)| rel. 5.2e-17;  psi1* formula - value = 2.25e-17;  psi0* formula - value = 1.21e-15  (194 s)
+        P.J(1/2) = (-0.0057229733 - 0.2399094j), P.I(1/2) = (-0.30081683 - 0.30614212j), P.I(-1/2) = (-0.71635209 - 0.41358607j)  (v25: -0.005723 - 0.239909i, -0.300817 - 0.306142i, -0.716352 - 0.413586i)
+   X=2: quadrature check |J(two resolutions)| rel. 4.0e-16;  psi1* formula - value = 8.57e-17;  psi0* formula - value = 6.98e-15  (295 s)
+        Theorem 14 at X = 2, a = 0.25: formula - 1 = 1.52e-16
+        Theorem 14 at X = 2, a = 0.7: formula - 1 = 2.48e-16
+        Theorem 14 at X = 2, a = 0.05: formula - 1 = 5.21e-15
+   X=3: quadrature check |J(two resolutions)| rel. 6.4e-14;  psi1* formula - value = 1.95e-14;  psi0* formula - value = 1.35e-12  (480 s)
+
+run time 1327 s
