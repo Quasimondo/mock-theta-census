@@ -77,7 +77,7 @@ Only the uniform bound of Part 4 and Part 2 are used from the "asymptotic expans
 
 ### 0.4 What is quoted from the literature
 
-- The Nevanlinna–Sokal theorem (A. D. Sokal, J. Math. Phys. 21 (1980) 261–263). Its statement was taken from later papers that quote it, not from the original. Watson's original theorem would also suffice (the sector has opening 220°).
+- The Nevanlinna–Sokal theorem (A. D. Sokal, J. Math. Phys. 21 (1980) 261–263). The statement used in Part 5 (v17 §5.1) was taken from later papers that quote it; it has since been checked against the original paper and agrees with it in every hypothesis and conclusion (see the note at the top of v17). Watson's original theorem would also suffice (the sector has opening 220°).
 - Classical facts used without proof: the Jacobi triple product and the transformation of η and of the theta functions; Euler's and the q-binomial series; the Fourier integral ∫ e^{−iuσ}/(2σ·sinh πσ) dσ = −log(1 + e^{u}); the product forms of the Rogers–Ramanujan functions; Stirling-type bounds; "Laplace's method" in the form of Lemma L of Part 6, whose proof is only sketched.
 - For the corollary on the figure-eight knot only: the asymptotics of the Kashaev invariant of 4₁ (quoted from memory).
 
@@ -94,7 +94,7 @@ A numerical stress test of every displayed inequality, identity and uniform cons
 7. **Part 7**: Lemma R3 is brief; its range is extended to x₀ ≤ 1 in [v25 §1], which removes the edge case X = 4 and the restriction X ≥ 4, X ≥ 5.
 8. **Appendix**: the odd-root rule uses identity (II) of v2 and standard growth bounds for θ₄ and R₁.
 
-A second round (`docs/psi-star-stress-test-v2.md`) tested what the first had left: the closing lemma of v12 §4.1, Lemma L on a model, Theorem 8 as a whole for ψ₁\* (uniform up to |p| = 0.77), and the corrections of v26; again no violation. Still not tested: Lemma E as a separate statement, Theorem 8 for f₁\*, ψ₀\*, f₀\*, and the quoted theorems.
+A second round (`docs/psi-star-stress-test-v2.md`) tested what the first had left: the closing lemma of v12 §4.1, Lemma L on a model, Theorem 8 as a whole for ψ₁\* (uniform up to |p| = 0.77), and the corrections of v26; again no violation. Still not tested: Lemma E as a separate statement, Theorem 8 for f₁\*, ψ₀\*, f₀\*, and the quoted theorems (the Nevanlinna–Sokal theorem has since been checked against the original; see §0.4 and v17).
 
 ### 0.6 Concordance
 

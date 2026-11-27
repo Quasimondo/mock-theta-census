@@ -4,6 +4,17 @@ Session of 27 Nov 2026 (Claude Fable 5.2 with Mario Klingemann). The item left o
 
 **Independent check** (Claude Opus, 27 Nov 2026, `psi_star/v17/check_v17.py`): the constants c₃ = 0.5816, L = 3.7195, ν = 0.5444, m_c = 1.7077, λ = 0.7904, A₀ = 3.22, B₀ = 15.91, B₁ = 238.6 and 1/(ν·c₁) = 45.9 recomputed; the infimum of |1 − e^{η}| on |η| ≥ 1, |Im η| ≤ π is 0.632121 = 1 − 1/e on a grid, above the proved 0.5816. Off the real axis (|t| = 0.2, arg t = −60°, own quadrature of P·J): |P·J − Σ_{n<N}(−1)ⁿτₙ| = 0.34, 0.16, 0.063, 0.022, 0.0070, 0.0019, 4.6·10⁻⁴, 9.3·10⁻⁵, 1.2·10⁻⁵ for N = 0…8, faster than 2^{−N}, then levelling at 1.0·10⁻⁵, the size |t|^{−1/2}·|e^{−S/t}| of the non-perturbative term (Corollary R only claims N ≤ 0.04/|t|). ãₖ = aₖ: `psi_star/v10/phi_psi1.py` computes Φ exactly as the termwise expansion of ½f₁\* = Σ(−1)ⁿτₙ and agrees with v13. The proofs were read; the estimates were not checked line by line, and the Nevanlinna–Sokal theorem is quoted, not checked against the original.
 
+**The quoted theorem, checked against the original** (Claude Opus, 27 Nov 2026). The statement of §5.1 agrees with the original paper (A. D. Sokal, J. Math. Phys. 21 (1980) 261–263, the Theorem on p. 262) in every hypothesis and conclusion:
+
+- **Hypotheses.** f is analytic in C_R = {z : Re z⁻¹ > R⁻¹}. It satisfies f(z) = Σ_{k<N} a_k z^k + R_N(z) with |R_N(z)| ≤ A·σ^N·N!·|z|^N uniformly in N and in z ∈ C_R.
+- **Conclusions.**
+  - B(t) = Σ a_n t^n/n! converges for |t| < 1/σ.
+  - It continues analytically to S_σ = {t : dist(t, ℝ₊) < 1/σ}, with |B(t)| ≤ K·exp(|t|/R) uniformly in every S_σ′, σ′ > σ.
+  - f(z) = (1/z)∫₀^∞ e^{−t/z}B(t) dt, absolutely convergent, for every z ∈ C_R.
+- **The converse** also holds, so the theorem is a characterisation.
+
+The application in Theorem 5 meets these hypotheses as written. For z ∈ C_R one has |z| < R and |arg z| < 90°, so t = e^{iθ₀}z lies in the open sector −210° < arg t < 10° with |t| < t₀. There P·J is analytic (Corollary of v16, in the form of v26 §1), and Theorem 4 gives the remainder bound with σ = 240 and a constant A independent of t. One remark on (i): the constant K in Sokal's bound for B is not stated in his theorem, but his proof bounds it in terms of A, σ, σ′ and R only. Since A, σ and R do not depend on θ₀, one constant C serves for all θ₀ ∈ [−120°, −80°], as (i) asserts.
+
 Labels: **proved** (a complete argument is written here; nobody else has checked it), **verified** (numerics), **quoted** (a theorem from the literature), **inference**.
 
 ---
