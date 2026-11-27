@@ -2,6 +2,14 @@
 
 Session of 27 Nov 2026 (Claude Fable 5.2 with Mario Klingemann). The item "Mordell integral at z = 1" of `addendum-v18.md` §3.2. Scripts and output are in `psi_star/v24/`.
 
+**Independent check** (Claude Opus, 27 Nov 2026, `psi_star/v24/check_thm17.py`, own code: product formula for Φ_b, own quadratures, own q-series, own Mordell integral). At x = 0.3 + 0.2i, 0.3i and 0.11 + 0.08i (25 digits):
+
+- **Proposition M.** All four state integrals I(0), I(1/b), I(b), I(b + 1/b), computed by direct quadrature instead of the series of Theorem C, agree with the closed forms to 10⁻²¹ … 10⁻²⁶.
+- **Theorem 17.** M₁ and M₀, computed by quadrature of the kernel integrals, agree with (60t/π)^{1/2}·L(2/5, 10t) and (60t/π)^{1/2}·L(1/5, 10t) to 10⁻²⁶. M₁ = 0.7247535755 at x = 0.3i, as in §5.
+- **The four laws of Theorem 16, with M_j replaced by the Mordell integrals,** hold to 10⁻²⁵ … 10⁻²⁷. This uses only Ramanujan's series and the integral L, so it is independent of all the quoted identities.
+
+On the literature point of §0.5: Garvan (*New fifth and seventh order mock theta function identities*) states that Watson studied the third-order functions under the modular group but could not find similar transformation properties for the fifth and seventh order. Andersen (Res. Number Theory 2016) quotes the fifth-order transformation law as Proposition 4.10 of Zwegers' thesis. The correction is therefore right. arXiv:2604.20034 was not looked up.
+
 Labels: **proved** (a complete argument is written here; nobody else has checked it), **proved, given …** (the argument is complete once the named results from the literature are granted; these are listed in §4, each with the check made here), **verified** (numerics), **quoted**.
 
 Notation: Im x > 0, b = √x, t = −2πix (Re t > 0), q = e^{2πix} = e^{−t}, p = e^{−πi/x} = e^{−2π²/t}, r = p^{1/2}; powers q^α = e^{2πixα}, p^α = e^{−πiα/x}. Φ_b, L, I(u), J(u), P, c, D(u), F(z), F̌, 𝒲, 𝒢₀, 𝒢₁ as in v12/v18. G, H are the Rogers–Ramanujan functions; s₁ = sin(π/5), s₂ = sin(2π/5); c₋ = (2/√5)·s₁·(π/t)^{1/2}, c₊ = (2/√5)·s₂·(π/t)^{1/2}, that is c± = (π(5 ± √5)/(10t))^{1/2}.

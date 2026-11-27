@@ -164,6 +164,7 @@ cd ../v22 && python3 check_thm13.py               # the growing saddle contour f
 cd ../v23 && python3 check_lemmaJ.py              # the kernel bound and the volume rule (Lemma J, Theorem 15)
 python3 p1_unitary.py c                          # the volume rule at even roots of unity for six z (Theorem 15)
 cd ../v24 && python3 s1_series.py && python3 s2_law.py c   # z = 1: series identities; kernel integral = Mordell integral
+python3 check_thm17.py                           # independent check: Proposition M, Theorem 17, the classical laws
 cd ../theorems && python3 assemble.py --check     # docs/psi-star-theorems-v1.md is current with the addenda
 ```
 
