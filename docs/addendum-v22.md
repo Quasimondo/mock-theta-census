@@ -2,6 +2,8 @@
 
 Session of 27 Nov 2026 (Claude Fable 5.2 with Mario Klingemann). The open item of v19 §6.3: the growing integral I((a−1)/b) for a ≠ ½. Scripts and output are in `psi_star/v22/`.
 
+**Independent check** (Claude Opus, 27 Nov 2026, `psi_star/v22/check_thm13.py`, own code): for a = 0.01 … 0.99 (15 values) the saddle W (Im W > 0) satisfies V′(w₀) = 0 and Im V(w₀) = −Vol(z) (Bloch–Wigner) to 10⁻²⁵, and condition (L1) at real x holds on all five pieces C₁ … C₅ with the dilogarithm continued as stated in §1: the worst sup of (H − H(w₀))/min(d², d) is −0.0036 (a = 0.99, on C₄ and C₅) and −0.0095 (a = 0.01, on C₁ and C₂), the values of §6. The claim of §5 is reproduced: along the horizontal ray from the growing saddle, −Im V rises by 1.20 and 7.36 at s = 2, 8 for a = ½ and by 3.07 and 16.4 for a = 0.2. For Theorem 14, on the path x = 1/8 + iε the dual series 𝒲(T), 𝒲(p²T) tend to 1 and p·T to z^X (errors 0.02–0.03 at ε = 10⁻⁴, falling about tenfold per decade of ε). Theorem 14 itself (the integrals at real b) and part (b) of Theorem 13 were not recomputed.
+
 Labels: **proved** (a complete argument is written here or in the addenda cited; nobody else has checked it), **verified** (numerics), **inference**.
 
 ---
