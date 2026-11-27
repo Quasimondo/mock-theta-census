@@ -4,8 +4,8 @@ title: "mock-theta-census: a numerical census of Ramanujan-style q-series and th
 authors:
   - family-names: Klingemann
     given-names: Mario
-date-released: 2026-11-26
-version: 1.4.0
+date-released: 2026-11-27
+version: 1.5.0
 doi: "10.5281/zenodo.24443194"
 identifiers:
   - type: doi
