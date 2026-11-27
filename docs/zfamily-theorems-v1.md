@@ -84,7 +84,7 @@ For 0 < a < 1 the three terms of Theorem Z behave like the three sectors of ψ�
 3. **Part 4 → Theorem 13.** Laplace's method on the five-piece contour C (part (a)) and on its tilted version C′ (part (b)). §5 of v22 shows why a simpler contour fails.
 4. **Part 5 → Lemma J.** Lemma U, the contour turn, and the integral of e^{2πas}/(1 + e^{2πs}).
 5. **Part 6 → Theorems 14, 15, 15′.** The radial limit of Theorem Z at x = 1/X + iε (Lemmas R1–R3′ of the ψ\* document, with the extra variable T), then Theorems 13 (a), 7′ and Lemma J for the three terms.
-6. **Part 7 → z = 1.** Theorem Z at a = 0, 1, the series identities of v18 §3.1, then Proposition M, Theorem 16 and the comparison with the classical laws (v24 §3), and continuity on the circle (v27 §5).
+6. **Part 7 → z = 1 and z = q.** Theorem Z at a = 0 (z = 1) and at a = x (z = q), the series identities of v18 §3.1, then Proposition M, Theorem 16 and the comparison with the classical laws (v24 §3), and continuity on the circle (v27 §5).
 
 The volume rule at even X therefore rests on v12 (kernel identity), v16 (Faddeev's dilogarithm), v19 and v26 (Lemma B, Lemma L, Theorem 7′), v20 and v25 (radial limits), v22 (Theorems 13, 14) and v23 (Lemma J). It does not use the descent inequality of v15 or the uniform bound of the kernel integrand, which are needed only for Borel summability.
 
