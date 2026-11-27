@@ -159,7 +159,8 @@ cd ../v19 && python3 check_thm68.py quick         # the forward law (Theorem 8) 
 cd ../v20 && python3 check_thm10.py               # the law at even roots of unity (Theorem 10)
 cd ../v21 && python3 check_thm12.py               # the law at odd roots of unity (Theorem 12)
 cd ../v22 && python3 check_thm13.py               # the growing saddle contour for every z (Theorem 13)
-cd ../v23 && python3 p1_unitary.py c              # the volume rule at even roots of unity for six z (Theorem 15)
+cd ../v23 && python3 check_lemmaJ.py              # the kernel bound and the volume rule (Lemma J, Theorem 15)
+python3 p1_unitary.py c                          # the volume rule at even roots of unity for six z (Theorem 15)
 cd ../theorems && python3 assemble.py --check     # docs/psi-star-theorems-v1.md is current with the addenda
 ```
 

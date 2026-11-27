@@ -2,6 +2,8 @@
 
 Session of 27 Nov 2026 (Claude Fable 5.2 with Mario Klingemann). The one bound left open in `addendum-v22.md` §4. Scripts and output are in `psi_star/v23/`.
 
+**Independent check** (Claude Opus, 27 Nov 2026, `psi_star/v23/check_lemmaJ.py`, own code including an own Faddeev integral): Lemma U holds to 10⁻¹⁵ (|Re log Φ_b| at 50 real points, X = 8, 40, 200). |P·J(a/b)| computed over the real line agrees with every value of §3 tested, to all six digits (a = ¼ and ½ at X = 8, 40, 200; a = 0.7 at X = 8; a = 0.05 and 0.95 at X = 40), lies below 1/(2√2·sin πa), and approaches |1/(1 − 2z)|. The case a = 0.05 at X = 8 was not reached, because its integration range is too long for the simple Faddeev quadrature used. The two analytic steps, |Φ_b| = 1 by the conjugation symmetry and ∫ e^{2πas}/(1 + e^{2πs}) ds = 1/(2 sin πa), are standard and were checked by hand. Theorem 15 against the exact sums at X = 400 … 3200: X·(F/prediction − 1) converges, and Richardson extrapolation gives −0.21657 − 1.34534i (a = ¼), −0.18821 − 1.50019i (a = ⅓), 0.09094 − 1.15995i (a = 5/6) and −0.05388 − 1.15907i (a = 1/20): the prediction holds with an O(1/X) correction.
+
 Labels: **proved** (a complete argument is written here or in the addenda cited; nobody else has checked it), **verified** (numerics).
 
 ---
