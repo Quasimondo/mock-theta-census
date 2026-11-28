@@ -12,6 +12,8 @@ The q-difference equations of §3 were not rechecked.
 
 Labels: **proved** (a complete argument is written here or in the addenda cited; nobody else has checked it), **proved, given …** (complete once the named standard facts are granted), **verified** (numerics), **interpretation** (a way of reading the results, not a theorem), **from memory** (literature not rechecked).
 
+**Later remarks:** `addendum-v29.md` §4 corrects one sentence of §3: the bilateral sum B(z) is a theta function times a rank-one Nahm sum at z = −1 only; for general z it is a combination of the two Nahm-type solutions with elliptic coefficients. `addendum-v29.md` §1–§3 treat the Casoratians of F with the homogeneous solutions.
+
 ---
 
 ## 0. Summary
