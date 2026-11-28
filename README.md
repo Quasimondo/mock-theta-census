@@ -191,6 +191,7 @@ python3 check_v30.py                             # independent check: Theorem 20
 cd ../v31 && python3 c1_continuation.py b c d    # Theorem 22: the cocycle continues across (−½, 0)
 python3 check_v31.py && python3 check_v31_np.py    # independent check: Proposition 1, dual shift, Theorem 22 (i), Ω_γ on (−½, 0)
 cd ../v32 && python3 d1_zero.py b c d           # Theorem 23: one formula for the cocycle on its whole domain, x = 0 included
+python3 check_v32.py                             # independent check: Theorem 23 against the series; Ω_γ(a, 0) by Cauchy's mean value (7 minutes)
 cd ../theorems && python3 assemble.py --check     # docs/psi-star-theorems-v1.md is current with the addenda
 python3 assemble_zfamily.py --check               # docs/zfamily-theorems-v1.md likewise
 ```

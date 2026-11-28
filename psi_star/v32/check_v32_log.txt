@@ -1,0 +1,16 @@
+(1) the word
+  T S T^2 S T = [[1, 0], [2, 1]],  gamma = [[1, 0], [2, 1]]  (equal up to sign: True)
+(2) Theorem 23, Im x > 0, 22 digits: max|S(a,x+1)^-1 S^c(a',x'-1) - J^-1 Lambda^-1 J'|
+  a = 0.25, x = (0.3 + 0.4j): 5.5e-23  (|Om| 1.18)
+  a = (0.3 + 0.1j), x = (-0.15 + 0.25j): 1.2e-22  (|Om| 1.83)
+(3) double precision: Omega^(3) against Omega^(1) (Im x < 0) and Omega^(2) (Im x > 0, Re x < 0)
+  x = (0.5-0.15j): |O3 - O1| = 4.7e-14
+  x = (-0.25-0.05j): |O3 - O1| = 4.9e-14
+  x = (-0.45-0.05j): |O3 - O1| = 2.7e-14
+  x = (0.15-0.1j): |O3 - O1| = 1.2e-13
+  x = (-0.25+0.05j): |O3 - O2| = 7.2e-12
+  x = (-0.4+0.1j): |O3 - O2| = 9.5e-13
+(4) Omega_gamma(0.3, 0) = mean of Omega^(3) over |x| = r, N points at angles (k + 1/2) 2 pi/N
+  r = 0.1: first row [1.        +0.j         0.46127316-0.33956056j 0.01972425+0.48384336j];  negative Fourier modes 1, 2: 1.3e-09
+  r = 0.2: first row [1.        +0.j         0.46127316-0.33956056j 0.01972426+0.48384337j];  negative Fourier modes 1, 2: 4.3e-08
+  addendum §2: (1, 0.4612731569 - 0.3395605587i, 0.0197242516 + 0.4838433601i)
