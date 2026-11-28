@@ -109,7 +109,7 @@ The volume rule at even X therefore rests on v12 (kernel identity), v16 (Faddeev
 - **The trivial sector for a ≠ ½:** the asymptotic expansion of P·J(a/b) (expected to start with 1/(1 − 2z)) and its Borel summability, as in v13–v17 for a = ½.
 - **Uniform constants** in a (§0.6, items 2 and 3).
 - **A direct proof of Theorem 17,** which would be a new proof of the fifth-order transformation laws.
-- **Structure:** whether 𝒲(T; p) is an Appell–Lerch sum in T; z = qᵐ for other m. The 3×3 matrix is written down in `docs/addendum-v30.md` (not part of this document): the state integrals are dual frame⁻¹ · Jacobi factor · q-frame (Theorem 20), and the q-frame transforms under Γ₀(2) with a cocycle of state integrals that is holomorphic on ℂ \ (−∞, −½] (Theorem 21, and Theorem 22 of `docs/addendum-v31.md`); open there: the full group SL₂(ℤ).
+- **Structure:** whether 𝒲(T; p) is an Appell–Lerch sum in T; z = qᵐ for other m. The 3×3 matrix is written down in `docs/addendum-v30.md` (not part of this document): the state integrals are dual frame⁻¹ · Jacobi factor · q-frame (Theorem 20), and the q-frame transforms under Γ₀(2) with a cocycle of state integrals that is holomorphic on ℂ \ (−∞, −½] (Theorem 21, and Theorems 22, 23 of `docs/addendum-v31.md`, `docs/addendum-v32.md`); open there: the full group SL₂(ℤ).
 
 ### 0.8 Relation to the literature
 

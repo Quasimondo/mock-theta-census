@@ -1,0 +1,33 @@
+(a) Im x > 0:  max|S(a,x+1)^-1 S^c(a',x'-1) - J(a;x)^-1 Lambda^-1 J(a';x')|
+   x = (0.3 + 0.2j), a = 0.25  (30 digits): 5.52e-29   (max entry 1.2)
+   x = (-0.15 + 0.1j), a = (0.3 + 0.1j)  (30 digits): 5.87e-30   (max entry 1.57)
+   x = (0.05+0.05j), a = 0.3  (double precision): 1.40e-14
+   x = (-0.05+0.03j), a = 0.3  (double precision): 1.68e-14
+   x = (0.4+0.5j), a = (0.3+0.1j)  (double precision): 2.53e-14
+   x = (-0.3+0.2j), a = 0.25  (double precision): 7.47e-14
+(b) |i delta(a, x+1)/delta(a', x'-1) / lambda(a, x) - 1|
+   x = (0.3 + 0.2j), a = 0.25: 3.1e-31
+   x = (-0.4 + 0.1j), a = (0.3 + 0.1j): 3.98e-31
+   x = (-2.3 + 0.7j), a = 1.2: 7.31e-31
+(c) max|Omega^(3) - Omega^(1)| for Im x < 0, a = 0.3
+   x = (0.5-0.15j): 1.14e-11
+   x = (0.05-0.05j): 3.40e-11
+   x = (-0.2-0.3j): 8.66e-12
+   x = (-0.25-0.05j): 4.51e-13
+   x = (-0.45-0.05j): 1.42e-12
+   x = (-0.7-0.3j): 6.96e-13
+    max|Omega^(3) - Omega^(2)| on the interval (-1/2, 0) and max|Omega^(3) - Omega^(1)| on the positive real axis
+   x = -0.1: 4.14e-13
+   x = -0.2: 2.34e-14
+   x = -0.3: 2.31e-14
+   x = -0.4: 1.99e-14
+   x = 0.2: 3.32e-13
+   x = 0.5: 7.03e-14
+   x = 1.0: 5.64e-14
+(d) x = 0, a = 0.3:  Omega_gamma(a, 0) = S(a, 1)^-1 conj S(-conj a, 1) =
+[[ 1.          +0.j            0.4612731569-0.3395605587j  0.0197242516+0.4838433601j]
+ [ 0.          -0.j            0.2528693711+0.7524304408j  0.4415489053-0.8234039188j]
+ [-0.          +0.j            0.646657547 +0.6743837678j -0.3937881759+0.078046673j ]]
+   circle |x| = 0.05, 16 points: max|Omega^(3) - series| above = 1.92e-14;  max|Omega^(3) - Omega^(1) or Omega^(2)| below = 1.89e+02 (the old formulas lose accuracy as |x| -> 0);  |mean - Omega(0)| = 2.40e-13;  negative Fourier modes k = 1, 2, 3: 1.2e-13, 1.9e-13, 5.4e-13
+   circle |x| = 0.1, 16 points: max|Omega^(3) - series| above = 1.81e-14;  max|Omega^(3) - Omega^(1) or Omega^(2)| below = 1.72e-05 (the old formulas lose accuracy as |x| -> 0);  |mean - Omega(0)| = 6.91e-11;  negative Fourier modes k = 1, 2, 3: 3.0e-10, 1.3e-09, 5.4e-09
+   circle |x| = 0.2, 32 points: max|Omega^(3) - series| above = 2.33e-14;  max|Omega^(3) - Omega^(1) or Omega^(2)| below = 8.94e-10 (the old formulas lose accuracy as |x| -> 0);  |mean - Omega(0)| = 1.51e-11;  negative Fourier modes k = 1, 2, 3: 3.4e-11, 7.5e-11, 1.7e-10

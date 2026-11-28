@@ -6,6 +6,8 @@ Session of 28 Nov 2026 (Claude Fable 5.2 with Mario Klingemann). Task: open item
 
 One point in the statement. The proof of (ii) glues Ω⁽¹⁾ on ℂ \ (−∞, 0] and Ω⁽²⁾ on ℂ \ ((−∞, −½] ∪ [0, ∞)). Both exclude x = 0, so the union is ℂ \ ((−∞, −½] ∪ {0}), not ℂ \ (−∞, −½]. As written, Theorem 22 proves holomorphy on the punctured domain only. Whether x = 0 is a removable singularity, so that the Garoufalidis–Zagier domain cx + d ∉ (−∞, 0] is reached, needs a bound on Ω_γ near 0. I could not settle it numerically: my quadrature is unreliable for |x| < 0.07. Circles around x₀ = −0.2 with radius ≥ 0.15, which pass near 0, give a different mean, but that is not evidence either way. Open item 3 here, the comparison of (A0), (A1) with the printed text, is done: see the check note in v30.
 
+**Later remarks** (Claude Fable 5.2, 28 Nov 2026): the point about x = 0 is correct. As proved in this addendum, Theorem 22 gives holomorphy on ℂ \ ((−∞, −½] ∪ {0}). `addendum-v32.md` closes the gap: Ω_γ(a, x) = 𝐒(a, x + 1)⁻¹·𝐒ᶜ(a′, x′ − 1) on all of ℂ \ (−∞, −½] (Theorem 23), so the statements below hold as written, x = 0 included.
+
 Labels: **proved** (a complete argument is written here or in an earlier addendum; nobody else has checked it), **verified** (numerics), **from memory**.
 
 Notation of v30: 𝐒(a, x) is the matrix of the six state integrals, holomorphic in (a, x) for x ∈ ℂ \ (−∞, 0] (Proposition E); 𝐉, 𝐉̃, Δ are the q-frame, the dual frame and the Jacobi factor; γ = (1 0; 2 1), x′ = x/(1 + 2x), a′ = a/(1 + 2x); p = e^{−πi/x}, T = e^{πi(2a−1)/x}, z = e^{2πia}, q = e^{2πix}.
@@ -96,7 +98,7 @@ Proof. Write 𝐀 = [ 1, α ; 0, A ] with α = (0, −1/(zq²)) and A = [ 0, 1/(
 **Theorem 22 (proved).**
 
 - (i) For Im x < 0 and every a: 𝐑(a′, x′) = 𝐑(a, x), where 𝐑(a, x) := 𝐒ᶜ(a, x)·𝐒(a, x)⁻¹.
-- (ii) Hence Ω⁽¹⁾ = Ω⁽²⁾ on the lower half-plane, and Ω_γ(a, ·) continues to a holomorphic function on ℂ \ (−∞, −½], jointly holomorphic in (a, x). On −½ < x < 0 it is given by the formula of the summary.
+- (ii) Hence Ω⁽¹⁾ = Ω⁽²⁾ on the lower half-plane, and Ω_γ(a, ·) continues to a holomorphic function on ℂ \ (−∞, −½], jointly holomorphic in (a, x) [the proof below covers ℂ \ ((−∞, −½] ∪ {0}); for x = 0 see Theorem 23 of v32]. On −½ < x < 0 it is given by the formula of the summary.
 
 Proof. (i) Fix x with Im x < 0; then Im x′ < 0 too. All matrices below have the form [ 1, ∗ ; 0, ∗ ], are entire in a, and are invertible (the determinant of 𝐒 is elementary and has no zero).
 
@@ -106,7 +108,7 @@ Proof. (i) Fix x with Im x < 0; then Im x′ < 0 too. All matrices below have th
 - *𝐕(a + x) = 𝐀(z)⁻¹·𝐕(a)·𝐀(z).* (a + x)′ = a′ + x′, so 𝐑((a + x)′, x′) = 𝐑(a′, x′), and 𝐒, 𝐒ᶜ are multiplied by 𝐀(z) on the right.
 - So 𝐕 is an entire function of a with period 1, that is a matrix of Laurent series in z converging on ℂ \ {0}, and 𝐀(z)·𝐕(zq) = 𝐕(z)·𝐀(z). Here |q| > 1. By Lemma U, 𝐕 = 1, which is 𝐑(a′, x′) = 𝐒ᶜ(a, x)·𝐒(a, x)⁻¹.
 
-(ii) 𝐒ᶜ(a, x)⁻¹·𝐒ᶜ(a′, x′) = 𝐒(a, x)⁻¹·𝐑(a, x)⁻¹·𝐑(a′, x′)·𝐒(a′, x′) = 𝐒(a, x)⁻¹·𝐒(a′, x′) for Im x < 0. Ω⁽¹⁾ is holomorphic on ℂ \ (−∞, 0], Ω⁽²⁾ on ℂ \ ((−∞, −½] ∪ [0, ∞)) (Proposition 2), they agree on both half-planes, and the union of the two domains is ℂ \ (−∞, −½]. For real −½ < x < 0 the points −x̄ = −x and −x̄′ = −x/(1 + 2x) are positive, and Ω⁽²⁾ is the stated formula. ∎
+(ii) 𝐒ᶜ(a, x)⁻¹·𝐒ᶜ(a′, x′) = 𝐒(a, x)⁻¹·𝐑(a, x)⁻¹·𝐑(a′, x′)·𝐒(a′, x′) = 𝐒(a, x)⁻¹·𝐒(a′, x′) for Im x < 0. Ω⁽¹⁾ is holomorphic on ℂ \ (−∞, 0], Ω⁽²⁾ on ℂ \ ((−∞, −½] ∪ [0, ∞)) (Proposition 2), they agree on both half-planes, and the union of the two domains is ℂ \ ((−∞, −½] ∪ {0}) [corrected; the text said ℂ \ (−∞, −½]]. For real −½ < x < 0 the points −x̄ = −x and −x̄′ = −x/(1 + 2x) are positive, and Ω⁽²⁾ is the stated formula. ∎
 
 Remarks.
 
