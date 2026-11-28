@@ -14,7 +14,7 @@ Labels: **proved** (a complete argument is written here; nobody else has checked
 
 Notation: Im x > 0, b = √x, t = −2πix (Re t > 0), q = e^{2πix} = e^{−t}, p = e^{−πi/x} = e^{−2π²/t}, r = p^{1/2}; powers q^α = e^{2πixα}, p^α = e^{−πiα/x}. Φ_b, L, I(u), J(u), P, c, D(u), F(z), F̌, 𝒲, 𝒢₀, 𝒢₁ as in v12/v18. G, H are the Rogers–Ramanujan functions; s₁ = sin(π/5), s₂ = sin(2π/5); c₋ = (2/√5)·s₁·(π/t)^{1/2}, c₊ = (2/√5)·s₂·(π/t)^{1/2}, that is c± = (π(5 ± √5)/(10t))^{1/2}.
 
-**Later remarks:** `addendum-v27.md` §5 (Theorem 17 on the unit circle, for real 0 < x ≤ 1).
+**Later remarks:** `addendum-v27.md` §5 (Theorem 17 on the unit circle, for real 0 < x ≤ 1). `addendum-v30.md` §1 derives (R3), (R4) from relations of Ramanujan's last letter, so they are no longer only verified.
 
 ---
 

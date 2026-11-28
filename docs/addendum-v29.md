@@ -19,6 +19,8 @@ Labels: **proved** (a complete argument is written here or in the addenda cited;
 
 Notation: L·y(z) = y(z) − zq·y(zq) − zq²·y(zq²); F(z) = Σ_{n≥0} zⁿq^{n(n+1)/2}(−q;q)ₙ (L·F = 1); G(z) = F̌(1/z)/(2z) (L·G = −1); B = F + G = Σ_{n∈ℤ} zⁿq^{n(n+1)/2}(−q;q)ₙ (L·B = 0). I(u), J(u), P, T = e^{πi(2a−1)/x}, 𝒲(T) = 𝒲(T; p) as in v12, v18.
 
+**Later remarks:** `addendum-v30.md` assembles the frames of §2 and §3 into one matrix identity (Theorem 20) and answers question 4 of `docs/related-ggmw.md`.
+
 ---
 
 ## 0. Summary

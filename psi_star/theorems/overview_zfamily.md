@@ -69,7 +69,7 @@ Hence lim (1/X)·log|F(z; e^{2πi/X})| = Vol(z)/2π. **The growth rate of the fa
 - **At a = 0 (proved, v18).** The dual series become Ramanujan's fifth-order functions: 𝒲(1/p) = φ₀(−p), p·𝒲(p) = −φ₁(−p), and on the other route F₀(p), F₁(p). The state integrals become Rogers–Ramanujan products.
 - **Proposition M (proved, given classical identities; v24).** I(0), I(1/b), I(b), I(b + 1/b) are pure powers of q and p times the entries (2/√5)·sin(π/5), (2/√5)·sin(2π/5) of the S-matrix of the Rogers–Ramanujan functions.
 - **Theorem 16 (proved, given Proposition M; v24).** At z = 1 and z = q, Theorem Z becomes four transformation laws for f₁, ψ₁, f₀, ψ₀, with kernel integrals M₁ = 2i·q^{11/60}·P·J(1/b), M₀ = 2i·q^{29/60}·P·J(b + 1/b) in the place of the non-modular term.
-- **Theorem 17 (proved, given the known transformation law of χ₀, χ₁ and two series identities (R3), (R4) checked to q¹⁰⁰⁰ but not proved; v24, v27).** M₁ = (60t/π)^{1/2}·L(2/5, 10t) and M₀ = (60t/π)^{1/2}·L(1/5, 10t), with L(r, α) the Mordell integral of the fifth-order laws. v27 §5 extends it to the unit circle, 0 < x ≤ 1.
+- **Theorem 17 (proved, given the known transformation law of χ₀, χ₁ and classical identities; v24, v27; the two series identities (R3), (R4) follow from relations of Ramanujan's last letter, v30 §1).** M₁ = (60t/π)^{1/2}·L(2/5, 10t) and M₀ = (60t/π)^{1/2}·L(1/5, 10t), with L(r, α) the Mordell integral of the fifth-order laws. v27 §5 extends it to the unit circle, 0 < x ≤ 1.
 
 So along the family one kernel integral passes from "Borel sum of a divergent series" at z = −1 (v17) to "Mordell integral" at z = 1, and the state integrals pass from carrying the tetrahedron volume to being S-matrix entries. The four laws of Theorem 16 are the classical ones of Zwegers (thesis, 2002, Propositions 4.10, 4.13) and Gordon–McIntosh (2012), term by term.
 
@@ -99,7 +99,7 @@ The volume rule at even X therefore rests on v12 (kernel identity), v16 (Faddeev
 1. **Part 4, the contour C of Theorem 13 (a).** The margins of (L1) are proportional to the volume and vanish at both ends: sup (H − H(w₀))/min(d², d) ≈ −0.315·Vol as a → 0 and −0.118·Vol as a → 1 (stress test v2, T13a.2). The continuation of Li₂(−e^{w}) on the pieces outside the strip (Im w = 2π and the imaginary axis above iπ) must be exactly as v22 §1 states. The bound for 1/Φ_b on C holds with constant 2, attained at the corner 2πi.
 2. **Part 4, Theorem 13 (b).** ε(a) is not given by the proof. It is measured in v27 §2: 20° near a = 0.3, 0.08° at a = 10⁻³, about 26° per unit of volume for a ≤ 0.3 and 7° to 10° for a ≥ 0.9. A proof of ε(a) ≥ c·Vol(a) is open.
 3. **Part 6, uniformity in a.** C(a), C′(a) of Theorems 13 (a) and 7′ are not controlled as a → 0, 1. Measured: the limit K(a) = lim X·(F/Π − 1) exists for every a with 1.15 ≤ |K(a)| ≤ 1.6, but it is reached only once κ ≈ 7 to 32 (stress test v2, T15.1; v27 §1).
-4. **Part 7, Theorem 17.** It is proved by comparison with the known laws, not by evaluating J(1/b) directly. It also uses (R3), (R4), which hold to q¹⁰⁰⁰ but are not proved here.
+4. **Part 7, Theorem 17.** It is proved by comparison with the known laws, not by evaluating J(1/b) directly. It also uses (R3), (R4); `docs/addendum-v30.md` §1 derives them from relations of Ramanujan's last letter (Watson 1937), which are stated there from memory and confirmed to q³⁰⁰.
 5. **Part 5, Lemma J.** The contour turn uses bounds for |Φ_b| and 1/|Φ_b| in the wedges whose constants grow as x → 0 (pointwise in x, v27 §3); the bound of the lemma itself is uniform.
 
 ### 0.7 What is open
@@ -108,8 +108,8 @@ The volume rule at even X therefore rests on v12 (kernel identity), v16 (Faddeev
 - **Other roots of unity e^{2πih/k}, h ≠ 1, and the interior of the disk at an angle for z ≠ −1.**
 - **The trivial sector for a ≠ ½:** the asymptotic expansion of P·J(a/b) (expected to start with 1/(1 − 2z)) and its Borel summability, as in v13–v17 for a = ½.
 - **Uniform constants** in a (§0.6, items 2 and 3).
-- **A direct proof of Theorem 17,** which would be a new proof of the fifth-order transformation laws, and a proof of (R3), (R4).
-- **Structure:** whether 𝒲(T; p) is an Appell–Lerch sum in T; z = qᵐ for other m; the full 3×3 matrix (a matrix-valued quantum modular form with a Jacobi variable in the sense of Garoufalidis–Zagier, v18 §4).
+- **A direct proof of Theorem 17,** which would be a new proof of the fifth-order transformation laws.
+- **Structure:** whether 𝒲(T; p) is an Appell–Lerch sum in T; z = qᵐ for other m. The 3×3 matrix is written down in `docs/addendum-v30.md` (not part of this document): the state integrals are dual frame⁻¹ · Jacobi factor · q-frame (Theorem 20), and the q-frame transforms under Γ₀(2) with a cocycle of state integrals that is holomorphic on ℂ \ (−∞, 0] (Theorem 21); open there: the continuation across (−½, 0), which is seen numerically, and the full group SL₂(ℤ).
 
 ### 0.8 Relation to the literature
 

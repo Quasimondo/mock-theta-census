@@ -1,0 +1,105 @@
+=== r1_letter.py 300 ===
+order N = 300
+(A0) f0(q) + 2F0(q^2) - 2 = phi0(-q^2) + psi0(q)   : True    both = theta_4(0,-q) G(-q): True
+(C0) chi0(q) = 2F0(q) - phi0(-q)                   : True
+(A1) f1(q) + 2q F1(q^2) = psi1(q) - phi1(-q^2)/q   : True    both = theta_4(0,-q) H(-q): True
+(C1) q chi1(q) = 2q F1(q) + phi1(-q)               : True
+(R4) psi0(q) - f0(q) + 2 = chi0(q^2)               : True
+(R3) psi1(q) - f1(q) = q chi1(q^2)                 : True
+further relations of the two families:
+     2 phi0(-q^2) - f0(q) = theta_4(0,q) G(q)       : True
+     f1(q) + 2 phi1(-q^2)/q = theta_4(0,q) H(q)     : True
+     psi0(q) - F0(q^2) + 1 = q psi(q^2) H(q^4)      : True
+     psi1(q) - q F1(q^2) = psi(q^2) G(q^4)          : True
+
+=== m1_matrix.py ===
+(a) Theorem 20: Jt(zetat;p) S(a,x) = Delta(a,x) J(zeta;q), S by quadrature; det S; P elementary
+  x = (0.3 + 0.2j):  |P - P_elem|/|P| = 5.55e-32
+     a = 0.25           max|Jt S - Delta J| = 8.82e-31 (max entry 2.64);  |det S/formula - 1| = 3.22e-31;  det J q^(3/4) zeta/(-2) - 1 = 2.42e-31
+     a = 0.5            max|Jt S - Delta J| = 6.31e-31 (max entry 1.72);  |det S/formula - 1| = 5.18e-31;  det J q^(3/4) zeta/(-2) - 1 = 2.75e-31
+     a = (0.3 + 0.1j)   max|Jt S - Delta J| = 1.25e-30 (max entry 5.5);  |det S/formula - 1| = 4.32e-31;  det J q^(3/4) zeta/(-2) - 1 = 1.31e-31
+     a = 0.8            max|Jt S - Delta J| = 2.67e-29 (max entry 1.16);  |det S/formula - 1| = 4.92e-29;  det J q^(3/4) zeta/(-2) - 1 = 1.42e-31
+     a = 1.7            max|Jt S - Delta J| = 1.19e-20 (max entry 1.25);  |det S/formula - 1| = 1.87e-21;  det J q^(3/4) zeta/(-2) - 1 = 2.18e-32
+  x = (0.45 + 0.3j):  |P - P_elem|/|P| = 1.46e-31
+     a = 0.25           max|Jt S - Delta J| = 7.44e-30 (max entry 3.99);  |det S/formula - 1| = 1.51e-30;  det J q^(3/4) zeta/(-2) - 1 = 1.21e-31
+     a = 0.5            max|Jt S - Delta J| = 1.31e-29 (max entry 2.82);  |det S/formula - 1| = 4.65e-30;  det J q^(3/4) zeta/(-2) - 1 = 2.04e-31
+     a = (0.3 + 0.1j)   max|Jt S - Delta J| = 1.7e-29 (max entry 7.98);  |det S/formula - 1| = 1.35e-30;  det J q^(3/4) zeta/(-2) - 1 = 3.07e-31
+     a = 0.8            max|Jt S - Delta J| = 3.31e-29 (max entry 1.32);  |det S/formula - 1| = 1.92e-29;  det J q^(3/4) zeta/(-2) - 1 = 3.95e-31
+     a = 1.7            max|Jt S - Delta J| = 7.07e-26 (max entry 1.08);  |det S/formula - 1| = 7.98e-27;  det J q^(3/4) zeta/(-2) - 1 = 2.18e-32
+  x = (-0.2 + 0.6j):  |P - P_elem|/|P| = 0.0
+     a = 0.25           max|Jt S - Delta J| = 9.6e-30 (max entry 17.5);  |det S/formula - 1| = 5.15e-31;  det J q^(3/4) zeta/(-2) - 1 = 6.97e-32
+     a = 0.5            max|Jt S - Delta J| = 7.24e-30 (max entry 11.2);  |det S/formula - 1| = 3.81e-31;  det J q^(3/4) zeta/(-2) - 1 = 2.32e-31
+     a = (0.3 + 0.1j)   max|Jt S - Delta J| = 1.78e-29 (max entry 29.6);  |det S/formula - 1| = 4.99e-31;  det J q^(3/4) zeta/(-2) - 1 = 2.07e-31
+     a = 0.8            max|Jt S - Delta J| = 3.93e-30 (max entry 4.25);  |det S/formula - 1| = 1.03e-31;  det J q^(3/4) zeta/(-2) - 1 = 1.52e-31
+     a = 1.7            max|Jt S - Delta J| = 3.76e-28 (max entry 1.0);  |det S/formula - 1| = 1.18e-29;  det J q^(3/4) zeta/(-2) - 1 = 9.86e-32
+(b) H_e(y) H_e(y r^(1/2)) - H_o(y) H_o(y r^(1/2)) = 1 and H(y) - H(yr) = y r^(1/4) H(y r^(1/2)), for r = q and r = p^2
+   x = (0.3 + 0.2j), y = (0.7 + 0.4j):  r = q: 2.39e-31, 3.59e-31;   r = p^2: 4.81e-35, 1.48e-31
+   x = (0.3 + 0.2j), y = (-1.3 + 0.2j):  r = q: 4.93e-32, 1.78e-31;   r = p^2: 1.97e-31, 1.11e-31
+   x = (-0.2 + 0.6j), y = (0.7 + 0.4j):  r = q: 1.97e-31, 9.88e-32;   r = p^2: 1.97e-31, 5.68e-32
+   x = (-0.2 + 0.6j), y = (-1.3 + 0.2j):  r = q: 1.23e-32, 1.1e-31;   r = p^2: 1.97e-31, 1.12e-31
+(c) Corollary: W(T) = {[F(z) - Jc(a)] i0(a+x) - [F(zq) - Jc(a+x)] i0(a)}/det S,  pT W(p^2 T) = {[F(z) - Jc(a)] i1(a+x) - [F(zq) - Jc(a+x)] i1(a)}/det S
+   x = (0.3 + 0.2j), a = 0.25: W(T) = (0.99999581121 - 3.76043814124e-6j), deviation 1.01e-31;   pT W(p^2 T): deviation 4.65e-32
+   x = (0.45 + 0.3j), a = (0.3 + 0.1j): W(T) = (1.00000008766 - 0.000165950295097j), deviation 1.98e-31;   pT W(p^2 T): deviation 9.93e-32
+   x = (-0.2 + 0.6j), a = 0.8: W(T) = (1.00079181748 - 0.00111068923912j), deviation 1.26e-31;   pT W(p^2 T): deviation 9.33e-31
+
+=== m2_extend.py ===
+(a) numpy integrals against Theorem 20 (series) in the upper half-plane
+   x = (0.5+0.15j): max|S_integral - S_series| = 2.98e-14   (max entry 1.4)
+   x = (0.35+0.05j): max|S_integral - S_series| = 4.86e-14   (max entry 1.39)
+   x = (0.62+0.03j): max|S_integral - S_series| = 3.34e-14   (max entry 1.06)
+(b) holomorphy across the positive real axis: Fourier modes of S(a, x0 + r e^(i theta)) on a circle around a real point
+   x0 = 0.5, r = 0.15: max|mean - S(x0)| = 1.84e-13;  negative modes k=1..4: 5.1e-13, 1.4e-12, 4.0e-12, 1.1e-11;  positive modes: 6.9e-01, 3.7e-01, 1.8e-01, 8.2e-02
+   x0 = 0.3, r = 0.1: max|mean - S(x0)| = 4.25e-10;  negative modes k=1..4: 9.8e-10, 2.2e-09, 5.1e-09, 1.1e-08;  positive modes: 1.7e+00, 1.2e+00, 8.3e-01, 5.3e-01
+   x0 = 1.3, r = 0.3: max|mean - S(x0)| = 3.93e-15;  negative modes k=1..4: 1.7e-15, 1.9e-15, 1.5e-15, 1.2e-15;  positive modes: 6.4e-01, 5.8e-01, 3.4e-01, 1.5e-01
+(c) lower half-plane: the q-difference equation of the first row, and I(u; x) = I(u; 1/x)
+   x = (0.5-0.15j) (|q| = 2.57): L Jc - 1 = 2.49e-14, L i0 = 1.78e-13, L i1 = 1.18e-14;  |I(u;x) - I(u;1/x)|/|I| = 8.74e-15
+   x = (0.3-0.1j) (|q| = 1.87): L Jc - 1 = 1.73e-14, L i0 = 3.34e-14, L i1 = 4.13e-13;  |I(u;x) - I(u;1/x)|/|I| = 2.48e-14
+   x = (0.8-0.3j) (|q| = 6.59): L Jc - 1 = 1.53e-14, L i0 = 2.49e-12, L i1 = 1.38e-14;  |I(u;x) - I(u;1/x)|/|I| = 4.18e-15
+
+=== m4_block.py ===
+x0 = 0.5, r = 0.2: negative modes k=1..3: 1.1e-21, 5.1e-21, 2.36e-20;  modes k=0..3: 1.36, 1.46, 0.924, 0.392
+x0 = -0.25, r = 0.1: negative modes k=1..3: 1.37e-9, 2.86e-9, 5.97e-9;  modes k=0..3: 0.802, 0.631, 0.342, 0.213;  |Omega(x0+0.002i) - Omega(x0-0.002i)| = 0.0253
+x0 = -0.2, r = 0.15: negative modes k=1..3: 7.92e-15, 1.41e-14, 2.5e-14;  modes k=0..3: 0.83, 0.77, 0.409, 0.303;  |Omega(x0+0.002i) - Omega(x0-0.002i)| = 0.0205
+x0 = -0.7, r = 0.1: negative modes k=1..3: 0.473, 0.3, 0.114;  modes k=0..3: 0.739, 1.26, 1.36, 0.746;  |Omega(x0+0.002i) - Omega(x0-0.002i)| = 2.02
+jump of the block across the negative real axis, by series on both sides: max|Omega(x0 + i eps) - Omega(x0 - i eps)| / max|Omega|
+   x0 = -0.1:  eps = 0.004, 0.002, 0.001:  0.0444 / 0.861;  0.0222 / 0.872;  0.0111 / 0.878
+   x0 = -0.2:  eps = 0.004, 0.002, 0.001:  0.041 / 0.809;  0.0205 / 0.819;  0.0103 / 0.825
+   x0 = -0.3:  eps = 0.004, 0.002, 0.001:  0.0706 / 0.758;  0.0353 / 0.766;  0.0176 / 0.771
+   x0 = -0.35:  eps = 0.004, 0.002, 0.001:  0.106 / 0.735;  0.0527 / 0.743;  0.0263 / 0.747
+   x0 = -0.4:  eps = 0.004, 0.002, 0.001:  0.177 / 0.725;  0.0878 / 0.731;  0.0438 / 0.734
+   x0 = -0.45:  eps = 0.004, 0.002, 0.001:  0.419 / 0.797;  0.182 / 0.798;  0.0876 / 0.797
+   x0 = -0.6:  eps = 0.004, 0.002, 0.001:  1.7 / 1.07;  1.66 / 0.943;  1.58 / 0.843
+
+=== m3_modular.py ===
+(a) T:  J(a; x+1) = C_T J(a; x)
+   x = (0.3 + 0.2j), a = 0.25: max deviation 1.82e-30
+   x = (-0.2 + 0.6j), a = (0.3 + 0.1j): max deviation 1.85e-29
+(b) gamma:  J(a'; x') = Lambda J(a; x) Omega,  Omega from four columns of state integrals (quadrature)
+   x = (0.3 + 0.2j), a = 0.25: x' = (0.20588 + 0.073529j); |lam/(delta/delta') - 1| = 4.01e-31;  max|J' - Lambda J Omega| = 1.87e-29 (max entry 1.97)
+   x = (0.45 + 0.3j), a = (0.3 + 0.1j): x' = (0.26071 + 0.075567j); |lam/(delta/delta') - 1| = 1.38e-31;  max|J' - Lambda J Omega| = 2.13e-30 (max entry 2.33)
+   x = (-0.2 + 0.6j), a = 0.8: x' = (0.33333 + 0.33333j); |lam/(delta/delta') - 1| = 1.89e-31;  max|J' - Lambda J Omega| = 4.46e-30 (max entry 6.71)
+   x = (0.9 + 0.5j), a = 0.5: x' = (0.34163 + 0.056561j); |lam/(delta/delta') - 1| = 4.02e-32;  max|J' - Lambda J Omega| = 1.8e-30 (max entry 2.19)
+(c) the relation E^2 = -1, E = gamma T^-1:  J(-a; x) = Lam(a1,x1-1) C_T^-1 Lam(a,x-1) C_T^-1 J(a; x) Omega(a,x-1) Omega(a1,x1-1),  x1 = (x-1)/(2x-1), a1 = a/(2x-1)
+   x = (0.3 + 0.4j), a = 0.25: max deviation 5.05e-30 (max entry 7.33);  first row of the product of the two Omegas: ['(1.0 + 0.0j)', '(1.1009637 - 1.0506469j)', '(1.0936176 - 1.0415107j)']
+        F(1/z) = (1.07274170175119 + 0.0306113087509736j),  (1, F(z), F(zq)) . column 2 of the product = (1.07274170175119 + 0.0306113087509736j)
+   x = (0.6 + 0.5j), a = (0.3 + 0.1j): max deviation 1.05e-29 (max entry 8.06);  first row of the product of the two Omegas: ['(1.0 + 0.0j)', '(1.1759521 - 0.40783887j)', '(1.1536588 - 0.4841129j)']
+        F(1/z) = (0.977891724659126 + 0.0752388222460166j),  (1, F(z), F(zq)) . column 2 of the product = (0.977891724659126 + 0.0752388222460166j)
+
+=== m5_jump.py ===
+(a) lowint.py against npint.py (integral representation of Phi_b) and against the series of the block, Im x < 0
+   x = (0.5-0.15j): max|S_low - S_np| = 1.11e-12;  max|block - series| = 1.14e-12
+   x = (0.2-0.4j): max|S_low - S_np| = 4.30e-12;  max|block - series| = 4.55e-12
+   x = (-0.2-0.3j): max|S_low - S_np| = nan;  max|block - series| = 3.92e-11
+(b) jump of Omega_gamma across the negative real axis: max over the first row | max over the block, at x0 +- i eps
+   x0 = -0.15: eps = 0.08: 0.42 | 0.895  (sizes 1 | 1.08);   0.04: 0.21 | 0.433  (sizes 1 | 0.912);   0.02: 0.105 | 0.215  (sizes 1 | 0.833)
+   x0 = -0.25: eps = 0.08: 0.734 | 1.02  (sizes 1 | 1.31);   0.04: 0.355 | 0.508  (sizes 1 | 0.92);   0.02: 0.175 | 0.253  (sizes 1 | 0.757)
+   x0 = -0.35: eps = 0.08: 2.25 | 2.97  (sizes 2.29 | 3.04);   0.04: 0.875 | 1.23  (sizes 1 | 1.37);   0.02: 0.385 | 0.55  (sizes 1 | 0.793)
+   x0 = -0.7: eps = 0.08: 2.17 | 2.86  (sizes 2.11 | 2.56);   0.04: 1.28 | 2.05  (sizes 1.18 | 1.56);   0.02: 1.38 | 1.95  (sizes 1.31 | 1.16)
+
+=== m6_circle.py ===
+x0 = -0.2, r = 0.1, 16 points (first row | block):
+   negative modes k = 1, 2, 3: 3.2e-06 | 3.8e-06;  7.7e-06 | 9.3e-06;  1.9e-05 | 2.2e-05
+   modes k = 0, 1, 2, 3, 6:    1.0e+00 | 8.3e-01;  3.3e-01 | 5.1e-01;  1.5e-01 | 1.8e-01;  7.4e-02 | 9.0e-02;  7.0e-03 | 8.5e-03
+x0 = -0.75, r = 0.1, 16 points (first row | block):
+   negative modes k = 1, 2, 3: 7.5e-01 | 8.8e-01;  3.1e-01 | 3.6e-01;  3.2e-01 | 3.5e-01
+   modes k = 0, 1, 2, 3, 6:    1.0e+00 | 7.7e-01;  8.8e-01 | 8.9e-01;  8.5e-01 | 7.0e-01;  4.0e-01 | 4.2e-01;  2.6e-01 | 2.9e-01

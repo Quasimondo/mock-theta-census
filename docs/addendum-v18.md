@@ -8,6 +8,8 @@ Labels: **proved** (a complete argument exists in these addenda; nobody else has
 
 Updated the same day after `census3/zfamily/` appeared in the repository (commit bbac2c2): §2.4 compares with it, §2.5 with the figure-eight comparison of `psi_star/knot/`.
 
+**Later remarks:** `addendum-v30.md` gives the matrix form of Theorem Z (Theorem 20: state integrals = dual frame⁻¹ · Jacobi factor · q-frame) and the behaviour of the q-frame under Γ₀(2) (Theorem 21), which is the precise form of §4.
+
 ---
 
 ## 0. Summary
