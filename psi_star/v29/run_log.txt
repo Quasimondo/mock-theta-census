@@ -12,3 +12,12 @@
     sigma_- = sum q^(n(3n+1)/2)(1 - q^(2n+1)): holds to order q^300
 (c) dual side
     largest deviations at 3 points x and a = 1/2, 1/4, 0.8, 0.3 + 0.1i:  (1) 1.97e-31;  (2) 1.69e-21;  (3) 4.55e-26;  (4) 2.45e-31;  (5) 3.1e-30;  (6) 2.05e-28
+
+=== y2_reduction.py 300 ===
+order N = 300
+(W0) f0 + 2 psi0 = theta products : True
+(W1) f1 + 2 psi1 = theta products : True
+(L)  f1 psi0 - f0 psi1 = (f1 B0 - f0 B1)/2 : True
+(L)  f1 psi0 - f0 psi1 = B1 psi0 - B0 psi1  : True
+(C)  f1 psi0 - f0 psi1 = -2q sum (-1)^n q^{n(n+3)/2} s_n : True
+first coefficients of -(f1 psi0 - f0 psi1): [1, 1, 1, 0, 2, 0, 2, 0, 1, 2, 2, 1, 1, 1, 3, 1, 4, 1, 4, 0, 4, 1, 6, 1, 6, 3, 5, 2, 6, 3, 7]

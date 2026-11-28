@@ -61,7 +61,18 @@ Proof. (i): B = F + G, and the terms F(z)F(zq) cancel. (ii): D is a convergent L
 
   f₀\*·ψ₁\* − f₁\*·ψ₀\* = 2q·D(−1) = −2q·Σ_{n∈ℤ} q^{n(n+3)/2}·sₙ,  f₁·ψ₀ − f₀·ψ₁ = 2q·D(1) = −2q·Σ_{n∈ℤ} (−1)ⁿ·q^{n(n+3)/2}·sₙ.
 
-The second is an identity between Ramanujan's four fifth-order functions f₀, f₁, ψ₀, ψ₁; I have not looked for it in the literature.
+The second is an identity between Ramanujan's four fifth-order functions f₀, f₁, ψ₀, ψ₁.
+
+**Is the second identity known? (later remark, 28 Nov; a targeted search, not a full literature review)**
+
+- **The left side is a known kind of object (derivation; verified to q³⁰⁰, `y2_reduction.py`).** With Watson's bilateral sums B₀ = f₀ + 2ψ₀ and B₁ = f₁ + 2ψ₁, which are theta products (Watson 1937, §7; in product form Mc Laughlin, arXiv:1906.11997, (4.1), (4.2)),
+
+    f₁ψ₀ − f₀ψ₁ = ½·(f₁B₀ − f₀B₁) = B₁ψ₀ − B₀ψ₁.
+
+  So the "bilinear" expression is linear in the mock theta functions, with theta functions as coefficients: no product of two mock theta functions survives. It should not be called a new Wronskian-type identity between four mock theta functions. The same algebra with ψ\* = ½(f\* ± θ₄R) (identities (I), (II)) makes the first identity linear in f₀\*, f₁\*.
+- **The right side was not found (search).** What the Corollary adds is the closed form of this combination as the two-sided sum −2q·Σ (−1)ⁿq^{n(n+3)/2}sₙ with the partial sums sₙ. I did not find this formula, nor any identity for f₁ψ₀ − f₀ψ₁ or f₁B₀ − f₀B₁, in: Mc Laughlin, arXiv:1906.11997 (§4 has only identities linear in the fifth-order functions); the entries of the Lost Notebook quoted in arXiv:2007.03664 (Andrews–Berndt, Part V, Entries 3.4.4, 3.4.8: linear relations between ψ_j, F_j and theta functions); arXiv:2009.05878 (sums f_j + 2ψ_j again); the papers on the mock theta conjectures found by the search (Andersen, arXiv:1604.05294; Garvan, arXiv:1907.04803; Mortenson, arXiv:1208.1330, 1208.6316). Three searches by formula and by the words "Wronskian", "Casoratian", "bilinear", "product of two mock theta functions" gave no hit.
+- **Not checked.** Watson's paper of 1937 and Andrews–Garvan 1989 in full text, Part V of the Lost Notebook beyond the quoted entries, and the OEIS for the coefficients 1, 1, 1, 0, 2, 0, 2, 0, 1, 2, 2, 1, 1, 1, 3, 1, 4, 1, 4, 0, 4, 1, 6, … of −(f₁ψ₀ − f₀ψ₁).
+- **Status.** "Not found in a targeted search" is the right label, not "new". If it is new, the new part is the sum on the right, i.e. the statement that the combination ½(f₁B₀ − f₀B₁) of Watson's is the value at z = 1 of the Casoratian D(z).
 
 ---
 
@@ -120,13 +131,14 @@ Nothing else in v28 depends on this. The table in v28 §3 should read, in its la
 
 ---
 
-## 5. Numerical checks (verified; `y1_casoratian.py`, `run_log.txt`)
+## 5. Numerical checks (verified; `y1_casoratian.py`, `y2_reduction.py`, `run_log.txt`)
 
 | check | result |
 |---|---|
 | D by its two definitions; D(z) + zq²·D(zq) = −B(zq); the Laurent series (ii); the sum over shifts (iii): five pairs (z, q), relative | ≤ 2·10⁻⁴⁰ |
 | the two identities of the Corollary at q = 0.3 + 0.2i, −0.4 + 0.3i, 0.6 | ≤ 2·10⁻⁴⁰ |
 | σ₋ = Σ q^{n(3n+1)/2}(1 − q^{2n+1}) | exact to q³⁰⁰ |
+| later remark: B_j = f_j + 2ψ_j = theta products; f₁ψ₀ − f₀ψ₁ = ½(f₁B₀ − f₀B₁) = −2q·Σ (−1)ⁿq^{n(n+3)/2}sₙ (`y2_reduction.py`) | exact to q³⁰⁰ |
 | Proposition C3 (i), (iv), (v) and K₀ at z = 1: three x, four a | ≤ 3·10⁻²⁸ |
 | Proposition C3 (ii), (iii), relative (cancellation at the smallest \|p\|) | 2·10⁻²¹, 5·10⁻²⁶ |
 | §4: B(z)y(zq) + B(zq)y(z), relative | 1.4, 0.43, 1.1, 1.4 (z = 1), 9·10⁻⁴¹ (z = −1) |
@@ -137,11 +149,12 @@ Nothing else in v28 depends on this. The table in v28 §3 should read, in its la
 
 1. Whether D(z) (or K) is expressible by classical Appell–Lerch sums for z other than ±1, and whether 𝒲(T) is, as a function of T.
 2. The matrix 𝕁 and its cocycle (question 4 of `docs/related-ggmw.md`): with §2 and §3 both sides of the matrix are now explicit.
-3. The identity f₁ψ₀ − f₀ψ₁ = −2q·Σ (−1)ⁿq^{n(n+3)/2}sₙ: is it known, and what is its modular meaning (the left side is a mixed mock modular form of weight 1)?
+3. The identity f₁ψ₀ − f₀ψ₁ = −2q·Σ (−1)ⁿq^{n(n+3)/2}sₙ: not found in a targeted search (remark after the Corollary in §1); the left side is ½(f₁B₀ − f₀B₁) with Watson's theta products B_j, a mixed mock modular form of weight 1. Open: a full check of Watson 1937, Andrews–Garvan 1989 and the OEIS, and a modular reading of the sum on the right.
 
 ---
 
 ## 7. Scripts (`psi_star/v29/`)
 
 - `y1_casoratian.py [a b c] [N]`: the checks of §5 (3 minutes).
+- `y2_reduction.py [N]`: the reduction of the second identity to Watson's theta products, exact series (under a second).
 - `common.py`, `a1_formula.py`, `c2_z1.py` (from v18), `run_log.txt`, `README.md`.

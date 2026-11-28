@@ -177,6 +177,7 @@ cd ../v26 && python3 u1_fixes.py a c             # corrections after the stress 
 cd ../v27 && python3 w1_round2.py                # after the second stress test (Theorem 15 in X·Vol; Lemma J up to x = 1)
 cd ../v28 && python3 x1_kind.py                  # f* as a one-sided Nahm sum; growth along rays (not mock modular)
 cd ../v29 && python3 y1_casoratian.py a b        # the Casoratian of F with the bilateral sum; Rogers' false theta identity
+python3 y2_reduction.py                          # f₁ψ₀ − f₀ψ₁ through Watson's theta products, exact to q³⁰⁰
 python3 check_v29.py                             # independent check: Casoratians, the two identities, the dual Casoratian K
 python3 check_v28.py                             # independent check: Proposition N exactly, Theorem 19 on rays
 cd ../theorems && python3 assemble.py --check     # docs/psi-star-theorems-v1.md is current with the addenda
