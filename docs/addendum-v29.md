@@ -71,7 +71,8 @@ The second is an identity between Ramanujan's four fifth-order functions f₀, f
 
   So the "bilinear" expression is linear in the mock theta functions, with theta functions as coefficients: no product of two mock theta functions survives. It should not be called a new Wronskian-type identity between four mock theta functions. The same algebra with ψ\* = ½(f\* ± θ₄R) (identities (I), (II)) makes the first identity linear in f₀\*, f₁\*.
 - **The right side was not found (search).** What the Corollary adds is the closed form of this combination as the two-sided sum −2q·Σ (−1)ⁿq^{n(n+3)/2}sₙ with the partial sums sₙ. I did not find this formula, nor any identity for f₁ψ₀ − f₀ψ₁ or f₁B₀ − f₀B₁, in: Mc Laughlin, arXiv:1906.11997 (§4 has only identities linear in the fifth-order functions); the entries of the Lost Notebook quoted in arXiv:2007.03664 (Andrews–Berndt, Part V, Entries 3.4.4, 3.4.8: linear relations between ψ_j, F_j and theta functions); arXiv:2009.05878 (sums f_j + 2ψ_j again); the papers on the mock theta conjectures found by the search (Andersen, arXiv:1604.05294; Garvan, arXiv:1907.04803; Mortenson, arXiv:1208.1330, 1208.6316). Three searches by formula and by the words "Wronskian", "Casoratian", "bilinear", "product of two mock theta functions" gave no hit.
-- **Not checked.** Watson's paper of 1937 and Andrews–Garvan 1989 in full text, Part V of the Lost Notebook beyond the quoted entries, and the OEIS for the coefficients 1, 1, 1, 0, 2, 0, 2, 0, 1, 2, 2, 1, 1, 1, 3, 1, 4, 1, 4, 0, 4, 1, 6, … of −(f₁ψ₀ − f₀ψ₁).
+- **Not checked.** Watson's paper of 1937 and Andrews–Garvan 1989 in full text, Part V of the Lost Notebook beyond the quoted entries.
+- **OEIS (looked up by Mario Klingemann, 28 Nov).** The coefficients 1, 1, 1, 0, 2, 0, 2, 0, 1, 2, 2, 1, 1, 1, 3, 1, 4, 1, 4, 0, 4, 1, 6, … of −(f₁ψ₀ − f₀ψ₁) match no sequence in the table. This says only that the series is not catalogued there.
 - **Status.** "Not found in a targeted search" is the right label, not "new". If it is new, the new part is the sum on the right, i.e. the statement that the combination ½(f₁B₀ − f₀B₁) of Watson's is the value at z = 1 of the Casoratian D(z).
 
 ---
@@ -149,7 +150,7 @@ Nothing else in v28 depends on this. The table in v28 §3 should read, in its la
 
 1. Whether D(z) (or K) is expressible by classical Appell–Lerch sums for z other than ±1, and whether 𝒲(T) is, as a function of T.
 2. The matrix 𝕁 and its cocycle (question 4 of `docs/related-ggmw.md`): with §2 and §3 both sides of the matrix are now explicit.
-3. The identity f₁ψ₀ − f₀ψ₁ = −2q·Σ (−1)ⁿq^{n(n+3)/2}sₙ: not found in a targeted search (remark after the Corollary in §1); the left side is ½(f₁B₀ − f₀B₁) with Watson's theta products B_j, a mixed mock modular form of weight 1. Open: a full check of Watson 1937, Andrews–Garvan 1989 and the OEIS, and a modular reading of the sum on the right.
+3. The identity f₁ψ₀ − f₀ψ₁ = −2q·Σ (−1)ⁿq^{n(n+3)/2}sₙ: not found in a targeted search (remark after the Corollary in §1); the left side is ½(f₁B₀ − f₀B₁) with Watson's theta products B_j, a mixed mock modular form of weight 1. The coefficients are not in the OEIS. Open: a full check of Watson 1937 and Andrews–Garvan 1989, and a modular reading of the sum on the right.
 
 ---
 
