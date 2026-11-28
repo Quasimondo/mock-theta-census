@@ -186,7 +186,9 @@ python3 check_v29.py                             # independent check: Casoratian
 cd ../v30 && python3 r1_letter.py                # (R3), (R4) of v24 from the relations of Ramanujan's last letter, exact to q³⁰⁰
 python3 m1_matrix.py                             # Theorem 20: state integrals = dual frame⁻¹ · Jacobi factor · q-frame
 python3 m3_modular.py                            # Theorem 21: the q-frame under Γ₀(2) (25 minutes)
+python3 check_v30.py                             # independent check: Theorem 20, det 𝐒, the Corollary, Theorem 21, Andrews–Garvan (2.12)–(2.21)
 cd ../v31 && python3 c1_continuation.py b c d    # Theorem 22: the cocycle continues across (−½, 0)
+python3 check_v31.py && python3 check_v31_np.py    # independent check: Proposition 1, dual shift, Theorem 22 (i), Ω_γ on (−½, 0)
 cd ../theorems && python3 assemble.py --check     # docs/psi-star-theorems-v1.md is current with the addenda
 python3 assemble_zfamily.py --check               # docs/zfamily-theorems-v1.md likewise
 ```

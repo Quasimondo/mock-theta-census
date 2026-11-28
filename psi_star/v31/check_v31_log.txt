@@ -1,0 +1,23 @@
+(1) Proposition 1
+  a = 0.25, x = (0.3 + 0.2j): 3.1e-22  (max entry 3.46)
+  a = (0.3 + 0.1j), x = (-0.2 + 0.6j): 2.4e-21  (max entry 24.2)
+(2) dual shift S(a+1) = C S(a), C = [1,-1,0; 0,p,-p/T; 0,-1,0]
+  a = 0.25, x = (0.3 + 0.2j): 1.0e-20  (max entry 1.55)
+  a = 0.3, x = (0.5 - 0.15j): 4.2e-21  (max entry 2.0)
+  a = (0.3 + 0.1j), x = (-0.2 - 0.3j): 1.9e-19  (max entry 70.6)
+(4') Omega^(2) above the axis at Re x < 0 against the series J^-1 Lambda^-1 J'
+  a = 0.3, x = (-0.25 + 0.05j): 2.3e-21  (|Om| 1.01)
+  a = 0.3, x = (-0.4 + 0.1j): 1.5e-21  (|Om| 12.8)
+(5) Lemma U fails for |q| < 1: V = [1,-F(z),-F(zq); 0,2,0; 0,0,2]
+  max|A(z) V(zq) - V(z) A(z)| = 4.3e-22
+(3) Theorem 22 (i), Im x < 0: R(a',x') = R(a,x);  (4) Omega^(1) = Omega^(2)
+  a = 0.3, x = (0.5-0.15j): max|R' - R| = 1.1e-10 (|R| 8.08);  max|Om1 - Om2| = 7.1e-11 (|Om| 2.99)
+  a = 0.25, x = (-0.3-0.1j): max|R' - R| = 4.3e-12 (|R| 23.1);  max|Om1 - Om2| = 2.2e-13 (|Om| 1.28)
+  a = 0.3, x = (-0.25-0.05j): max|R' - R| = 3.9e-11 (|R| 18.1);  max|Om1 - Om2| = 3.2e-12 (|Om| 1.09)
+  a = 0.3, x = (-0.45-0.05j): max|R' - R| = 1.8e-13 (|R| 2.05);  max|Om1 - Om2| = 2.6e-14 (|Om| 1)
+  a = (0.3+0.1j), x = (0.3-0.3j): max|R' - R| = 3.5e-10 (|R| 4.35e+03);  max|Om1 - Om2| = 5.3e-12 (|Om| 4.25)
+    on the interval: Omega_gamma(x0) = mean of Omega over the circle |x - x0| = r (Omega^(2) above, Omega^(1) below), a = 0.3, N = 20
+  x0 = -0.2, r = 0.06: first row [ 1.       +0.j         0.4789231-0.2993517j -0.3277868+0.2317084j]
+  x0 = -0.2, r = 0.1: first row [ 1.       +0.j         0.4789845-0.299379j  -0.3278476+0.2316582j]
+  x0 = -0.3, r = 0.06: first row [ 1.       +0.j         0.5118127-0.2463747j -0.2782037-0.1864835j]
+  x0 = -0.3, r = 0.1: first row [ 1.       +0.j         0.5118132-0.2463744j -0.2775272-0.1871058j]

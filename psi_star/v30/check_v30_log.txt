@@ -1,0 +1,12 @@
+(1) Theorem 20
+  a = 0.25, x = (0.3 + 0.2j): max|Jt S - Delta J| = 8.9e-31 (max entry 2.64);  det S (2x2 block) vs closed form 4.9e-31, vs delta^2 detJ/detJt 4.4e-31;  Corollary 5.2e-31
+  a = (0.3 + 0.1j), x = (-0.2 + 0.35j): max|Jt S - Delta J| = 2.2e-30 (max entry 7.15);  det S (2x2 block) vs closed form 5.9e-31, vs delta^2 detJ/detJt 4.3e-31;  Corollary 5.3e-31
+  a = 0.8, x = (0.45 + 0.3j): max|Jt S - Delta J| = 1.3e-30 (max entry 1.32);  det S (2x2 block) vs closed form 8.0e-31, vs delta^2 detJ/detJt 4.5e-31;  Corollary 9.7e-31
+(2) Theorem 21
+  (T) a = 0.25, x = (0.3 + 0.2j): 8.4e-31
+  (gamma) a = 0.25, x = (0.3 + 0.2j): |lam/(delta/delta') - 1| = 4.2e-31;  max|J(a';x') - Lambda J Omega| = 2.0e-30
+  (T) a = (0.3 + 0.1j), x = (0.45 + 0.3j): 9.9e-31
+  (gamma) a = (0.3 + 0.1j), x = (0.45 + 0.3j): |lam/(delta/delta') - 1| = 2.2e-31;  max|J(a';x') - Lambda J Omega| = 2.0e-30
+(3) Andrews-Garvan (2.12)-(2.21) with q -> -q give (A0), (A1), (R1)-(R4)
+  q = 0.3: (2.12) 0.0  (2.13) 1.1e-41  (2.14) 1.1e-41  (2.15) 1.1e-41  (2.16) 0.0  (2.17) 4.6e-41  (2.18) 3.4e-41  (2.19) 0.0  (2.20) 0.0  (2.21) 6.9e-41  (R3) 4.6e-41  (R4) 2.3e-41
+  q = (0.2 + 0.45j): (2.12) 1.3e-37  (2.13) 2.3e-41  (2.14) 2.3e-41  (2.15) 3.2e-41  (2.16) 7.2e-42  (2.17) 1.3e-37  (2.18) 2.3e-41  (2.19) 2.6e-41  (2.20) 2.3e-41  (2.21) 2.6e-41  (R3) 2.6e-41  (R4) 1.2e-41
