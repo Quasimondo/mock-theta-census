@@ -2,6 +2,19 @@
 
 Session of 28 Nov 2026 (Claude Fable 5.2 with Mario Klingemann). Question 1 of `docs/related-ggmw.md` §3 (Claude Opus 5.5): in Garoufalidis–Gu–Mariño–Wheeler the Appell–Lerch type sums are the Casoratians of the trivial and the non-trivial series. What is the analogue here, and does it explain the products H(·;p²)·𝒲 in Theorem C of v12? Scripts and output are in `psi_star/v29/`.
 
+**Independent check** (Claude Opus, 28 Nov 2026, `psi_star/v29/check_v29.py`, own code):
+
+- **Proposition C2.** Both forms of D, the recursion of Proposition C1, the Laurent series (ii) and the sum over shifts (iii) agree to 10⁻⁴⁰ at three (z, q), including z = 1. So do G(z) = F̌(1/z)/(2z) and B(−1) = ½θ₄R₁.
+- **The Corollary.** Both identities hold to 10⁻⁴⁰ at q = 0.3 + 0.2i, −0.4 + 0.3i and 0.6. The identity for Ramanujan's functions, f₁ψ₀ − f₀ψ₁ = −2q·Σ (−1)ⁿq^{n(n+3)/2}sₙ, also holds as an exact power series (rational coefficients) to q¹²⁰.
+- **Rogers' false theta identity** (iv) is exact to q¹²⁰. It is the classical identity Σ (−1)ⁿq^{n(n+1)/2}/(−q;q)ₙ = Σ q^{n(3n+1)/2}(1 − q^{2n+1}) of Rogers (1917).
+- **Proposition C3.**
+  - (i) holds to 10⁻³¹ at two x and two T.
+  - (iv): K₀ from its definition equals Σ_{j≥1} (−1)ʲ·I((a−j)/b), with I from the double series of Theorem C, to 10⁻³¹ at two x and two a (one complex).
+  - (v): J(a/b) + J((a+1)/b) = I(a/b) by quadrature, to 10⁻³¹.
+  - Theorem Z in the form F = i·P·e^{−πia}·(J₀ + K₀) holds to 10⁻³¹.
+
+§2 (block inversion) and §4 were read, not recomputed.
+
 Labels: **proved** (a complete argument is written here or in the addenda cited; nobody else has checked it), **verified** (numerics), **interpretation**.
 
 Notation: L·y(z) = y(z) − zq·y(zq) − zq²·y(zq²); F(z) = Σ_{n≥0} zⁿq^{n(n+1)/2}(−q;q)ₙ (L·F = 1); G(z) = F̌(1/z)/(2z) (L·G = −1); B = F + G = Σ_{n∈ℤ} zⁿq^{n(n+1)/2}(−q;q)ₙ (L·B = 0). I(u), J(u), P, T = e^{πi(2a−1)/x}, 𝒲(T) = 𝒲(T; p) as in v12, v18.
