@@ -1,0 +1,38 @@
+(a) reflected Theorem 20, Im x > 0:  max|Jt(-a;x) S^c(a,x) - Delta(a,x) J(a;x)|,  S^c(a,x) = conj S(-conj a, -conj x) by quadrature
+   x = (0.3 + 0.2j), a = 0.25: 3.49e-27   (max entry 3.46)
+   x = (-0.2 + 0.6j), a = (0.3 + 0.1j): 3.8e-29   (max entry 24.2)
+   x = (-0.35 + 0.25j), a = 0.8: 9.18e-24   (max entry 4.07)
+(b) dual shift  S(a+1, x) = C S(a, x):  max deviation (integrals at a and at a+1, no reduction)
+   x = (0.3+0.2j), a = 0.25: 2.98e-15
+   x = (0.6+0j), a = (0.3+0.1j): 2.15e-14
+   x = (0.5-0.15j), a = 0.3: 4.52e-12
+   x = (-0.2-0.3j), a = (0.3+0.1j): 6.36e-10
+(c) Im x < 0:  R(a, x) = S^c(a, x) S(a, x)^-1 at (a, x) and at (a', x'): max|R' - R|, first row | block   (sizes)
+   x = (0.5-0.15j), a = 0.3: 1.09e-12 | 2.02e-11   (1 | 8.08)
+   x = (0.3-0.3j), a = (0.3+0.1j): 2.54e-13 | 2.85e-09   (1 | 4.35e+03)
+   x = (-0.2-0.3j), a = 0.3: 9.35e-13 | 9.81e-09   (1 | 6e+03)
+   x = (-0.3-0.1j), a = 0.25: 1.35e-12 | 1.61e-11   (1 | 23.1)
+   x = (-0.7-0.2j), a = 0.3: 7.10e-13 | 1.14e-12   (1 | 4.25)
+   x = (0.2-0.6j), a = 0.8: 1.57e-11 | 3.52e-06   (16.9 | 3.54e+06)
+(d) Omega^(2) = S^c(a,x)^-1 S^c(a',x'), a = 0.3
+    above the axis (Re x < 0) against the series J^-1 Lambda^-1 J':
+      x = (-0.25+0.05j): max|Omega^(2) - series| = 2.70e-14
+      x = (-0.15+0.02j): max|Omega^(2) - series| = 7.10e-14
+      x = (-0.4+0.1j): max|Omega^(2) - series| = 1.81e-13
+    below the axis against Omega^(1) = S(a,x)^-1 S(a',x'):
+      x = (-0.25-0.05j): max|Omega^(2) - Omega^(1)| = 1.95e-12
+      x = (-0.15-0.03j): max|Omega^(2) - Omega^(1)| = 7.46e-13
+      x = (-0.4-0.1j): max|Omega^(2) - Omega^(1)| = 1.71e-12
+      x = (-0.3-0.4j): max|Omega^(2) - Omega^(1)| = 8.55e-12
+      x = (-0.45-0.05j): max|Omega^(2) - Omega^(1)| = 3.96e-13
+    on the interval: Omega_gamma(x0) from state integrals at the positive moduli -x0 and -x0/(1+2 x0); the series at x0 + i eps and Omega^(1) at x0 - i eps tend to it
+      x0 = -0.1: first row of Omega_gamma(x0) = [ 1.        +0.j          0.46553798-0.32515939j -0.14870228+0.42280454j]
+            max|series(x0 + i eps) - Omega_gamma(x0)|, eps = 0.02, 0.01, 0.005: 0.104, 0.0538, 0.0273;   max|Omega^(1)(x0 - i eps) - Omega_gamma(x0)|, eps = 0.04, 0.02: 0.253, 0.118
+      x0 = -0.2: first row of Omega_gamma(x0) = [ 1.        +0.j          0.4789227 -0.29935205j -0.32778704+0.23170856j]
+            max|series(x0 + i eps) - Omega_gamma(x0)|, eps = 0.02, 0.01, 0.005: 0.0993, 0.0497, 0.0253;   max|Omega^(1)(x0 - i eps) - Omega_gamma(x0)|, eps = 0.04, 0.02: 0.234, 0.109
+      x0 = -0.3: first row of Omega_gamma(x0) = [ 1.        +0.j          0.51181317-0.24637429j -0.27820352-0.18648332j]
+            max|series(x0 + i eps) - Omega_gamma(x0)|, eps = 0.02, 0.01, 0.005: 0.205, 0.0952, 0.0458;   max|Omega^(1)(x0 - i eps) - Omega_gamma(x0)|, eps = 0.04, 0.02: 0.264, 0.152
+    circle |x + 0.25| = 0.1, 16 points: max|Omega^(2) - series| on the upper half = 9.71e-14;  max|Omega^(2) - Omega^(1)| on the lower half = 3.96e-09
+(e) Lemma U
+   with r(z) = zq u(z/q), s(z) = g(zq) - zq u(z):  A V(zq) - V A = [[0, -(2')/(zq^2)], [0, -(4')/q]],  max deviation at random g, u: 4.0e-15
+   |q| < 1: V = [[1, -F(z), -F(zq)], [0, 2, 0], [0, 0, 2]] satisfies A(z) V(zq) = V(z) A(z):  max deviation 2.7e-15

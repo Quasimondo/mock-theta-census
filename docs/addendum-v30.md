@@ -6,6 +6,8 @@ Labels: **proved** (a complete argument is written here or in an earlier addendu
 
 Notation as in v18 and v29: Im x > 0 unless stated, b = √x, q = e^{2πix}, p = e^{−πi/x}; fractional powers q^α = e^{2πixα}, p^α = e^{−πiα/x}. For a ∈ ℂ: ζ = e^{πia}, z = ζ², ζ̃ = e^{πia/x}, T = p·ζ̃². F(z) = Σ zⁿq^{n(n+1)/2}(−q;q)ₙ, 𝒲(T) = Σ (−T)ᵏp^{k²+k}(p;p²)ₖ, H(y; r) = Σ yᵐr^{m²/4}/(r;r)ₘ with even and odd parts H_e, H_o in y. I(u), J(u) are the state integrals of v12, P = 2^{−1/2}·q^{−1/6}·p^{−1/24}/b.
 
+**Later remarks:** `addendum-v31.md` proves the observation of §5: Ω_γ continues holomorphically to ℂ \ (−∞, −½] (Theorem 22), and characterises the kernel integral for Im x < 0 by its two difference equations (Proposition U there). Open item 1 of §8 is done; item 4 is answered in that sense.
+
 ---
 
 ## 0. Summary
